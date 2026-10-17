@@ -15,7 +15,7 @@
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 
   function render() {
-    var l = language(), d = D.languages[l], base = 'sdk/' + l + '/', i, list;
+    var l = language(), d = D.languages[l], prefix = l === 'es' ? '' : '../', base = prefix + 'sdk/' + l + '/', i, list;
 
     list = document.querySelectorAll('[data-group]');
     for (i = 0; i < list.length; i++) {
@@ -51,7 +51,7 @@
     }
 
     list = document.querySelectorAll('[data-sdk-zip]');
-    for (i = 0; i < list.length; i++) list[i].setAttribute('href', 'sdk/' + D.zip);
+    for (i = 0; i < list.length; i++) list[i].setAttribute('href', prefix + 'sdk/' + D.zip);
     list = document.querySelectorAll('[data-sdk-version]');
     for (i = 0; i < list.length; i++) list[i].textContent = D.version;
     list = document.querySelectorAll('[data-sdk-requires]');

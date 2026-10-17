@@ -4,6 +4,8 @@
   var LANGUAGES = ['es', 'en', 'it'];
   var LABEL = { es: 'ES', en: 'EN', it: 'IT' };
   var NAME = { es: 'Español', en: 'English', it: 'Italiano' };
+  var runtime = document.documentElement.hasAttribute('data-runtime-i18n');
+  var current = document.documentElement.lang || 'es';
 
   var T = {
     en: {
@@ -162,6 +164,11 @@
       if (o.a) o.a.forEach(function (x) { o.el.setAttribute(x.name, translate(id, x.key, x.es)); });
     });
     document.documentElement.lang = id;
+    updateSelector(id);
+    document.dispatchEvent(new CustomEvent('language-change', { detail: id }));
+  }
+
+  function updateSelector(id) {
     var boxes = document.querySelectorAll('.languages');
     for (var c = 0; c < boxes.length; c++) {
       var code = boxes[c].querySelector('.languages__code'), btn = boxes[c].querySelector('.languages__button'), ops = boxes[c].querySelectorAll('[role="option"]');
@@ -169,7 +176,13 @@
       if (btn) btn.setAttribute('aria-label', LANGUAGE_LABEL[id] + ': ' + NAME[id]);
       for (var k = 0; k < ops.length; k++) ops[k].setAttribute('aria-selected', ops[k].getAttribute('data-lang') === id ? 'true' : 'false');
     }
-    document.dispatchEvent(new CustomEvent('language-change', { detail: id }));
+  }
+
+  function destination(id) {
+    var guide = window.GUIDE;
+    if (guide && guide.equivalents && guide.equivalents[id]) return guide.equivalents[id] + location.hash;
+    var file = location.pathname.split('/').pop();
+    return (current === 'es' ? '' : '../') + (id === 'es' ? '' : id + '/') + file + location.hash;
   }
 
   var LANGUAGE_LABEL = { es: 'Idioma', en: 'Language', it: 'Lingua' };
@@ -209,7 +222,8 @@
       var id = li.getAttribute('data-lang');
       try { localStorage.setItem('language', id); } catch (e) { }
       closeList(true);
-      applyLanguage(id);
+      if (runtime) { applyLanguage(id); return; }
+      if (id !== current) location.href = destination(id);
     }
     button.addEventListener('click', function () { if (isOpen()) closeList(false); else openList(); });
     button.addEventListener('keydown', function (e) { if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); openList(); } });
@@ -232,7 +246,12 @@
     for (var i = 0; i < boxes.length; i++) build(boxes[i]);
   }
 
-  collect();
-  selector();
-  applyLanguage(saved() || fromBrowser());
+  if (runtime) {
+    collect();
+    selector();
+    applyLanguage(saved() || fromBrowser());
+  } else {
+    selector();
+    updateSelector(current);
+  }
 })();

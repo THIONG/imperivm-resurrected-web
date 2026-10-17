@@ -30,6 +30,8 @@ The site is in Spanish, English and Italian. Spanish is written in the HTML. Eng
 
 Native speakers fixing wording are the most useful contribution here, Italian especially.
 
+After editing text, run `node tools/build-languages.js` to regenerate the English and Italian pages (`src/en/` and `src/it/`), and commit them together with your change. Do not edit those folders by hand.
+
 ## SDK guides
 
 Everything in `src/sdk/` is generated from the SDK docs, which live elsewhere, so edits there get overwritten. If a guide has a mistake, open an issue with the guide name and the line.
