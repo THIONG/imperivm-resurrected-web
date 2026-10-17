@@ -104,17 +104,17 @@
                 <dt data-i18n="change1_title">Immagine e suono</dt>
                 <dd data-i18n="change1_text">Direct3D 11 al posto di GDI, vsync, scalatura nitida, morbida o intera, finestra ridimensionabile o senza bordi, risoluzioni fino a 2048x1536 e vista estesa. Il monitor non cambia risoluzione. L'audio usa un motore moderno e il gioco va in muto in secondo piano.</dd>
                 <dt data-i18n="change2_title">Multigiocatore</dt>
-                <dd data-i18n="change2_text">Schermata dedicata con elenco delle stanze, chat, inviti agli amici di Steam e password. Tutti hanno bisogno della stessa versione della mod e degli stessi contenuti di gioco; ciò che manca viene scaricato dall'host. Se cadi, puoi rientrare nella partita in corso, purché l'host lo consenta e non passino circa 30 secondi senza traffico. Non ci sono partite classificate né matchmaking automatico.</dd>
+                <dd data-i18n="change2_text">Schermata dedicata con elenco delle stanze, chat, inviti agli amici di Steam e password. Tutti hanno bisogno della stessa versione della mod e dello stesso contenuto di gameplay; ciò che manca viene scaricato dall'host. Se cadi, puoi rientrare nella partita in corso, purché l'host lo consenta e non passino circa 30 secondi senza traffico. Non ci sono partite classificate né matchmaking automatico.</dd>
                 <dt data-i18n="change3_title">Modalità spettatore</dt>
                 <dd data-i18n="change3_text">Puoi guardare una stanza in corso con 30 secondi di ritardo, con pausa e salti di 10 secondi. Anche gli spettatori hanno bisogno della mod. Non c'è chat e non si può cambiare giocatore.</dd>
                 <dt data-i18n="change4_title">Contenuti aggiuntivi</dt>
-                <dd data-i18n="change4_text">Attivare e disattivare i pacchetti, profili, avvisi sui file condivisi e sui valori sovrascritti da un altro pacchetto, e una scheda per cercare su GameBanana. L'ordine di caricamento è automatico. Il gestore è stato rifatto da poco e non è ancora stato controllato a fondo; su GameBanana per ora c'è poco contenuto. Segnala i conflitti tra pacchetti ma non li risolve.</dd>
+                <dd data-i18n="change4_text">Attivare e disattivare i pacchetti, profili, avvisi sui file condivisi e sui valori sovrascritti da un altro pacchetto, e una scheda per cercare su GameBanana. L'ordine di caricamento è automatico. Segnala i conflitti tra pacchetti ma non li risolve.</dd>
                 <dt data-i18n="change5_title">Trucchi e mappa</dt>
-                <dd data-i18n="change5_text">Ctrl+T apre un pannello di trucchi (risorse, cura, comparsa di truppe e altro) che funziona anche online se tutti hanno la stessa versione; non si possono disattivare per stanza. Il tasto M apre una mappa con zoom e nebbia.</dd>
+                <dd data-i18n="change5_text">Ctrl+T apre un pannello di trucchi (risorse, cura, genera truppe e altro). In una stanza, l'host decide se sono consentiti con l'opzione «Consenti i trucchi». Il tasto M apre una mappa con zoom e nebbia.</dd>
                 <dt data-i18n="change8_title">Comodità</dt>
-                <dd data-i18n="change8_text">Salvataggio automatico con più slot, comandi riassegnabili, velocità di scorrimento regolabile e un pannello con FPS, CPU, memoria e rete. Non promette prestazioni migliori sui computer lenti.</dd>
+                <dd data-i18n="change8_text">Salvataggio automatico con più slot, comandi riassegnabili, velocità di scorrimento regolabile e un pannello con FPS, CPU, memoria e rete.</dd>
                 <dt data-i18n="change9_title">Segnalazione degli errori</dt>
-                <dd data-i18n-html="change9_text">Dall'icona a forma di cuore nel menu principale, <em>Crea rapporto</em> genera uno zip in <code>Logs\imperivm\reports</code> con i log e i dati del computer, con SteamID, IP e nome utente di Windows oscurati. Non invia nulla: controlla lo zip prima di condividerlo.</dd>
+                <dd data-i18n-html="change9_text">Dall'icona a forma di cuore nel menu principale, <em>Crea rapporto</em> genera uno zip in <code>Logs\imperivm\reports</code> con i registri e i dati del computer, con SteamID, IP e nome utente di Windows oscurati. Non invia nulla: controlla lo zip prima di condividerlo.</dd>
                 <dt data-i18n="change6_title">Aggiornamenti</dt>
                 <dd data-i18n-html="change6_text">All'avvio controlla GitHub. Per impostazione predefinita si limita ad avvisare; in <code>imperivm-mod.ini</code> puoi scegliere che installi da solo o che non cerchi. Ogni aggiornamento ha una firma che la mod verifica. Se la nuova versione non arriva al menu in tre avvii, si torna alla precedente.</dd>
                 <dt data-i18n="change7_title">Per i modder</dt>
@@ -139,11 +139,11 @@
                 <li data-i18n="install_step4">Estrai lo zip in quella cartella. Accetta di sostituire se te lo chiede.</li>
                 <li data-i18n="install_step5">Apri il gioco da Steam.</li>
               </ol>
-              <p data-i18n-html="install_online"><strong>Giocare online.</strong> Tutti hanno bisogno della stessa versione della mod e degli stessi contenuti di gioco. Nel menu principale, <em>Multigiocatore</em>: uno crea la stanza e gli altri entrano.</p>
+              <p data-i18n-html="install_online"><strong>Giocare online.</strong> Tutti hanno bisogno della stessa versione della mod e dello stesso contenuto di gameplay. Nel menu principale, <em>Multigiocatore</em>: uno crea la stanza e gli altri entrano.</p>
               <p data-i18n-html="install_settings"><strong>Le tue impostazioni</strong> sono salvate in <code>imperivm-mod.ini</code>, nella cartella del gioco. Lo zip non lo include, quindi installando una nuova versione si conservano.</p>
               <p data-i18n-html="install_warning"><strong>Avvisi di Windows.</strong> <code>winmm.dll</code> non ha una firma del codice di Windows, quindi SmartScreen o l'antivirus possono dare un avviso. Non c'è un installer.</p>
-              <p data-i18n-html="install_remove"><strong>Rimuovere la mod.</strong> Elimina <code>winmm.dll</code> dalla cartella del gioco. Il gioco torna quello originale.</p>
-              <p data-i18n-html="install_failure"><strong>Se qualcosa non va,</strong> usa <em>Crea rapporto</em> o guarda i log in <code>Logs\imperivm</code>, e segnalalo su Discord o su GitHub. Più dettagli nella <a href="guide.html">guida e FAQ</a>.</p>
+              <p data-i18n-html="install_remove"><strong>Rimuovere la mod.</strong> Elimina <code>winmm.dll</code> dalla cartella del gioco. Il gioco torna a essere quello originale.</p>
+              <p data-i18n-html="install_failure"><strong>Se qualcosa non va,</strong> usa <em>Crea rapporto</em> o guarda i registri in <code>Logs\imperivm</code>, e segnalalo su Discord o su GitHub. Più dettagli nella <a href="guide.html">guida e FAQ</a>.</p>
             </div>
           </details>
 

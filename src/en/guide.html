@@ -169,7 +169,7 @@
               <summary data-i18n="q_av">Why do Windows or my antivirus show a warning?</summary>
               <div class="faq__answer prose">
                 <p data-i18n-html="a_av">The mod is the file <code>winmm.dll</code>: a DLL the game loads on startup. It isn't signed with a code publisher certificate (Authenticode) and there is no installer, so SmartScreen or your antivirus may warn about it or quarantine it.</p>
-                <p data-i18n="a_av2">Updates do carry a project signature, but the mod itself checks it; it isn't a signature Windows recognizes and it doesn't prevent the warning. The code is public on GitHub if you want to review it. Download only from the repository's releases page and compare the SHA-256. If you don't trust it, don't install it: removing it is just deleting a file. If your antivirus quarantines it and you decide to trust it, restore the file and add an exclusion for that file only.</p>
+                <p data-i18n="a_av2">Updates do carry a project signature, but the mod itself checks it; it isn't a signature Windows recognizes and it doesn't prevent the warning. The code is public on GitHub if you want to review it. Download only from the repository's releases page and compare the SHA-256 with the SHA256SUMS.txt file attached to each release. If you don't trust it, don't install it: removing it is just deleting a file. If your antivirus quarantines it and you decide to trust it, restore the file and add an exclusion for that file only.</p>
               </div>
             </details>
 
@@ -190,7 +190,6 @@
             <details class="faq__item" id="limits" name="faq">
               <summary data-i18n="q_limits">What are the limits of online play?</summary>
               <div class="faq__answer prose">
-                <p data-i18n="a_limits">Everyone needs the same mod version and the same gameplay content to join the same room.</p>
                 <p data-i18n="a_limits2">There is no quick match, ranked play, ranking or server of its own: you play in rooms, with friends. Performance isn't guaranteed on slow computers or while sharing your screen on Discord.</p>
               </div>
             </details>
@@ -198,7 +197,7 @@
             <details class="faq__item" id="spectator" name="faq">
               <summary data-i18n="q_spec">Can I watch a game without playing?</summary>
               <div class="faq__answer prose">
-                <p data-i18n-html="a_spec">Yes, with spectator mode. In <em>Multiplayer</em>, rooms in progress show a <em>Watch</em> button. The broadcast runs delayed, 30 seconds by default, and comes with a bar for pause, 10-second jumps, a timeline, x1 to x8 speeds (only if you're behind) and returning to live.</p>
+                <p data-i18n-html="a_spec">Yes, with spectator mode. In <em>Multiplayer</em>, rooms in progress show a <em>Watch the game</em> button. The broadcast runs delayed, 30 seconds by default, and comes with a bar for pause, 10-second jumps, a timeline, x1 to x8 speeds (only if you're behind) and returning to live.</p>
                 <p data-i18n="a_spec2">You can't switch player and there's no chat between spectators, and spectators also need the mod on the same version. The same bar works with replays saved on your computer: jumping back reloads and fast-forwards, so it takes a while.</p>
               </div>
             </details>
@@ -215,14 +214,14 @@
               <div class="faq__answer prose">
                 <p data-i18n-html="a_content">The <em>Additional content</em> button in the main menu opens the manager. It lists what's installed, enables or disables each package, shows its dependencies, opens the folder, installs a <code>.zip</code> by hand and uninstalls (the package goes to the recycle bin). Profiles save a combination of active packages: you can save one under a new name, rename it and delete it. <em>My content</em> is the state with no profile. Load order is automatic.</p>
                 <p data-i18n-html="a_content2">The <em>Browse content</em> tab is a GameBanana catalog: search, categories, filters by type, number of players and language, dependencies, update notices and a button to update everything. The manager warns when two packages touch the same files or override each other's values, but it doesn't resolve the clash or guarantee that packages from different authors are compatible. A package containing executables or system scripts isn't loaded.</p>
-                <p data-i18n="a_content3">Large packages can take a while to download. In a room, gameplay content must be the same for everyone.</p>
+                <p data-i18n="a_content3">Large packages can take a while to download.</p>
               </div>
             </details>
 
             <details class="faq__item" id="cheats" name="faq">
               <summary data-i18n="q_cheats">Are there cheats?</summary>
               <div class="faq__answer prose">
-                <p data-i18n="a_cheats">Yes. Ctrl+T opens the cheats panel: gold, food, population, map, heal, ration, delete, level, spawn troops, research technologies and a few more, also on several selected units. In an online game they are synced and require everyone to be on the same version. They can't be disabled per room, so agree on it before you start.</p>
+                <p data-i18n="a_cheats">Yes. Ctrl+T opens the cheats panel: gold, food, population, map, heal, ration, delete, level, spawn troops, research technologies and a few more, also on several selected units. In a room, the host decides whether they are allowed with the “Allow cheats” option. If they do, the cheats are synced with everyone, who need the same mod version.</p>
               </div>
             </details>
 

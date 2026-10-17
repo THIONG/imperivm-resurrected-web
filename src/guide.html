@@ -170,7 +170,7 @@
               <summary data-i18n="q_av">¿Por qué Windows o el antivirus muestran un aviso?</summary>
               <div class="faq__answer prose">
                 <p data-i18n-html="a_av">El mod es el archivo <code>winmm.dll</code>: una DLL que el juego carga al arrancar. No está firmada con un certificado de editor de código (Authenticode) y no hay instalador, así que SmartScreen o tu antivirus pueden avisar o ponerla en cuarentena.</p>
-                <p data-i18n="a_av2">Las actualizaciones sí llevan una firma del proyecto, pero la comprueba el propio mod; no es la firma que Windows reconoce y no evita el aviso. El código es público en GitHub por si quieres revisarlo. Descarga solo desde la página de releases del repositorio y compara el SHA-256. Si no te fías, no lo instales: quitarlo es borrar un archivo. Si tu antivirus la pone en cuarentena y decides confiar, restaura el archivo y añade una excepción solo para ese archivo.</p>
+                <p data-i18n="a_av2">Las actualizaciones sí llevan una firma del proyecto, pero la comprueba el propio mod; no es la firma que Windows reconoce y no evita el aviso. El código es público en GitHub por si quieres revisarlo. Descarga solo desde la página de releases del repositorio y compara el SHA-256 con el archivo SHA256SUMS.txt que se adjunta a cada release. Si no te fías, no lo instales: quitarlo es borrar un archivo. Si tu antivirus la pone en cuarentena y decides confiar, restaura el archivo y añade una excepción solo para ese archivo.</p>
               </div>
             </details>
 
@@ -184,14 +184,13 @@
             <details class="faq__item" id="ports" name="faq">
               <summary data-i18n="q_ports">¿Tengo que abrir puertos o usar una VPN?</summary>
               <div class="faq__answer prose">
-                <p data-i18n="a_ports">No. Las partidas van por la red de Steam, sin abrir puertos. Todos necesitáis el juego en Steam y Steam iniciado.</p>
+                <p data-i18n="a_ports">No. Las partidas van por la red de Steam, sin abrir puertos. Todos necesitan el juego en Steam y Steam iniciado.</p>
               </div>
             </details>
 
             <details class="faq__item" id="limits" name="faq">
               <summary data-i18n="q_limits">¿Qué límites tiene el online?</summary>
               <div class="faq__answer prose">
-                <p data-i18n="a_limits">Todos necesitan la misma versión del mod y el mismo contenido de jugabilidad para entrar en la misma sala.</p>
                 <p data-i18n="a_limits2">No hay búsqueda rápida de partida, clasificatorias, ranking ni servidor propio: se juega en salas, con amigos. Tampoco se garantiza el rendimiento en ordenadores lentos ni con la pantalla compartida en Discord.</p>
               </div>
             </details>
@@ -199,7 +198,7 @@
             <details class="faq__item" id="spectator" name="faq">
               <summary data-i18n="q_spec">¿Puedo ver una partida sin jugar?</summary>
               <div class="faq__answer prose">
-                <p data-i18n-html="a_spec">Sí, con el modo espectador. En <em>Multijugador</em>, las salas en juego muestran un botón <em>Ver</em>. La retransmisión va con retraso, 30 segundos por defecto, y trae una barra con pausa, saltos de 10 segundos, línea de tiempo, velocidades de x1 a x8 (solo si vas por detrás) y vuelta al directo.</p>
+                <p data-i18n-html="a_spec">Sí, con el modo espectador. En <em>Multijugador</em>, las salas en juego muestran un botón <em>Ver la partida</em>. La retransmisión va con retraso, 30 segundos por defecto, y trae una barra con pausa, saltos de 10 segundos, línea de tiempo, velocidades de x1 a x8 (solo si vas por detrás) y vuelta al directo.</p>
                 <p data-i18n="a_spec2">No se puede cambiar de jugador ni hay chat entre espectadores, y el espectador también necesita el mod en la misma versión. La misma barra sirve para repeticiones guardadas en tu equipo: saltar atrás recarga y avanza rápido, así que tarda.</p>
               </div>
             </details>
@@ -212,18 +211,18 @@
             </details>
 
             <details class="faq__item" id="content" name="faq">
-              <summary data-i18n="q_content">¿Cómo funciona el contenido adicional, los perfiles y el catálogo?</summary>
+              <summary data-i18n="q_content">¿Cómo funcionan el contenido adicional, los perfiles y el catálogo?</summary>
               <div class="faq__answer prose">
                 <p data-i18n-html="a_content">El botón <em>Contenido adicional</em> del menú principal abre el gestor. Lista lo instalado, activa o desactiva cada paquete, muestra sus dependencias, abre la carpeta, instala un <code>.zip</code> a mano y desinstala (el paquete va a la papelera). Los perfiles guardan una combinación de paquetes activos: se guardan con otro nombre, se renombran y se borran. <em>Mi contenido</em> es el estado sin perfil. El orden de carga es automático.</p>
                 <p data-i18n-html="a_content2">La pestaña <em>Explorar contenido</em> es un catálogo de GameBanana: búsqueda, categorías, filtros por tipo, número de jugadores e idioma, dependencias, aviso de actualizaciones y un botón para actualizar todo. El gestor avisa si dos paquetes tocan los mismos archivos o se pisan valores, pero no resuelve el choque ni garantiza que paquetes de distintos autores sean compatibles. Un paquete que lleve ejecutables o scripts de sistema no se carga.</p>
-                <p data-i18n="a_content3">Los paquetes grandes pueden tardar en descargarse. En una sala, el contenido de jugabilidad tiene que ser el mismo para todos.</p>
+                <p data-i18n="a_content3">Los paquetes grandes pueden tardar en descargarse.</p>
               </div>
             </details>
 
             <details class="faq__item" id="cheats" name="faq">
               <summary data-i18n="q_cheats">¿Hay trucos?</summary>
               <div class="faq__answer prose">
-                <p data-i18n="a_cheats">Sí. Ctrl+T abre el panel de trucos: oro, comida, población, mapa, curar, ración, eliminar, nivel, aparecer tropas, investigar tecnologías y algunos más, también sobre varias unidades seleccionadas. En una partida online se sincronizan y exigen la misma versión en todos. No se pueden desactivar por sala, así que ponedlo de acuerdo antes de empezar.</p>
+                <p data-i18n="a_cheats">Sí. Ctrl+T abre el panel de trucos: oro, comida, población, mapa, curar, ración, eliminar, nivel, aparecer tropas, investigar tecnologías y algunos más, también sobre varias unidades seleccionadas. En una sala, el anfitrión decide si se permiten con la opción «Permitir trucos». Si lo hace, se sincronizan con todos, que necesitan la misma versión del mod.</p>
               </div>
             </details>
 

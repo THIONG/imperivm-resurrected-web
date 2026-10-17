@@ -600,3 +600,4 @@ details[open] > .row__body, details[open] > .faq__answer { animation: expand var
 @keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.4); } }
 .support__thanks svg, .footer__support svg { transform-origin: center; animation: heartbeat 2.6s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .support__thanks svg, .footer__support svg { animation: none; } }
+@media (max-width: 480px) { html[lang="it"] .headline { font-size: clamp(54px, 19.5vw, 170px); } }

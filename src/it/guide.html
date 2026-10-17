@@ -138,7 +138,7 @@
             <details class="faq__item" id="remove" name="faq">
               <summary data-i18n="q_remove">Come rimuovo la mod?</summary>
               <div class="faq__answer prose">
-                <p data-i18n-html="a_remove">Chiudi il gioco ed elimina <code>winmm.dll</code> dalla cartella del gioco. Il gioco torna quello originale: la mod non modifica <code>gbr.exe</code>. Le tue impostazioni restano in <code>imperivm-mod.ini</code> e i contenuti aggiuntivi nella cartella <code>mods</code>, nel caso la reinstalli; eliminali se non li vuoi. Per togliere un solo pacchetto di contenuto, usa <em>Disinstalla</em> in <em>Contenuti aggiuntivi</em>.</p>
+                <p data-i18n-html="a_remove">Chiudi il gioco ed elimina <code>winmm.dll</code> dalla cartella del gioco. Il gioco torna a essere quello originale: la mod non modifica <code>gbr.exe</code>. Le tue impostazioni restano in <code>imperivm-mod.ini</code> e i contenuti aggiuntivi nella cartella <code>mods</code>, nel caso la reinstalli; eliminali se non li vuoi. Per togliere un solo pacchetto di contenuto, usa <em>Disinstalla</em> in <em>Contenuti aggiuntivi</em>.</p>
               </div>
             </details>
 
@@ -169,7 +169,7 @@
               <summary data-i18n="q_av">Perché Windows o l'antivirus mostrano un avviso?</summary>
               <div class="faq__answer prose">
                 <p data-i18n-html="a_av">La mod è il file <code>winmm.dll</code>: una DLL che il gioco carica all'avvio. Non è firmata con un certificato di editore del codice (Authenticode) e non c'è un installer, quindi SmartScreen o il tuo antivirus possono avvisare o metterla in quarantena.</p>
-                <p data-i18n="a_av2">Gli aggiornamenti hanno una firma del progetto, ma la controlla la mod stessa; non è una firma riconosciuta da Windows e non evita l'avviso. Il codice è pubblico su GitHub, se vuoi controllarlo. Scarica solo dalla pagina delle release del repository e confronta lo SHA-256. Se non ti fidi, non installarla: rimuoverla significa eliminare un file. Se l'antivirus la mette in quarantena e decidi di fidarti, ripristina il file e aggiungi un'eccezione solo per quel file.</p>
+                <p data-i18n="a_av2">Gli aggiornamenti hanno una firma del progetto, ma la controlla la mod stessa; non è una firma riconosciuta da Windows e non evita l'avviso. Il codice è pubblico su GitHub, se vuoi controllarlo. Scarica solo dalla pagina delle release del repository e confronta l'SHA-256 con il file SHA256SUMS.txt allegato a ogni release. Se non ti fidi, non installarla: rimuoverla significa eliminare un file. Se l'antivirus la mette in quarantena e decidi di fidarti, ripristina il file e aggiungi un'eccezione solo per quel file.</p>
               </div>
             </details>
 
@@ -190,15 +190,14 @@
             <details class="faq__item" id="limits" name="faq">
               <summary data-i18n="q_limits">Quali sono i limiti dell'online?</summary>
               <div class="faq__answer prose">
-                <p data-i18n="a_limits">Tutti hanno bisogno della stessa versione della mod e dello stesso contenuto di gameplay per entrare nella stessa stanza.</p>
-                <p data-i18n="a_limits2">Non ci sono ricerca rapida della partita, partite classificate, classifica né un server proprio: si gioca in stanze, con gli amici. Le prestazioni non sono garantite su computer lenti o mentre condividi lo schermo su Discord.</p>
+                <p data-i18n="a_limits2">Non esistono ricerca rapida, partite classificate, classifica né un server dedicato: si gioca in stanze, con gli amici. Le prestazioni non sono garantite su computer lenti o mentre condividi lo schermo su Discord.</p>
               </div>
             </details>
 
             <details class="faq__item" id="spectator" name="faq">
               <summary data-i18n="q_spec">Posso guardare una partita senza giocare?</summary>
               <div class="faq__answer prose">
-                <p data-i18n-html="a_spec">Sì, con la modalità spettatore. In <em>Multigiocatore</em>, le stanze in corso mostrano un pulsante <em>Guarda</em>. La trasmissione è in ritardo, 30 secondi di default, e ha una barra con pausa, salti di 10 secondi, linea del tempo, velocità da x1 a x8 (solo se sei indietro) e ritorno alla diretta.</p>
+                <p data-i18n-html="a_spec">Sì, con la modalità spettatore. In <em>Multigiocatore</em>, le stanze in corso mostrano un pulsante <em>Guarda la partita</em>. La trasmissione è in ritardo, 30 secondi di default, e ha una barra con pausa, salti di 10 secondi, linea del tempo, velocità da x1 a x8 (solo se sei indietro) e ritorno alla diretta.</p>
                 <p data-i18n="a_spec2">Non si può cambiare giocatore e non c'è chat tra spettatori, e anche lo spettatore ha bisogno della mod nella stessa versione. La stessa barra funziona con i replay salvati sul tuo computer: tornare indietro ricarica e avanza in fretta, quindi ci vuole un po'.</p>
               </div>
             </details>
@@ -215,14 +214,14 @@
               <div class="faq__answer prose">
                 <p data-i18n-html="a_content">Il pulsante <em>Contenuti aggiuntivi</em> del menu principale apre il gestore. Elenca ciò che è installato, attiva o disattiva ogni pacchetto, mostra le dipendenze, apre la cartella, installa uno <code>.zip</code> a mano e disinstalla (il pacchetto va nel cestino). I profili salvano una combinazione di pacchetti attivi: si salvano con un altro nome, si rinominano e si eliminano. <em>I miei contenuti</em> è lo stato senza profilo. L'ordine di caricamento è automatico.</p>
                 <p data-i18n-html="a_content2">La scheda <em>Sfoglia contenuti</em> è un catalogo di GameBanana: ricerca, categorie, filtri per tipo, numero di giocatori e lingua, dipendenze, avvisi di aggiornamento e un pulsante per aggiornare tutto. Il gestore avvisa se due pacchetti toccano gli stessi file o si sovrascrivono dei valori, ma non risolve il conflitto né garantisce che pacchetti di autori diversi siano compatibili. Un pacchetto che contiene eseguibili o script di sistema non viene caricato.</p>
-                <p data-i18n="a_content3">I pacchetti grandi possono richiedere tempo per il download. In una stanza, il contenuto di gameplay deve essere uguale per tutti.</p>
+                <p data-i18n="a_content3">I pacchetti grandi possono richiedere tempo per il download.</p>
               </div>
             </details>
 
             <details class="faq__item" id="cheats" name="faq">
               <summary data-i18n="q_cheats">Ci sono i trucchi?</summary>
               <div class="faq__answer prose">
-                <p data-i18n="a_cheats">Sì. Ctrl+T apre il pannello dei trucchi: oro, cibo, popolazione, mappa, cura, razione, elimina, livello, genera truppe, ricerca tecnologie e qualcuno in più, anche su più unità selezionate. In una partita online vengono sincronizzati e richiedono la stessa versione per tutti. Non si possono disattivare per stanza, quindi mettetevi d'accordo prima di iniziare.</p>
+                <p data-i18n="a_cheats">Sì. Ctrl+T apre il pannello dei trucchi: oro, cibo, popolazione, mappa, cura, razione, elimina, livello, genera truppe, ricerca tecnologie e qualcuno in più, anche su più unità selezionate. In una stanza, l'host decide se sono consentiti con l'opzione «Consenti i trucchi». In tal caso vengono sincronizzati con tutti, che hanno bisogno della stessa versione della mod.</p>
               </div>
             </details>
 
