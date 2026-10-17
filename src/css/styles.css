@@ -526,6 +526,11 @@ details[open] > .row__body, details[open] > .faq__answer { animation: expand var
 
 .support-header { appearance: none; padding: 0; border: 0; background: none; cursor: pointer; color: var(--ink); font: 500 clamp(12px, 1.1vw, 15px)/1.5 var(--f-text); white-space: nowrap; }
 .support-header:hover { color: var(--accent-text); }
+.support-header { --glow-a: #8a0d12; --glow-b: #d4161c; --glow-c: #ff7a2e; color: transparent; background: linear-gradient(45deg, var(--glow-a) 0%, var(--glow-b) 32%, var(--glow-c) 50%, var(--glow-b) 68%, var(--glow-a) 100%) 0 100% / 220% 220% no-repeat; -webkit-background-clip: text; background-clip: text; font-weight: 700; animation: glow-sweep 2s ease-in-out infinite alternate; }
+:root[data-theme="dark"] .support-header { --glow-a: #e8343a; --glow-b: #ff6a6e; --glow-c: #fff1ea; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .support-header { --glow-a: #e8343a; --glow-b: #ff6a6e; --glow-c: #fff1ea; } }
+@keyframes glow-sweep { 0% { background-position: 0 100%; } 100% { background-position: 100% 0; } }
+@media (prefers-reduced-motion: reduce) { .support-header { animation: none; background-position: 50% 50%; } }
 
 @media (min-width: 821px) and (max-width: 1100px) {
   .header { gap: 14px; }
