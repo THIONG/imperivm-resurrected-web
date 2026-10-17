@@ -215,7 +215,7 @@ a { color: inherit; }
 .footer p { margin: 0; font: 500 clamp(11px, .85vw, 12px)/1 var(--f-text); letter-spacing: .14em; }
 
 .external-link::after { content: "\2197"; content: "\2197" / ""; margin-left: .25em; font-size: .85em; }
-.closing__note a { color: #fff; margin-left: 14px; text-underline-offset: 3px; }
+.closing__note a { color: #fff; text-underline-offset: 3px; }
 .dl-buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; }
 
 .block { display: grid; grid-template-columns: 1fr 41.8%; gap: clamp(24px, 4vw, 64px); align-items: start; padding: clamp(40px, 5.5vw, 90px) var(--margin) clamp(32px, 4vw, 64px); }
