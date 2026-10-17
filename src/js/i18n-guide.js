@@ -1,7 +1,7 @@
 window.EXTRA_TRANSLATIONS = {
   en: {
     title_guide: `Guide and FAQ — Imperivm Resurrected`,
-    desc_guide: `Install, update and remove Imperivm Resurrected, online limits, additional content, crash reports and where to get help.`,
+    desc_guide: `How to install, update and remove Imperivm Resurrected, play online, use additional content and what to do if something fails.`,
     crumb_aria: `Breadcrumb`, crumb_home: `Home`, crumb_guide: `Guide and frequently asked questions`,
     guide_title: `Ready<br>to play.`,
     guide_sub: `Installing, updating, removing, and what to do when something breaks.`,
@@ -61,7 +61,7 @@ window.EXTRA_TRANSLATIONS = {
   },
   it: {
     title_guide: `Guida e domande frequenti — Imperivm Resurrected`,
-    desc_guide: `Installare, aggiornare e rimuovere Imperivm Resurrected, limiti dell'online, contenuti aggiuntivi, rapporto sugli errori e dove chiedere aiuto.`,
+    desc_guide: `Come installare, aggiornare e rimuovere Imperivm Resurrected, giocare online, usare i contenuti aggiuntivi e cosa fare se qualcosa non va.`,
     crumb_aria: `Percorso`, crumb_home: `Home`, crumb_guide: `Guida e domande frequenti`,
     guide_title: `Tutto pronto<br>per giocare.`,
     guide_sub: `Installare, aggiornare, rimuovere e cosa fare quando qualcosa non va.`,
