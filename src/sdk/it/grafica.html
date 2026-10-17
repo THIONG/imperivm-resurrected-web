@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grafica personalizzata per unità ed edifici — SDK</title>
+<link rel="icon" href="../../img/statue.webp">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+<script src="../../js/theme.js"></script>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <a class="brand" href="../../index.html" aria-label="Imperivm Resurrected">
+      <img class="brand__emblem" src="../../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Principale">
+      <a href="../../guide.html">Guida e FAQ</a>
+      <a href="../../sdk.html" aria-current="page">Per i modder</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mods</a>
+      <div class="languages" role="group" aria-label="Lingua"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases/latest" data-download><span>Scarica</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main class="doc-layout">
+    <aside class="doc-nav" aria-label="Guide dell'SDK">
+      <p class="guide-index__title">Guide dell'SDK</p>
+      <ol>
+          <li><a href="README.html">Panoramica</a></li>
+          <li><a href="lingue.html">Lingue e testi</a></li>
+          <li><a href="tasti.html">Tasti delle mod</a></li>
+          <li><a href="patch.html">Patch</a></li>
+          <li><a href="script.html">Script</a></li>
+          <li><a href="civilta.html">Civiltà</a></li>
+          <li><a href="modelli-citta.html">Modelli di città e villaggio</a></li>
+          <li><a href="unita.html">Unità nuove</a></li>
+          <li><a href="statistiche.html">Statistiche delle unità</a></li>
+          <li><a href="specialita.html">Specialità delle unità</a></li>
+          <li><a href="abilita.html">Abilità delle truppe</a></li>
+          <li><a href="oggetti.html">Oggetti nuovi</a></li>
+          <li><a href="formazioni.html">Formazioni nuove</a></li>
+          <li><a href="avamposti.html">Avamposti ed edifici</a></li>
+          <li><a href="modalita-vittoria.html">Modalità di vittoria</a></li>
+          <li><a href="opzioni.html">Opzioni di partita proprie</a></li>
+          <li><a href="mappe-casuali.html">Tipi di mappa casuale</a></li>
+          <li><a href="immagini.html">Immagini proprie</a></li>
+          <li><a href="grafica.html" aria-current="page">Grafica propria</a></li>
+          <li><a href="validare.html">Validare una mod</a></li>
+          <li><a href="pubblicare.html">Pubblicare su GameBanana</a></li>
+          <li><a href="riferimento.html">Riferimento</a></li>
+          <li><a href="CAMBIAMENTI.html">Cambiamenti</a></li>
+          <li><a href="LICENZA.html">Licenza</a></li>
+          <li><a href="funzioni-del-gioco.txt">Funzioni del gioco (.txt)</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../../sdk.html">&larr; Torna a Per i modder</a>
+    </aside>
+    <article class="doc">
+<h1 id="grafica-personalizzata-per-unità-ed-edifici">Grafica personalizzata per unità ed edifici</h1>
+<p>L&#39;SDK non disegna niente: usa Photoshop, Paint.NET, Aseprite, Blender… Il gioco legge solo il suo formato <code>.rle</code>, che nessun programma esporta, quindi l&#39;SDK include un convertitore.</p>
+<p>Una mod può portare i suoi sprite come file singoli, con gli stessi percorsi che usa il gioco. Un&#39;unità o un edificio nuovo cambia il gameplay: tutti i giocatori della partita devono avere la mod.</p>
+<p>Esempio: <span class="in-zip"><code>esempi/esempio-unita-grafica</code></span> (un soldato fatto di cubetti, 8 direzioni, colore del giocatore). Lo disegna <code>esempi\generatore-unita-grafica\disegna-soldato.js</code>, l&#39;unica cosa che sostituiresti con i tuoi disegni.</p>
+<p>Tutti i comandi di questa guida si lanciano dalla radice del repo. Gli strumenti sono Node.js e non richiedono altro.</p>
+<h2 id="cosa-si-può-fare">Cosa si può fare</h2>
+<ul>
+<li>Un&#39;unità nuova con disegni propri: sì, in una cartella nuova <code>units\MiUnidad\</code>.</li>
+<li>Cambiare il disegno di un&#39;unità che esiste già: non con un file singolo, perché il gioco preferisce il suo. Crea un&#39;unità nuova.</li>
+<li>Un edificio nuovo con disegni propri: sì, ma con più lavoro (fogli grandi, fasi di costruzione, impronta <code>.pass</code> e punti). Vedi Edifici.</li>
+<li>Icone e pulsanti dell&#39;interfaccia: già risolto in <a href="immagini.html">Immagini personalizzate</a>.</li>
+<li>Suoni nuovi: <code>.wav</code> e <code>.ogg</code>.</li>
+</ul>
+<h2 id="gli-strumenti">Gli strumenti</h2>
+<ul>
+<li><code>strumenti\converti-sprite.js</code>: dai tuoi PNG a <code>.rle</code>. Ritaglia, riduce a 256 colori, segna il colore del giocatore e crea l&#39;ombra.</li>
+<li><code>strumenti\crea-entita.js</code>: scrive il <code>.ent.xml</code> (immagini, livelli, stati, animazioni) di un&#39;unità o di un edificio, e l&#39;impronta <code>.pass</code> di un edificio.</li>
+<li><code>strumenti\leggi-rle.js</code>: l&#39;opposto, da <code>.rle</code> a PNG. Serve per guardare uno sprite del gioco e per partire da lì.</li>
+<li><code>strumenti\valida-mod.js</code>: segnala immagini mancanti, <code>idx</code> ripetuti, righe e colonne che non tornano (<a href="validare.html">Convalida</a>).</li>
+</ul>
+<h2 id="ununità-passo-per-passo">Un&#39;unità passo per passo</h2>
+<h3 id="1-disegna-e-salva-i-png">1. Disegna e salva i PNG</h3>
+<p>Un PNG per animazione, direzione e fotogramma, tutti della stessa dimensione (la tela, 150 x 150 per un&#39;unità) e con sfondo trasparente:</p>
+<pre><code>Idle_d0_f00.png  Idle_d0_f01.png  ...  Idle_d7_f07.png      &lt;Nome&gt;_d&lt;direzione&gt;_f&lt;fotogramma&gt;.png, contando da 0
+Walk_d0_f00.png  ...
+Fight_..., Death_..., Transition_..., Taunt_...
+</code></pre>
+<ul>
+<li><strong>Animazioni.</strong> Obbligatorie: <code>Idle</code> (fermo), <code>Walk</code> (camminare), <code>Fight</code> (attaccare) e <code>Death</code> (morire). Opzionali: <code>Transition</code> (dal riposo al combattimento) e <code>Taunt</code> (provocare). Se mancano, si usa <code>Idle</code> al loro posto.</li>
+<li><strong>Direzioni.</strong> 8 per i soldati, 12 per eroi e animali, 4 per le navi. Tutte le animazioni di un&#39;unità hanno le stesse.</li>
+<li><strong>Ordine delle direzioni.</strong> Nei fogli del gioco, la colonna 0 guarda la telecamera (in basso sullo schermo) e le altre seguono in senso orario: sud, ovest, nord, est con le diagonali in mezzo. Con uno sprite tuo, guarda prima un foglio del gioco con <code>leggi-rle.js</code>, poi disegna le otto.</li>
+<li><strong>Tela e piedi.</strong> Stessa tela in tutti i fotogrammi e i piedi nello stesso punto. Nelle unità del gioco è il pixel (75, 100) di 150 x 150. Si cambia con <code>--tela</code> e <code>--piedi</code>.</li>
+<li><strong>Dimensione.</strong> Il motore non ne impone nessuna: ogni fotogramma viene ritagliato a ciò che disegni. Come riferimento, un soldato del gioco misura circa 40 x 52 pixel e un eroe circa 40 x 88 (misure approssimative).</li>
+<li><strong>Fotogrammi.</strong> Fino a 62 per animazione. Nell&#39;hastatus: camminata 15, attacco 14, morte 20, riposo 8.</li>
+<li><strong>Trasparenza.</strong> Tutto o niente: un alfa minore di 128 è trasparente. Il gioco non ha semitrasparenza.</li>
+<li><strong>Colori.</strong> Fino a 256 per insieme; con il colore del giocatore, 192 (gli altri 64 sono la tinta). Se ne usi di più, il convertitore li riduce e avvisa.</li>
+<li><strong>Colore del giocatore.</strong> Dipingi di magenta ciò che deve cambiare con la squadra. Il convertitore prende come tinta i magenta (rosso e blu simili, quasi niente verde). <code>(255, 0, 255)</code> è il colore del giocatore quasi puro; <code>(128, 0, 128)</code>, <code>(64, 0, 64)</code>… sono le sue ombreggiature (7 livelli utili). Evita viola e rosa nel resto della figura: potrebbero finire come tinta per sbaglio. Non ammorbidire i bordi: un bordo semitrasparente mescolato diventa rosa, non tinta.</li>
+<li><strong>Ombra.</strong> Opzionale: un PNG per fotogramma con lo stesso nome più <code>_sombra</code> (<code>Walk_d3_f05_sombra.png</code>), nero o grigio scuro opaco su trasparente. Se non lo dai, il convertitore disegna un&#39;ellisse sotto i piedi. Il gioco scurisce della metà il terreno sotto l&#39;ombra.</li>
+</ul>
+<p>Puoi anche dare un foglio già montato per animazione: <code>Walk.png</code> con le direzioni in colonne e i fotogrammi in righe, ogni cella della dimensione della tela (<code>--tela AnchoxAlto</code>). L&#39;ombra va in <code>Walk_sombra.png</code> con la stessa disposizione.</p>
+<h3 id="partire-da-uno-sprite-del-gioco">Partire da uno sprite del gioco</h3>
+<p>Gli sprite del gioco sono nei <code>.rle.mmp</code> dei <code>.pak</code>, e i loro pixel in <code>rle.mmp</code>, nella cartella del gioco. Prima estraili con <code>estrai-dati.js</code>:</p>
+<pre><code>node strumenti\estrai-dati.js &quot;&lt;cartella del gioco&gt;&quot; &lt;cartella di output&gt; Units.pak HASTATUS
+</code></pre>
+<p>E convertili in PNG con <code>--convenzione</code>, che scrive esattamente ciò che si aspetta <code>converti-sprite.js</code> (un PNG per direzione e fotogramma, a tela piena, la tinta del giocatore in magenta e l&#39;ombra in <code>_sombra</code>):</p>
+<pre><code>node strumenti\leggi-rle.js &lt;cartella di output&gt;\UNITS\RHASTATUS\WALK.RLE.MMP --rle-mmp &quot;&lt;cartella del gioco&gt;\rle.mmp&quot; --convenzione --output &lt;carpeta de PNG&gt;
+node strumenti\converti-sprite.js &lt;carpeta de PNG&gt; --giocatore --output &lt;mod&gt;\units\MiUnidad
+</code></pre>
+<p>Senza <code>--convenzione</code>, <code>leggi-rle.js</code> scrive un foglio con celle della dimensione di ogni ritaglio, e <code>converti-sprite.js</code> non lo accetta. <code>--tela AnchoxAlto</code> cambia la tela (150 x 150 di default). L&#39;ombra del gioco è un altro file (<code>WALK_SHADOW.RLE.MMP</code>): se non la estrai, il convertitore disegna l&#39;ellisse. Sono file tuoi del gioco, da studiare o da cui partire: non ridistribuirli.</p>
+<h3 id="2-converti-in-rle">2. Converti in <code>.rle</code></h3>
+<pre><code>node strumenti\converti-sprite.js &lt;cartella con i PNG&gt; --output &lt;mod&gt;\units\MiUnidad --giocatore
+</code></pre>
+<ul>
+<li><code>--giocatore</code>: usa il colore del giocatore (il magenta diventa la tinta della squadra). Senza, la palette è libera di 256 colori, senza colore del giocatore; è la più semplice e quella che usano lupi e cervi.</li>
+<li><code>--ombra auto|file|nessuna</code>: di default <code>auto</code> (i tuoi <code>_sombra</code> se ci sono, altrimenti un&#39;ellisse).</li>
+<li><code>--tavolozza-per-animazione</code>: una palette per ogni <code>.rle</code>. Di default ce n&#39;è una per tutta l&#39;unità, con la perdita di qualità di ridurre a 192 o 256 colori se ne usi di più. Il gioco ne usa una per animazione.</li>
+<li><code>--tela AnchoxAlto</code> (di default quella dei PNG), <code>--piedi X,Y</code> (solo per l&#39;ombra automatica), <code>--soglia-alfa N</code>.</li>
+</ul>
+<p>Scrive <code>Idle.rle</code>, <code>Idle_shadow.rle</code>, <code>Walk.rle</code>…</p>
+<h3 id="3-crea-lentità-entxml">3. Crea l&#39;entità (<code>.ent.xml</code>)</h3>
+<pre><code>node strumenti\crea-entita.js unita &lt;mod&gt;\units\MiUnidad --nome MiUnidad
+</code></pre>
+<p>Legge i <code>.rle</code> della cartella e scrive <code>MiUnidad.ent.xml</code>: 2 livelli (unità <code>z=1000</code>, ombra <code>z=800</code>), 2 stati (riposo e combattimento) e le 7 animazioni del motore (camminata 1, attacco 5, morte 9, <code>Idle</code> 13, <code>ToIdle</code> 18, <code>ToAttack</code> 19, <code>Taunt</code> 20) con i tempi dell&#39;hastatus (camminata 55 ms per fotogramma, attacco 71, morte 80 con l&#39;ultima parte lenta, riposo 150…). Sono 6 fogli di animazione e 7 animazioni del motore, perché il foglio <code>Transition</code> vale per <code>ToAttack</code> e, al contrario, per <code>ToIdle</code>.</p>
+<p>Limiti del motore: vedi <em>Riferimento del formato</em>. Per cambiare il ritmo, <code>--config animaciones.json</code>:</p>
+<pre><code class="language-json">{ &quot;Walk&quot;: { &quot;duracion&quot;: 55, &quot;paso&quot;: 42 }, &quot;Fight&quot;: { &quot;duracion&quot;: 71, &quot;golpe&quot;: 426 } }
+</code></pre>
+<p><code>duracion</code> sono i millisecondi per fotogramma. <code>paso</code> (<code>step</code>) e <code>golpe</code> (<code>action_time</code>, i millisecondi fino all&#39;uscita del colpo) fanno parte della simulazione e influiscono sul gameplay.</p>
+<h3 id="4-la-classe-e-il-resto">4. La classe e il resto</h3>
+<p>La classe (<code>data\classes\MiUnidad.sc.xml</code>) è una copia intera di una del gioco con <code>entity=&quot;Units/MiUnidad/MiUnidad.ent.xml&quot;</code>. L&#39;ordine di reclutamento, il pulsante e i testi sono in <a href="unita.html">Unità nuove</a>. Non fare la classe figlia di un&#39;altra: il gioco non eredita <code>entity</code> dal padre e l&#39;unità sparisce. Il nome della cartella deve essere nuovo: se ripeti quello di un&#39;unità del gioco, il gioco usa il suo <code>.rle</code> e il tuo viene ignorato.</p>
+<h3 id="5-convalida-e-prova">5. Convalida e prova</h3>
+<pre><code>node strumenti\valida-mod.js &lt;mod&gt; --dati &lt;DATA&gt; --gioco &quot;&lt;cartella del gioco&gt;&quot;
+</code></pre>
+<p>Un&#39;immagine che non esiste manda in crash il gioco al caricamento della classe (un <code>idx</code> ripetuto o un <code>.rle</code> corrotto, lo stesso), e il validatore lo rileva prima. Poi copia la mod in <code>&lt;gioco&gt;\mods\</code>, attivalo e riavvia. Se il gioco si chiude, <code>Logs\imperivm\imperivm-mod.log</code> indica l&#39;immagine che ha dato errore.</p>
+<h2 id="edifici">Edifici</h2>
+<p>Stessa forma di un&#39;unità, con queste differenze:</p>
+<ul>
+<li><strong>Una direzione</strong> (<code>_d0</code>) e più righe, che sono le fasi di costruzione (quelli del gioco ne usano 4). Un foglio per livello dell&#39;edificio, <code>layer1</code>, <code>layer2</code>… (fino a 5 nel gioco), più <code>shadow</code>. PNG: <code>layer1_d0_f00.png</code> (livello 1, fase 0), <code>layer1_d0_f01.png</code>… e <code>shadow_d0_f00.png</code>… Un&#39;animazione chiamata <code>shadow</code> viene presa direttamente come maschera d&#39;ombra (conta qualsiasi pixel opaco).</li>
+<li><strong>Tele grandi</strong>, di circa 700 x 700 nel gioco. Il punto in cui si pianta l&#39;edificio (<code>--piedi</code>) lo scegli tu; nella caserma romana è (305, 330).</li>
+</ul>
+<pre><code>node strumenti\converti-sprite.js &lt;PNG&gt; --output &lt;mod&gt;\buildings\MiEdificio --giocatore --ombra nessuna
+node strumenti\crea-entita.js edificio &lt;mod&gt;\buildings\MiEdificio --nome MiEdificio --piedi 305,330 --impronta 8x8 --punti-da &lt;otro .ent.xml&gt;
+</code></pre>
+<ul>
+<li><strong>L&#39;impronta (<code>.pass</code>)</strong> è la griglia a 1 bit che dice dove non si può passare. Ogni cella è di 16 unità di mappa (poco meno di mezzo soldato di larghezza). <code>--impronta AnchoxAlto</code> crea un rettangolo centrato sul punto di ancoraggio. <code>--impronta-png máscara.png</code> usa un disegno (1 pixel = 1 cella, nord in alto; opaco e scuro = bloccato, trasparente o bianco = libero). Non superare circa 120 x 120 celle. Una casa del gioco misura circa 15 celle per lato e la caserma romana circa 29.</li>
+<li><strong>I punti (<code>&lt;point&gt;</code>)</strong> sono le porte, i posti delle sentinelle, il fumo… Il convertitore non può inventarli. Con <code>--punti-da &lt;.ent.xml de un edificio parecido del juego&gt;</code> copia quelli di quell&#39;edificio; le loro coordinate sono relative al punto di ancoraggio, quindi correggile se il tuo ha un&#39;altra forma.</li>
+<li>La classe dell&#39;edificio (<code>CVXBuilding</code>, <code>parent=&quot;Building&quot;</code>, ordini, costi…) si fa come in <a href="unita.html">Unità nuove</a>: copia intera di una del gioco.</li>
+<li>Non ancora fatto: versioni invernali (<code>entity_winter</code>) e animazioni degli edifici (fumo, fuoco). Si possono aggiungere a mano.</li>
+<li>Il messaggio finale di <code>converti-sprite.js</code> suggerisce <code>crea-entita.js unita</code> anche se converti un edificio: usa <code>edificio</code>.</li>
+</ul>
+<h2 id="riferimento-del-formato">Riferimento del formato</h2>
+<p>Se vuoi leggere o scrivere i formati per conto tuo, il codice è in <code>strumenti\lib\rle.js</code> (<code>.rle</code>) e <code>strumenti\lib\pass.js</code> (<code>.pass</code>). Gli strumenti scrivono <code>.rle</code> a 256 colori (con o senza colore del giocatore) e ombra; non c&#39;è il true color.</p>
+<p>Limiti del <code>.ent.xml</code>:</p>
+<ul>
+<li><code>&lt;image idx file rows columns drawmode&gt;</code>: 32 immagini; <code>idx</code> da 1 a 32 senza ripetizioni; <code>file</code> senza estensione o con <code>.rle</code>.</li>
+<li><code>&lt;layer idx name image z …&gt;</code>: 32. Unità <code>z=1000</code>, ombra <code>z=800</code>.</li>
+<li><code>&lt;state idx …&gt;</code>: 8.</li>
+<li><code>&lt;anim idx name frames duration action_time step&gt;</code>: <code>idx</code> da 1 a 28; <code>frames</code> = righe + 2 (due fotogrammi sentinella di durata 0); fino a 64 fotogrammi.</li>
+<li><code>variations</code> di <code>&lt;entity&gt;</code>: pari alle colonne di tutte le immagini.</li>
+</ul>
+<h2 id="suoni">Suoni</h2>
+<p>La classe indica i suoi suoni con <code>&lt;sounds attack=&quot;…&quot; die=&quot;…&quot;/&gt;</code>. Ogni nome è un file <code>data\sound entities\&lt;Nome&gt;.xml</code> che elenca i <code>.wav</code> o <code>.ogg</code>; puoi mettere i tuoi nella mod. Se non vuoi suoni nuovi, copia quelli di un&#39;unità simile (<code>attack=&quot;UnitSwordFight&quot; die=&quot;UnitDeath&quot;</code>).</p>
+
+    </article>
+  </main>
+
+  <footer class="footer footer--light">
+    <div class="footer__id">
+      <a class="footer__logo" href="../../index.html" aria-label="Imperivm Resurrected"><img src="../../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Progetto non ufficiale della community.</p>
+    </div>
+    <nav class="footer__links" aria-label="Link">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../../credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Crediti</span></a>
+    </nav>
+    <a class="footer__back" href="../../sdk.html">Torna a Per i modder</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"it","equivalents":{"es":"../es/graficos.html","en":"../en/graphics.html","it":"grafica.html"}};</script>
+<script src="../../js/sdk-guide.js"></script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/download.js"></script>
+<script src="../../js/motion.js"></script>
+<script src="../../js/support-data.js"></script>
+<script src="../../js/support.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Civilizations — SDK</title>
+<link rel="icon" href="../../img/statue.webp">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+<script src="../../js/theme.js"></script>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <a class="brand" href="../../index.html" aria-label="Imperivm Resurrected">
+      <img class="brand__emblem" src="../../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Main">
+      <a href="../../guide.html">Guide and FAQ</a>
+      <a href="../../sdk.html" aria-current="page">For modders</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mods</a>
+      <div class="languages" role="group" aria-label="Language"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases/latest" data-download><span>Download</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main class="doc-layout">
+    <aside class="doc-nav" aria-label="SDK guides">
+      <p class="guide-index__title">SDK guides</p>
+      <ol>
+          <li><a href="README.html">Overview</a></li>
+          <li><a href="languages.html">Languages and texts</a></li>
+          <li><a href="keys.html">Mod keys</a></li>
+          <li><a href="patches.html">Patches</a></li>
+          <li><a href="scripts.html">Scripts</a></li>
+          <li><a href="civilizations.html" aria-current="page">Civilizations</a></li>
+          <li><a href="city-templates.html">City and village templates</a></li>
+          <li><a href="units.html">New units</a></li>
+          <li><a href="stats.html">Unit stats</a></li>
+          <li><a href="specials.html">Unit specials</a></li>
+          <li><a href="abilities.html">Troop abilities</a></li>
+          <li><a href="items.html">New items</a></li>
+          <li><a href="formations.html">New formations</a></li>
+          <li><a href="outposts.html">Outposts and buildings</a></li>
+          <li><a href="victory-modes.html">Victory modes</a></li>
+          <li><a href="options.html">Custom game options</a></li>
+          <li><a href="random-maps.html">Random map types</a></li>
+          <li><a href="images.html">Custom images</a></li>
+          <li><a href="graphics.html">Custom graphics</a></li>
+          <li><a href="validating.html">Validating a mod</a></li>
+          <li><a href="publishing.html">Publishing on GameBanana</a></li>
+          <li><a href="reference.html">Reference</a></li>
+          <li><a href="CHANGELOG.html">Changes</a></li>
+          <li><a href="LICENSE.html">License</a></li>
+          <li><a href="game-functions.txt">Game functions (.txt)</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../../sdk.html">&larr; Back to For modders</a>
+    </aside>
+    <article class="doc">
+<h1 id="civilizations">Civilizations</h1>
+<p>The game ships with 8 civilizations, numbered 0 to 7: Gaul, Republican Rome, Carthage, Iberia, Imperial Rome, Britain, Egypt and Germany.</p>
+<p>Imperivm Resurrected lets you declare new civilizations, numbered from 10 up. Each one inherits everything your mod doesn&#39;t define from a game civilization (its
+<em>base</em>). The tools need Node.js.</p>
+<p>Ready-to-copy example: <span class="in-zip"><code>examples/civilization-example</code></span>.</p>
+<h2 id="declaring-a-civilization">Declaring a civilization</h2>
+<p>A <code>civs\&lt;id&gt;.json</code> file in your mod:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;dacia&quot;,
+  &quot;index&quot;: 10,
+  &quot;base&quot;: &quot;Gaul&quot;,
+  &quot;name&quot;: {&quot;spanish&quot;: &quot;Dacia&quot;, &quot;english&quot;: &quot;Dacia&quot;, &quot;italian&quot;: &quot;Dacia&quot;},
+  &quot;letter&quot;: &quot;D&quot;
+}
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>The name: letters, numbers and <code>_</code>, starting with a letter, up to 24 characters. You use it in <code>race=&quot;...&quot;</code> and in scripts.</td>
+</tr>
+<tr>
+<td><code>index</code></td>
+<td>A number from 10 to 99. Don&#39;t change it once published: saved games remember it. Two mods can&#39;t use the same one.</td>
+</tr>
+<tr>
+<td><code>base</code></td>
+<td>The game civilization it inherits from: <code>Gaul</code>, <code>RepublicanRome</code>, <code>Carthage</code>, <code>Iberia</code>, <code>ImperialRome</code>, <code>Britain</code>, <code>Egypt</code> or <code>Germany</code>. Defaults to <code>Gaul</code>.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>Its name in each language, or a single string.</td>
+</tr>
+<tr>
+<td><code>letter</code></td>
+<td>The letter that prefixes its classes and commands (<code>DSwordsman</code>, <code>trainDSwordsman</code>). If you leave it out, it uses the base&#39;s. Set your own only if you have classes and commands with that letter: the game builds names from it, such as the peasant training one.</td>
+</tr>
+<tr>
+<td><code>template</code></td>
+<td>(Optional) Prefix of your city and village templates, so the random map doesn&#39;t use the base&#39;s. See <a href="city-templates.html">Templates</a>.</td>
+</tr>
+<tr>
+<td><code>internalName</code></td>
+<td>(Optional) The name the game uses to find the civilization&#39;s interface files; defaults to the base&#39;s.</td>
+</tr>
+<tr>
+<td><code>folder</code></td>
+<td>(Optional) The name shown in selection texts.</td>
+</tr>
+<tr>
+<td><code>random</code></td>
+<td>(Optional, defaults to <code>true</code>) Whether it&#39;s included in the random-civilization draw, also on random maps. The AI only draws it if it also has <code>&quot;ai&quot;: true</code>. Set <code>false</code> to exclude it.</td>
+</tr>
+<tr>
+<td><code>biome</code></td>
+<td>(Optional) A game civilization: the terrain, trees and objects the random map places around its start are that civilization&#39;s. Without it, the base&#39;s. See <em>The biome</em>.</td>
+</tr>
+<tr>
+<td><code>ai</code></td>
+<td>(Optional) With <code>true</code>, the AI plays with your classes and commands. Otherwise it plays as the base civilization. The cloning tool sets it to <code>true</code>. See <em>The AI</em>.</td>
+</tr>
+<tr>
+<td><code>ownAi</code></td>
+<td>(Optional, with <code>ai</code>) For mods that ship all their own AI scripts and want to see the civilization as itself (<code>Dacia</code>, not its base).</td>
+</tr>
+<tr>
+<td><code>alias</code></td>
+<td>(Optional, written by the cloning tool) <code>classes</code> and <code>commands</code>: name in the base to name in your civilization (<code>&quot;GArcher&quot;: &quot;DArcher&quot;</code>, <code>&quot;trainGSwordsman&quot;: &quot;trainGSwordsman Dacia&quot;</code>). The AI uses them to translate.</td>
+</tr>
+<tr>
+<td><code>variant</code></td>
+<td>(Optional) With <code>true</code>, it&#39;s a variant of its base: it plays with the base&#39;s classes and scripts see it as the base. See <em>Variants</em>.</td>
+</tr>
+<tr>
+<td><code>replacesBase</code></td>
+<td>(Optional) With <code>true</code>, the base no longer shows in the lobby and this civilization takes its place. See <em>Variants</em>.</td>
+</tr>
+</tbody></table></div>
+<p>With just <code>id</code>, <code>index</code> and <code>base</code> you get a copy of the base under another name. From there, change whatever you like.</p>
+<h2 id="using-it-in-your-classes-and-scripts">Using it in your classes and scripts</h2>
+<p>In each unit&#39;s or building&#39;s <code>.sc.xml</code>:</p>
+<pre><code class="language-xml">&lt;properties race=&quot;Dacia&quot;/&gt;
+</code></pre>
+<p>The game only knows the names of its 8 civilizations. The mod recognizes your civilizations&#39; <code>id</code> (case-insensitive) and sets it on the
+class. If you set <code>internalName</code> by hand, that works too. The default one (the base&#39;s) doesn&#39;t count, so <code>race=&quot;Gaul&quot;</code> is still
+Gaul even if you have a civilization cloned from it.</p>
+<p>A class with <code>parent=</code> inherits stats and behaviors, but not the entity (<code>entity</code>, the model) or the sounds: set them again or
+the unit spawns without a model and vanishes. That&#39;s why the cloning tool copies whole classes.</p>
+<p>In scripts, each declared civilization is a constant named after its <code>id</code> as you write it, with a capital first letter (<code>dacia</code> gives
+<code>Dacia</code>, <code>romeImperial</code> gives <code>RomeImperial</code>). The rest in lowercase also works (<code>Romeimperial</code>):</p>
+<pre><code>if (GetPlayerRace(player) == Dacia)
+	...
+</code></pre>
+<p>The game&#39;s AI scripts compare against <code>Gaul</code>, <code>RepublicanRome</code>… and don&#39;t know yours. With <code>&quot;ai&quot;: true</code> they see the base. To find out which
+civilization an object really plays as, use <code>Mod_TrueRace(objeto)</code>.</p>
+<h2 id="in-the-lobby-and-on-the-map">In the lobby and on the map</h2>
+<p>Declared civilizations appear in the multiplayer lobby&#39;s dropdowns, after the game&#39;s. On a random map, yours uses its biome&#39;s terrain and starts with a city and a village built from its classes
+(<code>DTownhall</code>, <code>DBarracks</code>…). If you don&#39;t give it templates, the building layout is the base&#39;s. The player&#39;s interface (command bars, corners, quick icons and the
+end screen) is the base&#39;s.</p>
+<p>If something doesn&#39;t show up, check <code>Logs\imperivm\imperivm-mod.log</code>: the lines tagged <code>civilizations</code> say what was registered and what failed (an invalid <code>id</code>,
+a missing or duplicate <code>index</code>, a <code>base</code> that doesn&#39;t exist). Errors also appear on the mod&#39;s card in the manager.</p>
+<h2 id="variants">Variants</h2>
+<p>A variant is a game civilization with another name in the lobby and something of its own at the start of the game. For example, a mod
+where Rome chooses at the start between republican, imperial and punic can offer all three in the lobby:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;RomeImperial&quot;,
+  &quot;index&quot;: 21,
+  &quot;base&quot;: &quot;RepublicanRome&quot;,
+  &quot;name&quot;: {&quot;spanish&quot;: &quot;Roma imperial&quot;, &quot;english&quot;: &quot;Roman Empire&quot;, &quot;italian&quot;: &quot;Roma imperiale&quot;},
+  &quot;variant&quot;: true,
+  &quot;replacesBase&quot;: true
+}
+</code></pre>
+<p>With <code>&quot;variant&quot;: true</code>:</p>
+<ul>
+<li>It plays with the base&#39;s classes and commands. It has no classes of its own and no <code>letter</code>.</li>
+<li><code>GetPlayerRace</code> returns the base, so the game&#39;s and other mods&#39; scripts treat it like the base (ships, sentries, AI).</li>
+<li><code>Mod_PlayerCiv(player)</code> returns the civilization chosen in the lobby (21 in the example). What sets it apart goes in a
+<a href="patches.html">script patch</a>, for example researching the right Rome at the start:</li>
+</ul>
+<pre><code>@before while (EnvReadInt(set, &quot;ChooseRomanRace&quot;) != 1)
+	if (Mod_PlayerCiv(.player) == RomeImperial &amp;&amp; set.CanResearch(&quot;ChooseImperialRome&quot;))
+		set.Research(&quot;ChooseImperialRome&quot;);
+</code></pre>
+<ul>
+<li>The AI plays it too: <code>ai</code> is <code>true</code> unless you say otherwise.</li>
+<li>With <code>&quot;replacesBase&quot;: true</code> the base no longer shows in the lobby and its variants take its place. In the random draw, the base&#39;s
+share is split among them. A player who had the base chosen moves to the first variant. Maps and saved games that fix the base still
+use it.</li>
+</ul>
+<h2 id="cloning-a-civilization">Cloning a civilization</h2>
+<p>Writing a civilization&#39;s dozens of classes and commands by hand is no fun. <code>tools/clone-civilization.js</code> clones one from the game.
+It needs the game&#39;s <code>DATA</code> folder, which you get with <span class="in-zip"><code>extract-data.js</code></span>:</p>
+<pre><code>node extract-data.js &quot;&lt;game folder&gt;&quot; &lt;output folder&gt;
+node clone-civilization.js &lt;output folder&gt;\DATA &lt;mod folder&gt; Dacia D Gaul 10
+</code></pre>
+<p>It generates <code>civs\dacia.json</code>, a copy of each of the base&#39;s classes (<code>DSwordsman</code> is a copy of <code>GSwordsman</code>, with <code>race=&quot;Dacia&quot;</code>), the commands that
+name base classes (<code>trainGSwordsman Dacia</code>, <code>trainpeasantd</code>, <code>hireheroD</code>…) and patches that add the new classes to the
+shared commands. It also clones the heroes <code>GHero1</code>…<code>GHero7</code>, which hang from <code>GaulHero</code> and have no <code>race</code>: without heroes that have a model, hiring one
+crashes the game. From there you edit whatever you want. The sample result is in
+<span class="in-zip"><code>examples/civilization-example</code></span>.</p>
+<p>The tool doesn&#39;t write the <code>template</code> field. If you want your own templates, add it yourself (<a href="city-templates.html">Templates</a>).</p>
+<p>The copies don&#39;t carry the originals&#39; <code>altid</code>. The <code>altid</code> is a unique alias (<code>Barrack</code>, <code>Village</code>) that scripts and the AI use to look up a
+civilization&#39;s &quot;barracks&quot;. If two classes share one, one civilization&#39;s AI stops seeing its buildings. If you write classes by hand, don&#39;t copy it.</p>
+<h2 id="the-ai">The AI</h2>
+<p>By default, the AI that picks a mod civilization plays as its base. With <code>&quot;ai&quot;: true</code> it plays with your classes and commands. The game&#39;s AI scripts
+decide based on the civilization of the central building and build names from it, so the game makes them see the base and
+translates what they ask for:</p>
+<ul>
+<li>The commands and research they ask for by name (<code>trainGSwordsman</code>, <code>Gaul Axeman</code>, <code>hireheroG</code>…) are mapped to your civilization&#39;s, according to
+<code>alias.ordenes</code>, only on objects of an AI of your civilization.</li>
+<li>Your classes count as the base&#39;s: <code>DArcher</code> is a <code>GArcher</code> for counts, barracks, temples and counter-units.</li>
+</ul>
+<p>The cloning tool fills in both tables. If you write your classes by hand, fill them in yourself. Nothing changes for the human player.</p>
+<p>AI limits:</p>
+<ul>
+<li>Your AI behaves like the base&#39;s, unless you give it another tactic.</li>
+<li>A unit that isn&#39;t in the base&#39;s six slots won&#39;t be recruited.</li>
+<li>New research (not cloned from one of the base&#39;s) is unknown to it.</li>
+<li>The costs it reads before paying are the base&#39;s, even if the command charges your values.</li>
+</ul>
+<p><strong>A different tactic for your civilization.</strong> The game picks each AI&#39;s tactic at start, in <code>data\ai\GetTacticScript.vs</code>. A
+<a href="patches.html">script patch</a> can add a piece to it for your civilization. Since the AI sees the base, ask for the real civilization with
+<code>Mod_TrueRace(set.GetCentralBuilding)</code>. The example <span class="in-zip"><code>examples/ai-tactic-example</code></span> makes Dacia use a game tactic
+that no AI uses. Patches from several mods add up, so two civilizations can pick their tactic at the same time.</p>
+<p>With <code>&quot;ownAi&quot;: true</code> the mod has to ship all the AI scripts, because the game&#39;s see civilization 10 and their tables don&#39;t know it.
+Normally you leave <code>&quot;ai&quot;: true</code> and change only the tactic.</p>
+<h2 id="the-biome">The biome</h2>
+<p>On a random map, what surrounds each player&#39;s start (grass, sand, trees, decorations) is decided by their civilization. Yours uses its
+<code>base</code>&#39;s, or whatever you set in <code>biome</code>:</p>
+<pre><code class="language-json">{ &quot;id&quot;: &quot;dacia&quot;, &quot;index&quot;: 10, &quot;base&quot;: &quot;Gaul&quot;, &quot;biome&quot;: &quot;Britain&quot; }
+</code></pre>
+<p>The game only has four terrain-and-tree biomes, so civilizations share them in pairs:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Terrain and trees</th>
+<th>Used by</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1st</td>
+<td>Gaul and Imperial Rome</td>
+</tr>
+<tr>
+<td>2nd</td>
+<td>Republican Rome and Britain</td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>Carthage and Egypt</td>
+</tr>
+<tr>
+<td>4th</td>
+<td>Iberia and Germany</td>
+</tr>
+</tbody></table></div>
+<p>Map objects (ruins, palm trees, rocks) do tell all eight apart; Carthage and Egypt act as a &quot;desert&quot; versus &quot;temperate&quot; switch.
+The starting city is still the base&#39;s unless you use <code>template</code>. A fully custom biome, with new terrain, isn&#39;t possible.</p>
+<h2 id="what-you-cant-do">What you can&#39;t do</h2>
+<ul>
+<li>Games against the AI outside the multiplayer lobby (scenarios and campaigns) with mod civilizations.</li>
+<li>Map editor: your civilization&#39;s classes show up mixed into its base&#39;s folders.</li>
+<li>New AI scripts without shipping all of them (see <em>The AI</em>).</li>
+</ul>
+
+    </article>
+  </main>
+
+  <footer class="footer footer--light">
+    <div class="footer__id">
+      <a class="footer__logo" href="../../index.html" aria-label="Imperivm Resurrected"><img src="../../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Unofficial community project.</p>
+    </div>
+    <nav class="footer__links" aria-label="Links">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../../credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Credits</span></a>
+    </nav>
+    <a class="footer__back" href="../../sdk.html">Back to For modders</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../es/civilizaciones.html","en":"civilizations.html","it":"../it/civilta.html"}};</script>
+<script src="../../js/sdk-guide.js"></script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/download.js"></script>
+<script src="../../js/motion.js"></script>
+<script src="../../js/support-data.js"></script>
+<script src="../../js/support.js"></script>
+</body>
+</html>

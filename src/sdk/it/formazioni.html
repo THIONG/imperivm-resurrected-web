@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formazioni nuove — SDK</title>
+<link rel="icon" href="../../img/statue.webp">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+<script src="../../js/theme.js"></script>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <a class="brand" href="../../index.html" aria-label="Imperivm Resurrected">
+      <img class="brand__emblem" src="../../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Principale">
+      <a href="../../guide.html">Guida e FAQ</a>
+      <a href="../../sdk.html" aria-current="page">Per i modder</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mods</a>
+      <div class="languages" role="group" aria-label="Lingua"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases/latest" data-download><span>Scarica</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main class="doc-layout">
+    <aside class="doc-nav" aria-label="Guide dell'SDK">
+      <p class="guide-index__title">Guide dell'SDK</p>
+      <ol>
+          <li><a href="README.html">Panoramica</a></li>
+          <li><a href="lingue.html">Lingue e testi</a></li>
+          <li><a href="tasti.html">Tasti delle mod</a></li>
+          <li><a href="patch.html">Patch</a></li>
+          <li><a href="script.html">Script</a></li>
+          <li><a href="civilta.html">Civiltà</a></li>
+          <li><a href="modelli-citta.html">Modelli di città e villaggio</a></li>
+          <li><a href="unita.html">Unità nuove</a></li>
+          <li><a href="statistiche.html">Statistiche delle unità</a></li>
+          <li><a href="specialita.html">Specialità delle unità</a></li>
+          <li><a href="abilita.html">Abilità delle truppe</a></li>
+          <li><a href="oggetti.html">Oggetti nuovi</a></li>
+          <li><a href="formazioni.html" aria-current="page">Formazioni nuove</a></li>
+          <li><a href="avamposti.html">Avamposti ed edifici</a></li>
+          <li><a href="modalita-vittoria.html">Modalità di vittoria</a></li>
+          <li><a href="opzioni.html">Opzioni di partita proprie</a></li>
+          <li><a href="mappe-casuali.html">Tipi di mappa casuale</a></li>
+          <li><a href="immagini.html">Immagini proprie</a></li>
+          <li><a href="grafica.html">Grafica propria</a></li>
+          <li><a href="validare.html">Validare una mod</a></li>
+          <li><a href="pubblicare.html">Pubblicare su GameBanana</a></li>
+          <li><a href="riferimento.html">Riferimento</a></li>
+          <li><a href="CAMBIAMENTI.html">Cambiamenti</a></li>
+          <li><a href="LICENZA.html">Licenza</a></li>
+          <li><a href="funzioni-del-gioco.txt">Funzioni del gioco (.txt)</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../../sdk.html">&larr; Torna a Per i modder</a>
+    </aside>
+    <article class="doc">
+<h1 id="formazioni-nuove">Formazioni nuove</h1>
+<p>Le formazioni degli eroi (Line, Front, Block, Cavalry) sono dati: un <code>formations.xml</code> con bonus e disposizione, e due ordini per formazione in <code>data\commands\Hero.xml</code>. Una mod aggiunge le sue con le <a href="patch.html">patch</a>, senza compilare nulla.</p>
+<p>Esempio: <span class="in-zip"><code>esempi/esempio-formazione</code></span> (il Cuneo).</p>
+<h2 id="via-rapida">Via rapida</h2>
+<p><code>crea-formazione.js</code> scrive i tre pezzi. Ti serve la cartella <code>DATA</code> del gioco (<a href="README.html#dati-del-gioco">Dati del gioco</a>):</p>
+<pre><code>node strumenti/crea-formazione.js &lt;DATA&gt; mods/mi-mod Wedge --danno 3 --armatura 1 --come &quot;Cavalry core&quot; --tasto i
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Opzione</th>
+<th>A cosa serve</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;Nome&gt;</code></td>
+<td>Il <code>Name</code> della formazione: lettere e numeri, niente spazi. Deve essere nuovo</td>
+</tr>
+<tr>
+<td><code>--danno</code>, <code>--armatura</code>, <code>--difesa-pierce</code>, <code>--difesa-slash</code>, <code>--raggio</code>, <code>--livello</code></td>
+<td>I bonus (da -1000 a 1000). Senza nessuno, la formazione cambia solo la disposizione</td>
+</tr>
+<tr>
+<td><code>--come</code></td>
+<td>La formazione del gioco da cui copia l&#39;elenco delle classi, la dimensione, la spaziatura e il disegno del pulsante: <code>Front</code> (default), <code>Line</code>, <code>Block</code>, <code>Cavalry core</code>, <code>Horse Wings</code>, <code>Ranged Wings</code></td>
+</tr>
+<tr>
+<td><code>--classi &quot;Unit=ali,Horse=fronte&quot;</code></td>
+<td>La tua disposizione, al posto di quella di <code>--come</code>. I posti sono <code>fronte</code>, <code>ali</code> e <code>centro</code></td>
+</tr>
+<tr>
+<td><code>--larghezza</code>, <code>--altezza</code>, <code>--fronte</code>, <code>--ala-x</code>, <code>--ala-y</code></td>
+<td><code>Width</code>, <code>Height</code> e le tre spaziature (<code>Offset…</code>)</td>
+</tr>
+<tr>
+<td><code>--tasto</code></td>
+<td>La lettera che sceglie la formazione. Senza, ne cerca una libera</td>
+</tr>
+<tr>
+<td><code>--descrizione</code>, <code>--pulsante</code></td>
+<td>Il <code>Description</code> (in inglese) e un pulsante diverso (<code>States/…</code>)</td>
+</tr>
+</tbody></table></div>
+<p>Genera:</p>
+<pre><code>patches\data\formations.xml                     la formazione
+patches\data\commands\Hero.xml                  i suoi due pulsanti, form-&lt;nome&gt;-menu e form-&lt;nome&gt;
+patches\data\subai\hero_formation_verify.vs     la patch dello script
+mod.json                                        solo se la cartella non ne ha uno
+</code></pre>
+<p>Se la mod ha già un&#39;altra formazione, la nuova si aggiunge agli stessi file senza sovrascrivere la precedente. Vale anche per la patch dello script: ogni formazione aggiunge il suo <code>@replace</code>.</p>
+<p>Controlla che il tasto sia libero per l&#39;eroe, che eredita gli ordini di <code>Unit</code> e <code>Military</code>. Se è in conflitto, avvisa e genera comunque. Nel gioco resta libera solo la <code>i</code>, quindi la seconda formazione di una mod dovrà condividere il tasto: scegli una lettera e verifica che il conflitto non ti dia fastidio.</p>
+<p>I pulsanti usano il disegno della formazione di base. Per averne uno tuo, vedi <a href="immagini.html">Immagini personalizzate</a> e passa <code>--pulsante</code>.</p>
+<h2 id="cosa-fa-dentro-come-farlo-a-mano">Cosa fa dentro (come farlo a mano)</h2>
+<h3 id="i-tre-pezzi">I tre pezzi</h3>
+<p><strong>1. La formazione</strong> (<code>patches\data\formations.xml</code>):</p>
+<pre><code class="language-xml">&lt;patch&gt;
+  &lt;add select=&quot;/Formations&quot;&gt;
+    &lt;FormationClass Name=&quot;Wedge&quot;
+        Description=&quot;The warriors form a wedge with the cavalry at the point.&quot;
+        Width=&quot;3&quot; Height=&quot;1&quot;
+        BonusDamage=&quot;3&quot; BonusArmor=&quot;1&quot;
+        OffsetFrontLineByY=&quot;40&quot; OffsetWingsByX=&quot;30&quot; OffsetWingsByY=&quot;0&quot;&gt;
+      &lt;Class Name=&quot;Unit&quot; Wings=&quot;1&quot;/&gt;
+      &lt;Class Name=&quot;Horse&quot; FrontLine=&quot;1&quot;/&gt;
+      &lt;Class Name=&quot;BaseMage&quot; CentralBlock=&quot;1&quot;/&gt;
+      &lt;Class Name=&quot;Peasant&quot; CentralBlock=&quot;1&quot;/&gt;
+    &lt;/FormationClass&gt;
+  &lt;/add&gt;
+&lt;/patch&gt;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Attributo</th>
+<th>A cosa serve</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Name</code></td>
+<td>Nome della formazione; è quello che usano gli ordini</td>
+</tr>
+<tr>
+<td><code>Description</code></td>
+<td>Non si vede sul pulsante: il gioco mostra un testo fisso (&quot;Army bonus during stand ground&quot;) con le icone dei bonus</td>
+</tr>
+<tr>
+<td><code>Width</code>, <code>Height</code></td>
+<td>Dimensione della griglia del gruppo in prima linea (<code>FrontLine</code>). Nel Cuneo, dove le <code>Unit</code> vanno sui fianchi, <code>Width=3</code> riguarda solo i cavalli</td>
+</tr>
+<tr>
+<td><code>BonusDamage</code>, <code>BonusArmor</code>, <code>BonusRange</code>, <code>BonusLevel</code></td>
+<td>Bonus dell&#39;esercito, e solo mentre la truppa è ferma (&quot;stand ground&quot;). Limitati tra -1000 e 1000</td>
+</tr>
+<tr>
+<td><code>BonusDefencePierce</code>, <code>BonusDefenceSlash</code></td>
+<td>Difesa contro perforante e contro taglio, separate. <code>BonusArmor</code> le imposta entrambe</td>
+</tr>
+<tr>
+<td><code>OffsetFrontLineByY</code>, <code>OffsetWingsByX</code>, <code>OffsetWingsByY</code></td>
+<td>Quanto si allontanano dall&#39;eroe la prima linea e i fianchi</td>
+</tr>
+<tr>
+<td><code>&lt;Class Name=&quot;…&quot; …/&gt;</code></td>
+<td>Dove vanno le unità di quella classe: <code>FrontLine=&quot;1&quot;</code> davanti, <code>Wings=&quot;1&quot;</code> ai lati, <code>CentralBlock=&quot;1&quot;</code> al centro, intorno all&#39;eroe</td>
+</tr>
+</tbody></table></div>
+<p><code>BonusAttack</code> compare in qualche formazione del gioco, ma non fa nulla: non contarci.</p>
+<p><strong>2. I pulsanti</strong> (<code>patches\data\commands\Hero.xml</code>). Due ordini: <code>form-&lt;nome&gt;-menu</code> (il pulsante che si vede quando quella è la formazione attuale) e <code>form-&lt;nome&gt;</code> (quello che la sceglie). Entrambi hanno <code>param=&quot;&lt;Name&gt;&quot;</code> e <code>menu=&quot;1&quot;</code>. Copia <code>form-front-menu</code> e <code>form-front</code> e cambia <code>name</code>, <code>param</code>, <code>key</code> e <code>button</code> (il disegno; vedi <a href="immagini.html">Immagini</a>).</p>
+<p>Il tasto non deve andare in conflitto con un altro ordine dell&#39;eroe, che eredita anche quelli di <code>Unit</code>. In <code>data\commands</code> (con <code>estrai-dati.js</code>, vedi <a href="patch.html">Patch</a>) cerca <code>key=&quot;x&quot;</code> in <code>HERO.XML</code> e <code>UNIT.XML</code>. L&#39;esempio usa <code>i</code>, che non è in nessuno dei due; <code>q</code>, per esempio, è di <code>reveal</code>.</p>
+<p><strong>3. Una patch dello script che dà il via libera ai pulsanti</strong> (<code>patches\data\subai\hero_formation_verify.vs</code>). Lo script del gioco lascia scegliere la formazione solo quando è aperto uno dei suoi quattro menu, elencati per nome. Aggiungi il tuo:</p>
+<pre><code>@replace if (cmd_name != &quot;form-front-menu&quot;)
+if (cmd_name != &quot;form-front-menu&quot;)
+	if (cmd_name != &quot;form-wedge-menu&quot;)
+@end
+</code></pre>
+<p>Se un&#39;altra mod modifica la stessa riga per aggiungere un&#39;altra formazione, le patch si sommano: ogni <code>@replace</code> riscrive la riga del gioco e lascia la tua dopo.</p>
+<h2 id="online">Online</h2>
+<p>I bonus cambiano il gameplay: tutti i giocatori devono avere la stessa mod.</p>
+
+    </article>
+  </main>
+
+  <footer class="footer footer--light">
+    <div class="footer__id">
+      <a class="footer__logo" href="../../index.html" aria-label="Imperivm Resurrected"><img src="../../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Progetto non ufficiale della community.</p>
+    </div>
+    <nav class="footer__links" aria-label="Link">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../../credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Crediti</span></a>
+    </nav>
+    <a class="footer__back" href="../../sdk.html">Torna a Per i modder</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"it","equivalents":{"es":"../es/formaciones.html","en":"../en/formations.html","it":"formazioni.html"}};</script>
+<script src="../../js/sdk-guide.js"></script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/download.js"></script>
+<script src="../../js/motion.js"></script>
+<script src="../../js/support-data.js"></script>
+<script src="../../js/support.js"></script>
+</body>
+</html>

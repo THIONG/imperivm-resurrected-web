@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Validare una mod — SDK</title>
+<link rel="icon" href="../../img/statue.webp">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+<script src="../../js/theme.js"></script>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <a class="brand" href="../../index.html" aria-label="Imperivm Resurrected">
+      <img class="brand__emblem" src="../../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Principale">
+      <a href="../../guide.html">Guida e FAQ</a>
+      <a href="../../sdk.html" aria-current="page">Per i modder</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mods</a>
+      <div class="languages" role="group" aria-label="Lingua"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases/latest" data-download><span>Scarica</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main class="doc-layout">
+    <aside class="doc-nav" aria-label="Guide dell'SDK">
+      <p class="guide-index__title">Guide dell'SDK</p>
+      <ol>
+          <li><a href="README.html">Panoramica</a></li>
+          <li><a href="lingue.html">Lingue e testi</a></li>
+          <li><a href="tasti.html">Tasti delle mod</a></li>
+          <li><a href="patch.html">Patch</a></li>
+          <li><a href="script.html">Script</a></li>
+          <li><a href="civilta.html">Civiltà</a></li>
+          <li><a href="modelli-citta.html">Modelli di città e villaggio</a></li>
+          <li><a href="unita.html">Unità nuove</a></li>
+          <li><a href="statistiche.html">Statistiche delle unità</a></li>
+          <li><a href="specialita.html">Specialità delle unità</a></li>
+          <li><a href="abilita.html">Abilità delle truppe</a></li>
+          <li><a href="oggetti.html">Oggetti nuovi</a></li>
+          <li><a href="formazioni.html">Formazioni nuove</a></li>
+          <li><a href="avamposti.html">Avamposti ed edifici</a></li>
+          <li><a href="modalita-vittoria.html">Modalità di vittoria</a></li>
+          <li><a href="opzioni.html">Opzioni di partita proprie</a></li>
+          <li><a href="mappe-casuali.html">Tipi di mappa casuale</a></li>
+          <li><a href="immagini.html">Immagini proprie</a></li>
+          <li><a href="grafica.html">Grafica propria</a></li>
+          <li><a href="validare.html" aria-current="page">Validare una mod</a></li>
+          <li><a href="pubblicare.html">Pubblicare su GameBanana</a></li>
+          <li><a href="riferimento.html">Riferimento</a></li>
+          <li><a href="CAMBIAMENTI.html">Cambiamenti</a></li>
+          <li><a href="LICENZA.html">Licenza</a></li>
+          <li><a href="funzioni-del-gioco.txt">Funzioni del gioco (.txt)</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../../sdk.html">&larr; Torna a Per i modder</a>
+    </aside>
+    <article class="doc">
+<h1 id="validare-una-mod">Validare una mod</h1>
+<p>Il validatore controlla la tua mod senza aprire il gioco e ti dice gli errori con file e riga. Serve <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a>.</p>
+<pre><code>node strumenti/valida-mod.js &lt;cartella del mod&gt;
+node strumenti/valida-mod.js &lt;cartella del mod&gt; --dati &lt;cartella DATA&gt;
+</code></pre>
+<p><code>--dati</code> è la cartella <code>DATA</code> del <code>data.pak</code> estratto (la ricava <code>strumenti/estrai-dati.js</code>, vedi il <a href="README.html#dati-del-gioco">README</a>). Con essa controlla anche che i file che la tua mod patcha esistano e che esistano gli script a cui puntano le tue classi. Guarda solo i percorsi che iniziano con <code>data/</code>: se patchi <code>units/…</code>, <code>buildings/…</code> o <code>currentlang/…</code>, non li controlla. Senza <code>--dati</code> si controlla tutto il resto.</p>
+<p>Con <code>--gioco &lt;cartella del gioco&gt;</code> (sola lettura) guarda i nomi di <code>Units.pak</code>, <code>Buildings.pak</code>, <code>MapObjects.pak</code> e <code>Visuals.pak</code> per sapere se esistono le immagini e le entità che la tua mod prende dal gioco, e avvisa se il tuo <code>.rle</code> ha lo stesso nome di uno del gioco:</p>
+<pre><code>node strumenti/valida-mod.js &lt;cartella del mod&gt; --dati &lt;DATA&gt; --gioco &quot;C:\Program Files (x86)\Steam\steamapps\common\Imperivm - Great Battles of Rome HD&quot;
+</code></pre>
+<p>Esce con codice 1 se ci sono errori, con 0 se ci sono solo avvisi o niente, e con 2 se lo chiami male. Serve per automatizzare.</p>
+<p>Un errore è qualcosa che il gioco rifiuterebbe o che fallirà. Un avviso è un sospetto: qualcosa che il gioco ignora o che probabilmente non volevi.</p>
+<h2 id="cosa-controlla">Cosa controlla</h2>
+<ul>
+<li><strong><code>mod.json</code></strong>: JSON rotto, categoria che non è di GameBanana, testi con il tipo sbagliato (errori). Mancanza di <code>id</code>, <code>name</code>, <code>version</code> o <code>category</code>, nome di categoria vecchio, tag che il gioco non usa, mappa senza tag dei giocatori e campagna, traduzione o audio senza tag della lingua (avvisi).</li>
+<li><strong>File</strong>: estensioni di eseguibili e script di sistema (errore: la mod non si caricherebbe) e percorsi con <code>..</code>. Un&#39;estensione strana ma innocua (<code>.psd</code>, <code>.gif</code>, <code>.zip</code>…) dà solo un avviso: la mod si carica, il file occupa solo spazio.</li>
+<li><strong><code>civs\*.json</code></strong>: <code>id</code> non valido, <code>index</code> fuori da 10–99 o ripetuto, <code>base</code> che non esiste, <code>letter</code> di più di una lettera, <code>biome</code> sconosciuto, <code>template</code> scritta male o senza il suo file. Con <code>&quot;ai&quot;: true</code> senza tabella <code>alias</code> avvisa, e controlla che l&#39;<code>alias</code> punti a classi e comandi che la mod ha.</li>
+<li><strong><code>specials\*.json</code></strong>: <code>id</code> non valido o che è una specialità del gioco, <code>bit</code> fuori da 36–63 o ripetuto.</li>
+<li><strong><code>options\*.json</code></strong>: la ripartizione dei bit (tra tutte le mod ne stanno 8).</li>
+<li><strong>Patch XML</strong>: XML malformato (la patch non si applicherebbe per intero), operazione senza <code>select</code>, selettore scritto male, tag che non sono operazioni. Un selettore che non inizia con <code>/</code> o <code>//</code> dà errore anche se la DLL lo accetterebbe.</li>
+<li><strong>Patch di script (<code>.vs</code>)</strong>: direttiva che non esiste, <code>@before</code>, <code>@after</code> o <code>@replace</code> senza testo, direttiva senza codice sotto, e <code>@top</code> con codice che non sia dichiarazione di variabili. Non controlla il codice della patch, né le funzioni <code>Mod_*</code>, né la firma.</li>
+<li><strong>Patch INI</strong>: righe che non si capiscono, e una sezione nuova in <code>UNIT_SPECIALS.INI</code> (il gioco può chiudersi). Non avvisa dei commenti a fine riga di una patch, che il motore non supporta (vedi <a href="patch.html">Patch</a>).</li>
+<li><strong>Classi (<code>data\classes</code>)</strong>: XML malformato, <code>race</code> sconosciuta, <code>unit_specials</code> scritte male o sconosciute (il gioco distingue le maiuscole: <code>Parry</code>, non <code>parry</code>), e una classe senza <code>entity</code> (avviso: il gioco non la eredita dal padre e l&#39;unità sparisce).</li>
+<li><strong>Codifica</strong>: un XML di classe in Latin-1 con caratteri accentati. Il gioco non carica la classe e non avvisa; salvalo come UTF-8.</li>
+<li><strong>Comandi (<code>data\commands</code>)</strong>: XML malformato e comandi ripetuti in un file.</li>
+<li><strong>Entità (<code>.ent.xml</code>)</strong>: errore se l&#39;immagine non esiste (il gioco si blocca caricando la classe; con la cartella della mod se porta i suoi <code>.rle</code>, e sempre con <code>--gioco</code>), <code>idx</code> ripetuto o fuori da 1–32, livelli e animazioni che puntano a qualcosa che non c&#39;è, limiti del motore (32 immagini, 32 livelli, 8 stati, animazioni 1–28, 64 fotogrammi), e <code>columns</code>, <code>rows</code> o numero di <code>&lt;frame&gt;</code> che non tornano. Un&#39;animazione che legge più righe di quante ne ha la sua immagine è solo un avviso.</li>
+<li><strong>Grafica (<code>.rle</code>, <code>.pass</code>)</strong>: <code>.rle</code> tagliato o corrotto, <code>.rle.mmp</code> rinominato (senza pixel, da una mod non si carica), palette vuota, <code>.pass</code> malformato o vuoto, <code>pass_file</code> che non esiste, e un <code>.rle</code> con lo stesso nome di uno del gioco (vince quello del gioco; con <code>--gioco</code>).</li>
+<li><strong><code>placeobjects.xml</code></strong> (mappe casuali): una classe nominata che non esiste (con <code>--dati</code>). La generazione della mappa si blocca senza messaggio.</li>
+<li><strong>Testi (<code>loc</code>)</strong>: XML malformato, voci senza <code>text</code> o senza <code>result</code>.</li>
+<li><strong>Script (<code>.vs</code>)</strong>: manca la firma nella prima riga, evento sconosciuto o con la firma sbagliata, <code>Sleep</code> in un evento che non può aspettare, funzioni <code>Mod_*</code> che non esistono, <code>Mod_HasSpecial</code> con un <code>Obj</code> invece di una <code>Unit</code>.</li>
+</ul>
+<h2 id="esempio-di-output">Esempio di output</h2>
+<pre><code>AVVISO  specials/c.json  senza &quot;name&quot;: si vedrà l&#39;id
+ERRORE  specials/d.json  il bit 40 è già usato da specials/c.json
+AVVISO  data/classes/G.sc.xml:2  specialità &quot;Zzz&quot; sconosciuta: il gioco la ignora
+
+5 file controllati: 1 errori, 5 avvisi.
+</code></pre>
+<h2 id="cosa-non-fa">Cosa non fa</h2>
+<p>Non applica le patch né esegue gli script: questo si vede solo nel gioco (usa <code>Dump=</code> di <a href="patch.html">Patch</a> per vedere il risultato, e <code>Logs\imperivm\imperivm-mod.log</code> per gli errori in corso). Non giudica nemmeno la qualità delle immagini.</p>
+<p>È pensato per mod nuove, fatte con questo SDK. Una mod vecchia che funziona nel gioco, come il Community Mod, dà errori (script senza firma, script di classe che non esistono, righe di animazione) senza che questo voglia dire che non si carichi.</p>
+
+    </article>
+  </main>
+
+  <footer class="footer footer--light">
+    <div class="footer__id">
+      <a class="footer__logo" href="../../index.html" aria-label="Imperivm Resurrected"><img src="../../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Progetto non ufficiale della community.</p>
+    </div>
+    <nav class="footer__links" aria-label="Link">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../../credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Crediti</span></a>
+    </nav>
+    <a class="footer__back" href="../../sdk.html">Torna a Per i modder</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"it","equivalents":{"es":"../es/validar.html","en":"../en/validating.html","it":"validare.html"}};</script>
+<script src="../../js/sdk-guide.js"></script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/download.js"></script>
+<script src="../../js/motion.js"></script>
+<script src="../../js/support-data.js"></script>
+<script src="../../js/support.js"></script>
+</body>
+</html>

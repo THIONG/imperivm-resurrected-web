@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cambiamenti — SDK</title>
+<link rel="icon" href="../../img/statue.webp">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+<script src="../../js/theme.js"></script>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <a class="brand" href="../../index.html" aria-label="Imperivm Resurrected">
+      <img class="brand__emblem" src="../../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Principale">
+      <a href="../../guide.html">Guida e FAQ</a>
+      <a href="../../sdk.html" aria-current="page">Per i modder</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mods</a>
+      <div class="languages" role="group" aria-label="Lingua"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases/latest" data-download><span>Scarica</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main class="doc-layout">
+    <aside class="doc-nav" aria-label="Guide dell'SDK">
+      <p class="guide-index__title">Guide dell'SDK</p>
+      <ol>
+          <li><a href="README.html">Panoramica</a></li>
+          <li><a href="lingue.html">Lingue e testi</a></li>
+          <li><a href="tasti.html">Tasti delle mod</a></li>
+          <li><a href="patch.html">Patch</a></li>
+          <li><a href="script.html">Script</a></li>
+          <li><a href="civilta.html">Civiltà</a></li>
+          <li><a href="modelli-citta.html">Modelli di città e villaggio</a></li>
+          <li><a href="unita.html">Unità nuove</a></li>
+          <li><a href="statistiche.html">Statistiche delle unità</a></li>
+          <li><a href="specialita.html">Specialità delle unità</a></li>
+          <li><a href="abilita.html">Abilità delle truppe</a></li>
+          <li><a href="oggetti.html">Oggetti nuovi</a></li>
+          <li><a href="formazioni.html">Formazioni nuove</a></li>
+          <li><a href="avamposti.html">Avamposti ed edifici</a></li>
+          <li><a href="modalita-vittoria.html">Modalità di vittoria</a></li>
+          <li><a href="opzioni.html">Opzioni di partita proprie</a></li>
+          <li><a href="mappe-casuali.html">Tipi di mappa casuale</a></li>
+          <li><a href="immagini.html">Immagini proprie</a></li>
+          <li><a href="grafica.html">Grafica propria</a></li>
+          <li><a href="validare.html">Validare una mod</a></li>
+          <li><a href="pubblicare.html">Pubblicare su GameBanana</a></li>
+          <li><a href="riferimento.html">Riferimento</a></li>
+          <li><a href="CAMBIAMENTI.html" aria-current="page">Cambiamenti</a></li>
+          <li><a href="LICENZA.html">Licenza</a></li>
+          <li><a href="funzioni-del-gioco.txt">Funzioni del gioco (.txt)</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../../sdk.html">&larr; Torna a Per i modder</a>
+    </aside>
+    <article class="doc">
+<h1 id="cambiamenti">Cambiamenti</h1>
+<p>Versione dell&#39;SDK e quali mod si possono fare con ognuna. La versione dell&#39;API degli script (<code>Mod_ApiVersion()</code>) è a parte: ora è la 7.</p>
+<h2 id="12">1.2</h2>
+<p>Richiede Imperivm Resurrected 0.32.10 o successiva.</p>
+<ul>
+<li><code>Mod_CanExecCmd(oggetto, comando)</code> (API 7): lo stesso controllo che fa il pulsante di un comando (l&#39;oggetto lo ha, non è disattivato e
+il suo verificatore lo accetta). Il menu dei trucchi elenca le truppe delle classi caricate, anche quelle delle mod (<code>edittree_pos</code> sotto
+<code>Units/</code>), e ricerca ciò che i pulsanti permettono, nell&#39;ordine dei loro requisiti e senza scegliere due opzioni di una scelta.</li>
+<li>Civiltà: <code>&quot;variant&quot;: true</code> dichiara una variante di una civiltà del gioco, con le stesse classi e un altro nome nella lobby;
+con <code>&quot;replacesBase&quot;: true</code> prende il posto della sua base nella lobby e nel sorteggio casuale.
+<code>GetPlayerRace</code> dà la base e <code>Mod_PlayerCiv(giocatore)</code> (API 7) quella scelta (<a href="civilta.html#varianti">Civiltà</a>). L&#39;interfaccia di una
+civiltà di mod (barre, angoli, icone rapide, schermata finale) è quella della sua base, non quella dei Galli. La costante degli script
+rispetta le maiuscole dell&#39;<code>id</code> (<code>RomeImperial</code>).</li>
+<li>Un <code>.bfhp</code> di <code>packs\</code> portato da una mod (per esempio <code>RandomMapSettlements.bfhp</code>, le città iniziali della mappa casuale) si usa
+davvero: il gioco lo apre in scrittura e prima teneva il suo.</li>
+<li>I file sciolti di <code>Local\&lt;lingua&gt;\</code> (testi, guida, consigli) si usano sempre: prima si perdevano se il gioco li leggeva prima di montare
+le mod.</li>
+<li>Mod vecchie: <code>riduci-mod.js</code> rispetta l&#39;ordine dei loro pacchetti, mette in <code>hidden.txt</code> ciò che toglievano dal gioco, scrive <code>rle.mmp.tail</code> se ampliano <code>rle.mmp</code> e <code>Local\&lt;lingua&gt;.pak</code> per i file di una lingua fuori da <code>currentlang\</code>, e trasforma <code>data\const.ini</code> in una patch senza <code>[Resolutions]</code>. Nuove opzioni <code>--escludi</code> e <code>--nascondi</code>. I filmati si cercano anche nei pacchetti.</li>
+<li>Nove categorie di GameBanana in tre tipi: Gameplay &amp; Balance, Units &amp; Heroes, Civilizations · Maps, Campaigns, Conquest · Graphics, Audio &amp; Voices, Translations. <code>Scenarios</code>, <code>Interface</code> e <code>Total Conversions</code> valgono ancora come Maps, Graphics e Gameplay &amp; Balance, ma il validatore chiede il nome nuovo.</li>
+<li>I tag servono solo per il filtro dei giocatori (<code>4 players</code>, <code>2-4 players</code>, nelle mappe) e per quello della lingua (<code>Spanish</code>…, in campagne, traduzioni e audio). <code>Gameplay</code>, <code>Cosmetic</code> e <code>Online tested</code> non servono più. Il validatore avvisa di una mappa senza giocatori e di una campagna, traduzione o audio senza lingua, e un tag sconosciuto ora è un avviso, non un errore.</li>
+<li>Il gestore non ha più il pulsante Pubblica: lo zip si fa a mano (vedi <a href="pubblicare.html">Pubblicare</a>).</li>
+<li>L&#39;ordine delle mod lo calcola il gioco (<a href="riferimento.html#1-struttura-di-una-mod">Riferimento</a>): non si ordina più a mano nel profilo, e il controllo del multiplayer non dipende dall&#39;ordine. La chiave di <code>imperivm-mod.ini</code> è <code>[Mods] Profile</code>.</li>
+</ul>
+<h2 id="11">1.1</h2>
+<p>Richiede Imperivm Resurrected 0.31.58 o successiva.</p>
+<ul>
+<li>I nomi dei campi di <code>mod.json</code>, <code>civs\*.json</code>, <code>specials\*.json</code> e <code>options\*.json</code> passano all&#39;inglese (<code>name</code>, <code>authors</code>, <code>description</code>, <code>tags</code>, <code>category</code>, <code>index</code>, <code>biome</code>, <code>template</code>, <code>letter</code>, <code>values</code>, <code>default</code>…). I nomi in spagnolo continuano a valere.</li>
+<li>Le direttive delle patch degli script (<code>.vs</code>) diventano <code>@top</code>, <code>@bottom</code>, <code>@before</code>, <code>@after</code>, <code>@replace</code> e <code>@end</code>. Le vecchie continuano a valere.</li>
+<li>Le chiavi di <code>imperivm-mod.ini</code> passano all&#39;inglese (<code>[Debug]</code>, <code>Dump</code>, <code>LogFiles</code>, <code>[Mods] Override</code>…). Il gioco rinomina le vecchie all&#39;avvio.</li>
+<li>Il registro passa a <code>Logs\imperivm\imperivm-mod.log</code> (il gioco cancella all&#39;avvio i file sciolti di <code>Logs\</code>). Le sue righe hanno un livello (<code>I</code>, <code>W</code>, <code>E</code>) e un&#39;etichetta (<code>patch</code>, <code>language</code>, <code>civilizations</code>, <code>specials</code>, <code>script</code>, <code>event</code>) al posto di un prefisso di testo come <code>Patch:</code>, e vengono conservate le ultime cinque sessioni. <code>LogLevel</code> e <code>LogChannels</code> in <code>[Debug]</code> di <code>imperivm-mod.ini</code> chiedono più dettagli. Il cuore nel menu principale crea un rapporto con i registri da condividere.</li>
+</ul>
+<h2 id="10">1.0</h2>
+<p>Richiede Imperivm Resurrected 0.29.5 o successivo.</p>
+<p>Una mod può, solo con file e senza compilare nulla:</p>
+<ul>
+<li>Cambiare qualsiasi file XML, INI o script del gioco con le patch, e sommare le modifiche di più mod.</li>
+<li>Aggiungere unità, con le loro statistiche, e grafica propria convertita da PNG.</li>
+<li>Aggiungere abilità di truppe ed eroi, e specialità.</li>
+<li>Aggiungere civiltà, con città e villaggio iniziali, la loro IA e i loro eroi.</li>
+<li>Aggiungere avamposti neutrali.</li>
+<li>Aggiungere oggetti.</li>
+<li>Aggiungere modalità di vittoria, con i loro limiti.</li>
+<li>Aggiungere opzioni di partita alla stanza: interruttori ed elenchi di valori.</li>
+<li>Aggiungere tipi di mappa casuale.</li>
+<li>Aggiungere formazioni da eroe.</li>
+<li>Aggiungere lingue e testi, comandi e pulsanti propri.</li>
+<li>Reagire a ciò che succede in partita con eventi di script e funzioni <code>Mod_*</code>.</li>
+</ul>
+<p>Strumenti: validare una mod, estrarre i dati del gioco, creare un&#39;unità, un oggetto, un&#39;abilità, una formazione o un&#39;opzione di partita, clonare una civiltà, creare un avamposto, modelli di città, tipi di mappa, convertire immagini e sprite, creare l&#39;entità di un&#39;unità o edificio, adattare una mod vecchia.</p>
+
+    </article>
+  </main>
+
+  <footer class="footer footer--light">
+    <div class="footer__id">
+      <a class="footer__logo" href="../../index.html" aria-label="Imperivm Resurrected"><img src="../../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Progetto non ufficiale della community.</p>
+    </div>
+    <nav class="footer__links" aria-label="Link">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../../credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Crediti</span></a>
+    </nav>
+    <a class="footer__back" href="../../sdk.html">Torna a Per i modder</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"it","equivalents":{"es":"../es/CAMBIOS.html","en":"../en/CHANGELOG.html","it":"CAMBIAMENTI.html"}};</script>
+<script src="../../js/sdk-guide.js"></script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/download.js"></script>
+<script src="../../js/motion.js"></script>
+<script src="../../js/support-data.js"></script>
+<script src="../../js/support.js"></script>
+</body>
+</html>

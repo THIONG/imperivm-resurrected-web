@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SDK di Imperivm Resurrected</title>
+<link rel="icon" href="../../img/statue.webp">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+<script src="../../js/theme.js"></script>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <a class="brand" href="../../index.html" aria-label="Imperivm Resurrected">
+      <img class="brand__emblem" src="../../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Principale">
+      <a href="../../guide.html">Guida e FAQ</a>
+      <a href="../../sdk.html" aria-current="page">Per i modder</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mods</a>
+      <div class="languages" role="group" aria-label="Lingua"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases/latest" data-download><span>Scarica</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main class="doc-layout">
+    <aside class="doc-nav" aria-label="Guide dell'SDK">
+      <p class="guide-index__title">Guide dell'SDK</p>
+      <ol>
+          <li><a href="README.html" aria-current="page">Panoramica</a></li>
+          <li><a href="lingue.html">Lingue e testi</a></li>
+          <li><a href="tasti.html">Tasti delle mod</a></li>
+          <li><a href="patch.html">Patch</a></li>
+          <li><a href="script.html">Script</a></li>
+          <li><a href="civilta.html">Civiltà</a></li>
+          <li><a href="modelli-citta.html">Modelli di città e villaggio</a></li>
+          <li><a href="unita.html">Unità nuove</a></li>
+          <li><a href="statistiche.html">Statistiche delle unità</a></li>
+          <li><a href="specialita.html">Specialità delle unità</a></li>
+          <li><a href="abilita.html">Abilità delle truppe</a></li>
+          <li><a href="oggetti.html">Oggetti nuovi</a></li>
+          <li><a href="formazioni.html">Formazioni nuove</a></li>
+          <li><a href="avamposti.html">Avamposti ed edifici</a></li>
+          <li><a href="modalita-vittoria.html">Modalità di vittoria</a></li>
+          <li><a href="opzioni.html">Opzioni di partita proprie</a></li>
+          <li><a href="mappe-casuali.html">Tipi di mappa casuale</a></li>
+          <li><a href="immagini.html">Immagini proprie</a></li>
+          <li><a href="grafica.html">Grafica propria</a></li>
+          <li><a href="validare.html">Validare una mod</a></li>
+          <li><a href="pubblicare.html">Pubblicare su GameBanana</a></li>
+          <li><a href="riferimento.html">Riferimento</a></li>
+          <li><a href="CAMBIAMENTI.html">Cambiamenti</a></li>
+          <li><a href="LICENZA.html">Licenza</a></li>
+          <li><a href="funzioni-del-gioco.txt">Funzioni del gioco (.txt)</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../../sdk.html">&larr; Torna a Per i modder</a>
+    </aside>
+    <article class="doc">
+<h1 id="sdk-di-imperivm-resurrected">SDK di Imperivm Resurrected</h1>
+<p><em>Traduzione non ancora rivista da un madrelingua: se trovi errori, segnalali.</em></p>
+<p><a href="../es/README.html">Español</a> · <a href="../en/README.html">English</a> · <strong>Italiano</strong></p>
+<p>Imperivm Resurrected è una mod per Imperivm HD (Great Battles of Rome) che permette di creare mod prima impossibili: civiltà nuove, abilità, oggetti, modalità di vittoria, lingue, script che reagiscono alla partita e altro. Qui trovi le guide e gli strumenti per farle. Ogni guida ha una mod di esempio in <span class="in-zip"><code>esempi/</code></span>.</p>
+<h2 id="parti-da-qui">Parti da qui</h2>
+<ol>
+<li>Installa Imperivm Resurrected: copia il suo contenuto nella cartella del gioco (<code>...\steamapps\common\Imperivm - Great Battles of Rome HD</code>) e avvia il gioco da Steam.</li>
+<li>Copia una cartella di <span class="in-zip"><code>esempi/</code></span> (per esempio <code>esempio-patch</code>) in <code>mods\</code>, dentro la cartella del gioco. Per partire da zero, usa <span class="in-zip"><code>modello-mod/</code></span>.</li>
+<li>Nel menu principale, pulsante <strong>Contenuti aggiuntivi</strong>: attiva la mod nel tuo profilo.</li>
+<li>Riavvia il gioco, se non si è riavviato da solo.</li>
+<li>Apri <code>Logs\imperivm\imperivm-mod.log</code>, nella cartella del gioco. Lì trovi gli errori della tua mod e cosa ha caricato.</li>
+</ol>
+<p>Prima di aprire il gioco, passa la mod dal <a href="validare.html">validatore</a>.</p>
+<h2 id="comè-fatta-una-mod">Com&#39;è fatta una mod</h2>
+<p>Una cartella dentro <code>mods\</code> con un <code>mod.json</code> e i file che cambia o aggiunge, con gli stessi percorsi che usa il gioco:</p>
+<pre><code>mods\
+  mi-mod\
+    mod.json
+    data\classes\MiUnidad.sc.xml     &lt;- file nuovo, o che sostituisce quello del gioco
+    loc\spanish.loc.xml              &lt;- testi che si sommano a quelli del gioco
+</code></pre>
+<p>Non inserire eseguibili né script di sistema (<code>.exe .dll .asi .bat .cmd .com .scr .ps1 .vbs .js .msi .sys .cpl .lnk .reg .jar .hta .wsf .pif</code>). Se ce n&#39;è uno, la mod non si carica. Vale anche un <code>.js</code> sciolto, come un tuo generatore.</p>
+<h2 id="modjson"><code>mod.json</code></h2>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;mi-mod&quot;,
+  &quot;name&quot;: {&quot;spanish&quot;: &quot;Mi mod&quot;, &quot;english&quot;: &quot;My mod&quot;, &quot;italian&quot;: &quot;Il mio mod&quot;},
+  &quot;version&quot;: &quot;1.0&quot;,
+  &quot;authors&quot;: [&quot;Yo&quot;],
+  &quot;description&quot;: {&quot;spanish&quot;: &quot;Qué hace mi mod.&quot;, &quot;english&quot;: &quot;What my mod does.&quot;},
+  &quot;category&quot;: &quot;Gameplay &amp; Balance&quot;,
+  &quot;redistributable&quot;: true
+}
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>A cosa serve</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code>, <code>name</code>, <code>version</code>, <code>authors</code>, <code>description</code></td>
+<td>La scheda della mod nel gestore. <code>name</code> e <code>description</code> valgono come testo singolo o come oggetto con un testo per lingua (si vede quello della lingua del gioco; se manca, l&#39;inglese; se manca, il primo).</td>
+</tr>
+<tr>
+<td><code>category</code>, <code>tags</code></td>
+<td>La categoria di GameBanana e, per mappe, campagne, traduzioni e audio, i tag dei giocatori o della lingua. Vedi <a href="pubblicare.html">Pubblicare</a>.</td>
+</tr>
+<tr>
+<td><code>redistributable</code></td>
+<td>Con <code>true</code>, l&#39;host di una stanza può inviare la mod a chi non ce l&#39;ha. Di default è <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>license</code></td>
+<td>Testo libero con la licenza.</td>
+</tr>
+<tr>
+<td><code>requires</code></td>
+<td>Le mod che servono: un elenco di id, o di oggetti <code>{&quot;id&quot;: &quot;...&quot;, &quot;version&quot;: &quot;...&quot;}</code>.</td>
+</tr>
+<tr>
+<td><code>incompatibleWith</code></td>
+<td>Elenco di id di mod con cui non si può attivare.</td>
+</tr>
+<tr>
+<td><code>loadAfter</code>, <code>loadBefore</code></td>
+<td>Ciò che chiedi all&#39;<a href="riferimento.html#1-struttura-di-una-mod">ordine di caricamento</a>, per id; il resto lo calcola il gioco. Con <code>loadAfter</code> la tua mod sta sopra quella: vincono i suoi file, patch e testi (tranne un file che l&#39;altra porta sciolto e la tua dentro un <code>.pak</code>: vince quello sciolto).</td>
+</tr>
+<tr>
+<td><code>sources</code></td>
+<td><code>{&quot;url&quot;: &quot;...&quot;, &quot;gamebanana&quot;: 123456}</code>. Lo scrive il gioco quando installi da Sfoglia contenuti; serve per avvisare delle versioni nuove.</td>
+</tr>
+<tr>
+<td><code>language</code></td>
+<td>Dichiara una lingua nuova. Vedi <a href="lingue.html">Lingue</a>.</td>
+</tr>
+<tr>
+<td><code>commands</code></td>
+<td>Nome di ogni file di comandi nella schermata Controlli. Vedi <a href="tasti.html">Tasti</a>.</td>
+</tr>
+</tbody></table></div>
+<blockquote>
+<p>Fino alla 0.31.50 i nomi di questi campi erano in spagnolo (<code>nombre</code>, <code>autores</code>, <code>descripcion</code>, <code>etiquetas</code>, <code>categoria</code>, <code>redistribuible</code>, <code>licencia</code>, <code>requiere</code>, <code>incompatibleCon</code>, <code>cargarDespuesDe</code>, <code>cargarAntesDe</code>, <code>fuentes</code>, <code>idioma</code>, <code>ordenes</code>…). I vecchi vengono ancora letti, ma scrivi i nuovi.</p>
+</blockquote>
+<h2 id="guide">Guide</h2>
+<ul>
+<li><a href="lingue.html">Lingue e testi</a>: cambiare i testi del gioco o aggiungere una lingua senza sostituire l&#39;intero file.</li>
+<li><a href="tasti.html">Tasti delle mod</a>: come compaiono i comandi della tua mod in Controlli e come chiamarli.</li>
+<li><a href="patch.html">Patch</a>: cambiare una parte di un XML, INI o script del gioco senza sostituirlo; due mod possono toccare lo stesso file.</li>
+<li><a href="script.html">Script</a>: script <code>.vs</code>, eventi e funzioni <code>Mod_...</code>.</li>
+<li><a href="civilta.html">Civiltà</a>: dichiarare una civiltà nuova o clonarne una del gioco, con la sua IA, e giocarci nella stanza.</li>
+<li><a href="modelli-citta.html">Modelli di città e villaggio</a>: città e villaggio iniziali propri per una civiltà di mod (<code>crea-modello.js</code>).</li>
+<li><a href="unita.html">Unità nuove</a>: classe, comando per reclutarla, immagini e testi, riusando il modello di un&#39;altra unità.</li>
+<li><a href="statistiche.html">Statistiche delle unità</a>: cosa tocca ogni attributo, quali non fanno nulla e quali bloccano il gioco.</li>
+<li><a href="specialita.html">Specialità delle unità</a>: specialità nuove e il loro effetto con gli script.</li>
+<li><a href="abilita.html">Abilità delle truppe</a>: abilità nuove per unità o eroi (comando con pulsante e tasto, più un metodo con script).</li>
+<li><a href="oggetti.html">Oggetti nuovi</a>: amuleti, erbe e gemme degli eroi.</li>
+<li><a href="formazioni.html">Formazioni nuove</a>: formazioni da eroe con i loro bonus e il loro pulsante.</li>
+<li><a href="avamposti.html">Avamposti ed edifici</a>: avamposti neutrali nuovi nelle mappe casuali (<code>crea-avamposto.js</code>) e classi di torri, mura e porte.</li>
+<li><a href="modalita-vittoria.html">Modalità di vittoria</a>: uno script in <code>data\GameScripts</code> aggiunge una modalità al menu a tendina &quot;Modalità&quot; della stanza.</li>
+<li><a href="opzioni.html">Opzioni di partita proprie</a>: interruttori nuovi nelle regole della stanza, che gli script leggono con <code>Mod_GetOption</code>.</li>
+<li><a href="mappe-casuali.html">Tipi di mappa casuale</a>: un disegno a quattro colori diventa un nuovo tipo di mappa (<code>crea-mappa-casuale.js</code>).</li>
+<li><a href="immagini.html">Immagini proprie</a>: pulsanti dei comandi e icone delle unità a partire da un PNG.</li>
+<li><a href="grafica.html">Grafica propria</a>: sprite propri per unità ed edifici (<code>converti-sprite.js</code>, <code>crea-entita.js</code>, <code>leggi-rle.js</code>).</li>
+<li><a href="validare.html">Validare una mod</a>: controllare una mod senza aprire il gioco, con file e riga di ogni errore.</li>
+<li><a href="pubblicare.html">Pubblicare su GameBanana</a>: categorie, tag, caricamento e mod fatte prima dell&#39;SDK.</li>
+<li><a href="riferimento.html">Riferimento</a>: l&#39;elenco completo di ciò che una mod può dichiarare (file, campi, patch, eventi, funzioni e limiti).</li>
+</ul>
+<h2 id="strumenti">Strumenti</h2>
+<p>Stanno in <code>strumenti\</code> e richiedono <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a>. Apri un terminale in questa cartella e lanciali da qui (<code>node strumenti\valida-mod.js ...</code>). Ognuno spiega come si usa se lo lanci senza argomenti, e la guida dell&#39;argomento lo mostra con degli esempi. I loro messaggi escono in italiano; per averli in spagnolo o in inglese, aggiungi <code>--lang es</code> o <code>--lang en</code>. Ogni strumento accetta le sue opzioni nelle tre lingue (<code>--nome</code>, <code>--name</code>, <code>--nombre</code>); le guide usano quelle della propria lingua.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Vuoi…</th>
+<th>Usa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Un&#39;unità nuova</td>
+<td><code>crea-unita.js</code> (<a href="unita.html">guida</a>)</td>
+</tr>
+<tr>
+<td>Un oggetto nuovo</td>
+<td><code>crea-oggetto.js</code> (<a href="oggetti.html">guida</a>)</td>
+</tr>
+<tr>
+<td>Un&#39;abilità nuova</td>
+<td><code>crea-abilita.js</code> (<a href="abilita.html">guida</a>)</td>
+</tr>
+<tr>
+<td>Una formazione nuova</td>
+<td><code>crea-formazione.js</code> (<a href="formazioni.html">guida</a>)</td>
+</tr>
+<tr>
+<td>Un&#39;opzione di partita</td>
+<td><code>crea-opzione.js</code> (<a href="opzioni.html">guida</a>)</td>
+</tr>
+<tr>
+<td>Una civiltà nuova</td>
+<td><code>clona-civilta.js</code> (<a href="civilta.html">guida</a>)</td>
+</tr>
+<tr>
+<td>Città e villaggio propri di una civiltà</td>
+<td><code>crea-modello.js</code> (<a href="modelli-citta.html">guida</a>)</td>
+</tr>
+<tr>
+<td>Un avamposto neutrale</td>
+<td><code>crea-avamposto.js</code> (<a href="avamposti.html">guida</a>)</td>
+</tr>
+<tr>
+<td>Un tipo di mappa casuale</td>
+<td><code>crea-mappa-casuale.js</code> (<a href="mappe-casuali.html">guida</a>)</td>
+</tr>
+<tr>
+<td>Pulsanti e icone da un PNG</td>
+<td><code>converti-immagine.js</code> (<a href="immagini.html">guida</a>)</td>
+</tr>
+<tr>
+<td>Sprite da PNG, e la scheda di un&#39;unità o edificio</td>
+<td><code>converti-sprite.js</code>, <code>crea-entita.js</code>, <code>leggi-rle.js</code> (<a href="grafica.html">guida</a>)</td>
+</tr>
+<tr>
+<td>Controllare una mod senza aprire il gioco</td>
+<td><code>valida-mod.js</code> (<a href="validare.html">guida</a>)</td>
+</tr>
+<tr>
+<td>Adattare una mod fatta prima dell&#39;SDK</td>
+<td><code>riduci-mod.js</code> (<a href="pubblicare.html">guida</a>)</td>
+</tr>
+<tr>
+<td>Estrarre i dati del gioco</td>
+<td><code>estrai-dati.js</code> (sotto)</td>
+</tr>
+</tbody></table></div>
+<h2 id="dati-del-gioco">Dati del gioco</h2>
+<p>Diversi strumenti chiedono la cartella <code>DATA</code> del gioco. La estrae <code>estrai-dati.js</code> (serve <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a>):</p>
+<pre><code>node strumenti/estrai-dati.js &quot;&lt;cartella del gioco&gt;&quot; &lt;cartella di output&gt;
+</code></pre>
+<p>Lascia <code>data.pak</code> in <code>&lt;cartella di output&gt;\DATA</code>. È la cartella che chiedono <code>clona-civilta.js</code>, <code>crea-avamposto.js</code> e <code>valida-mod.js --dati</code>.</p>
+<h2 id="cosa-conta-come-gameplay">Cosa conta come gameplay?</h2>
+<p>Nel multiplayer, tutti devono avere le stesse mod se cambiano ciò che succede in partita. Il gioco lo calcola dalle cartelle che la tua mod tocca: <code>data/</code>, <code>scenarios/</code>, <code>adventures/</code>, <code>conquests/</code>, <code>civs/</code>, <code>specials/</code>, <code>events/</code>, <code>options/</code>, <code>randommap/</code>, <code>randommapsettlements/</code>, i <code>.xml</code> e <code>.pass</code> di <code>units/</code>, <code>buildings/</code> e <code>mapobjects/</code>, gli <code>.xml</code> di <code>visuals/</code>, le mappe <code>.bfhp</code> di <code>packs/</code> e le patch (in base al file che correggono).</p>
+<p>Grafica, suoni, testi (<code>loc/</code>) e lingue non contano: ogni giocatore può avere i suoi.</p>
+<h2 id="se-qualcosa-non-va">Se qualcosa non va</h2>
+<p>Gli errori della tua mod compaiono nella sua scheda nel gestore e in <code>Logs\imperivm\imperivm-mod.log</code>. Ogni riga del registro ha l&#39;ora, un livello (<code>I</code> informazione, <code>W</code> avviso, <code>E</code> errore) e un&#39;etichetta con la parte della mod da cui viene: <code>patch</code>, <code>language</code>, <code>civilizations</code>, <code>specials</code>, <code>script</code>, <code>event</code>. Guarda prima le righe <code>W</code> ed <code>E</code> delle etichette della tua mod.</p>
+<p>Il registro conserva le ultime cinque sessioni (da <code>imperivm-mod.1.log</code> a <code>imperivm-mod.4.log</code>) e, se il gioco si è chiuso male, <code>imperivm-mod.crashed.log</code>. Per più dettagli su una parte, metti la sua etichetta e un livello in <code>[Debug]</code> di <code>imperivm-mod.ini</code>, per esempio <code>LogChannels=patch:debug</code>; <code>LogLevel=debug</code> lo fa per tutto.</p>
+<p>Per chiedere aiuto, clicca sul cuore in basso a sinistra del menu principale e poi <strong>Crea rapporto</strong>. Crea uno zip con i registri e il tuo sistema, senza il tuo nome utente di Windows, gli ID Steam né gli indirizzi IP, e non invia nulla: decidi tu se condividerlo.</p>
+<h2 id="versione-e-licenza">Versione e licenza</h2>
+<p>La versione dell&#39;SDK e le novità di ognuna sono in <a href="CAMBIAMENTI.html">CAMBIAMENTI</a>. La licenza, in <a href="LICENZA.html">LICENZA</a>.</p>
+
+    </article>
+  </main>
+
+  <footer class="footer footer--light">
+    <div class="footer__id">
+      <a class="footer__logo" href="../../index.html" aria-label="Imperivm Resurrected"><img src="../../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Progetto non ufficiale della community.</p>
+    </div>
+    <nav class="footer__links" aria-label="Link">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../../credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Crediti</span></a>
+    </nav>
+    <a class="footer__back" href="../../sdk.html">Torna a Per i modder</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"it","equivalents":{"es":"../es/README.html","en":"../en/README.html","it":"README.html"}};</script>
+<script src="../../js/sdk-guide.js"></script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/download.js"></script>
+<script src="../../js/motion.js"></script>
+<script src="../../js/support-data.js"></script>
+<script src="../../js/support.js"></script>
+</body>
+</html>

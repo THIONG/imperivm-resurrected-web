@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="title_guide">Guía y preguntas frecuentes — Imperivm Resurrected</title>
+<meta name="description" content="Instalar, actualizar y quitar Imperivm Resurrected, límites del online, contenido adicional, informe de fallos y dónde pedir ayuda." data-i18n-attr="content:desc_guide">
+<link rel="canonical" href="https://imperivmresurrected.com/guide.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Imperivm Resurrected">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Guía y preguntas frecuentes — Imperivm Resurrected">
+<meta property="og:description" content="Instalar, actualizar y quitar Imperivm Resurrected, límites del online, contenido adicional, informe de fallos y dónde pedir ayuda.">
+<meta property="og:url" content="https://imperivmresurrected.com/guide.html">
+<meta property="og:image" content="https://imperivmresurrected.com/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/statue.webp">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/theme.js"></script>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <a class="brand" href="index.html" aria-label="Imperivm Resurrected" data-i18n-attr="aria-label:brand_aria">
+      <img class="brand__emblem" src="img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Principal" data-i18n-attr="aria-label:nav_label">
+      <a href="guide.html" aria-current="page" data-i18n="nav_guide">Guía y FAQ</a>
+      <a href="sdk.html" data-i18n="nav_modders">Para modders</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mods</a>
+      <div class="languages" role="group" aria-label="Idioma" data-i18n-attr="aria-label:nav_language"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span data-i18n="nav_download">Descargar</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="guide-hero">
+      <div class="guide-hero__text">
+        <nav class="breadcrumbs" aria-label="Migas de pan" data-i18n-attr="aria-label:crumb_aria">
+          <a href="index.html" data-i18n="crumb_home">Inicio</a><span aria-hidden="true">/</span><span data-i18n="crumb_guide">Guía y preguntas frecuentes</span>
+        </nav>
+        <h1 class="headline" data-i18n-html="guide_title">Todo listo<br>para jugar.</h1>
+        <p class="hero__sub" data-i18n="guide_sub">Instalar, actualizar, quitar y qué hacer cuando algo falla.</p>
+      </div>
+      <div class="guide-hero__art" aria-hidden="true">
+        <span class="gridline gridline--v"></span>
+        <span class="gridline gridline--h"></span>
+        <span class="arc"></span>
+        <img class="shield" src="img/shield.webp" alt="" width="1060" height="1484">
+      </div>
+    </section>
+
+    <div class="guide-layout">
+
+      <aside class="guide-index" aria-label="Índice" data-i18n-attr="aria-label:toc_aria">
+        <p class="guide-index__title" data-i18n="toc_title">En esta guía</p>
+        <ol>
+          <li><a href="#install"><span>01</span><b data-i18n="toc1">Instalar</b></a></li>
+          <li><a href="#online"><span>02</span><b data-i18n="toc2">Jugar online</b></a></li>
+          <li><a href="#updating"><span>03</span><b data-i18n="toc3">Actualizar</b></a></li>
+          <li><a href="#remove"><span>04</span><b data-i18n="toc4">Quitar el mod</b></a></li>
+          <li><a href="#crashes"><span>05</span><b data-i18n="toc5">Si el juego se cierra</b></a></li>
+          <li><a href="#antivirus"><span>06</span><b data-i18n="toc6">Windows y antivirus</b></a></li>
+          <li><a href="#content"><span>07</span><b data-i18n="toc7">Contenido adicional</b></a></li>
+          <li><a href="#help"><span>08</span><b data-i18n="toc8">Pedir ayuda</b></a></li>
+        </ol>
+      </aside>
+
+      <div class="guide-content">
+
+        <section class="guide-section" id="install">
+          <div class="guide-section__head">
+            <span class="guide-section__number">01</span>
+            <div>
+              <h2 class="guide-section__title" data-i18n="install_heading">Instalar</h2>
+              <p class="guide-section__intro" data-i18n="install_intro">Necesitas Windows, Steam iniciado e Imperivm III HD instalado desde Steam. El mod no incluye ningún archivo del juego.</p>
+            </div>
+          </div>
+          <ol class="guide-steps">
+            <li data-i18n-html="guide_step1">Descarga el <code>.zip</code> de la última versión.</li>
+            <li data-i18n="guide_step2">Cierra el juego.</li>
+            <li data-i18n-html="guide_step3">En Steam, clic derecho sobre el juego, <em>Administrar</em> y <em>Ver archivos locales</em>. Se abre la carpeta donde está <code>gbr.exe</code>.</li>
+            <li data-i18n-html="guide_step4">Descomprime el zip en esa carpeta. Contiene <code>winmm.dll</code> y la carpeta <code>mod</code>. Acepta reemplazar si pregunta.</li>
+            <li data-i18n="guide_step5">Abre el juego desde Steam, con Steam iniciado.</li>
+          </ol>
+          <p class="guide-note" data-i18n-html="install_note">El mod está en pruebas (versiones 0.x). No hay instalador: la instalación son esos dos elementos. El archivo <code>imperivm-mod.ini</code>, con tus ajustes, se crea solo al primer arranque.</p>
+          <a class="guide-link" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span data-i18n="btn_download_mod">Descargar el mod</span> <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+        </section>
+
+        <section class="guide-section" id="online">
+          <div class="guide-section__head">
+            <span class="guide-section__number">02</span>
+            <div>
+              <h2 class="guide-section__title" data-i18n="online_title">Jugar online con amigos</h2>
+              <p class="guide-section__intro" data-i18n="online_intro">Todos con el juego en Steam, Steam iniciado y la misma versión del mod.</p>
+            </div>
+          </div>
+          <div class="guide-two">
+            <div>
+              <h3 data-i18n="online_create_title">Crear sala</h3>
+              <p data-i18n-html="online_create_text">En el menú principal, entra en <em>Multijugador</em> y crea una sala. Puedes ponerle contraseña e invitar a amigos de Steam.</p>
+            </div>
+            <div>
+              <h3 data-i18n="online_join_title">Unirse</h3>
+              <p data-i18n-html="online_join_text">El resto entra en la sala desde esa misma pantalla de <em>Multijugador</em>.</p>
+            </div>
+          </div>
+          <p class="guide-note" data-i18n-html="online_note">Si a alguien le falta el contenido adicional obligatorio o el mapa, lo descarga del anfitrión y el juego se reinicia.</p>
+        </section>
+
+        <section class="guide-section guide-section--faq" id="faq">
+          <h2 class="guide-faq-title" data-i18n="faq_title">Preguntas frecuentes.</h2>
+          <div class="faq">
+
+            <details class="faq__item" id="updating" name="faq">
+              <summary data-i18n="q_update">¿Cómo se actualiza el mod?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n="a_update">Unos segundos después de arrancar, el mod consulta si hay una versión nueva. Por defecto solo avisa: tú decides si descargarla, y se aplica al reiniciar el juego. Antes de ofrecerla comprueba la firma y el hash del paquete. Si la versión nueva no llega a abrir el menú en tres arranques seguidos, el mod restaura la anterior (queda guardada como <code>winmm.dll.previous</code>) y te avisa.</p>
+                <p data-i18n-html="a_update2">Puedes cambiar ese comportamiento en <code>imperivm-mod.ini</code>, sección <code>[Updates]</code>: <code>Mode=notify</code> avisa, <code>Mode=auto</code> descarga e instala, <code>Mode=off</code> no busca nada. Para actualizar a mano, con el juego cerrado, descomprime el zip nuevo encima de la instalación: el <code>.ini</code> se conserva.</p>
+              </div>
+            </details>
+
+            <details class="faq__item" id="remove" name="faq">
+              <summary data-i18n="q_remove">¿Cómo quito el mod?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n-html="a_remove">Cierra el juego y borra <code>winmm.dll</code> de la carpeta del juego. El juego vuelve a ser el original: el mod no modifica <code>gbr.exe</code>. Tus ajustes se quedan en <code>imperivm-mod.ini</code> y el contenido adicional en la carpeta <code>mods</code>, por si lo vuelves a instalar; bórralos si no los quieres. Para quitar solo un paquete de contenido, usa <em>Desinstalar</em> en <em>Contenido adicional</em>.</p>
+              </div>
+            </details>
+
+            <details class="faq__item" id="settings" name="faq">
+              <summary data-i18n="q_settings">¿Dónde se guardan mis ajustes?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n-html="a_settings">En <code>imperivm-mod.ini</code>, en la carpeta del juego. El zip no lo incluye, así que al actualizar se conservan. Ahí se cambia, por ejemplo, cada cuántos minutos se autoguarda (<code>AutosaveMinutes</code>, 10 por defecto) o se apaga la presencia en Discord (<code>Presence=0</code>).</p>
+              </div>
+            </details>
+
+            <details class="faq__item" id="crashes" name="faq">
+              <summary data-i18n="q_crash">El juego se cierra o falla. ¿Qué hago?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n-html="a_crash">Cierra el juego y crea el informe (siguiente pregunta). Apunta qué hacías justo antes del fallo. Los registros están en <code>Logs\imperivm\</code>, dentro de la carpeta del juego; el mod conserva las últimas cinco sesiones.</p>
+                <p data-i18n-html="a_crash2">Para saber si el causante es el mod, borra <code>winmm.dll</code> y repite lo que hacías. Si el juego original también se cierra, el fallo no es del mod. El mod ya corrige algunos cierres del juego original, como los del editor de mapas y los de ciertos scripts de mapa.</p>
+              </div>
+            </details>
+
+            <details class="faq__item" id="report" name="faq">
+              <summary data-i18n="q_report">¿Cómo creo el informe del jugador y qué lleva?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n-html="a_report">En el menú principal pulsa el corazón y después <em>Crear informe</em>. Se genera un zip en <code>Logs\imperivm\reports\</code> con los registros y datos de tu equipo (sistema y tarjeta gráfica). Tapa tu SteamID64, las direcciones IP, tu usuario de Windows y los nombres de Steam.</p>
+                <p data-i18n="a_report2">El mod no envía nada: el zip lo adjuntas tú donde pidas ayuda, y puedes abrirlo antes. Un límite: los nombres de jugadores de sesiones anteriores pueden quedar sin tapar (el propio informe lo avisa en una nota), así que mira el contenido antes de compartirlo.</p>
+              </div>
+            </details>
+
+            <details class="faq__item" id="antivirus" name="faq">
+              <summary data-i18n="q_av">¿Por qué Windows o el antivirus muestran un aviso?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n-html="a_av">El mod es el archivo <code>winmm.dll</code>: una DLL que el juego carga al arrancar. No está firmada con un certificado de editor de código (Authenticode) y no hay instalador, así que SmartScreen o tu antivirus pueden avisar o ponerla en cuarentena.</p>
+                <p data-i18n="a_av2">Las actualizaciones sí llevan una firma del proyecto, pero la comprueba el propio mod; no es la firma que Windows reconoce y no evita el aviso. El código es público en GitHub por si quieres revisarlo. Descarga solo desde la página de releases del repositorio y compara el SHA-256. Si no te fías, no lo instales: quitarlo es borrar un archivo. Si tu antivirus la pone en cuarentena y decides confiar, restaura el archivo y añade una excepción solo para ese archivo.</p>
+              </div>
+            </details>
+
+            <details class="faq__item" id="version" name="faq">
+              <summary data-i18n="q_version">¿Tengo que tener el mod para jugar online? ¿Y la misma versión?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n="a_version">Sí a las dos. Quien no tenga el mod no puede jugar en tus salas, y tampoco verlas como espectador. Todos tienen que llevar la misma versión y el mismo contenido de jugabilidad; el contenido solo estético, gráfico o de textos no cuenta. El protocolo de red cambia entre versiones, por eso no se mezclan.</p>
+              </div>
+            </details>
+
+            <details class="faq__item" id="ports" name="faq">
+              <summary data-i18n="q_ports">¿Tengo que abrir puertos o usar una VPN?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n="a_ports">No. Las partidas van por la red de Steam, sin abrir puertos. Todos necesitáis el juego en Steam y Steam iniciado.</p>
+              </div>
+            </details>
+
+            <details class="faq__item" id="limits" name="faq">
+              <summary data-i18n="q_limits">¿Qué límites tiene el online?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n="a_limits">Todos necesitan la misma versión del mod y el mismo contenido de jugabilidad para entrar en la misma sala.</p>
+                <p data-i18n="a_limits2">No hay búsqueda rápida de partida, clasificatorias, ranking ni servidor propio: se juega en salas, con amigos. Tampoco se garantiza el rendimiento en ordenadores lentos ni con la pantalla compartida en Discord.</p>
+              </div>
+            </details>
+
+            <details class="faq__item" id="spectator" name="faq">
+              <summary data-i18n="q_spec">¿Puedo ver una partida sin jugar?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n-html="a_spec">Sí, con el modo espectador. En <em>Multijugador</em>, las salas en juego muestran un botón <em>Ver</em>. La retransmisión va con retraso, 30 segundos por defecto, y trae una barra con pausa, saltos de 10 segundos, línea de tiempo, velocidades de x1 a x8 (solo si vas por detrás) y vuelta al directo.</p>
+                <p data-i18n="a_spec2">No se puede cambiar de jugador ni hay chat entre espectadores, y el espectador también necesita el mod en la misma versión. La misma barra sirve para repeticiones guardadas en tu equipo: saltar atrás recarga y avanza rápido, así que tarda.</p>
+              </div>
+            </details>
+
+            <details class="faq__item" id="rejoin" name="faq">
+              <summary data-i18n="q_rejoin">Si se me cae la conexión en plena partida, ¿puedo volver?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n-html="a_rejoin">Puedes intentarlo con el botón <em>Volver a la partida</em>: el jugador caído se reconecta sin que los demás salgan, y el juego se pausa unos segundos. No está garantizado. Lo decide el anfitrión, que puede rechazarlo (por ejemplo, si la IA ya controla tu puesto), y el juego original da por caído a quien pasa unos 30 segundos sin tráfico.</p>
+              </div>
+            </details>
+
+            <details class="faq__item" id="content" name="faq">
+              <summary data-i18n="q_content">¿Cómo funciona el contenido adicional, los perfiles y el catálogo?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n-html="a_content">El botón <em>Contenido adicional</em> del menú principal abre el gestor. Lista lo instalado, activa o desactiva cada paquete, muestra sus dependencias, abre la carpeta, instala un <code>.zip</code> a mano y desinstala (el paquete va a la papelera). Los perfiles guardan una combinación de paquetes activos: se guardan con otro nombre, se renombran y se borran. <em>Mi contenido</em> es el estado sin perfil. El orden de carga es automático.</p>
+                <p data-i18n-html="a_content2">La pestaña <em>Explorar contenido</em> es un catálogo de GameBanana: búsqueda, categorías, filtros por tipo, número de jugadores e idioma, dependencias, aviso de actualizaciones y un botón para actualizar todo. El gestor avisa si dos paquetes tocan los mismos archivos o se pisan valores, pero no resuelve el choque ni garantiza que paquetes de distintos autores sean compatibles. Un paquete que lleve ejecutables o scripts de sistema no se carga.</p>
+                <p data-i18n="a_content3">Los paquetes grandes pueden tardar en descargarse. En una sala, el contenido de jugabilidad tiene que ser el mismo para todos.</p>
+              </div>
+            </details>
+
+            <details class="faq__item" id="cheats" name="faq">
+              <summary data-i18n="q_cheats">¿Hay trucos?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n="a_cheats">Sí. Ctrl+T abre el panel de trucos: oro, comida, población, mapa, curar, ración, eliminar, nivel, aparecer tropas, investigar tecnologías y algunos más, también sobre varias unidades seleccionadas. En una partida online se sincronizan y exigen la misma versión en todos. No se pueden desactivar por sala, así que ponedlo de acuerdo antes de empezar.</p>
+              </div>
+            </details>
+
+            <details class="faq__item" id="help" name="faq">
+              <summary data-i18n="q_help">¿Dónde pido ayuda?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n-html="a_help">Abre una <a href="https://github.com/THIONG/imperivm-resurrected/issues/new/choose" target="_blank" rel="noopener">incidencia en GitHub</a> o pregunta en el <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener">Discord</a>, el servidor de la comunidad de editores de Imperivm III. Adjunta el zip del informe, la versión del mod y qué hacías cuando falló.</p>
+                <p data-i18n="a_help2">Es un proyecto de aficionados y no tiene soporte oficial. No está afiliado a FX Interactive ni a Haemimont Games.</p>
+              </div>
+            </details>
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <section class="guide-cta">
+      <h2 data-i18n="guide_cta">Descarga la última versión.</h2>
+      <a class="button button--white" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span data-i18n="btn_download_mod">Descargar el mod</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </section>
+
+  </main>
+
+  <footer class="footer footer--light">
+    <div class="footer__id">
+      <a class="footer__logo" href="index.html" aria-label="Imperivm Resurrected" data-i18n-attr="aria-label:brand_aria"><img src="img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p data-i18n="footer_unofficial">Proyecto no oficial de la comunidad.</p>
+    </div>
+    <nav class="footer__links" aria-label="Enlaces" data-i18n-attr="aria-label:footer_links_label">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span data-i18n="footer_credits">Créditos</span></a>
+    </nav>
+    <a class="footer__back" href="index.html" data-i18n="footer_back">Volver al inicio</a>
+  </footer>
+
+</div>
+
+<script src="js/i18n-guide.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/download.js"></script>
+<script>
+  (function () {
+    function openFromHash() {
+      var el = document.getElementById(location.hash.slice(1));
+      if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView(); }
+    }
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
+
+    var links = document.querySelectorAll('.guide-index a');
+    var targets = [];
+    for (var i = 0; i < links.length; i++) targets.push(document.getElementById(links[i].getAttribute('href').slice(1)));
+    function mark() {
+      var y = window.scrollY + window.innerHeight * 0.35, current = 0;
+      for (var i = 0; i < targets.length; i++) if (targets[i] && targets[i].getBoundingClientRect().top + window.scrollY <= y) current = i;
+      for (var j = 0; j < links.length; j++) {
+        if (j === current) links[j].setAttribute('aria-current', 'location'); else links[j].removeAttribute('aria-current');
+      }
+    }
+    window.addEventListener('scroll', mark, { passive: true });
+    window.addEventListener('resize', mark);
+    document.addEventListener('toggle', mark, true);
+    mark();
+  })();
+</script>
+<script src="js/motion.js"></script>
+<script src="js/support-data.js"></script>
+<script src="js/support.js"></script>
+</body>
+</html>
