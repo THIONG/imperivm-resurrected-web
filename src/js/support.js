@@ -75,27 +75,36 @@
         clearTimeout(copiedTimer);
         copiedTimer = setTimeout(function () { b.textContent = x.copy; b.classList.remove('support__copy--ok'); dlg.querySelector('.support__status').textContent = ''; }, 1600);
       };
+      var fallback = function () { if (fallbackCopy(text)) ready(); };
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(ready, function () { fallbackCopy(text); ready(); });
-      } else { fallbackCopy(text); ready(); }
+        navigator.clipboard.writeText(text).then(ready, fallback);
+      } else { fallback(); }
     }
     function fallbackCopy(text) {
-      var a = document.createElement('textarea');
+      var a = document.createElement('textarea'), done = false;
       a.value = text; a.setAttribute('readonly', ''); a.style.position = 'fixed'; a.style.opacity = '0';
       document.body.appendChild(a); a.select();
-      try { document.execCommand('copy'); } catch (e) { }
+      try { done = document.execCommand('copy'); } catch (e) { }
       document.body.removeChild(a);
+      return done;
     }
 
-    var openDialog = function () { if (typeof dlg.showModal === 'function') { if (!dlg.open) dlg.showModal(); } else dlg.setAttribute('open', ''); };
+    var native = typeof dlg.showModal === 'function';
+    var openDialog = function () { if (native) { if (!dlg.open) dlg.showModal(); } else dlg.setAttribute('open', ''); };
+    var closeDialog = function () { if (typeof dlg.close === 'function') dlg.close(); else dlg.removeAttribute('open'); };
     button.addEventListener('click', openDialog);
     if (headerButton) headerButton.addEventListener('click', openDialog);
     dlg.addEventListener('click', function (e) {
-      if (e.target === dlg) { dlg.close(); return; }
+      if (e.target === dlg) {
+        var r = dlg.getBoundingClientRect();
+        if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) closeDialog();
+        return;
+      }
       var c = e.target.closest('button.support__copy');
       if (c) { copy(c.getAttribute('data-value'), c); return; }
-      if (e.target.closest('.support__close')) dlg.close();
+      if (e.target.closest('.support__close')) closeDialog();
     });
+    document.addEventListener('keydown', function (e) { if (!native && e.key === 'Escape' && dlg.hasAttribute('open')) closeDialog(); });
 
     render();
     document.addEventListener('language-change', render);

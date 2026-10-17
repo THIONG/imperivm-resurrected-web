@@ -17,12 +17,12 @@
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   var RULES = [
-    { sel: '.hero__text, .guide-hero__text, .dl-hero__text', kind: 'hero', children: true },
-    { sel: '.hero__art, .guide-hero__art, .dl-hero__panel', kind: 'fade', delay: 2 },
+    { sel: '.hero__text, .guide-hero__text', kind: 'hero', children: true },
+    { sel: '.hero__art, .guide-hero__art', kind: 'fade', delay: 2 },
     { sel: '.statue, .shield, .exploded', kind: 'img', delay: 3 },
     { sel: '.panorama img', kind: 'zoom' },
     { sel: '.section-title, .guide-faq-title, .closing-title, .band, .guide-cta', kind: 'rise' },
-    { sel: '.block__body, .table-wrap--tools, .spec-sheet', kind: 'rise' },
+    { sel: '.block__body, .table-wrap--tools', kind: 'rise' },
     { sel: '.toc > .row, .three > div, .faq__item, .guide-section', kind: 'rise', stagger: true },
     { sel: '.closing__text', kind: 'rise', children: true },
     { sel: '.doc > h1', kind: 'rise' }

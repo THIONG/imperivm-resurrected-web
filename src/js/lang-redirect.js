@@ -2,7 +2,8 @@
   'use strict';
 
   var LANGUAGES = ['es', 'en', 'it'];
-  if (document.documentElement.lang !== 'es' || window.GUIDE) return;
+  if (document.documentElement.lang !== 'es') return;
+  if (/[?&]lang=/.test(location.search)) return;
   if (/bot|crawl|spider|slurp|bing|google|yandex|baidu|duckduck|facebookexternalhit|preview/i.test(navigator.userAgent)) return;
 
   var wanted = null;

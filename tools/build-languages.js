@@ -18,16 +18,13 @@ const escapeText = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace
 const escapeAttr = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 
 function loadDictionaries() {
-  const text = read(path.join(SRC, 'js', 'i18n.js'));
-  const open = '  var T = ';
-  const start = text.indexOf(open);
-  const end = text.indexOf('\n  };\n', start);
-  if (start < 0 || end < 0) throw new Error('Could not find the dictionary in js/i18n.js');
-  const T = vm.runInNewContext('(' + text.slice(start + open.length, end + 4) + ')');
+  const box = { window: {} };
+  vm.runInNewContext(read(path.join(SRC, 'js', 'dictionary.js')), box);
+  const T = box.window.TRANSLATIONS;
   for (const file of ['i18n-guide.js', 'i18n-sdk.js', 'i18n-credits.js']) {
-    const box = { window: {} };
-    vm.runInNewContext(read(path.join(SRC, 'js', file)), box);
-    const extra = box.window.EXTRA_TRANSLATIONS || {};
+    const extraBox = { window: {} };
+    vm.runInNewContext(read(path.join(SRC, 'js', file)), extraBox);
+    const extra = extraBox.window.EXTRA_TRANSLATIONS || {};
     for (const id of Object.keys(extra)) {
       if (!T[id]) continue;
       Object.assign(T[id], extra[id]);
@@ -78,13 +75,13 @@ function seoHead(html, lang, page) {
   html = html.replace(/<meta property="og:locale(?::alternate)?" content="[^"]*">\n/g, '');
   const alternates = ALL.map((l) => '<link rel="alternate" hreflang="' + l + '" href="' + pageUrl(l, page) + '">').join('\n') +
     '\n<link rel="alternate" hreflang="x-default" href="' + pageUrl('en', page) + '">\n';
-  html = html.replace(/<link rel="canonical" href="[^"]*">\n/, '<link rel="canonical" href="' + url + '">\n' + alternates);
+  html = html.replace(/<link rel="canonical" href="[^"]*">\n/, () => '<link rel="canonical" href="' + url + '">\n' + alternates);
   const locales = '<meta property="og:locale" content="' + LOCALE[lang] + '">\n' +
     ALL.filter((l) => l !== lang).map((l) => '<meta property="og:locale:alternate" content="' + LOCALE[l] + '">\n').join('');
-  html = html.replace(/(<meta property="og:site_name"[^>]*>\n)/, '$1' + locales);
-  html = html.replace(/<meta property="og:title" content="[^"]*">/, '<meta property="og:title" content="' + title.replace(/"/g, '&quot;') + '">');
-  html = html.replace(/<meta property="og:description" content="[^"]*">/, '<meta property="og:description" content="' + description + '">');
-  html = html.replace(/<meta property="og:url" content="[^"]*">/, '<meta property="og:url" content="' + url + '">');
+  html = html.replace(/(<meta property="og:site_name"[^>]*>\n)/, (m) => m + locales);
+  html = html.replace(/<meta property="og:title" content="[^"]*">/, () => '<meta property="og:title" content="' + title.replace(/"/g, '&quot;') + '">');
+  html = html.replace(/<meta property="og:description" content="[^"]*">/, () => '<meta property="og:description" content="' + description + '">');
+  html = html.replace(/<meta property="og:url" content="[^"]*">/, () => '<meta property="og:url" content="' + url + '">');
   return html;
 }
 

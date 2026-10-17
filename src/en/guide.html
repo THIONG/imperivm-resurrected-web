@@ -21,8 +21,13 @@
 <meta property="og:image" content="https://www.imperivmresurrected.com/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Imperivm Resurrected">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="../img/statue.webp">
+<meta name="twitter:image" content="https://www.imperivmresurrected.com/img/og-image.png">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="../img/favicon-64.png">
 <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +36,7 @@
 <script src="../js/theme.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#content" data-i18n="skip_content">Skip to content</a>
 <div class="page">
 
   <header class="header">
@@ -47,7 +53,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="content">
 
     <section class="guide-hero">
       <div class="guide-hero__text">
@@ -67,7 +73,7 @@
 
     <div class="guide-layout">
 
-      <aside class="guide-index" aria-label="Contents" data-i18n-attr="aria-label:toc_aria">
+      <nav class="guide-index" aria-label="Contents" data-i18n-attr="aria-label:toc_aria">
         <p class="guide-index__title" data-i18n="toc_title">In this guide</p>
         <ol>
           <li><a href="#install"><span>01</span><b data-i18n="toc1">Install</b></a></li>
@@ -79,7 +85,7 @@
           <li><a href="#content"><span>07</span><b data-i18n="toc7">Additional content</b></a></li>
           <li><a href="#help"><span>08</span><b data-i18n="toc8">Get help</b></a></li>
         </ol>
-      </aside>
+      </nav>
 
       <div class="guide-content">
 
@@ -262,7 +268,6 @@
 
 </div>
 
-<script src="../js/i18n-guide.js"></script>
 <script src="../js/i18n.js"></script>
 <script src="../js/download.js"></script>
 <script>
@@ -293,5 +298,6 @@
 <script src="../js/motion.js"></script>
 <script src="../js/support-data.js"></script>
 <script src="../js/support.js"></script>
+<script src="../js/menu.js"></script>
 </body>
 </html>

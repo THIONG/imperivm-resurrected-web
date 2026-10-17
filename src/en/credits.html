@@ -21,8 +21,13 @@
 <meta property="og:image" content="https://www.imperivmresurrected.com/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Imperivm Resurrected">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="../img/statue.webp">
+<meta name="twitter:image" content="https://www.imperivmresurrected.com/img/og-image.png">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="../img/favicon-64.png">
 <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +36,7 @@
 <script src="../js/theme.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#content" data-i18n="skip_content">Skip to content</a>
 <div class="page">
 
   <header class="header">
@@ -47,17 +53,17 @@
     </nav>
   </header>
 
-  <main>
+  <main id="content">
     <section class="block" id="credits">
       <div class="credits__lead">
         <h1 class="section-title" data-i18n="credits_heading">Credits.</h1>
         <p class="credits__intro" data-i18n="credits_lead">Who did what, and where each piece comes from.</p>
-        <div class="credits__logo" aria-hidden="true"><img class="credits__isotype" src="../img/isotype.webp" alt="" width="480" height="443"><img class="credits__logotype credits__logotype--day" src="../img/logotype.webp" alt="" width="960" height="212"><img class="credits__logotype credits__logotype--night" src="../img/logotype-light.webp" alt="" width="960" height="212"></div>
+        <div class="credits__logo" aria-hidden="true"><img loading="lazy" decoding="async" class="credits__isotype" src="../img/isotype.webp" alt="" width="480" height="443"><img loading="lazy" decoding="async" class="credits__logotype credits__logotype--day" src="../img/logotype.webp" alt="" width="960" height="212"><img loading="lazy" decoding="async" class="credits__logotype credits__logotype--night" src="../img/logotype-light.webp" alt="" width="960" height="212"></div>
       </div>
       <div class="block__body">
 
         <div class="credits__group">
-          <h3 class="guide-mini" data-i18n="credits_g_project">The project</h3>
+          <h2 class="guide-mini" data-i18n="credits_g_project">The project</h2>
           <ul class="credits__list">
           <li><a href="https://github.com/THIONG" target="_blank" rel="noopener">THIONG</a><span class="credits__what" data-i18n="credits_thiong_what">Code, design and maintenance.</span></li>
           <li><a href="https://github.com/iiTzSenn" target="_blank" rel="noopener">iiTzSenn</a><span class="credits__what" data-i18n="credits_thiong_what">Code, design and maintenance.</span></li>
@@ -66,13 +72,13 @@
         </div>
 
         <div id="supporters" hidden>
-          <h3 class="guide-mini" data-i18n="credits_g_supporters">People who have supported the project</h3>
+          <h2 class="guide-mini" data-i18n="credits_g_supporters">People who have supported the project</h2>
           <ul class="supporters__list" id="supporters-list"></ul>
           <p class="prose hash-note" data-i18n="credits_supporters_note">Listed with their permission.</p>
         </div>
 
         <div class="credits__group">
-          <h3 class="guide-mini" data-i18n="credits_g_based">Built on</h3>
+          <h2 class="guide-mini" data-i18n="credits_g_based">Built on</h2>
           <ul class="credits__list">
           <li><a href="https://github.com/AlvaroPeyleth/Imperivm-Syncrash" target="_blank" rel="noopener">Syncrash</a><span class="credits__what" data-i18n="credits_syncrash_what">AlvaroPeyleth. Basis of the game crash protection.</span><span class="credits__tag">MIT</span></li>
           <li><a href="https://github.com/Upercat/ImperivmVoicesPatch" target="_blank" rel="noopener">ImperivmVoicesPatch</a><span class="credits__what" data-i18n="credits_voices_what">Upercat. Reference on the game voices.</span></li>
@@ -80,7 +86,7 @@
         </div>
 
         <div class="credits__group">
-          <h3 class="guide-mini" data-i18n="credits_g_third">Third-party software</h3>
+          <h2 class="guide-mini" data-i18n="credits_g_third">Third-party software</h2>
           <ul class="credits__list">
           <li><a href="https://github.com/TsudaKageyu/minhook" target="_blank" rel="noopener">MinHook</a><span class="credits__what" data-i18n="credits_minhook_what">Tsuda Kageyu. Hooking game functions, with HDE by Vyacheslav Patkov.</span><span class="credits__tag">BSD-2</span></li>
           <li><a href="https://miniaud.io" target="_blank" rel="noopener">miniaudio</a><span class="credits__what" data-i18n="credits_miniaudio_what">David Reid. Modern audio, with stb_vorbis by Sean Barrett.</span><span class="credits__tag">MIT-0</span></li>
@@ -90,7 +96,7 @@
         </div>
 
         <div class="credits__group">
-          <h3 class="guide-mini" data-i18n="credits_g_licenses">Licenses</h3>
+          <h2 class="guide-mini" data-i18n="credits_g_licenses">Licenses</h2>
           <ul class="credits__list">
           <li><a href="https://github.com/THIONG/imperivm-resurrected/blob/main/LICENSE" target="_blank" rel="noopener"><span data-i18n="credits_l_mod">The mod</span></a><span class="credits__what" data-i18n="credits_l_mod_what">GPL-3.0 or later, with an exception for Steamworks (a draft with no legal review).</span></li>
           <li><a href="https://github.com/THIONG/imperivm-resurrected/tree/main/sdk" target="_blank" rel="noopener"><span data-i18n="credits_l_sdk">The SDK</span></a><span class="credits__what" data-i18n="credits_l_sdk_what">Code MIT, guides CC BY-SA 4.0.</span></li>
@@ -120,12 +126,12 @@
 
 </div>
 
-<script src="../js/i18n-credits.js"></script>
 <script src="../js/i18n.js"></script>
 <script src="../js/download.js"></script>
 <script src="../js/motion.js"></script>
 <script src="../js/support-data.js"></script>
 <script src="../js/support.js"></script>
+<script src="../js/menu.js"></script>
 <script src="../js/supporters-data.js"></script>
 <script src="../js/supporters.js"></script>
 </body>

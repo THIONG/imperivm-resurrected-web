@@ -6,7 +6,8 @@
 <base href="/">
 <title data-i18n="title_notfound">Página no encontrada — Imperivm Resurrected</title>
 <meta name="robots" content="noindex">
-<link rel="icon" href="img/statue.webp">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +16,7 @@
 <script src="js/theme.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#content" data-i18n="skip_content">Saltar al contenido</a>
 <div class="page">
 
   <header class="header">
@@ -31,7 +33,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="content">
     <section class="block block--cards">
       <h1 class="section-title" data-i18n="notfound_title">No hay nada aquí.</h1>
       <div class="block__body">
@@ -57,10 +59,12 @@
 
 </div>
 
+<script src="js/dictionary.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/download.js"></script>
 <script src="js/motion.js"></script>
 <script src="js/support-data.js"></script>
 <script src="js/support.js"></script>
+<script src="js/menu.js"></script>
 </body>
 </html>
