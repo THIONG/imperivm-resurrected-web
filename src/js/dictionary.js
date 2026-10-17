@@ -1,7 +1,7 @@
 window.TRANSLATIONS = {
     en: {
       title_home: `Imperivm Resurrected: History never ends`,
-      desc_home: `Play Imperivm III HD online through Steam, with no port forwarding or VPN. Additional content, spectator mode and fixes. A free, unofficial mod.`,
+      desc_home: `Play Imperivm III HD online through Steam, with no port forwarding or VPN. Built-in mod browser, one-click install, spectator mode and fixes.`,
       brand_aria: `Imperivm Resurrected, home`,
       nav_label: `Main`, nav_guide: `Guide and FAQ`, nav_modders: `For modders`, nav_content: `Mods`, nav_download: `Download`, nav_language: `Language`,
       notfound_title: `Nothing here.`,
@@ -56,7 +56,7 @@ window.TRANSLATIONS = {
 
     it: {
       title_home: `Imperivm Resurrected: La storia non finisce`,
-      desc_home: `Gioca a Imperivm III HD online tramite Steam, senza aprire porte né VPN. Contenuti aggiuntivi, modalità spettatore e correzioni. Mod gratuita e non ufficiale.`,
+      desc_home: `Gioca a Imperivm III HD online tramite Steam, senza aprire porte né VPN. Browser di mod integrato, installazione con un clic, modalità spettatore e correzioni.`,
       brand_aria: `Imperivm Resurrected, home`,
       nav_label: `Principale`, nav_guide: `Guida e FAQ`, nav_modders: `Per i modder`, nav_content: `Mod`, nav_download: `Scarica`, nav_language: `Lingua`,
       notfound_title: `Qui non c'è niente.`,
