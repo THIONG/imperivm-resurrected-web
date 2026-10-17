@@ -26,6 +26,15 @@ node tools/build-languages.js
 
 `node tools/build-languages.js --check` only reports whether the generated pages are up to date.
 
+## Checks
+
+Every push and pull request runs GitHub Actions (`.github/workflows/ci.yml`): the generated pages must be up to date, and `tools/check.js` verifies script syntax, that there are no comments, that every translation key exists in English and Italian, and that internal links and anchors resolve. To run it locally:
+
+```
+npm install --no-save acorn@8.14.0
+node tools/check.js
+```
+
 ## Run it locally
 
 Any static server works:
