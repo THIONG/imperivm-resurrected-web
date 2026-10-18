@@ -109,6 +109,7 @@
 </ol>
 <p>El aviso de versión nueva solo le llega a quien instaló el mod desde Explorar contenido (eso escribe <code>sources.gamebanana</code> en su <code>mod.json</code>, o <code>sources.gamebananaSound</code> si viene de Sounds), o a quien tenga un mod con el mismo <code>id</code> que la entrada. Quien descargue el zip a mano y lo descomprima no recibe aviso.</p>
 <h2 id="categorías">Categorías</h2>
+<p><strong>En resumen:</strong> en GameBanana eliges <strong>una categoría</strong>, la que mejor describe el mod en general. Todo lo demás que trae va en <strong>etiquetas</strong> <code>Type</code>, <code>Players</code> y <code>Language</code>: pon todas las que le correspondan, y solo esas.</p>
 <p>GameBanana deja una sola por mod: elige la de lo que más hace. Si tu mod hace más cosas, por ejemplo uno grande que trae civilizaciones y mapas, añade las demás con etiquetas <code>Type</code> (ver <a href="#etiquetas">Etiquetas</a>) y saldrá en todas. Son nueve, en los tres tipos que distingue el juego. El tipo no lo decide la categoría sino los archivos del mod (ver <a href="README.html#qué-cuenta-como-jugabilidad">¿Qué cuenta como jugabilidad?</a>); la categoría sirve para encontrarlo en Explorar contenido.</p>
 <div class="table-wrap"><table>
 <thead>
@@ -234,7 +235,7 @@
 <td><code>Language: Spanish</code></td>
 </tr>
 </tbody></table></div>
-<p>Escríbelas en inglés tal cual, en <code>tags</code> de tu <code>mod.json</code> (por ejemplo <code>&quot;tags&quot;: [&quot;Type: Scenarios&quot;, &quot;Players: 2-4&quot;]</code>) y en el campo <strong>Tags</strong> de GameBanana: el juego las enseña en el idioma de cada jugador. Las demás etiquetas que pongas, como <code>Software Used: Blender</code>, el juego no las usa para filtrar, pero tampoco molestan.</p>
+<p>Escríbelas en inglés tal cual, en <code>tags</code> de tu <code>mod.json</code> (por ejemplo <code>&quot;tags&quot;: [&quot;Type: Scenarios&quot;, &quot;Players: 2-4&quot;]</code>) y en el campo <strong>Tags</strong> de GameBanana: el juego las enseña en el idioma de cada jugador. Pon solo estas tres: el juego no usa ninguna otra, y el validador te avisa si hay alguna más.</p>
 <p>Un escenario sin <code>Players</code> no sale al filtrar por jugadores, y una aventura, traducción o audio sin <code>Language</code> no sale al filtrar por idioma. Lo mismo vale para las categorías de <code>Type</code>: un mod con <code>Type: Scenarios</code> necesita <code>Players</code> para salir al filtrar por jugadores.</p>
 <p>Las formas sin título de versiones anteriores (<code>4 players</code>, <code>Spanish</code>) siguen funcionando, pero el validador te pide la nueva. Las etiquetas <code>Gameplay</code>, <code>Cosmetic</code> y <code>Online tested</code> ya no hacen falta: si un mod cambia la jugabilidad, el juego lo sabe por sus archivos.</p>
 <h2 id="mods-hechos-antes-de-imperivm-resurrected">Mods hechos antes de Imperivm Resurrected</h2>
