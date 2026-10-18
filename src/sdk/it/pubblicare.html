@@ -81,35 +81,35 @@
 <p>Le mod di Imperivm Resurrected si pubblicano su <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener">https://gamebanana.com/games/26069</a>. La scheda <strong>Sfoglia contenuti</strong> del gestore dei contenuti legge quella pagina: cerca, filtra, mostra la scheda e installa con un clic. Perché la tua mod compaia lì con il suo tipo e i suoi filtri, segui questi passi.</p>
 <h2 id="prima-di-caricarla">Prima di caricarla</h2>
 <ol>
-<li><p>Scrivi la categoria nel tuo <code>mod.json</code> (una della tabella più sotto). Se è una mappa, una campagna, una traduzione o un pacchetto audio, aggiungi anche i suoi tag:</p>
+<li><p>Scrivi la categoria nel tuo <code>mod.json</code> (una della tabella più sotto) e, se serve, i suoi <a href="#tag">tag</a>: altre categorie se la tua mod fa più cose, i giocatori se è uno scenario e la lingua se è un&#39;avventura, una traduzione o un pacchetto audio:</p>
 <pre><code class="language-json">{
   &quot;id&quot;: &quot;duelo-en-el-nilo&quot;,
   &quot;name&quot;: &quot;Duelo en el Nilo&quot;,
   &quot;version&quot;: &quot;1.0&quot;,
   &quot;authors&quot;: [&quot;Il tuo nome&quot;],
-  &quot;category&quot;: &quot;Maps&quot;,
-  &quot;tags&quot;: [&quot;2 players&quot;]
+  &quot;category&quot;: &quot;Scenarios&quot;,
+  &quot;tags&quot;: [&quot;Players: 2&quot;]
 }
 </code></pre>
 </li>
-<li><p>Passala dal <a href="validare.html">validatore</a>. Ti avvisa se la categoria non è tra quelle che il gioco riconosce o ha un nome vecchio, se a una mappa mancano i giocatori e se a una campagna, traduzione o audio manca la lingua.</p>
+<li><p>Passala dal <a href="validare.html">validatore</a>. Ti avvisa se la categoria non è tra quelle che il gioco riconosce o ha un nome vecchio, se un tag è scritto male, se a uno scenario mancano i giocatori e se a un&#39;avventura, traduzione o audio manca la lingua.</p>
 </li>
 <li><p>Crea lo <code>.zip</code> della cartella della mod, con il suo <code>mod.json</code> dentro. Non metterci eseguibili né script di sistema (<code>.exe .dll .asi .bat .cmd .com .scr .ps1 .vbs .js .msi .sys .cpl .lnk .reg .jar .hta .wsf .pif</code>): una mod che ne contiene uno non si carica.</p>
 </li>
 </ol>
 <h2 id="su-gamebanana">Su GameBanana</h2>
 <ol>
-<li>Vai su <strong>Add → Mod</strong> dalla pagina del gioco (<code>https://gamebanana.com/mods/add?_idGameRow=26069</code>). Sempre su <strong>Mod</strong>: quello che carichi come Sound, Tool o Script non compare nel gioco.</li>
+<li>Vai su <strong>Add → Mod</strong> dalla pagina del gioco (<code>https://gamebanana.com/mods/add?_idGameRow=26069</code>). L&#39;audio è l&#39;eccezione: va su <strong>Add → Sound</strong> (<code>https://gamebanana.com/sounds/add?_idGameRow=26069</code>). Quello che carichi come Tool o Script non compare nel gioco.</li>
 <li><strong>Category</strong>: la stessa del tuo <code>mod.json</code>.</li>
-<li><strong>Tags</strong>: gli stessi tag, scritti allo stesso modo.</li>
+<li><strong>Tags</strong>: gli stessi tag. Ognuno ha un titolo e un valore: in <code>Type: Civilizations</code> il titolo è <code>Type</code> e il valore <code>Civilizations</code>. Non bisogna crearli prima: si scrivono in ogni mod.</li>
 <li><strong>Files</strong>: il tuo <code>.zip</code>, e nel campo <strong>Version</strong> la stessa versione del <code>mod.json</code>. Ogni nuova versione è un file nuovo: non sostituire il precedente, perché chi gioca online con la versione vecchia ne ha ancora bisogno.</li>
-<li><strong>Requirements</strong>: se la tua mod ne richiede un&#39;altra, collega la sua pagina (<code>https://gamebanana.com/mods/...</code>). Il gioco la installa insieme.</li>
+<li><strong>Requirements</strong>: se la tua mod ne richiede un&#39;altra, collega la sua pagina (<code>https://gamebanana.com/mods/...</code>, o <code>https://gamebanana.com/sounds/...</code> se è audio). Il gioco la installa insieme.</li>
 <li>Almeno uno screenshot. Il primo è l&#39;immagine che si vede nel gioco.</li>
 <li>Per le note di versione, pubblica un <strong>Update</strong> con la versione come titolo (per esempio <code>1.1</code>). Il gioco lo mostra accanto a quella versione.</li>
 </ol>
-<p>L&#39;avviso di nuova versione arriva solo a chi ha installato la mod da Sfoglia contenuti (questo scrive <code>sources.gamebanana</code> nel suo <code>mod.json</code>), o a chi ha una mod con lo stesso <code>id</code> della voce. Chi scarica lo zip a mano e lo decomprime non riceve l&#39;avviso.</p>
+<p>L&#39;avviso di nuova versione arriva solo a chi ha installato la mod da Sfoglia contenuti (questo scrive <code>sources.gamebanana</code> nel suo <code>mod.json</code>, o <code>sources.gamebananaSound</code> se viene da Sounds), o a chi ha una mod con lo stesso <code>id</code> della voce. Chi scarica lo zip a mano e lo decomprime non riceve l&#39;avviso.</p>
 <h2 id="categorie">Categorie</h2>
-<p>Una per mod: quella di ciò che la mod fa di più. Sono nove, nei tre tipi che il gioco distingue. Il tipo non lo decide la categoria ma i file della mod (vedi <a href="README.html#cosa-conta-come-gameplay">Cosa conta come gameplay?</a>); la categoria serve a trovarla in Sfoglia contenuti.</p>
+<p>GameBanana ne consente una sola per mod: scegli quella di ciò che la mod fa di più. Se la tua mod fa altre cose, per esempio una grande che porta civiltà e mappe, aggiungi le altre con tag <code>Type</code> (vedi <a href="#tag">Tag</a>) e comparirà in tutte. Sono nove, nei tre tipi che il gioco distingue. Il tipo non lo decide la categoria ma i file della mod (vedi <a href="README.html#cosa-conta-come-gameplay">Cosa conta come gameplay?</a>); la categoria serve a trovarla in Sfoglia contenuti.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -129,7 +129,7 @@
 </tr>
 <tr>
 <td><strong>Gameplay &amp; Balance</strong></td>
-<td>Regole e bilanciamento</td>
+<td>Gameplay e bilanciamento</td>
 <td>Regole, statistiche, costi, IA; anche le mod grosse che cambiano tutto il gioco</td>
 <td><code>data\</code>, patch</td>
 <td><span class="in-zip">esempio-patch</span>, <span class="in-zip">esempio-script</span>, <span class="in-zip">ordini-propri</span></td>
@@ -156,22 +156,22 @@
 <td></td>
 </tr>
 <tr>
-<td><strong>Maps</strong></td>
-<td>Mappe</td>
+<td><strong>Scenarios</strong></td>
+<td>Scenari</td>
 <td>Mappe per schermaglia e multigiocatore</td>
 <td><code>scenarios\MiMapa.bfhp</code></td>
 <td><span class="in-zip">esempio-mappa-casuale</span></td>
 </tr>
 <tr>
-<td><strong>Campaigns</strong></td>
-<td>Battaglie e campagne</td>
-<td>Battaglie per giocatore singolo con storia e obiettivi, singole o concatenate</td>
+<td><strong>Adventures</strong></td>
+<td>Avventure</td>
+<td>Grandi battaglie, sfide e campagne per giocatore singolo, con storia e obiettivi</td>
 <td><code>adventures\</code></td>
 <td></td>
 </tr>
 <tr>
-<td><strong>Conquest</strong></td>
-<td>Conquista</td>
+<td><strong>Conquests</strong></td>
+<td>Conquiste</td>
 <td>Mappe e partite di Conquista</td>
 <td><code>conquests\</code></td>
 <td></td>
@@ -185,7 +185,7 @@
 </tr>
 <tr>
 <td><strong>Graphics</strong></td>
-<td>Grafica e interfaccia</td>
+<td>Grafica</td>
 <td>Texture, aspetto delle unità, terreno, menu, icone, font</td>
 <td>i percorsi dei pacchetti del gioco, <code>menuini\</code></td>
 <td></td>
@@ -193,43 +193,50 @@
 <tr>
 <td><strong>Audio &amp; Voices</strong></td>
 <td>Audio e voci</td>
-<td>Musica, suoni e voci</td>
+<td>Musica, suoni e voci. Si pubblica nella sezione <strong>Sounds</strong> di GameBanana, non in Mods</td>
 <td><code>sounds\</code>, <code>currentlang\voices\</code></td>
 <td></td>
 </tr>
 <tr>
 <td><strong>Translations</strong></td>
-<td>Testi e traduzioni</td>
+<td>Traduzioni</td>
 <td>Il gioco o una mod in un&#39;altra lingua, testi cambiati</td>
 <td><code>loc\</code></td>
 <td><span class="in-zip">lingua-francese</span>, <span class="in-zip">testi-propri</span></td>
 </tr>
 </tbody></table></div>
-<p>Per le categorie senza esempio (mappe, campagne, grafica, audio) basta copiare il file nella sua cartella, con lo stesso nome se sostituisce uno del gioco.</p>
-<p><strong>Nomi vecchi.</strong> Su GameBanana esiste ancora la categoria <strong>Scenarios</strong>: non usarla (il gioco la mostra come Mappe). Un <code>mod.json</code> con <code>Scenarios</code>, <code>Interface</code> o <code>Total Conversions</code> funziona ancora come Maps, Graphics e Gameplay &amp; Balance, ma il validatore ti chiede il nome nuovo.</p>
+<p>Per le categorie senza esempio (avventure, conquiste, grafica, audio) basta copiare il file nella sua cartella, con lo stesso nome se sostituisce uno del gioco.</p>
+<p><strong>Mappe sciolte.</strong> Se lo <code>.zip</code> contiene solo il <code>.bfhp</code>, senza cartelle, il gioco lo sistema da solo durante l&#39;installazione secondo il tipo indicato dalla mappa stessa (quello scelto dal suo autore nell&#39;editor): un&#39;avventura va in <code>adventures\</code> (con la sua <code>.bmp</code> dello stesso nome), una conquista in <code>conquests\</code> e una mappa da schermaglia in <code>scenarios\</code>, oppure in <code>adventures\</code> se la categoria è Adventures (missioni per giocatore singolo fatte come mappa normale). In ogni caso è meglio caricarla già nella sua cartella; il <a href="validare.html">validatore</a> avvisa se una mappa è in quella sbagliata, per esempio un&#39;avventura in <code>scenarios\</code>, che la lista degli Scenari non mostra.</p>
+<p><strong>Nomi vecchi.</strong> Scenari, Avventure e Conquiste si chiamano come le cartelle del gioco (<code>scenarios\</code>, <code>adventures\</code>, <code>conquests\</code>). Prima erano **Maps**, **Campaigns** e **Conquest**: un <code>mod.json</code> con quei nomi, o con <code>Interface</code> o <code>Total Conversions</code>, funziona ancora, ma il validatore ti chiede il nome nuovo.</p>
 <h2 id="tag">Tag</h2>
-<p>Servono solo in due casi: sono i filtri di giocatori e lingua di Sfoglia contenuti.</p>
+<p>Ogni tag ha un titolo e un valore. Il gioco ne usa tre:</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
-<th>Categoria</th>
 <th>Tag</th>
-<th>Filtro nel gioco</th>
+<th>A cosa serve</th>
+<th>Esempio</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Maps</td>
-<td><code>4 players</code>, o un intervallo come <code>2-4 players</code> (da 2 a 8)</td>
-<td>Giocatori</td>
+<td><code>Type: &lt;categoria&gt;</code></td>
+<td>Altre categorie, oltre a quella principale. Un tag per categoria</td>
+<td><code>Type: Civilizations</code>, <code>Type: Scenarios</code></td>
 </tr>
 <tr>
-<td>Campaigns, Audio &amp; Voices, Translations</td>
-<td><code>Spanish</code>, <code>English</code>, <code>Italian</code>, <code>German</code>, <code>French</code>, <code>Polish</code> o <code>Multilingual</code> (puoi metterne più di uno)</td>
-<td>Lingua</td>
+<td><code>Players: &lt;giocatori&gt;</code></td>
+<td>Giocatori di uno scenario, da 2 a 8. Puoi metterne più di uno</td>
+<td><code>Players: 4</code>, <code>Players: 2-4</code></td>
+</tr>
+<tr>
+<td><code>Language: &lt;lingua&gt;</code></td>
+<td>Lingua di un&#39;avventura, una traduzione o un pacchetto audio: <code>Spanish</code>, <code>English</code>, <code>Italian</code>, <code>German</code>, <code>French</code>, <code>Polish</code> o <code>Multilingual</code>. Puoi metterne più di uno</td>
+<td><code>Language: Italian</code></td>
 </tr>
 </tbody></table></div>
-<p>Scrivili così come sono, in inglese, nei <code>tags</code> del tuo <code>mod.json</code> e nel campo <strong>Tags</strong> di GameBanana: il gioco li mostra nella lingua di ogni giocatore. Capisce anche altre forme comuni (<code>2v2</code>, <code>4 giocatori</code>, <code>Italiano</code>), ma così vai sul sicuro. Una mappa senza tag dei giocatori non compare filtrando per giocatori, e una campagna, traduzione o audio senza lingua non compare filtrando per lingua.</p>
-<p>I tag <code>Gameplay</code>, <code>Cosmetic</code> e <code>Online tested</code> delle versioni precedenti non servono più: se una mod cambia il gameplay, il gioco lo capisce dai suoi file.</p>
+<p>Scrivili così come sono, in inglese, nei <code>tags</code> del tuo <code>mod.json</code> (per esempio <code>&quot;tags&quot;: [&quot;Type: Scenarios&quot;, &quot;Players: 2-4&quot;]</code>) e nel campo <strong>Tags</strong> di GameBanana: il gioco li mostra nella lingua di ogni giocatore. Gli altri tag che metti, come <code>Software Used: Blender</code>, il gioco non li usa per filtrare, ma non danno fastidio.</p>
+<p>Uno scenario senza <code>Players</code> non compare filtrando per giocatori, e un&#39;avventura, traduzione o audio senza <code>Language</code> non compare filtrando per lingua. Lo stesso vale per le categorie di <code>Type</code>: una mod con <code>Type: Scenarios</code> ha bisogno di <code>Players</code> per comparire filtrando per giocatori.</p>
+<p>Le forme senza titolo delle versioni precedenti (<code>4 players</code>, <code>Spanish</code>) funzionano ancora, ma il validatore chiede quella nuova. I tag <code>Gameplay</code>, <code>Cosmetic</code> e <code>Online tested</code> non servono più: se una mod cambia il gameplay, il gioco lo capisce dai suoi file.</p>
 <h2 id="mod-fatte-prima-di-imperivm-resurrected">Mod fatte prima di Imperivm Resurrected</h2>
 <p>Le mod di prima si installavano copiandole sopra il gioco: contengono interi pacchetti <code>.pak</code> che sostituiscono quelli del gioco, e quasi tutto ciò che portano sono file del gioco non modificati. Convertile in modo che contengano solo ciò che cambiano o aggiungono:</p>
 <pre><code>node strumenti/riduci-mod.js &lt;vecchio mod&gt; &lt;cartella del gioco&gt; &lt;nuova cartella&gt; --id mi-mod --nome &quot;Mi mod&quot; --versione 1.0 --categoria &quot;Gameplay &amp; Balance&quot;

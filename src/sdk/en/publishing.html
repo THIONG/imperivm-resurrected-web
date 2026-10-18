@@ -81,35 +81,35 @@
 <p>Imperivm Resurrected mods are published at <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener">https://gamebanana.com/games/26069</a>. The <strong>Browse content</strong> tab in the content manager reads that page: search, filter, view a mod&#39;s page and install with one click. To make your mod show up under the right type and filters, follow these steps.</p>
 <h2 id="before-you-upload">Before you upload</h2>
 <ol>
-<li><p>Set the category in your <code>mod.json</code> (one from the table below). If it&#39;s a map, a campaign, a translation or an audio pack, add its tags too:</p>
+<li><p>Set the category in your <code>mod.json</code> (one from the table below) and, if needed, its <a href="#tags">tags</a>: more categories if your mod does several things, the players if it&#39;s a scenario and the language if it&#39;s an adventure, a translation or an audio pack:</p>
 <pre><code class="language-json">{
   &quot;id&quot;: &quot;duelo-en-el-nilo&quot;,
   &quot;name&quot;: &quot;Duelo en el Nilo&quot;,
   &quot;version&quot;: &quot;1.0&quot;,
   &quot;authors&quot;: [&quot;Your name&quot;],
-  &quot;category&quot;: &quot;Maps&quot;,
-  &quot;tags&quot;: [&quot;2 players&quot;]
+  &quot;category&quot;: &quot;Scenarios&quot;,
+  &quot;tags&quot;: [&quot;Players: 2&quot;]
 }
 </code></pre>
 </li>
-<li><p>Run it through the <a href="validating.html">validator</a>. It warns you if the category isn&#39;t one the game recognizes or uses an old name, if a map has no players tag, and if a campaign, translation or audio pack has no language tag.</p>
+<li><p>Run it through the <a href="validating.html">validator</a>. It warns you if the category isn&#39;t one the game recognizes or uses an old name, if a tag is badly written, if a scenario has no players tag, and if an adventure, translation or audio pack has no language tag.</p>
 </li>
 <li><p>Zip the mod folder, with its <code>mod.json</code> inside. Don&#39;t include executables or system scripts (<code>.exe .dll .asi .bat .cmd .com .scr .ps1 .vbs .js .msi .sys .cpl .lnk .reg .jar .hta .wsf .pif</code>): a mod containing any of them won&#39;t load.</p>
 </li>
 </ol>
 <h2 id="on-gamebanana">On GameBanana</h2>
 <ol>
-<li>Go to <strong>Add → Mod</strong> from the game&#39;s page (<code>https://gamebanana.com/mods/add?_idGameRow=26069</code>). Always <strong>Mod</strong>: anything uploaded as Sound, Tool or Script won&#39;t show up in the game.</li>
+<li>Go to <strong>Add → Mod</strong> from the game&#39;s page (<code>https://gamebanana.com/mods/add?_idGameRow=26069</code>). Audio is the exception: it goes in <strong>Add → Sound</strong> (<code>https://gamebanana.com/sounds/add?_idGameRow=26069</code>). Anything uploaded as Tool or Script won&#39;t show up in the game.</li>
 <li><strong>Category</strong>: the same one as in your <code>mod.json</code>.</li>
-<li><strong>Tags</strong>: the same tags, written the same way.</li>
+<li><strong>Tags</strong>: the same tags. Each one has a title and a value: in <code>Type: Civilizations</code> the title is <code>Type</code> and the value <code>Civilizations</code>. You don&#39;t have to create them first: they are written in each mod.</li>
 <li><strong>Files</strong>: your <code>.zip</code>, and in the <strong>Version</strong> field the same version as in <code>mod.json</code>. Every new version is a new file: don&#39;t replace the old one, because anyone playing online with the old version still needs it.</li>
-<li><strong>Requirements</strong>: if your mod needs another one, link its page (<code>https://gamebanana.com/mods/...</code>). The game installs it along with yours.</li>
+<li><strong>Requirements</strong>: if your mod needs another one, link its page (<code>https://gamebanana.com/mods/...</code>, or <code>https://gamebanana.com/sounds/...</code> for audio). The game installs it along with yours.</li>
 <li>At least one screenshot. The first one is the image shown in the game.</li>
 <li>For the changelog, post an <strong>Update</strong> with the version as its title (for example <code>1.1</code>). The game shows it next to that version.</li>
 </ol>
-<p>Only people who installed the mod from Browse content (that writes <code>sources.gamebanana</code> into their <code>mod.json</code>) get the new-version notice, or people with a mod that has the same <code>id</code> as the entry. If someone downloads the zip by hand and unzips it, they get no notice.</p>
+<p>Only people who installed the mod from Browse content (that writes <code>sources.gamebanana</code> into their <code>mod.json</code>, or <code>sources.gamebananaSound</code> if it comes from Sounds) get the new-version notice, or people with a mod that has the same <code>id</code> as the entry. If someone downloads the zip by hand and unzips it, they get no notice.</p>
 <h2 id="categories">Categories</h2>
-<p>One per mod: pick the one it does the most for. There are nine, in the three kinds the game tells apart. The kind isn&#39;t decided by the category but by the mod&#39;s files (see <a href="README.html#what-counts-as-gameplay">What counts as gameplay?</a>); the category is how people find it in Browse content.</p>
+<p>GameBanana allows only one per mod: pick the one it does the most for. If your mod does more, for example a large one that brings civilizations and maps, add the others with <code>Type</code> tags (see <a href="#tags">Tags</a>) and it will show up in all of them. There are nine, in the three kinds the game tells apart. The kind isn&#39;t decided by the category but by the mod&#39;s files (see <a href="README.html#what-counts-as-gameplay">What counts as gameplay?</a>); the category is how people find it in Browse content.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -129,7 +129,7 @@
 </tr>
 <tr>
 <td><strong>Gameplay &amp; Balance</strong></td>
-<td>Rules and balance</td>
+<td>Gameplay &amp; Balance</td>
 <td>Rules, stats, costs, AI; also big mods that change the whole game</td>
 <td><code>data\</code>, patches</td>
 <td><span class="in-zip">patches-example</span>, <span class="in-zip">scripts-example</span>, <span class="in-zip">custom-orders</span></td>
@@ -156,22 +156,22 @@
 <td></td>
 </tr>
 <tr>
-<td><strong>Maps</strong></td>
-<td>Maps</td>
+<td><strong>Scenarios</strong></td>
+<td>Scenarios</td>
 <td>Maps for skirmish and multiplayer</td>
 <td><code>scenarios\MiMapa.bfhp</code></td>
 <td><span class="in-zip">random-map-example</span></td>
 </tr>
 <tr>
-<td><strong>Campaigns</strong></td>
-<td>Battles and campaigns</td>
-<td>Single-player battles with a story and objectives, on their own or chained</td>
+<td><strong>Adventures</strong></td>
+<td>Adventures</td>
+<td>Great battles, challenges and single-player campaigns, with a story and objectives</td>
 <td><code>adventures\</code></td>
 <td></td>
 </tr>
 <tr>
-<td><strong>Conquest</strong></td>
-<td>Conquest</td>
+<td><strong>Conquests</strong></td>
+<td>Conquests</td>
 <td>Conquest maps and games</td>
 <td><code>conquests\</code></td>
 <td></td>
@@ -185,7 +185,7 @@
 </tr>
 <tr>
 <td><strong>Graphics</strong></td>
-<td>Graphics and interface</td>
+<td>Graphics</td>
 <td>Textures, unit looks, terrain, menus, icons, fonts</td>
 <td>the game&#39;s package paths, <code>menuini\</code></td>
 <td></td>
@@ -193,43 +193,50 @@
 <tr>
 <td><strong>Audio &amp; Voices</strong></td>
 <td>Audio &amp; Voices</td>
-<td>Music, sounds and voices</td>
+<td>Music, sounds and voices. Published in GameBanana&#39;s <strong>Sounds</strong> section, not in Mods</td>
 <td><code>sounds\</code>, <code>currentlang\voices\</code></td>
 <td></td>
 </tr>
 <tr>
 <td><strong>Translations</strong></td>
-<td>Texts and translations</td>
+<td>Translations</td>
 <td>The game or a mod in another language, changed texts</td>
 <td><code>loc\</code></td>
 <td><span class="in-zip">french-language</span>, <span class="in-zip">custom-texts</span></td>
 </tr>
 </tbody></table></div>
-<p>For the categories without an example (maps, campaigns, graphics, sound), just copy the file into its folder, with the same name if it replaces a game file.</p>
-<p><strong>Old names.</strong> GameBanana still has a <strong>Scenarios</strong> category: don&#39;t use it (the game shows it as Maps). A <code>mod.json</code> with <code>Scenarios</code>, <code>Interface</code> or <code>Total Conversions</code> still works as Maps, Graphics and Gameplay &amp; Balance, but the validator asks for the new name.</p>
+<p>For the categories without an example (adventures, conquests, graphics, sound), just copy the file into its folder, with the same name if it replaces a game file.</p>
+<p><strong>Loose maps.</strong> If the <code>.zip</code> only holds the <code>.bfhp</code>, with no folders, the game places it by itself when installing, by the kind the map itself states (what its author chose in the editor): an adventure goes to <code>adventures\</code> (with its <code>.bmp</code> of the same name), a conquest to <code>conquests\</code> and a skirmish map to <code>scenarios\</code>, or to <code>adventures\</code> if the category is Adventures (single-player missions made as a normal map). Even so, it is better to upload it already inside its folder; the <a href="validating.html">validator</a> warns when a map is in the wrong one, for example an adventure in <code>scenarios\</code>, which the Scenarios list doesn&#39;t show.</p>
+<p><strong>Old names.</strong> Scenarios, Adventures and Conquests are named after the game&#39;s folders (<code>scenarios\</code>, <code>adventures\</code>, <code>conquests\</code>). They used to be **Maps**, **Campaigns** and **Conquest**: a <code>mod.json</code> with those names, or with <code>Interface</code> or <code>Total Conversions</code>, still works, but the validator asks for the new name.</p>
 <h2 id="tags">Tags</h2>
-<p>They&#39;re only needed in two cases: they are the players and language filters of Browse content.</p>
+<p>Each tag has a title and a value. The game uses three:</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
-<th>Category</th>
 <th>Tag</th>
-<th>Filter in the game</th>
+<th>What for</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Maps</td>
-<td><code>4 players</code>, or a range like <code>2-4 players</code> (2 to 8)</td>
-<td>Players</td>
+<td><code>Type: &lt;category&gt;</code></td>
+<td>More categories, besides the main one. One tag per category</td>
+<td><code>Type: Civilizations</code>, <code>Type: Scenarios</code></td>
 </tr>
 <tr>
-<td>Campaigns, Audio &amp; Voices, Translations</td>
-<td><code>Spanish</code>, <code>English</code>, <code>Italian</code>, <code>German</code>, <code>French</code>, <code>Polish</code> or <code>Multilingual</code> (you can add several)</td>
-<td>Language</td>
+<td><code>Players: &lt;players&gt;</code></td>
+<td>Players of a scenario, from 2 to 8. You can add several</td>
+<td><code>Players: 4</code>, <code>Players: 2-4</code></td>
+</tr>
+<tr>
+<td><code>Language: &lt;language&gt;</code></td>
+<td>Language of an adventure, a translation or an audio pack: <code>Spanish</code>, <code>English</code>, <code>Italian</code>, <code>German</code>, <code>French</code>, <code>Polish</code> or <code>Multilingual</code>. You can add several</td>
+<td><code>Language: English</code></td>
 </tr>
 </tbody></table></div>
-<p>Write them exactly as shown, in English, in the <code>tags</code> of your <code>mod.json</code> and in GameBanana&#39;s <strong>Tags</strong> field: the game displays them in each player&#39;s language. It also understands other common forms (<code>2v2</code>, <code>4 jugadores</code>, <code>Español</code>), but this way you&#39;re sure. A map without a players tag doesn&#39;t show up when filtering by players, and a campaign, translation or audio pack without a language doesn&#39;t show up when filtering by language.</p>
-<p>The <code>Gameplay</code>, <code>Cosmetic</code> and <code>Online tested</code> tags of earlier versions are no longer needed: whether a mod changes gameplay, the game knows from its files.</p>
+<p>Write them exactly as shown, in English, in the <code>tags</code> of your <code>mod.json</code> (for example <code>&quot;tags&quot;: [&quot;Type: Scenarios&quot;, &quot;Players: 2-4&quot;]</code>) and in GameBanana&#39;s <strong>Tags</strong> field: the game displays them in each player&#39;s language. Any other tags you add, like <code>Software Used: Blender</code>, aren&#39;t used by the game for filtering, but they do no harm.</p>
+<p>A scenario without <code>Players</code> doesn&#39;t show up when filtering by players, and an adventure, translation or audio pack without <code>Language</code> doesn&#39;t show up when filtering by language. The same goes for the categories in <code>Type</code>: a mod with <code>Type: Scenarios</code> needs <code>Players</code> to show up when filtering by players.</p>
+<p>The forms without a title from earlier versions (<code>4 players</code>, <code>Spanish</code>) still work, but the validator asks for the new one. The <code>Gameplay</code>, <code>Cosmetic</code> and <code>Online tested</code> tags are no longer needed: whether a mod changes gameplay, the game knows from its files.</p>
 <h2 id="mods-made-before-imperivm-resurrected">Mods made before Imperivm Resurrected</h2>
 <p>Older mods were installed by copying them over the game: they ship whole <code>.pak</code> packages that replace the game&#39;s ones, and most of what&#39;s inside is untouched game files. Convert them so they contain only what they change or add:</p>
 <pre><code>node tools/shrink-mod.js &lt;old mod&gt; &lt;game folder&gt; &lt;new folder&gt; --id mi-mod --name &quot;Mi mod&quot; --version 1.0 --category &quot;Gameplay &amp; Balance&quot;

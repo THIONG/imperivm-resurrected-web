@@ -1,7 +1,7 @@
 window.SDK_INDEX = {
- "version": "1.2",
- "requires": "0.32.10",
- "zip": "imperivm-resurrected-sdk-1.2.zip",
+ "version": "1.4",
+ "requires": "0.32.20",
+ "zip": "imperivm-resurrected-sdk-1.4.zip",
  "languages": {
   "es": {
    "guides": {
