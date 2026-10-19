@@ -70,7 +70,8 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 8px); }
+html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: calc(var(--header-height) + 8px); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {

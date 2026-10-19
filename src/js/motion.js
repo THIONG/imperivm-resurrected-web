@@ -3,8 +3,6 @@
 
   var root = document.documentElement;
 
-  if (document.querySelector('.hero__text') && 'scrollRestoration' in history) history.scrollRestoration = 'manual';
-
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   var RULES = [
