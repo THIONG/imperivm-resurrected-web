@@ -34,7 +34,7 @@ After editing text, run `node tools/build-languages.js` to regenerate the Englis
 
 ## SDK guides
 
-Everything in `src/sdk/` is generated from the SDK docs, which live elsewhere, so edits there get overwritten. If a guide has a mistake, open an issue with the guide name and the line.
+Everything in `src/sdk/` is generated from the `sdk/` folder of the mod repository (`tools/build-sdk.js`), so edits here get overwritten. To fix a guide, change it in the mod repository, or open an issue with the guide name and the line.
 
 ## Before opening the pull request
 

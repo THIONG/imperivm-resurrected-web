@@ -4,6 +4,23 @@
   "installCommand": null,
   "buildCommand": null,
   "outputDirectory": "src",
+  "redirects": [
+    {
+      "source": "/sdk/en/:path*",
+      "destination": "/sdk/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/sdk/es/:path*",
+      "destination": "/sdk/README.html",
+      "permanent": true
+    },
+    {
+      "source": "/sdk/it/:path*",
+      "destination": "/sdk/README.html",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

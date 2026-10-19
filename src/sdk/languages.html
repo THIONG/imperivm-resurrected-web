@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Languages and texts — SDK</title>
+<meta name="description" content="Start from the translation template , an empty mod with the folders this guide uses.">
+<link rel="canonical" href="https://www.imperivmresurrected.com/sdk/languages.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Imperivm Resurrected">
+<meta property="og:title" content="Languages and texts — SDK">
+<meta property="og:description" content="Start from the translation template , an empty mod with the folders this guide uses.">
+<meta property="og:url" content="https://www.imperivmresurrected.com/sdk/languages.html">
+<meta property="og:image" content="https://www.imperivmresurrected.com/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="../img/favicon-64.png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<script src="../js/theme.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="page">
+
+<header class="header">
+    <a class="brand" href="../en/" aria-label="Imperivm Resurrected, home">
+      <img class="brand__emblem" src="../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Main">
+      <a href="../en/guide.html">Guide and FAQ</a>
+      <a href="../en/sdk.html" aria-current="page">For modders</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener">Mods</a>
+      <div class="languages" role="group" aria-label="Language"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span>Download</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main id="content" class="doc-layout">
+    <aside class="doc-nav" aria-label="SDK guides">
+      <p class="guide-index__title">SDK guides</p>
+      <ol>
+          <li><a href="README.html">Overview</a></li>
+          <li><a href="languages.html" aria-current="page">Languages and texts</a></li>
+          <li><a href="keys.html">Mod keys</a></li>
+          <li><a href="patches.html">Patches</a></li>
+          <li><a href="scripts.html">Scripts</a></li>
+          <li><a href="civilizations.html">Civilizations</a></li>
+          <li><a href="city-templates.html">City and village templates</a></li>
+          <li><a href="units.html">New units</a></li>
+          <li><a href="stats.html">Unit stats</a></li>
+          <li><a href="specials.html">Unit specials</a></li>
+          <li><a href="abilities.html">Troop abilities</a></li>
+          <li><a href="items.html">New items</a></li>
+          <li><a href="formations.html">New formations</a></li>
+          <li><a href="outposts.html">Outposts and buildings</a></li>
+          <li><a href="victory-modes.html">Victory modes</a></li>
+          <li><a href="bonuses.html">Starting bonuses</a></li>
+          <li><a href="options.html">Custom game options</a></li>
+          <li><a href="maps.html">Scenarios, adventures and conquests</a></li>
+          <li><a href="audio.html">Music, sounds and voices</a></li>
+          <li><a href="random-maps.html">Random map types</a></li>
+          <li><a href="images.html">Custom images</a></li>
+          <li><a href="graphics.html">Custom graphics</a></li>
+          <li><a href="validating.html">Validating a mod</a></li>
+          <li><a href="publishing.html">Publishing on GameBanana</a></li>
+          <li><a href="reference.html">Reference</a></li>
+          <li><a href="CHANGELOG.html">Changes</a></li>
+          <li><a href="LICENSE.html">License</a></li>
+          <li><a href="game-functions.txt">Game functions</a></li>
+      </ol>
+      <p class="guide-index__title">Templates</p>
+      <ol>
+          <li><a href="templates/scenario.html">Scenario template</a></li>
+          <li><a href="templates/adventure.html">Adventure template</a></li>
+          <li><a href="templates/conquest.html">Conquest template</a></li>
+          <li><a href="templates/units.html">Units template</a></li>
+          <li><a href="templates/civilization.html">Civilization template</a></li>
+          <li><a href="templates/gameplay.html">Gameplay template</a></li>
+          <li><a href="templates/audio.html">Audio pack template</a></li>
+          <li><a href="templates/translation.html">Translation template</a></li>
+          <li><a href="templates/graphics.html">Graphics template</a></li>
+          <li><a href="templates/full.html">Full template</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../en/sdk.html">&larr; For modders</a>
+    </aside>
+    <article class="doc">
+<h1 id="languages-and-texts">Languages and texts</h1>
+<p>Start from the <a href="templates/translation.html">translation template</a>, an empty mod with the folders this guide uses.</p>
+<p>A mod can change or add game texts without replacing the whole text file, and can add a new language (French, German, Polish…) that shows up in <strong>Options → Language</strong>. It can also ship files used by one language only: help, tips, menu images, voices.</p>
+<p>Examples to copy: <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/custom-texts" target="_blank" rel="noopener"><code>examples/custom-texts</code></a> and <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/french-language" target="_blank" rel="noopener"><code>examples/french-language</code></a>.</p>
+<h2 id="how-the-game-language-works">How the game language works</h2>
+<p>The language is chosen in Options → Language and applies after a restart. It&#39;s stored in <code>Settings.ini</code>, <code>[Language] Default=</code>.</p>
+<p>The game&#39;s texts are in <code>currentlang/game.loc.xml</code>, inside <code>local\&lt;language&gt;.pak</code>. Each text is a line like this:</p>
+<pre><code class="language-xml">&lt;translationtableentry text=&quot;Single player@/Menu/mainmenu.ini:SinglePlayer:Text&quot; justtext=&quot;Single player&quot; result=&quot;Estrategia&quot;/&gt;
+</code></pre>
+<p><code>text</code> is the key: the original English text, sometimes followed by <code>@</code> and a context (where it&#39;s used). <code>result</code> is what you see in that language. If a text has no translation, the game shows the key, which is the English. That&#39;s why English hardly needs a file.</p>
+<p>Imperivm Resurrected&#39;s own interface (content manager, lobby, Controls, saved games, performance panel) comes in Spanish, English and Italian. With the game in Italian it shows in Italian; with any other language, in English. Your mod&#39;s texts (name, description, commands) are translated with the <code>loc&lt;/code> files below.</p>
+<p>Cutscenes and music are the same in every language. What changes is texts, unit voices, help, tips and some menu images.</p>
+<p>To see the text file, add this to <code>imperivm-mod.ini</code> and open the game:</p>
+<pre><code class="language-ini">[Debug]
+Dump=currentlang/game.loc.xml
+</code></pre>
+<p>It's copied to <code>mod-dump\currentlang\game.loc.xml</code> with your mods' texts already merged in. To see the original, use the Original profile.</p>
+<h2 id="change-or-add-texts">Change or add texts</h2>
+<p>Put the texts in <code>loc\&lt;language&gt;.loc.xml</code> inside your mod. If there are many, split them across several <code>*.loc.xml</code> files inside <code>loc&amp;lt;language&gt;&lt;/code>:</p>
+<pre><code>mods\my-mod\
+  mod.json
+  loc\spanish.loc.xml
+  loc\italian.loc.xml
+  loc\english\unidades.loc.xml
+</code></pre>
+<p><code>&lt;language&gt;</code> is the language's English name in lowercase, as in <code>Settings.ini</code>: <code>spanish</code>, <code>english</code>, <code>italian</code>, <code>french</code>, <code>german</code>…</p>
+<pre><code class="language-xml">&lt;translationtable&gt;
+  &lt;!-- Changes the text everywhere it appears --&gt;
+  &lt;translationtableentry text=&quot;Single player&quot; result=&quot;Un jugador&quot;/&gt;
+
+  &lt;!-- One place only: the full key, copied from the game&#39;s game.loc.xml --&gt;
+  &lt;translationtableentry text=&quot;Options@/Menu/endgamemenu.ini:Options:Text&quot; result=&quot;Ajustes&quot;/&gt;
+
+  &lt;!-- The same, written with context --&gt;
+  &lt;translationtableentry text=&quot;Options&quot; context=&quot;/Menu/endgamemenu.ini:Options:Text&quot; result=&quot;Ajustes&quot;/&gt;
+
+  &lt;!-- New text, e.g. the name of a unit in your mod (display_name in its .sc.xml) --&gt;
+  &lt;translationtableentry text=&quot;Gladiator&quot; result=&quot;Gladiador&quot;/&gt;
+&lt;/translationtable&gt;
+</code></pre>
+<ul>
+<li>Without a context (<code>text=&quot;Single player&quot;</code>), the change applies everywhere the game uses that text. With a context (<code>text=&quot;…@…&quot;</code> or the <code>context</code> attribute), only in that place.</li>
+<li>Line break: <code>\n</code> inside the text, as in the game's files.</li>
+<li>In a text, write <code>&amp;</code> as <code>&amp;amp;</code>, <code>&lt;</code> as <code>&amp;lt;</code> and double quotes as <code>&amp;quot;</code> (or use single quotes around the value).</li>
+<li>Save as UTF-8. If it's ANSI, the mod converts it, but UTF-8 is the safe choice.</li>
+<li>A malformed line is skipped and logged in <code>Logs\imperivm\imperivm-mod.log</code> with its line number. The rest of the file loads.</li>
+<li><code>&lt;game&gt;\mod\loc\&lt;language&gt;.loc.xml</code> works for testing without creating a mod, and beats all mods.</li>
+<li>If two mods change the same text, the one first in the <a href="reference.html#1-mod-structure">load order</a> should win, as with files.</li>
+<li>Texts are read at startup: restart after changing them.</li>
+</ul>
+<p>The names of your mod's units, buildings and commands are written in English in their files (<code>display_name</code>, <code>rollover</code>…). That's the key. To translate them, add the translation to <code>loc\spanish.loc.xml</code>, <code>loc\italian.loc.xml</code>, etc.</p>
+<h2 id="add-a-new-language">Add a new language</h2>
+<ol>
+<li><p>Declare the language in <code>mod.json</code>:</p>
+<pre><code class="language-json">&quot;language&quot;: {&quot;code&quot;: &quot;french&quot;, &quot;name&quot;: &quot;Français&quot;, &quot;base&quot;: &quot;spanish&quot;}
+</code></pre>
+<ul>
+<li><code>code</code>: the language's English name in lowercase. It's what gets stored in <code>Settings.ini</code>.</li>
+<li><code>name</code>: what shows in the selector.</li>
+<li><code>base</code> (optional, <code>english</code> by default): the language to take whatever your mod doesn't provide from. Read the warning below before leaving it as English.</li>
+</ul>
+</li>
+<li><p>Translate the texts in <code>loc\french.loc.xml</code> (or in several files inside <code>loc\french&lt;/code>). Anything you don't translate shows in English.</p>
+</li>
+<li><p>Optional: language files in <code>Local\french&lt;/code>, with the paths they have inside <code>currentlang&lt;/code>. The ones the game asks for are:</p>
+<pre><code>Local\french\help.xml              help (F1)
+Local\french\tips.xml              loading screen tips
+Local\french\credits.txt           credits
+Local\french\splash.ini            startup screens
+Local\french\menu_16_9.bmp         menu background (also menu_4_3.bmp, menubackground.bmp, logo.bmp)
+Local\french\voices\&lt;unit&gt;\1.wav unit voices (1.wav up to 5.wav depending on the unit)
+</code></pre>
+<p>You can also pack it all into <code>Local\french.pak</code>.</p>
+</li>
+<li><p>Enable the mod in your profile, pick <strong>Français</strong> in Options → Language and restart.</p>
+</li>
+</ol>
+<p><strong>What the base language provides.</strong> Anything your language doesn't provide is taken from the <code>base</code> language. English has no help (<code>help.xml</code>), tips (<code>tips.xml</code>), <code>splash.ini</code> or menu images. A new language with English as its base ends up without those files. Spanish and Italian do have them: with <code>&quot;base&quot;: &quot;spanish&quot;</code> or <code>&quot;italian&quot;</code> you get them, or you ship your own in <code>Local&amp;lt;language&gt;&lt;/code>.</p>
+<p>Maps ship their own texts per language. If a map doesn't have yours, the base language's are used.</p>
+<p><strong>Characters.</strong> The game's fonts should cover Latin (with European accents), Greek and Cyrillic. Chinese, Japanese and Korean can't be displayed without new fonts.</p>
+<p>In multiplayer the language doesn't matter: players with different languages can play together.</p>
+<h2 id="files-for-a-single-language">Files for a single language</h2>
+<p>Any file in <code>currentlang&lt;/code> can be changed for one language only with your mod's <code>Local&amp;lt;language&gt;&lt;/code> folder. <code>Local\spanish\help.xml</code> changes the help in Spanish only. If you put the file in <code>currentlang\help.xml</code> (outside <code>Local&lt;/code>), it applies to all languages.</p>
+<h2 id="if-something-goes-wrong">If something goes wrong</h2>
+<p>Look in <code>Logs\imperivm\imperivm-mod.log</code> for the lines tagged <code>language</code>. The warnings (<code>W</code>) point at the lines with errors. To also see which text files were read and which <code>Local&amp;lt;language&gt;&lt;/code> files are in use, put <code>LogChannels=language:debug</code> under <code>[Debug]</code> in <code>imperivm-mod.ini</code>.</p>
+
+    </article>
+  </main>
+
+<footer class="footer">
+    <div class="footer__id">
+      <a class="footer__logo" href="../en/" aria-label="Imperivm Resurrected, home"><img loading="lazy" decoding="async" src="../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Unofficial community project.</p>
+    </div>
+    <nav class="footer__links" aria-label="Links">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../en/credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Credits</span></a>
+    </nav>
+    <a class="footer__back" href="../en/sdk.html">Back to For modders</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"languages.html","it":"../it/sdk.html"}};</script>
+<script src="../js/i18n.js"></script>
+<script src="../js/download.js"></script>
+<script src="../js/motion.js"></script>
+<script src="../js/support-data.js"></script>
+<script src="../js/support.js"></script>
+<script src="../js/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom game options — SDK</title>
+<meta name="description" content="A mod can add toggles (on / off) and value lists (a dropdown) to the RULES list in the lobby, next to Fog of war or Lock diplomacy . The host picks them,…">
+<link rel="canonical" href="https://www.imperivmresurrected.com/sdk/options.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Imperivm Resurrected">
+<meta property="og:title" content="Custom game options — SDK">
+<meta property="og:description" content="A mod can add toggles (on / off) and value lists (a dropdown) to the RULES list in the lobby, next to Fog of war or Lock diplomacy . The host picks them,…">
+<meta property="og:url" content="https://www.imperivmresurrected.com/sdk/options.html">
+<meta property="og:image" content="https://www.imperivmresurrected.com/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="../img/favicon-64.png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<script src="../js/theme.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="page">
+
+<header class="header">
+    <a class="brand" href="../en/" aria-label="Imperivm Resurrected, home">
+      <img class="brand__emblem" src="../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Main">
+      <a href="../en/guide.html">Guide and FAQ</a>
+      <a href="../en/sdk.html" aria-current="page">For modders</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener">Mods</a>
+      <div class="languages" role="group" aria-label="Language"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span>Download</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main id="content" class="doc-layout">
+    <aside class="doc-nav" aria-label="SDK guides">
+      <p class="guide-index__title">SDK guides</p>
+      <ol>
+          <li><a href="README.html">Overview</a></li>
+          <li><a href="languages.html">Languages and texts</a></li>
+          <li><a href="keys.html">Mod keys</a></li>
+          <li><a href="patches.html">Patches</a></li>
+          <li><a href="scripts.html">Scripts</a></li>
+          <li><a href="civilizations.html">Civilizations</a></li>
+          <li><a href="city-templates.html">City and village templates</a></li>
+          <li><a href="units.html">New units</a></li>
+          <li><a href="stats.html">Unit stats</a></li>
+          <li><a href="specials.html">Unit specials</a></li>
+          <li><a href="abilities.html">Troop abilities</a></li>
+          <li><a href="items.html">New items</a></li>
+          <li><a href="formations.html">New formations</a></li>
+          <li><a href="outposts.html">Outposts and buildings</a></li>
+          <li><a href="victory-modes.html">Victory modes</a></li>
+          <li><a href="bonuses.html">Starting bonuses</a></li>
+          <li><a href="options.html" aria-current="page">Custom game options</a></li>
+          <li><a href="maps.html">Scenarios, adventures and conquests</a></li>
+          <li><a href="audio.html">Music, sounds and voices</a></li>
+          <li><a href="random-maps.html">Random map types</a></li>
+          <li><a href="images.html">Custom images</a></li>
+          <li><a href="graphics.html">Custom graphics</a></li>
+          <li><a href="validating.html">Validating a mod</a></li>
+          <li><a href="publishing.html">Publishing on GameBanana</a></li>
+          <li><a href="reference.html">Reference</a></li>
+          <li><a href="CHANGELOG.html">Changes</a></li>
+          <li><a href="LICENSE.html">License</a></li>
+          <li><a href="game-functions.txt">Game functions</a></li>
+      </ol>
+      <p class="guide-index__title">Templates</p>
+      <ol>
+          <li><a href="templates/scenario.html">Scenario template</a></li>
+          <li><a href="templates/adventure.html">Adventure template</a></li>
+          <li><a href="templates/conquest.html">Conquest template</a></li>
+          <li><a href="templates/units.html">Units template</a></li>
+          <li><a href="templates/civilization.html">Civilization template</a></li>
+          <li><a href="templates/gameplay.html">Gameplay template</a></li>
+          <li><a href="templates/audio.html">Audio pack template</a></li>
+          <li><a href="templates/translation.html">Translation template</a></li>
+          <li><a href="templates/graphics.html">Graphics template</a></li>
+          <li><a href="templates/full.html">Full template</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../en/sdk.html">&larr; For modders</a>
+    </aside>
+    <article class="doc">
+<h1 id="custom-game-options">Custom game options</h1>
+<p>A mod can add <strong>toggles</strong> (on / off) and <strong>value lists</strong> (a dropdown) to the RULES list in the lobby, next to &quot;Fog of war&quot; or &quot;Lock diplomacy&quot;. The host picks them, everyone sees them, and your scripts read the choice with <code>Mod_GetOption(&quot;id&quot;)</code> (toggle) or <code>Mod_GetOptionValue(&quot;id&quot;)</code> (list). Both are script API 6.</p>
+<p>Example: <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/options-example" target="_blank" rel="noopener"><code>examples/options-example</code></a> (the &quot;Fast heroes&quot; toggle and the &quot;Hero speed&quot; list).</p>
+<h2 id="quick-way">Quick way</h2>
+<p><code>create-option.js</code> writes the JSON and, if you want, a script skeleton. It doesn&#39;t need the <code>DATA</code> folder.</p>
+<pre><code>node tools/create-option.js mods/my-mod fast-heroes --name &quot;Fast heroes&quot; --description &quot;All heroes move 50% faster.&quot;
+node tools/create-option.js mods/my-mod hero-speed --name &quot;Hero speed&quot; --values &quot;Normal,Fast,Very fast&quot; --default Normal --script
+</code></pre>
+<p>The first makes a toggle; with <code>--values</code> (2 to 16, comma-separated) it makes a list.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>--name</code></td>
+<td>Required. The name shown in the lobby</td>
+</tr>
+<tr>
+<td><code>--name-es</code>, <code>--name-it</code></td>
+<td>The name in Spanish and Italian</td>
+</tr>
+<tr>
+<td><code>--description</code>, <code>--description-es</code>, <code>--description-it</code></td>
+<td>The lobby help text</td>
+</tr>
+<tr>
+<td><code>--values</code>, <code>--values-es</code>, <code>--values-it</code></td>
+<td>The values of a list, in the same order and the same number. Each value&#39;s id comes from its text in <code>--values</code></td>
+</tr>
+<tr>
+<td><code>--default</code></td>
+<td>Toggle: <code>true</code> or <code>false</code>. List: the value&#39;s number (from 0), its id or its text. Without it: <code>false</code>, or the first value</td>
+</tr>
+<tr>
+<td><code>--script</code></td>
+<td>Also creates <code>data\mod\&lt;id&gt;.vs</code>, a behavior with the <code>if (Mod_GetOption(&quot;&lt;id&gt;&quot;))</code> (or <code>Mod_GetOptionValue</code>) ready to fill in. Hook it to a class with a patch, as the example does</td>
+</tr>
+</tbody></table></div>
+<p>It generates <code>options\&lt;id&gt;.json</code> and, with <code>--script</code>, <code>data\mod\&lt;id&gt;.vs</code>. It tells you how many of the 8 bits it uses and how many the mod already has. It never overwrites anything: if the mod already has that id, it stops without writing.</p>
+<h2 id="doing-it-by-hand">Doing it by hand</h2>
+<ol>
+<li><p>An <code>options\&lt;id&gt;.json</code> file in your mod.</p>
+<p>A toggle:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;fast-heroes&quot;,
+  &quot;name&quot;: &quot;Fast heroes&quot;,
+  &quot;description&quot;: &quot;All heroes move 50% faster.&quot;,
+  &quot;default&quot;: false
+}
+</code></pre>
+<p>A list (2 to 16 values):</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;hero-speed&quot;,
+  &quot;name&quot;: &quot;Hero speed&quot;,
+  &quot;values&quot;: [
+    { &quot;id&quot;: &quot;normal&quot;, &quot;name&quot;: &quot;Normal&quot; },
+    { &quot;id&quot;: &quot;fast&quot;, &quot;name&quot;: &quot;Fast (+25%)&quot; },
+    &quot;Very fast&quot;
+  ],
+  &quot;default&quot;: &quot;normal&quot;
+}
+</code></pre>
+<ul>
+<li><code>id</code>: letters, numbers, <code>_</code> and <code>-</code>, up to 32. Scripts use it; it&#39;s case-insensitive. If missing, the file name is used.</li>
+<li><code>name</code> and <code>description</code>: one text, or one per language: <code>{&quot;english&quot;: &quot;Fast heroes&quot;, &quot;spanish&quot;: &quot;Héroes veloces&quot;}</code> (the game&#39;s language, falling back to English). <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/options-example" target="_blank" rel="noopener">The example</a> does it this way.</li>
+<li><code>values</code>: each one is a text or an object with <code>id</code> and <code>name</code>. The first is 0.</li>
+<li><code>default</code>: for a toggle, <code>true</code> or <code>false</code>; for a list, the value&#39;s number (from 0) or its <code>id</code>. An <code>id</code> that doesn&#39;t exist silently falls back to 0; <code>validate-mod.js</code> catches it.</li>
+</ul>
+</li>
+<li><p>A script that reads it (a class behavior, an event or a victory script):</p>
+<pre><code>if (Mod_GetOption(&quot;fast-heroes&quot;)) {
+    This.AsUnit().SetSpeedFactor(150);
+}
+if (Mod_GetOptionValue(&quot;hero-speed&quot;) == 1) {
+    This.AsUnit().SetSpeedFactor(125);
+}
+</code></pre>
+<p><code>Mod_GetOption</code> returns <code>true</code> if the value isn&#39;t 0 (lists too). <code>Mod_GetOptionValue</code> returns the number of the chosen value.</p>
+</li>
+</ol>
+<h2 id="limits">Limits</h2>
+<ul>
+<li><strong>There are 8 bits for all the options of all active mods.</strong> A toggle uses 1; a list uses 1 for 2 values, 2 for 3 or 4, 3 for 5 to 8, and 4 for 9 to 16. They&#39;re taken in alphabetical order of <code>id</code>; whatever doesn&#39;t fit is ignored and the log says so. If two options share an <code>id</code>, the game uses the first one it finds when it assembles the mods.</li>
+<li><strong>They only work with a lobby.</strong> Options are fixed when a game starts from the lobby (or when you rejoin an online one). Adventures, campaigns and tutorials have no lobby: <code>Mod_GetOption</code> always returns 0 and a list is 0, even with <code>&quot;default&quot;: true</code>.</li>
+<li>The lobby presets (Classic, Competitive) don&#39;t touch mod options.</li>
+</ul>
+<h2 id="fixed-rules-of-a-mod">Fixed rules of a mod</h2>
+<p>Some engine rules are not room options: the mod fixes them for all its games in <code>rules\game.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;armyStaysWithHero&quot;: true,
+  &quot;sentriesUnselectable&quot;: true,
+  &quot;protectedClasses&quot;: [&quot;Peasant&quot;, &quot;PeasantAmbient&quot;, &quot;Trader&quot;, &quot;Tradecar_Donkey&quot;, &quot;Camel&quot;, &quot;CartTrader&quot;]
+}
+</code></pre>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>armyStaysWithHero</code></td>
+<td>With <code>true</code>, the units of an army don&#39;t leave their hero when one is inside the walls and the other outside. The path is worked out again all the same.</td>
+</tr>
+<tr>
+<td><code>sentriesUnselectable</code></td>
+<td>With <code>true</code>, wall sentries can&#39;t be selected (clicking one selects the gate) and don&#39;t join AI armies.</td>
+</tr>
+<tr>
+<td><code>protectedClasses</code></td>
+<td>Classes that take no damage and can&#39;t be attacked, with all the ones that inherit from them. They are class names (<code>Peasant</code>), not unit names.</td>
+</tr>
+</tbody></table></div>
+<p>They change the game, so in multiplayer everyone must run the mod. If several active mods bring rules, they add up.</p>
+<h2 id="online">Online</h2>
+<p>This is gameplay: every player must have the same mod. The option travels with the other lobby rules and is saved with the game.</p>
+
+    </article>
+  </main>
+
+<footer class="footer">
+    <div class="footer__id">
+      <a class="footer__logo" href="../en/" aria-label="Imperivm Resurrected, home"><img loading="lazy" decoding="async" src="../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Unofficial community project.</p>
+    </div>
+    <nav class="footer__links" aria-label="Links">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../en/credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Credits</span></a>
+    </nav>
+    <a class="footer__back" href="../en/sdk.html">Back to For modders</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"options.html","it":"../it/sdk.html"}};</script>
+<script src="../js/i18n.js"></script>
+<script src="../js/download.js"></script>
+<script src="../js/motion.js"></script>
+<script src="../js/support-data.js"></script>
+<script src="../js/support.js"></script>
+<script src="../js/menu.js"></script>
+</body>
+</html>

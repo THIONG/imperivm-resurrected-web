@@ -10,43 +10,49 @@
     it: { changes: 'Cambiamenti dell\'SDK', license: 'Licenza' }
   };
 
-  function language() { var l = document.documentElement.lang; return D.languages[l] ? l : 'es'; }
+  function language() { var l = document.documentElement.lang; return LABELS[l] ? l : 'es'; }
   function capitalize(h) { return h.replace(/^([a-zà-ÿ])/, function (c) { return c.toUpperCase(); }); }
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 
   function render() {
-    var l = language(), d = D.languages[l], prefix = l === 'es' ? '' : '../', base = prefix + 'sdk/' + l + '/', i, list;
+    var l = language(), prefix = l === 'es' ? '' : '../', base = prefix + 'sdk/', i, list;
 
     list = document.querySelectorAll('[data-group]');
     for (i = 0; i < list.length; i++) {
       var ids = list[i].getAttribute('data-group').split(' ');
       list[i].querySelector('.guide-list').innerHTML = ids.map(function (id) {
-        var g = d.guides[id];
+        var g = D.guides[id];
         return g ? '<li><a href="' + base + g.file + '">' + esc(g.title) + '</a><span>' + capitalize(g.desc) + '</span></li>' : '';
       }).join('');
     }
 
+    var templates = document.getElementById('templates-list');
+    if (templates) {
+      templates.innerHTML = D.templates.map(function (t) {
+        return '<li><a href="' + base + t.file + '">' + esc(t.title) + '</a><span>' + capitalize(t.desc) + '</span></li>';
+      }).join('');
+    }
 
     var byFile = {};
-    Object.keys(d.guides).forEach(function (id) { byFile[d.guides[id].file] = d.guides[id].title; });
-    document.getElementById('tools-table').innerHTML = d.tools.map(function (h) {
+    Object.keys(D.guides).forEach(function (id) { byFile[D.guides[id].file] = D.guides[id].title; });
+    document.getElementById('tools-table').innerHTML = D.tools.map(function (h) {
       var g = h.guide ? '<a href="' + base + h.guide + '">' + esc(byFile[h.guide] || h.guide) + '</a>' : '';
       return '<tr><td>' + h.want + '</td><td>' + h.use + '</td><td>' + g + '</td></tr>';
     }).join('');
 
     var more = ['reference', 'validating', 'publishing'].map(function (id) {
-      var g = d.guides[id];
+      var g = D.guides[id];
       return '<li><a href="' + base + g.file + '">' + esc(g.title) + '</a><span>' + capitalize(g.desc) + '</span></li>';
     });
-    more.push('<li><a href="' + base + d.extra.changes + '">' + LABELS[l].changes + '</a></li>');
-    more.push('<li><a href="' + base + d.extra.license + '">' + LABELS[l].license + '</a></li>');
+    more.push('<li><a href="' + base + D.extra.changes + '">' + LABELS[l].changes + '</a></li>');
+    more.push('<li><a href="' + base + D.extra.license + '">' + LABELS[l].license + '</a></li>');
     document.getElementById('more-list').innerHTML = more.join('');
 
     list = document.querySelectorAll('[data-go]');
     for (i = 0; i < list.length; i++) {
       var v = list[i].getAttribute('data-go').split(':'), href;
-      if (v[0] === 'readme') href = base + d.readme + (v[1] ? '#' + d.anchors[v[1]] : '');
-      else href = base + d.guides[v[0]].file;
+      if (v[0] === 'readme') href = base + D.readme + (v[1] ? '#' + D.anchors[v[1]] : '');
+      else href = base + D.guides[v[0]].file;
       list[i].setAttribute('href', href);
     }
 

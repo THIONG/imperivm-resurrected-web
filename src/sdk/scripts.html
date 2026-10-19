@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scripts — SDK</title>
+<meta name="description" content="Start from the gameplay template , an empty mod with the folders this guide uses.">
+<link rel="canonical" href="https://www.imperivmresurrected.com/sdk/scripts.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Imperivm Resurrected">
+<meta property="og:title" content="Scripts — SDK">
+<meta property="og:description" content="Start from the gameplay template , an empty mod with the folders this guide uses.">
+<meta property="og:url" content="https://www.imperivmresurrected.com/sdk/scripts.html">
+<meta property="og:image" content="https://www.imperivmresurrected.com/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="../img/favicon-64.png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<script src="../js/theme.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="page">
+
+<header class="header">
+    <a class="brand" href="../en/" aria-label="Imperivm Resurrected, home">
+      <img class="brand__emblem" src="../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Main">
+      <a href="../en/guide.html">Guide and FAQ</a>
+      <a href="../en/sdk.html" aria-current="page">For modders</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener">Mods</a>
+      <div class="languages" role="group" aria-label="Language"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span>Download</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main id="content" class="doc-layout">
+    <aside class="doc-nav" aria-label="SDK guides">
+      <p class="guide-index__title">SDK guides</p>
+      <ol>
+          <li><a href="README.html">Overview</a></li>
+          <li><a href="languages.html">Languages and texts</a></li>
+          <li><a href="keys.html">Mod keys</a></li>
+          <li><a href="patches.html">Patches</a></li>
+          <li><a href="scripts.html" aria-current="page">Scripts</a></li>
+          <li><a href="civilizations.html">Civilizations</a></li>
+          <li><a href="city-templates.html">City and village templates</a></li>
+          <li><a href="units.html">New units</a></li>
+          <li><a href="stats.html">Unit stats</a></li>
+          <li><a href="specials.html">Unit specials</a></li>
+          <li><a href="abilities.html">Troop abilities</a></li>
+          <li><a href="items.html">New items</a></li>
+          <li><a href="formations.html">New formations</a></li>
+          <li><a href="outposts.html">Outposts and buildings</a></li>
+          <li><a href="victory-modes.html">Victory modes</a></li>
+          <li><a href="bonuses.html">Starting bonuses</a></li>
+          <li><a href="options.html">Custom game options</a></li>
+          <li><a href="maps.html">Scenarios, adventures and conquests</a></li>
+          <li><a href="audio.html">Music, sounds and voices</a></li>
+          <li><a href="random-maps.html">Random map types</a></li>
+          <li><a href="images.html">Custom images</a></li>
+          <li><a href="graphics.html">Custom graphics</a></li>
+          <li><a href="validating.html">Validating a mod</a></li>
+          <li><a href="publishing.html">Publishing on GameBanana</a></li>
+          <li><a href="reference.html">Reference</a></li>
+          <li><a href="CHANGELOG.html">Changes</a></li>
+          <li><a href="LICENSE.html">License</a></li>
+          <li><a href="game-functions.txt">Game functions</a></li>
+      </ol>
+      <p class="guide-index__title">Templates</p>
+      <ol>
+          <li><a href="templates/scenario.html">Scenario template</a></li>
+          <li><a href="templates/adventure.html">Adventure template</a></li>
+          <li><a href="templates/conquest.html">Conquest template</a></li>
+          <li><a href="templates/units.html">Units template</a></li>
+          <li><a href="templates/civilization.html">Civilization template</a></li>
+          <li><a href="templates/gameplay.html">Gameplay template</a></li>
+          <li><a href="templates/audio.html">Audio pack template</a></li>
+          <li><a href="templates/translation.html">Translation template</a></li>
+          <li><a href="templates/graphics.html">Graphics template</a></li>
+          <li><a href="templates/full.html">Full template</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../en/sdk.html">&larr; For modders</a>
+    </aside>
+    <article class="doc">
+<h1 id="scripts">Scripts</h1>
+<p>Start from the <a href="templates/gameplay.html">gameplay template</a>, an empty mod with the folders this guide uses.</p>
+<p>Scripts (<code>.vs</code>) are the language the game uses to program AI, abilities, victory conditions, and the behavior of buildings and units. A mod can ship its own and use Imperivm Resurrected&#39;s new functions (<code>Mod_...</code>).</p>
+<p>Example to copy: <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/scripts-example" target="_blank" rel="noopener"><code>examples/scripts-example</code></a>. Heads up: that example changes the balance (hastati deal double damage and heal when they kill), so don&#39;t enable it in a serious game.</p>
+<h2 id="what-a-script-looks-like">What a script looks like</h2>
+<p>A <code>.vs</code> text file. The first line is a comment with the signature: what it returns and the parameters it receives. Every place a script is used expects a specific signature. There are three exceptions, which the game always loads with their signature, with the line or without it: a class&#39;s behaviors (<code>&lt;behavior script=&quot;...&quot;&gt;</code>), as <code>void, Obj This</code>; victory modes (<code>data/GameScripts</code>), as <code>void, int player, str param</code>; and item scripts (see <a href="items.html">Items</a>), with the signature of their attribute.</p>
+<pre><code>// void, Obj This
+
+Sleep(rand(500) + 100);
+Mod_Log(&quot;A Roman hastatus entered the map&quot;);
+while(true) Sleep(50000);
+</code></pre>
+<p>To see how the game writes its own, dump them with <code>Dump=</code> (see <a href="patches.html">Patches</a>; you have to give each file by name, no wildcards) or look in the <code>DATA</code> folder that <code>extract-data.js</code> extracts: <code>data/subai/*.vs</code> (behaviors and abilities), <code>data/ai/*.vs</code> (AI) and <code>data/GameScripts/*.vs</code> (victory). All the language&#39;s functions, with their signatures, are in <a href="game-functions.txt">funciones-del-juego.txt</a>.</p>
+<h2 id="where-a-script-hooks-in">Where a script hooks in</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Place</th>
+<th>How</th>
+<th>Signature</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A class behavior</td>
+<td><code>&lt;behavior script=&quot;data/mod/mi.vs&quot;/&gt;</code> in the class&#39;s <code>.sc.xml</code> (with a <a href="patches.html">patch</a> if it&#39;s a game class). Runs for each object of the class while it exists.</td>
+<td><code>// void, Obj This</code></td>
+</tr>
+<tr>
+<td>Command or ability</td>
+<td><code>&lt;method sig=&quot;miOrden&quot; vs=&quot;data/mod/mi.vs&quot;/&gt;</code> in the class, and a <code>&lt;cmd name=&quot;miOrden&quot;&gt;</code> in <code>data\commands</code></td>
+<td>depends on the command: look at the game&#39;s</td>
+</tr>
+<tr>
+<td>When a unit dies</td>
+<td><code>&lt;method sig=&quot;ondie&quot; vs=&quot;data/mod/mi.vs&quot;/&gt;</code> in the class (and <code>sig=&quot;onkill&quot;</code> for when it kills)</td>
+<td>see <code>data/subai/unit_on_kill.vs</code></td>
+</tr>
+<tr>
+<td>Victory condition</td>
+<td>a <code>.vs</code> in <code>data/GameScripts</code> (see <a href="victory-modes.html">Victory modes</a>)</td>
+<td><code>// void, int player, str param</code></td>
+</tr>
+<tr>
+<td><code>items.xml</code> items</td>
+<td>attributes like <code>use_script</code> or <code>equip_script</code> (see <a href="items.html">Items</a>)</td>
+<td>depends on the attribute</td>
+</tr>
+</tbody></table></div>
+<p><code>ondie</code> and <code>onkill</code> are methods (<code>&lt;method sig=...&gt;</code>), not attributes. If you write <code>ondie=&quot;...&quot;</code> on the class, nothing happens, and the game doesn&#39;t warn you.</p>
+<p>A behavior script must not end: finish it with <code>while(true) Sleep(50000);</code>.</p>
+<p>A class takes only 8 <code>&lt;behavior&gt;</code> elements.</p>
+<h2 id="events">Events</h2>
+<p>Put a script in <code>events\&lt;Event&gt;.vs</code> inside your mod and the game runs it when the event happens, on all PCs at once. If several mods have the same event, all of them run. To test without creating a mod, put it in <code>&lt;game&gt;\mod\events\&lt;Event&gt;.vs</code>.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Event</th>
+<th>When</th>
+<th>Signature</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>OnGameStart</code></td>
+<td>When a skirmish, scenario or multiplayer game starts, right after the victory scripts start. Can use <code>Sleep</code> and is saved with the game.</td>
+<td><code>// void</code></td>
+</tr>
+<tr>
+<td><code>OnObjectDie</code></td>
+<td>When any object on the map dies (units, heroes, buildings, decorations…), right before the game processes its death: the object still exists. Same moment as its class&#39;s <code>ondie</code>.</td>
+<td><code>// void, Obj victim</code></td>
+</tr>
+<tr>
+<td><code>OnObjectKill</code></td>
+<td>When a hit kills an object. <code>killer</code> dealt the hit, <code>victim</code> died. Same moment as the attacker&#39;s class <code>onkill</code>.</td>
+<td><code>// void, Obj killer, Obj victim</code></td>
+</tr>
+<tr>
+<td><code>OnSettlementCaptured</code></td>
+<td>When a settlement changes owner during the game (capture, or a script that gives it to someone else). Doesn&#39;t fire while the map is being set up. <code>building</code> is its central building. Players 1 to 16: unowned settlements start under players 15 and 16; 0 only appears if there&#39;s no owner.</td>
+<td><code>// void, Obj building, int oldPlayer, int newPlayer</code></td>
+</tr>
+<tr>
+<td><code>OnAttackResolved</code></td>
+<td>On every hit that deals damage, right before it&#39;s applied: armor, unit specials and bonuses already count. <code>damage</code> is what the victim is about to take; <code>Mod_SetAttackDamage(n)</code> changes it (0 cancels it). Doesn&#39;t fire if the hit deals no damage (deflections, parry).</td>
+<td><code>// void, Obj attacker, Obj victim, int damage</code></td>
+</tr>
+<tr>
+<td><code>OnPlayerDefeated</code></td>
+<td>When the game declares a player defeated (1 to 8), right after marking them. Once per player.</td>
+<td><code>// void, int player</code></td>
+</tr>
+</tbody></table></div>
+<p>Except for <code>OnGameStart</code>, events run immediately and can&#39;t wait: no <code>Sleep</code>. <code>OnAttackResolved</code> and <code>OnObjectDie</code> fire many times a second in a battle. Filter out what you don&#39;t care about early (<code>if (!victim.IsValid) return;</code>, <code>victim.IsMilitary</code>, <code>victim.player</code>, <code>victim.IsHeirOf(&quot;RHastatus&quot;)</code>…) and don&#39;t do expensive work.</p>
+<p>In <code>OnSettlementCaptured</code>, <code>building</code> is an <code>Obj</code>. To get to its settlement, go through <code>AsBuilding</code>: <code>building.AsBuilding.settlement</code>.</p>
+<p><code>OnObjectKill</code> lets you make passive abilities. A hastatus that heals when it kills:</p>
+<pre><code>// void, Obj killer, Obj victim
+if (!killer.IsValid) return;
+if (!killer.IsHeirOf(&quot;RHastatus&quot;)) return;
+if (!victim.IsMilitary) return;
+killer.Heal(25);
+</code></pre>
+<p>With several mods on <code>OnAttackResolved</code>, <code>damage</code> is always the original damage: it&#39;s computed once. Two mods that each do <code>Mod_SetAttackDamage(damage * 2)</code> don&#39;t stack. To build on what another mod already changed, start from <code>Mod_AttackDamage()</code>.</p>
+<h3 id="reacting-to-an-object-appearing">Reacting to an object appearing</h3>
+<p>There&#39;s no event for this (objects are created in dozens of places, including when loading a map or a game). Use a behavior: a <code>&lt;behavior&gt;</code> added with a patch to a base class (<code>Military</code> for all soldiers, <code>Unit</code> for all units) is inherited by every class under it, and runs once for each object when it appears. See <code>patches\data\classes\Military.sc.xml</code> and <code>data\mod\soldier.vs</code> in the example.</p>
+<h2 id="mod_-functions"><code>Mod_</code> functions</h2>
+<p>The current API version is 7. <code>Mod_ApiVersion()</code> returns it, and a mod can require a minimum.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Function</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Mod_Log(str texto)</code></td>
+<td>Writes <code>script: texto</code> to <code>Logs\imperivm\imperivm-mod.log</code> (level <code>I</code>). Up to 2,000 lines per session.</td>
+</tr>
+<tr>
+<td><code>Mod_LogInt(str texto, int valor)</code></td>
+<td>Writes <code>script: texto: valor</code>.</td>
+</tr>
+<tr>
+<td><code>Mod_IsActive(str id)</code> : <code>bool</code></td>
+<td>Is the mod with that <code>id</code> (the one in its <code>mod.json</code>) active in the profile?</td>
+</tr>
+<tr>
+<td><code>Mod_ApiVersion()</code> : <code>int</code></td>
+<td>The API version.</td>
+</tr>
+<tr>
+<td><code>Mod_SetInt(str nombre, int valor)</code></td>
+<td>Stores a variable (API 2).</td>
+</tr>
+<tr>
+<td><code>Mod_GetInt(str nombre)</code> : <code>int</code></td>
+<td>Reads a variable; 0 if it doesn&#39;t exist (API 2).</td>
+</tr>
+<tr>
+<td><code>Mod_AddInt(str nombre, int suma)</code> : <code>int</code></td>
+<td>Adds to a variable and returns the new value (API 2).</td>
+</tr>
+<tr>
+<td><code>Mod_HasKey(str nombre)</code> : <code>bool</code></td>
+<td>Does the variable exist? (API 2).</td>
+</tr>
+<tr>
+<td><code>Mod_AttackDamage()</code> : <code>int</code></td>
+<td>Only in <code>OnAttackResolved</code>: the damage of the hit being resolved. Outside it returns 0 (API 3).</td>
+</tr>
+<tr>
+<td><code>Mod_SetAttackDamage(int damage)</code></td>
+<td>Only in <code>OnAttackResolved</code>: changes the damage before it&#39;s applied. Outside it does nothing (API 3).</td>
+</tr>
+<tr>
+<td><code>Mod_HasSpecial(Unit unidad, int bit)</code> : <code>bool</code></td>
+<td>Does the unit have that unit special (bit 0 to 63)? (API 4). See <a href="specials.html">Unit specials</a>.</td>
+</tr>
+<tr>
+<td><code>Mod_SetSpecial(Unit unidad, int bit, bool puesta)</code></td>
+<td>Sets or clears a unit special (API 4).</td>
+</tr>
+<tr>
+<td><code>Mod_TrueRace(Obj objeto)</code> : <code>int</code></td>
+<td>An object&#39;s real civilization (10 or higher if it&#39;s from a mod), even though for the AI its race is its base&#39;s (API 5). See <a href="civilizations.html">Civilizations</a>.</td>
+</tr>
+<tr>
+<td><code>Mod_GetOption(str id)</code> : <code>bool</code></td>
+<td>Is option <code>id</code> (the one in <code>options\&lt;id&gt;.json</code>) checked in the lobby? Same on all PCs (API 6). See <a href="options.html">Game options</a>.</td>
+</tr>
+<tr>
+<td><code>Mod_GetOptionValue(str id)</code> : <code>int</code></td>
+<td>The chosen value of option <code>id</code>: 0 or 1 for a switch, and the number of the chosen entry (from 0) for a list (API 6).</td>
+</tr>
+<tr>
+<td><code>Mod_PlayerCiv(int player)</code> : <code>int</code></td>
+<td>The civilization the player chose in the lobby (10 or higher if it&#39;s from a mod), even if it&#39;s a variant and <code>GetPlayerRace</code> returns its base. -1 if there&#39;s no such player (API 7). See <a href="civilizations.html">Civilizations</a>.</td>
+</tr>
+<tr>
+<td><code>Mod_CanExecCmd(Obj objeto, str orden)</code> : <code>bool</code></td>
+<td>Could the player press that command&#39;s button on that object now? It&#39;s the game&#39;s own check: the object has it, it isn&#39;t disabled (<code>CmdDisable</code>) and its verifier (<code>groupverifier</code> or the player one) accepts it. It doesn&#39;t look at the cost (API 7).</td>
+</tr>
+</tbody></table></div>
+<p>New functions are added at the end and existing ones don&#39;t change. If your mod uses one, it needs a version of Imperivm Resurrected that has it. The API version is part of the multiplayer check when there are gameplay mods: everyone must have the same one.</p>
+<h3 id="mod-variables">Mod variables</h3>
+<p>A name → integer table so your mod can remember things (counters, flags, times):</p>
+<pre><code>Mod_AddInt(&quot;captures&quot;, 1);
+if (Mod_GetInt(&quot;captures&quot;) &gt;= 3) ...
+</code></pre>
+<ul>
+<li>They&#39;re saved with the game (autosaves too) and come back when you load it. A new game starts without variables.</li>
+<li>They&#39;re the same on all PCs because game scripts run the same everywhere. Change them only from game scripts, never based on anything local.</li>
+<li>Names up to 64 characters, up to 1,024 variables, 32-bit integers.</li>
+<li>They belong to the whole game, not to a player. For a per-player one, add the player to the name (<code>&quot;oro1&quot;</code>, <code>&quot;oro2&quot;</code>).</li>
+<li>They&#39;re shared among all active mods: use a prefix of your own (<code>&quot;mymod_captures&quot;</code>).</li>
+</ul>
+<h2 id="multiplayer">Multiplayer</h2>
+<p>Scripts are part of the simulation: they run on all PCs, at the same moment, and must do the same thing on all of them.</p>
+<ul>
+<li>Read only things that are the same for everyone: map objects, game time, the game&#39;s <code>rand()</code>.</li>
+<li>Don&#39;t read anything local: the camera, the viewing player, the music, the mouse, the system clock. If the script changes the game based on something local, the game desyncs.</li>
+<li>If something comes from a key or the interface, it has to go as a game command, which travels over the network. See <a href="keys.html">Mod keys</a>.</li>
+</ul>
+<h2 id="saved-games">Saved games</h2>
+<p>A saved game contains the code of the scripts that were running. That&#39;s why SDK functions never change number and are only added at the end: what&#39;s saved keeps loading. Don&#39;t reuse the game&#39;s function names (<code>Run</code>, <code>Write</code>…) as if they were yours.</p>
+<h2 id="errors">Errors</h2>
+<ul>
+<li>A script that doesn&#39;t compile leaves the error (file, line and column) in <code>Logs\imperivm\imperivm-mod.log</code>, as <code>script: compilation error: …</code> (level <code>E</code>), and also in <code>Logs\comp_out.txt</code> and <code>Logs\vxlog.log</code>. The game carries on, but that script doesn&#39;t run.</li>
+<li>Runtime errors are almost never logged. In events they are: the log notes <code>Event X (…): the script ended with an error</code>, up to 5 times per script. For everything else, use <code>Mod_Log</code> and check the log.</li>
+</ul>
+
+    </article>
+  </main>
+
+<footer class="footer">
+    <div class="footer__id">
+      <a class="footer__logo" href="../en/" aria-label="Imperivm Resurrected, home"><img loading="lazy" decoding="async" src="../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Unofficial community project.</p>
+    </div>
+    <nav class="footer__links" aria-label="Links">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../en/credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Credits</span></a>
+    </nav>
+    <a class="footer__back" href="../en/sdk.html">Back to For modders</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"scripts.html","it":"../it/sdk.html"}};</script>
+<script src="../js/i18n.js"></script>
+<script src="../js/download.js"></script>
+<script src="../js/motion.js"></script>
+<script src="../js/support-data.js"></script>
+<script src="../js/support.js"></script>
+<script src="../js/menu.js"></script>
+</body>
+</html>

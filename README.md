@@ -12,7 +12,7 @@ Everything lives in `src/`:
 - `css/styles.css` holds all the styles.
 - `js/` has the scripts: the language selector and redirect, the theme switch, the mobile menu, the scroll animations, the donation dialog and the download buttons. `dictionary.js` and `i18n-*.js` hold the English and Italian texts and are only read by the generator (and by the 404 page).
 - `img/` has the images and logos.
-- `sdk/` has the modding guides in Spanish, English and Italian, plus the SDK zip. These are generated, so don't edit them by hand.
+- `sdk/` has the modding guides and the SDK templates, in English only, plus the SDK zip. They are generated from the `sdk/` folder of the [mod repository](https://github.com/imperivm-resurrected/imperivm-resurrected), so don't edit them by hand.
 
 The site is available in Spanish, English and Italian, each with its own address (`/`, `/en/`, `/it/`). On a first visit it suggests the language of your browser by redirecting; the language selector remembers your choice. Light or dark follows your system, and you can switch it from the header.
 
@@ -25,6 +25,14 @@ node tools/build-languages.js
 ```
 
 `node tools/build-languages.js --check` only reports whether the generated pages are up to date.
+
+The SDK pages, the SDK zip and the sitemap are rebuilt with:
+
+```
+npm install --no-save marked@15.0.12
+node tools/build-sdk.js <path to the sdk folder of the mod repository>
+node tools/build-sitemap.js
+```
 
 ## Checks
 

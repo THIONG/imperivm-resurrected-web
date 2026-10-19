@@ -103,18 +103,6 @@ function main() {
     }
   }
 
-  for (const lang of TARGETS) {
-    const dir = path.join(SRC, 'sdk', lang);
-    if (!fs.existsSync(dir)) continue;
-    for (const name of fs.readdirSync(dir)) {
-      if (!name.endsWith('.html')) continue;
-      const file = path.join(dir, name);
-      let html = translate(read(file), lang, T, missing);
-      html = html.replace(/href="\.\.\/\.\.\/(index|guide|sdk|credits)\.html/g, (m, page) => 'href="../../' + lang + '/' + (page === 'index' ? '' : page + '.html'));
-      output.set(file, html);
-    }
-  }
-
   if (missing.size) {
     console.error('Missing translations: ' + Array.from(missing).sort().join(', '));
     process.exit(1);
