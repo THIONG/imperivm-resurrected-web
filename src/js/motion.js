@@ -3,19 +3,6 @@
 
   var root = document.documentElement;
 
-  var navigation = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
-  var limit = navigation && navigation.type === 'reload' ? 160 : 12;
-  function snapTop() {
-    if (window.scrollY > 0 && window.scrollY < limit) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }
-  if (location.hash === '#home') history.replaceState(null, '', location.pathname + location.search);
-  window.addEventListener('load', function () {
-    snapTop();
-    setTimeout(snapTop, 300);
-    setTimeout(snapTop, 1200);
-  });
-  window.addEventListener('pageshow', snapTop);
-
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   var RULES = [
