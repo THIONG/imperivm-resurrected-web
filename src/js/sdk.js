@@ -16,8 +16,8 @@
 
   function render() {
     var l = language(), prefix = l === 'es' ? '' : '../', root = prefix + 'sdk/';
-    var spanish = l === 'es' && D.languages.es;
-    var d = spanish ? D.languages.es : D.languages.en, base = root + (spanish ? 'es/' : ''), i, list;
+    var translated = l !== 'en' && D.languages[l];
+    var d = translated ? D.languages[l] : D.languages.en, base = root + (translated ? l + '/' : ''), i, list;
 
     list = document.querySelectorAll('[data-group]');
     for (i = 0; i < list.length; i++) {

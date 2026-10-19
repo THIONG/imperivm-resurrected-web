@@ -34,7 +34,7 @@ After editing text, run `node tools/build-languages.js` to regenerate the Englis
 
 ## SDK guides
 
-Everything in `src/sdk/` is generated from the `sdk/` folder of the mod repository (`tools/build-sdk.js`), so edits here get overwritten. To fix a guide, change it in the mod repository, or open an issue with the guide name and the line. The Spanish guides are in `docs/sdk-es/`: when an English guide changes, update its translation there and run `node tools/check-sdk-es.js`.
+Everything in `src/sdk/` is generated from the `sdk/` folder of the mod repository (`tools/build-sdk.js`), so edits here get overwritten. To fix a guide, change it in the mod repository, or open an issue with the guide name and the line. The Spanish and Italian guides are in `docs/sdk-es/` and `docs/sdk-it/`: when an English guide changes, update its translations there and run `node tools/check-sdk-translation.js es` and `node tools/check-sdk-translation.js it`.
 
 ## Before opening the pull request
 

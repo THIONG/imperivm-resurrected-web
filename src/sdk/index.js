@@ -538,6 +538,269 @@ window.SDK_INDEX = {
      "guide": null
     }
    ]
+  },
+  "it": {
+   "guides": {
+    "languages": {
+     "title": "Lingue e testi",
+     "file": "languages.html",
+     "desc": "modifica i testi del gioco o aggiungi una lingua senza sostituire l&#39;intero file."
+    },
+    "keys": {
+     "title": "Tasti delle mod",
+     "file": "keys.html",
+     "desc": "come compaiono gli ordini della tua mod in Controlli e come darne il nome."
+    },
+    "patches": {
+     "title": "Patch",
+     "file": "patches.html",
+     "desc": "modifica una parte di un XML, INI o script del gioco senza sostituirlo; due mod possono toccare lo stesso file."
+    },
+    "scripts": {
+     "title": "Script",
+     "file": "scripts.html",
+     "desc": "script <code>.vs</code>, eventi e funzioni <code>Mod_...</code>."
+    },
+    "civilizations": {
+     "title": "Civiltà",
+     "file": "civilizations.html",
+     "desc": "dichiara una nuova civiltà o clona una del gioco, con la sua IA, e giocala nella stanza."
+    },
+    "city-templates": {
+     "title": "Modelli di città e villaggio",
+     "file": "city-templates.html",
+     "desc": "la città e il villaggio iniziali propri di una civiltà della mod (<code>create-template.js</code>)."
+    },
+    "units": {
+     "title": "Nuove unità",
+     "file": "units.html",
+     "desc": "classe, ordine di reclutamento, immagini e testi, riuso del modello di un&#39;altra unità."
+    },
+    "stats": {
+     "title": "Statistiche delle unità",
+     "file": "stats.html",
+     "desc": "quale attributo fa cosa, quali non fanno nulla e quali bloccano il gioco."
+    },
+    "specials": {
+     "title": "Specialità delle unità",
+     "file": "specials.html",
+     "desc": "nuove specialità delle unità e il loro effetto tramite script."
+    },
+    "abilities": {
+     "title": "Abilità delle truppe",
+     "file": "abilities.html",
+     "desc": "nuove abilità per unità o eroi (un ordine con pulsante e tasto, più un metodo di script)."
+    },
+    "items": {
+     "title": "Nuovi oggetti",
+     "file": "items.html",
+     "desc": "amuleti, erbe e gemme degli eroi."
+    },
+    "formations": {
+     "title": "Nuove formazioni",
+     "file": "formations.html",
+     "desc": "formazioni degli eroi con i loro bonus e il pulsante."
+    },
+    "outposts": {
+     "title": "Avamposti ed edifici",
+     "file": "outposts.html",
+     "desc": "nuovi avamposti neutrali nelle mappe casuali (<code>create-outpost.js</code>) e classi di torri, mura e porte."
+    },
+    "victory-modes": {
+     "title": "Modalità di vittoria",
+     "file": "victory-modes.html",
+     "desc": "uno script in <code>data\\GameScripts</code> aggiunge una modalità al menu a tendina &quot;Mode&quot; della stanza."
+    },
+    "bonuses": {
+     "title": "Bonus iniziali",
+     "file": "bonuses.html",
+     "desc": "gli script in <code>data\\BonusScripts</code> aggiungono scelte alla colonna &quot;Bonus&quot; della stanza."
+    },
+    "options": {
+     "title": "Opzioni di partita personalizzate",
+     "file": "options.html",
+     "desc": "nuovi interruttori nelle regole della stanza, che gli script leggono con <code>Mod_GetOption</code>."
+    },
+    "maps": {
+     "title": "Scenari, avventure e conquiste",
+     "file": "maps.html",
+     "desc": "i tre tipi di mappa, i file che servono a ciascuno e i filmati."
+    },
+    "audio": {
+     "title": "Musica, suoni e voci",
+     "file": "audio.html",
+     "desc": "sostituisci o aggiungi audio."
+    },
+    "random-maps": {
+     "title": "Tipi di mappa casuale",
+     "file": "random-maps.html",
+     "desc": "un disegno a quattro colori diventa un nuovo tipo di mappa (<code>create-random-map.js</code>)."
+    },
+    "images": {
+     "title": "Immagini personalizzate",
+     "file": "images.html",
+     "desc": "pulsanti degli ordini e icone delle unità a partire da un PNG."
+    },
+    "graphics": {
+     "title": "Grafica personalizzata",
+     "file": "graphics.html",
+     "desc": "sprite personalizzati per unità ed edifici (<code>convert-sprite.js</code>, <code>create-entity.js</code>, <code>read-rle.js</code>)."
+    },
+    "validating": {
+     "title": "Validare una mod",
+     "file": "validating.html",
+     "desc": "controlla una mod senza aprire il gioco, con file e riga di ogni problema."
+    },
+    "publishing": {
+     "title": "Pubblicare su GameBanana",
+     "file": "publishing.html",
+     "desc": "categorie, tag, caricamento e mod create prima dell&#39;SDK."
+    },
+    "reference": {
+     "title": "Riferimento",
+     "file": "reference.html",
+     "desc": "l&#39;elenco completo di ciò che una mod può dichiarare (file, campi, patch, eventi, funzioni e limiti)."
+    }
+   },
+   "templates": [
+    {
+     "id": "scenario",
+     "title": "Modello di scenario",
+     "file": "templates/scenario.html",
+     "desc": "Una mappa per schermaglia e multigiocatore"
+    },
+    {
+     "id": "adventure",
+     "title": "Modello di avventura",
+     "file": "templates/adventure.html",
+     "desc": "Un&#39;avventura o una campagna, con o senza video"
+    },
+    {
+     "id": "conquest",
+     "title": "Modello di conquista",
+     "file": "templates/conquest.html",
+     "desc": "Una conquista, con o senza video"
+    },
+    {
+     "id": "units",
+     "title": "Modello di unità",
+     "file": "templates/units.html",
+     "desc": "Un&#39;unità o un eroe"
+    },
+    {
+     "id": "civilization",
+     "title": "Modello di civiltà",
+     "file": "templates/civilization.html",
+     "desc": "Una civiltà"
+    },
+    {
+     "id": "gameplay",
+     "title": "Modello di gameplay",
+     "file": "templates/gameplay.html",
+     "desc": "Regole, statistiche, IA, modalità di vittoria, opzioni"
+    },
+    {
+     "id": "audio",
+     "title": "Modello audio",
+     "file": "templates/audio.html",
+     "desc": "Musica, suoni, voci"
+    },
+    {
+     "id": "translation",
+     "title": "Modello di traduzione",
+     "file": "templates/translation.html",
+     "desc": "Il gioco in un&#39;altra lingua"
+    },
+    {
+     "id": "graphics",
+     "title": "Modello di grafica",
+     "file": "templates/graphics.html",
+     "desc": "Texture, sprite, icone, menu"
+    },
+    {
+     "id": "full",
+     "title": "Modello completo",
+     "file": "templates/full.html",
+     "desc": "Più di una delle precedenti"
+    }
+   ],
+   "tools": [
+    {
+     "want": "Una nuova unità",
+     "use": "<code>create-unit.js</code>",
+     "guide": "units.html"
+    },
+    {
+     "want": "Un nuovo oggetto",
+     "use": "<code>create-item.js</code>",
+     "guide": "items.html"
+    },
+    {
+     "want": "Una nuova abilità",
+     "use": "<code>create-ability.js</code>",
+     "guide": "abilities.html"
+    },
+    {
+     "want": "Una nuova formazione",
+     "use": "<code>create-formation.js</code>",
+     "guide": "formations.html"
+    },
+    {
+     "want": "Un&#39;opzione di partita",
+     "use": "<code>create-option.js</code>",
+     "guide": "options.html"
+    },
+    {
+     "want": "Una nuova civiltà",
+     "use": "<code>clone-civilization.js</code>",
+     "guide": "civilizations.html"
+    },
+    {
+     "want": "La città e il villaggio propri di una civiltà",
+     "use": "<code>create-template.js</code>",
+     "guide": "city-templates.html"
+    },
+    {
+     "want": "Un avamposto neutrale",
+     "use": "<code>create-outpost.js</code>",
+     "guide": "outposts.html"
+    },
+    {
+     "want": "Un tipo di mappa casuale",
+     "use": "<code>create-random-map.js</code>",
+     "guide": "random-maps.html"
+    },
+    {
+     "want": "Pulsanti e icone da un PNG",
+     "use": "<code>convert-image.js</code>",
+     "guide": "images.html"
+    },
+    {
+     "want": "Sprite da PNG e il file entity di un&#39;unità o di un edificio",
+     "use": "<code>convert-sprite.js</code>, <code>create-entity.js</code>, <code>read-rle.js</code>",
+     "guide": "graphics.html"
+    },
+    {
+     "want": "Ridisegnare gli sprite di <code>unit-graphics-example</code>",
+     "use": "<code>draw-soldier.js</code>",
+     "guide": null
+    },
+    {
+     "want": "Controllare una mod senza aprire il gioco",
+     "use": "<code>validate-mod.js</code>",
+     "guide": "validating.html"
+    },
+    {
+     "want": "Adattare una mod creata prima dell&#39;SDK",
+     "use": "<code>shrink-mod.js</code>",
+     "guide": "publishing.html"
+    },
+    {
+     "want": "Estrarre i dati del gioco",
+     "use": "<code>extract-data.js</code>",
+     "guide": null
+    }
+   ]
   }
  }
 };

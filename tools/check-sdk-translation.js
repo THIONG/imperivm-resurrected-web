@@ -3,7 +3,9 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const SDK = path.resolve(process.env.SDK_DIR || path.join(ROOT, '..', 'imperivm-resurrected', 'sdk'));
-const ES = path.join(ROOT, 'docs', 'sdk-es');
+const LANG = ['es', 'it'].includes(process.argv[2]) ? process.argv[2] : 'es';
+const TRANSLATION = path.join(ROOT, 'docs', 'sdk-' + LANG);
+const NAMES = { es: 'Spanish', it: 'Italian' };
 
 function parse(md) {
   const blocks = [];
@@ -39,9 +41,9 @@ function diff(name, a, b) {
   if ([...a, ...b].length && [...a, ...b].every((x) => typeof x === 'string')) {
     const missing = a.filter((x) => !b.includes(x));
     const extra = b.filter((x) => !a.includes(x));
-    return name + ': ' + a.length + ' in English, ' + b.length + ' in Spanish. Missing: ' + JSON.stringify(missing.slice(0, 6)) + ' Extra: ' + JSON.stringify(extra.slice(0, 6));
+    return name + ': ' + a.length + ' in English, ' + b.length + ' in ' + NAMES[LANG] + '. Missing: ' + JSON.stringify(missing.slice(0, 6)) + ' Extra: ' + JSON.stringify(extra.slice(0, 6));
   }
-  return name + ': English ' + JSON.stringify(a).slice(0, 80) + ' Spanish ' + JSON.stringify(b).slice(0, 80);
+  return name + ': English ' + JSON.stringify(a).slice(0, 80) + ' ' + NAMES[LANG] + ' ' + JSON.stringify(b).slice(0, 80);
 }
 
 function files() {
@@ -52,12 +54,12 @@ function files() {
   return out;
 }
 
-const only = process.argv.slice(2).map((x) => x.replace(/\\/g, '/'));
+const only = process.argv.slice(['es', 'it'].includes(process.argv[2]) ? 3 : 2).map((x) => x.replace(/\\/g, '/'));
 let bad = 0;
 let done = 0;
 for (const rel of files()) {
   if (only.length && !only.some((o) => rel === o || rel.endsWith('/' + o))) continue;
-  const spanish = path.join(ES, rel);
+  const spanish = path.join(TRANSLATION, rel);
   if (!fs.existsSync(spanish)) { if (only.length) { console.log('MISSING ' + rel); bad++; } continue; }
   const a = parse(fs.readFileSync(path.join(SDK, rel), 'utf8'));
   const b = parse(fs.readFileSync(spanish, 'utf8'));

@@ -7,7 +7,7 @@ const ROOT = path.resolve(__dirname, '..');
 const SRC = path.join(ROOT, 'src');
 const OUT = path.join(SRC, 'sdk');
 const SDK = path.resolve(process.argv[2] || path.join(ROOT, '..', 'imperivm-resurrected', 'sdk'));
-const ES_DIR = path.join(ROOT, 'docs', 'sdk-es');
+const docs = (l) => path.join(ROOT, 'docs', 'sdk-' + l);
 const DOMAIN = 'https://www.imperivmresurrected.com';
 const REPO = 'https://github.com/imperivm-resurrected/imperivm-resurrected';
 const TEMPLATE_ORDER = ['scenario', 'adventure', 'conquest', 'units', 'civilization', 'gameplay', 'audio', 'translation', 'graphics', 'full'];
@@ -16,6 +16,7 @@ const ENGLISH_ONLY = ['LICENSE.md'];
 const LABELS = {
   en: { skip: 'Skip to content', guides: 'SDK guides', templates: 'Templates', overview: 'Overview', changes: 'Changes', license: 'License', functions: 'Game functions', back: 'For modders', backFooter: 'Back to For modders', suffix: ' — SDK', lang: 'en' },
   es: { skip: 'Saltar al contenido', guides: 'Guías del SDK', templates: 'Plantillas', overview: 'Resumen', changes: 'Cambios', license: 'Licencia (en inglés)', functions: 'Funciones del juego (en inglés)', back: 'Para modders', backFooter: 'Volver a Para modders', suffix: ' — SDK', lang: 'es' },
+  it: { skip: 'Vai al contenuto', guides: 'Guide dell\'SDK', templates: 'Modelli', overview: 'Panoramica', changes: 'Cambiamenti', license: 'Licenza (in inglese)', functions: 'Funzioni del gioco (in inglese)', back: 'Per i modder', backFooter: 'Torna a Per i modder', suffix: ' — SDK', lang: 'it' },
 };
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -27,7 +28,7 @@ if (!fs.existsSync(path.join(SDK, 'README.md'))) {
   process.exit(1);
 }
 
-const state = { source: '', page: '', lang: 'en', ids: null, h: 0, spanish: new Set() };
+const state = { source: '', page: '', lang: 'en', ids: null, h: 0, available: { es: new Set(), it: new Set() } };
 
 function pageOf(target) {
   const m = /^templates\/([^/]+)\/README\.md$/.exec(target);
@@ -73,7 +74,7 @@ marked.use({
       const anchor = hash ? '#' + hash : '';
       const target = path.posix.normalize(path.posix.join(path.posix.dirname(state.source), decodeURI(file)));
       const page = pageOf(target);
-      const prefix = (p) => (state.lang === 'es' && state.spanish.has(p) ? 'es/' : '') + p;
+      const prefix = (p) => (state.lang !== 'en' && state.available[state.lang].has(p) ? state.lang + '/' : '') + p;
       if (page) return `<a href="${relative(state.page, prefix(page))}${anchor}">${text}</a>`;
       if (/\.txt$/.test(target) && fs.existsSync(path.join(SDK, target))) return `<a href="${relative(state.page, target)}">${text}</a>`;
       if (target === 'templates') return `<a href="${relative(state.page, prefix('README.html'))}#templates">${text}</a>`;
@@ -134,16 +135,16 @@ function describe(dir) {
   return { guides, templates, tools };
 }
 
-const credits = { en: read(path.join(SRC, 'en', 'credits.html')), es: read(path.join(SRC, 'credits.html')) };
+const credits = { en: read(path.join(SRC, 'en', 'credits.html')), es: read(path.join(SRC, 'credits.html')), it: read(path.join(SRC, 'it', 'credits.html')) };
 const noI18n = (html) => html.replace(/\sdata-i18n(?:-html|-attr)?="[^"]*"/g, '');
 
 function frame(lang, page, title, body, info, available) {
   const L = LABELS[lang];
-  const here = (lang === 'es' ? 'es/' : '') + page;
+  const here = (lang === 'en' ? '' : lang + '/') + page;
   const depth = here.split('/').length - 1;
   const up = '../'.repeat(depth + 1);
-  const site = lang === 'en' ? up + 'en/' : up;
-  const url = DOMAIN + '/sdk/' + (lang === 'es' ? 'es/' : '') + page;
+  const site = lang === 'es' ? up : up + lang + '/';
+  const url = DOMAIN + '/sdk/' + (lang === 'en' ? '' : lang + '/') + page;
   const plain = (s) => s.replace(/<[^>]*>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ').replace(/\s+/g, ' ').trim();
   let description = plain((body.match(/<p>([\s\S]*?)<\/p>/) || [])[1] || '') || title;
   if (description.length > 155) description = description.slice(0, 155).replace(/\s+\S*$/, '') + '…';
@@ -152,27 +153,29 @@ function frame(lang, page, title, body, info, available) {
   const footerSource = credits[lang].match(/<footer class="footer">[\s\S]*?<\/footer>/)[0];
   const header = noI18n(headerSource)
     .replace(/ aria-current="page"/g, '')
-    .replace('href="index.html"', `href="${site}${lang === 'en' ? '' : 'index.html'}"`)
+    .replace('href="index.html"', `href="${site}${lang === 'es' ? 'index.html' : ''}"`)
     .replace('href="guide.html"', `href="${site}guide.html"`)
     .replace('<a href="sdk.html">', `<a href="${site}sdk.html" aria-current="page">`)
     .replace(/src="(?:\.\.\/)?img\//g, `src="${up}img/`);
   const footer = noI18n(footerSource)
-    .replace('href="index.html" aria-label', `href="${site}${lang === 'en' ? '' : 'index.html'}" aria-label`)
+    .replace('href="index.html" aria-label', `href="${site}${lang === 'es' ? 'index.html' : ''}" aria-label`)
     .replace('href="credits.html"', `href="${site}credits.html"`)
     .replace(/<a class="footer__back" href="index.html">[^<]*<\/a>/, `<a class="footer__back" href="${site}sdk.html">${L.backFooter}</a>`)
     .replace(/src="(?:\.\.\/)?img\//g, `src="${up}img/`);
-  const link = (item, current) => `<li><a href="${relative(here, (lang === 'es' ? 'es/' : '') + item.file)}"${current ? ' aria-current="page"' : ''}>${esc(item.title)}</a></li>`;
+  const link = (item, current) => `<li><a href="${relative(here, (lang === 'en' ? '' : lang + '/') + item.file)}"${current ? ' aria-current="page"' : ''}>${esc(item.title)}</a></li>`;
   const license = { title: L.license, file: 'LICENSE.html' };
-  const licenseLink = lang === 'es' ? `<li><a href="${relative(here, 'LICENSE.html')}"${page === 'LICENSE.html' ? ' aria-current="page"' : ''}>${esc(L.license)}</a></li>` : link(license, page === 'LICENSE.html');
+  const licenseLink = lang !== 'en' ? `<li><a href="${relative(here, 'LICENSE.html')}"${page === 'LICENSE.html' ? ' aria-current="page"' : ''}>${esc(L.license)}</a></li>` : link(license, page === 'LICENSE.html');
   const items = [{ title: L.overview, file: 'README.html' }].concat(info.guides, [{ title: L.changes, file: 'CHANGELOG.html' }]);
   const guideList = items.map((g) => link(g, g.file === page)).join('\n          ') + '\n          ' + licenseLink;
   const templateList = info.templates.map((t) => link(t, t.file === page)).join('\n          ');
   const functions = `<li><a href="${relative(here, 'game-functions.txt')}">${L.functions}</a></li>`;
-  const equivalents = lang === 'en'
-    ? { en: path.posix.basename(page), es: available.es ? relative(here, 'es/' + page) : up + 'sdk.html', it: up + 'it/sdk.html' }
-    : { es: path.posix.basename(page), en: relative(here, page), it: up + 'it/sdk.html' };
-  const alternates = available.es
-    ? `<link rel="alternate" hreflang="en" href="${DOMAIN}/sdk/${page}">\n<link rel="alternate" hreflang="es" href="${DOMAIN}/sdk/es/${page}">\n<link rel="alternate" hreflang="x-default" href="${DOMAIN}/sdk/${page}">\n`
+  const dirOf = (l) => (l === 'en' ? '' : l + '/');
+  const landing = { en: up + 'en/sdk.html', es: up + 'sdk.html', it: up + 'it/sdk.html' };
+  const equivalents = {};
+  for (const l of ['en', 'es', 'it']) equivalents[l] = l === lang ? path.posix.basename(page) : (l === 'en' || available[l]) ? relative(here, dirOf(l) + page) : landing[l];
+  const versions = ['en'].concat(['es', 'it'].filter((l) => available[l]));
+  const alternates = versions.length > 1
+    ? versions.map((l) => `<link rel="alternate" hreflang="${l}" href="${DOMAIN}/sdk/${dirOf(l)}${page}">`).join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${DOMAIN}/sdk/${page}">\n`
     : '';
   return `<!doctype html>
 <html lang="${L.lang}">
@@ -241,8 +244,8 @@ ${footer}
 }
 
 const english = describe(SDK);
-const spanishExists = fs.existsSync(path.join(ES_DIR, 'README.md'));
-const spanish = spanishExists ? describe(ES_DIR) : null;
+const infos = { en: english };
+for (const l of ['es', 'it']) if (fs.existsSync(path.join(docs(l), 'README.md'))) infos[l] = describe(docs(l));
 
 const sourceFiles = (info) => ['README.md', 'CHANGELOG.md', 'LICENSE.md']
   .map((f) => ({ file: f, page: f.replace(/\.md$/, '.html') }))
@@ -253,30 +256,31 @@ fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, 'templates'), { recursive: true });
 
 const englishSources = sourceFiles(english);
-if (spanishExists) {
+for (const l of ['es', 'it']) {
+  if (!infos[l]) continue;
   for (const s of englishSources) {
     if (ENGLISH_ONLY.includes(s.file)) continue;
-    if (fs.existsSync(path.join(ES_DIR, s.file))) state.spanish.add(s.page);
+    if (fs.existsSync(path.join(docs(l), s.file))) state.available[l].add(s.page);
   }
 }
 
 let pages = 0;
-for (const lang of spanishExists ? ['en', 'es'] : ['en']) {
-  const info = lang === 'en' ? english : spanish;
-  const dir = lang === 'en' ? SDK : ES_DIR;
-  const out = lang === 'en' ? OUT : path.join(OUT, 'es');
+for (const lang of Object.keys(infos)) {
+  const info = infos[lang];
+  const dir = lang === 'en' ? SDK : docs(lang);
+  const out = lang === 'en' ? OUT : path.join(OUT, lang);
   fs.mkdirSync(path.join(out, 'templates'), { recursive: true });
   for (const s of englishSources) {
-    if (lang === 'es' && !state.spanish.has(s.page)) continue;
+    if (lang !== 'en' && !state.available[lang].has(s.page)) continue;
     const md = read(path.join(dir, s.file));
     const title = (md.match(/^#\s+(.+)$/m) || [null, s.page])[1].replace(/`/g, '');
     state.lang = lang;
     state.source = s.file;
-    state.page = (lang === 'es' ? 'es/' : '') + s.page;
+    state.page = (lang === 'en' ? '' : lang + '/') + s.page;
     state.h = 0;
-    state.ids = lang === 'es' ? headingIds(read(path.join(SDK, s.file))) : null;
+    state.ids = lang === 'en' ? null : headingIds(read(path.join(SDK, s.file)));
     const html = marked.parse(protectBackslashSpans(md)).replace(/<table>/g, '<div class="table"><table>').replace(/<\/table>/g, '</table></div>');
-    fs.writeFileSync(path.join(out, s.page), frame(lang, s.page, title, html, info, { es: state.spanish.has(s.page) }));
+    fs.writeFileSync(path.join(out, s.page), frame(lang, s.page, title, html, info, { es: state.available.es.has(s.page), it: state.available.it.has(s.page) }));
     pages++;
   }
 }
@@ -302,7 +306,7 @@ const index = {
   readme: 'README.html',
   extra: { changes: 'CHANGELOG.html', license: 'LICENSE.html' },
   anchors: { start: anchor('Start here'), mod: anchor('What a mod looks like'), templates: anchor('Templates') },
-  languages: Object.assign({ en: pack(english) }, spanish ? { es: pack(spanish) } : {}),
+  languages: Object.fromEntries(Object.entries(infos).map(([l, info]) => [l, pack(info)])),
 };
 fs.writeFileSync(path.join(OUT, 'index.js'), 'window.SDK_INDEX = ' + JSON.stringify(index, null, 1) + ';\n');
 
@@ -311,4 +315,4 @@ const tar = process.platform === 'win32' ? path.join(process.env.SystemRoot || '
 const made = spawnSync(tar, ['-a', '-c', '-f', zipFile, '-C', SDK, ...fs.readdirSync(SDK)], { encoding: 'utf8' });
 if (made.status !== 0) throw new Error('tar failed: ' + (made.stderr || made.error));
 
-console.log(`${pages} pages (${spanishExists ? 'English and Spanish' : 'English only'}), SDK ${version}, requires ${requires || '?'}, ${zip} (${(fs.statSync(zipFile).size / 1048576).toFixed(1)} MB)`);
+console.log(`${pages} pages (${Object.keys(infos).join(', ')}), SDK ${version}, requires ${requires || '?'}, ${zip} (${(fs.statSync(zipFile).size / 1048576).toFixed(1)} MB)`);

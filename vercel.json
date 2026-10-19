@@ -9,11 +9,6 @@
       "source": "/sdk/en/:path*",
       "destination": "/sdk/:path*",
       "permanent": true
-    },
-    {
-      "source": "/sdk/it/:path*",
-      "destination": "/sdk/README.html",
-      "permanent": true
     }
   ],
   "headers": [

@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Statistiche di unità ed edifici — SDK</title>
+<meta name="description" content="Tutto ciò che non ha un etichetta viene direttamente dai dati del gioco. (dedotto) è un ipotesi su come il gioco usa quel valore, e (parziale) è la meno…">
+<link rel="canonical" href="https://www.imperivmresurrected.com/sdk/it/stats.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/stats.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/stats.html">
+<link rel="alternate" hreflang="it" href="https://www.imperivmresurrected.com/sdk/it/stats.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/stats.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Imperivm Resurrected">
+<meta property="og:title" content="Statistiche di unità ed edifici — SDK">
+<meta property="og:description" content="Tutto ciò che non ha un etichetta viene direttamente dai dati del gioco. (dedotto) è un ipotesi su come il gioco usa quel valore, e (parziale) è la meno…">
+<meta property="og:url" content="https://www.imperivmresurrected.com/sdk/it/stats.html">
+<meta property="og:image" content="https://www.imperivmresurrected.com/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="../../img/favicon-64.png">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+<script src="../../js/theme.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Vai al contenuto</a>
+<div class="page">
+
+<header class="header">
+    <a class="brand" href="../../it/" aria-label="Imperivm Resurrected, home">
+      <img class="brand__emblem" src="../../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Principale">
+      <a href="../../it/guide.html">Guida e FAQ</a>
+      <a href="../../it/sdk.html" aria-current="page">Per i modder</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener">Mod</a>
+      <div class="languages" role="group" aria-label="Lingua"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span>Scarica</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main id="content" class="doc-layout">
+    <aside class="doc-nav" aria-label="Guide dell'SDK">
+      <p class="guide-index__title">Guide dell'SDK</p>
+      <ol>
+          <li><a href="README.html">Panoramica</a></li>
+          <li><a href="languages.html">Lingue e testi</a></li>
+          <li><a href="keys.html">Tasti delle mod</a></li>
+          <li><a href="patches.html">Patch</a></li>
+          <li><a href="scripts.html">Script</a></li>
+          <li><a href="civilizations.html">Civiltà</a></li>
+          <li><a href="city-templates.html">Modelli di città e villaggio</a></li>
+          <li><a href="units.html">Nuove unità</a></li>
+          <li><a href="stats.html" aria-current="page">Statistiche delle unità</a></li>
+          <li><a href="specials.html">Specialità delle unità</a></li>
+          <li><a href="abilities.html">Abilità delle truppe</a></li>
+          <li><a href="items.html">Nuovi oggetti</a></li>
+          <li><a href="formations.html">Nuove formazioni</a></li>
+          <li><a href="outposts.html">Avamposti ed edifici</a></li>
+          <li><a href="victory-modes.html">Modalità di vittoria</a></li>
+          <li><a href="bonuses.html">Bonus iniziali</a></li>
+          <li><a href="options.html">Opzioni di partita personalizzate</a></li>
+          <li><a href="maps.html">Scenari, avventure e conquiste</a></li>
+          <li><a href="audio.html">Musica, suoni e voci</a></li>
+          <li><a href="random-maps.html">Tipi di mappa casuale</a></li>
+          <li><a href="images.html">Immagini personalizzate</a></li>
+          <li><a href="graphics.html">Grafica personalizzata</a></li>
+          <li><a href="validating.html">Validare una mod</a></li>
+          <li><a href="publishing.html">Pubblicare su GameBanana</a></li>
+          <li><a href="reference.html">Riferimento</a></li>
+          <li><a href="CHANGELOG.html">Cambiamenti</a></li>
+          <li><a href="../LICENSE.html">Licenza (in inglese)</a></li>
+          <li><a href="../game-functions.txt">Funzioni del gioco (in inglese)</a></li>
+      </ol>
+      <p class="guide-index__title">Modelli</p>
+      <ol>
+          <li><a href="templates/scenario.html">Modello di scenario</a></li>
+          <li><a href="templates/adventure.html">Modello di avventura</a></li>
+          <li><a href="templates/conquest.html">Modello di conquista</a></li>
+          <li><a href="templates/units.html">Modello di unità</a></li>
+          <li><a href="templates/civilization.html">Modello di civiltà</a></li>
+          <li><a href="templates/gameplay.html">Modello di gameplay</a></li>
+          <li><a href="templates/audio.html">Modello audio</a></li>
+          <li><a href="templates/translation.html">Modello di traduzione</a></li>
+          <li><a href="templates/graphics.html">Modello di grafica</a></li>
+          <li><a href="templates/full.html">Modello completo</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../../it/sdk.html">&larr; Per i modder</a>
+    </aside>
+    <article class="doc">
+<h1 id="unit-and-building-stats">Statistiche di unità ed edifici</h1>
+<p>Tutto ciò che non ha un&#39;etichetta viene direttamente dai dati del gioco. <em>(dedotto)</em> è un&#39;ipotesi su come il gioco usa quel valore, e <em>(parziale)</em> è la meno affidabile.</p>
+<p>Le statistiche sono attributi di <code>&lt;properties&gt;</code> nella classe (<code>data\classes\&lt;Class&gt;.sc.xml</code>). Per modificarle senza copiare l&#39;intera classe usa una <a href="patches.html">patch</a>; per creare un&#39;unità vedi <a href="units.html">Nuove unità</a>.</p>
+<pre><code class="language-xml">&lt;patch&gt;
+  &lt;!-- Legionaries run faster: speed 60 -&gt; 75 --&gt;
+  &lt;set select=&quot;/class/properties[@speed]&quot; speed=&quot;75&quot;/&gt;
+&lt;/patch&gt;
+</code></pre>
+<p>Va in <code>patches\data\classes\RHastatus.sc.xml</code>. Un attributo che la classe non imposta viene ereditato dalla classe padre.</p>
+<h2 id="which-attribute-does-what">Quale attributo fa cosa</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Voglio cambiare…</th>
+<th>Attributo</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Velocità di movimento</td>
+<td><code>speed</code></td>
+<td>L&#39;animazione della camminata si adatta da sola (dedotto)</td>
+</tr>
+<tr>
+<td>Cadenza di attacco</td>
+<td>nessun attributo</td>
+<td>Durata dell&#39;animazione di attacco, oppure <code>SetSpeedFactor</code> da uno script</td>
+</tr>
+<tr>
+<td>Gittata degli arcieri</td>
+<td><code>range</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Gittata minima (catapulte)</td>
+<td><code>min_range</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Dimensione reale (hitbox)</td>
+<td><code>radius</code></td>
+<td>Collisioni, percorsi e gittata (dedotto)</td>
+</tr>
+<tr>
+<td>Area di clic</td>
+<td><code>selection_radius</code></td>
+<td>Estetico (dedotto)</td>
+</tr>
+<tr>
+<td>Danno</td>
+<td><code>damage</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Armatura</td>
+<td><code>armor_slash</code></td>
+<td><code>armor_pierce</code> non fa nulla (parziale)</td>
+</tr>
+<tr>
+<td>Salute</td>
+<td><code>maxhealth</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Vista</td>
+<td><code>sight</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Cosa viene attaccato per primo</td>
+<td><code>target_factor</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Proiettili</td>
+<td><code>projectile_class</code></td>
+<td>Con dei limiti, vedi <em>Gittata</em></td>
+</tr>
+</tbody></table></div>
+<h3 id="speed-speed">Velocità (<code>speed</code>)</h3>
+<ul>
+<li>Unità di mappa al secondo. Nel gioco: fanteria 60-80, arcieri 60-160, cavalleria 130-190, eroi 120, arieti 40, navi 240.</li>
+<li>Il ciclo dell&#39;animazione della camminata dura <code>step × 1000 / speed</code> millisecondi, con <code>step</code> preso dal <code>.ent.xml</code> (Hastatus: 42 × 1000 / 60 = 700 ms).
+Cambiare solo <code>speed</code> non sfasa lo sprite: l&#39;animazione accelera o rallenta insieme al movimento. <em>(dedotto)</em></li>
+<li><code>speed=&quot;0&quot;</code> su un&#39;unità che cammina blocca il gioco con una divisione per zero. Lo stesso vale per una classe che non definisce <code>speed</code> e non lo eredita. <em>(dedotto)</em></li>
+</ul>
+<h3 id="attack-rate">Cadenza di attacco</h3>
+<p>Per le unità non esiste un attributo di &quot;velocità di attacco&quot;. <em>(dedotto)</em></p>
+<ul>
+<li>Un colpo dura quanto l&#39;animazione di attacco, cioè la somma dei valori <code>&lt;frame duration&gt;</code> nel <code>.ent.xml</code>, e il danno arriva all&#39;<code>action_time</code> dell&#39;animazione. Nelle 118 animazioni del gioco i colpi durano da 594 a 1584 ms, con una mediana di 990 ms (Hastatus: 994 ms, <code>action_time</code> 426).</li>
+<li><code>attack_delay</code> è inutile per le unità: lo impostano solo <code>Catapult</code> (500) e <code>FakeTower</code> (400), e nessun altro nei dati. <em>(dedotto)</em></li>
+<li>Ci sono due modi per attaccare più in fretta. Uno: accorciare i frame dell&#39;animazione di attacco e riscalare <code>action_time</code> nella stessa proporzione.
+L&#39;altro: <code>Unit::SetSpeedFactor(150)</code> da uno script, che accelera del 50% sia la camminata sia l&#39;attacco. <code>SetSpeedFactor(0)</code> blocca il gioco. <em>(dedotto)</em></li>
+<li>Per modificare il <code>.ent.xml</code> da una mod dovrebbe funzionare una patch XML. Un <code>.ent.xml</code> sciolto non sostituisce quello del gioco (<a href="graphics.html">Grafica personalizzata</a>).</li>
+<li>La cadenza di attacco e i tempi dei colpi fanno parte della simulazione: devono essere uguali per tutti i giocatori.</li>
+</ul>
+<h3 id="range-range-min_range">Gittata (<code>range</code>, <code>min_range</code>)</h3>
+<ul>
+<li>Valori del gioco: fanteria 15-40, arcieri 300-500 (le navi arrivano a 700), sentinelle 600, cavalleria 15-40, catapulte 700-800, torri 600-800. <code>RCatapult</code> ha <code>min_range=201</code>.</li>
+<li>Si misura da bordo a bordo: la distanza tra i centri meno il <code>radius</code> di entrambe le unità. Per questo conta anche <code>radius</code>. <em>(dedotto)</em></li>
+<li>Un&#39;unità da mischia diventa a distanza con <code>range</code> più una <code>projectile_class</code> (Arrow, Javelin, Axe, Slingstone) e un&#39;animazione di attacco con <code>action_time</code>.</li>
+<li>Con <code>range</code> inferiore a <code>min_range</code> non attacca mai. Con <code>range=&quot;0&quot;</code> su un&#39;unità da mischia, nemmeno. <em>(dedotto)</em></li>
+<li>Un proiettile impiega quanto la sua animazione, qualunque sia la distanza (freccia 495 ms, ascia e giavellotto 561, sasso di fionda 300). Non esiste un attributo per la velocità del proiettile. Un attaccante con proiettile infligge metà del danno agli edifici. <em>(dedotto)</em></li>
+<li>Catapulte: l&#39;arco deriva da <code>shot_tan</code> e <code>shot_height</code>. Non cambiarli su un solo computer.</li>
+</ul>
+<h3 id="hitbox-and-size">Hitbox e dimensione</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Attributo</th>
+<th>Cosa fa</th>
+<th>Valori del gioco</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>radius</code></td>
+<td>Dimensione fisica: collisioni, percorsi, spaziatura e gittata (dedotto). Simulazione</td>
+<td>Fanteria 10, cavalleria 20, eroi 20-30, arieti 80, catapulte 50</td>
+</tr>
+<tr>
+<td><code>selection_radius</code></td>
+<td>Anello di selezione e area di clic. Estetico finché l&#39;unità ha un <code>formation_radius</code> (dedotto)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>formation_radius</code></td>
+<td>Spaziatura tra gli slot di una formazione. Simulazione</td>
+<td>Fanteria 26, cavalleria 35, eroi 45</td>
+</tr>
+</tbody></table></div>
+<p>Imposta sempre <code>radius</code> su un nuovo edificio. Quello ereditato (<code>Building</code>: 600) è enorme e gli attaccanti &quot;raggiungono&quot; l&#39;edificio da molto lontano. Gli edifici veri usano 160-250 per le caserme, 47 per le torri, 80-110 per le mura e 333-345 per gli avamposti.</p>
+<h3 id="damage-and-armor">Danno e armatura</h3>
+<p>Costanti di <code>data\const.ini</code>, sezione <code>[GamePlay]</code>: <code>MinDamage=3</code>, <code>MinPercentOfAttackersDamage=20</code>, <code>DamageAmplify=200</code> e <code>LevelDifferenceDamageTable</code>. Come vengono usate è <em>(dedotto)</em>:</p>
+<ul>
+<li>Un colpo infligge <code>damage − armor_slash</code> del difensore, con un minimo del 20% del danno dell&#39;attaccante e mai meno di 3. Poi si applica la differenza di livello tra i due: va da −90% a +90%, e se il difensore ha il livello più alto, sottrae.</li>
+<li><code>armor_pierce</code> non entra nel calcolo: puoi scriverlo e non fa nulla <em>(parziale: uno script può usarlo)</em>. Per dare armatura usa <code>armor_slash</code>.</li>
+<li><code>damage_type</code> (<code>slash</code>, <code>pierce</code>, <code>siege</code>, <code>none</code>) non cambia il danno: decide cosa può attaccare l&#39;unità. <code>slash</code> e <code>pierce</code> attaccano le unità (e gli edifici se c&#39;è un proiettile), <code>siege</code> attacca anche gli edifici, <code>none</code> non attacca.</li>
+<li>Gli edifici non hanno armatura: il danno passa per intero.</li>
+<li><code>DamageAmplify</code> è il danno alla guarnigione di un edificio. Puoi ritoccare queste costanti con le <a href="patches.html">patch INI</a>.</li>
+</ul>
+<h3 id="other-attributes">Altri attributi</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Attributo</th>
+<th>Cosa fa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>maxhealth</code></td>
+<td>Salute. Fanteria 160-3000, eroi 1000-1300, avamposti 10000. <code>0</code> blocca un edificio o fa comparire l&#39;unità già morta <em>(dedotto)</em></td>
+</tr>
+<tr>
+<td><code>maxstamina</code></td>
+<td>L&#39;energia che consumano le specialità delle unità e le <a href="abilities.html">abilità</a>. Ogni soldato del gioco ne ha 10. Con meno del costo, la specialità non si attiva <em>(dedotto)</em></td>
+</tr>
+<tr>
+<td><code>sight</code></td>
+<td>Vista: rivela la nebbia (dedotto). Fanteria 500, sentinelle 600, civili 150</td>
+</tr>
+<tr>
+<td><code>target_factor</code></td>
+<td>Cosa viene attaccato per primo: più basso significa prima. Predefinito 100, eroi 200, civili 1000. Negativo = mai scelto da solo (la fauna usa -1) <em>(dedotto)</em></td>
+</tr>
+<tr>
+<td><code>unit_specials</code></td>
+<td><a href="specials.html">Specialità delle unità</a>, quelle del gioco e le tue</td>
+</tr>
+<tr>
+<td><code>feeds</code>, <code>max_food</code></td>
+<td><code>Unit</code> eredita <code>feeds=1</code> e <code>max_food=20</code>: ogni unità normale mangia. A 0 di cibo perde salute <em>(dedotto; quando esattamente, non è chiaro)</em>. <code>RamUnit</code>, <code>Sentry</code>, <code>GGhost</code> e gli animali hanno <code>feeds=0</code>; impostalo su macchine e creature magiche</td>
+</tr>
+<tr>
+<td><code>does_not_regenerate</code></td>
+<td><code>1</code>: niente cibo e niente rigenerazione. Utile per evocazioni e macchine <em>(dedotto)</em></td>
+</tr>
+<tr>
+<td><code>stamina_dec_time</code></td>
+<td>Sulle unità evocate: millisecondi tra una perdita di 1 energia e la successiva. La durata di vita è circa <code>(maxstamina+1) × this value</code>, dove this value è questo attributo; con <code>0</code> o meno muoiono subito <em>(dedotto)</em></td>
+</tr>
+<tr>
+<td><code>water_unit</code></td>
+<td>Navi e pesci: percorsi e bersagli in acqua</td>
+</tr>
+<tr>
+<td><code>desync_hash</code></td>
+<td><code>1</code>: il movimento di questo oggetto entra nel controllo di sincronizzazione. Imposta <code>0</code> sui nuovi effetti visivi <em>(dedotto)</em></td>
+</tr>
+</tbody></table></div>
+<h2 id="what-does-nothing">Cosa non fa nulla</h2>
+<p><code>armor_pierce</code> <em>(parziale)</em>, <code>speed_modify</code> e <code>taunt</code> (come proprietà è il nome di un suono) vengono letti e mai usati. <em>(dedotto)</em> <code>attack_delay</code> è inutile sulle unità. <code>target_priority</code> conta solo per torri e catapulte; per le unità usa <code>target_factor</code>.</p>
+<h2 id="changing-things-mid-game-from-a-script">Cambiare le cose durante la partita (da uno script)</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Cosa</th>
+<th>Come</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Salute, salute massima, stamina, stamina massima</td>
+<td><code>SetHealth</code>, <code>SetMaxHealth</code>, <code>SetStamina</code>, <code>SetMaxStamina</code>. Il gioco ricalcola i massimi quando si equipaggia un oggetto o si sale di livello, e sovrascrive il tuo valore</td>
+</tr>
+<tr>
+<td>Vista</td>
+<td><code>SetSight(n)</code>, da 100 a 2048</td>
+</tr>
+<tr>
+<td>Velocità e cadenza di attacco</td>
+<td><code>Unit::SetSpeedFactor(n)</code>, in percentuale (100 = normale). <code>0</code> blocca il gioco</td>
+</tr>
+<tr>
+<td>Livello, esperienza, specialità delle unità</td>
+<td><code>SetLevel</code>, <code>SetExperience</code>, <code>Mod_SetSpecial</code></td>
+</tr>
+<tr>
+<td>Danno, armatura, gittata o raggio di una sola unità</td>
+<td>Nessuna funzione. Crea un&#39;altra classe con quei valori e converti l&#39;unità con <code>Unit::Mutate(&quot;OtraClase&quot;)</code>, che mantiene salute, esperienza e ordini</td>
+</tr>
+</tbody></table></div>
+<p>Le funzioni sono elencate in <a href="../game-functions.txt">funciones-del-juego.txt</a>. Per cambiare il danno di un singolo colpo, usa l&#39;evento <code>OnAttackResolved</code> con <code>Mod_SetAttackDamage</code> (<a href="specials.html">Specialità delle unità</a>).</p>
+<h2 id="what-xml-cant-do">Cosa l&#39;XML non può fare</h2>
+<ul>
+<li>La formula di combattimento (armatura fissa, minimi, tabella dei livelli). Puoi solo regolare le costanti di <code>const.ini</code>.</li>
+<li>Velocità e portata di volo dei proiettili: il colpo va a segno se la distanza è inferiore a <code>range + 150</code>. <em>(dedotto)</em></li>
+<li>Nuovi comportamenti nel codice: i valori di <code>cpp_class</code> sono solo quelli che il gioco già include.</li>
+<li>La logica delle formazioni, oltre ciò che consentono le <a href="formations.html">Formazioni</a>.</li>
+</ul>
+<h2 id="multiplayer">Multigiocatore</h2>
+<p>Quasi tutto quanto sopra fa parte della simulazione. Ogni giocatore deve avere la stessa mod e il gioco lo verifica quando si entra in una stanza; una differenza tra due giocatori manda il gioco in desync e la partita viene interrotta. Estetici: <code>selection_radius</code>, <code>healthbar_*</code>, <code>icon</code>, <code>display_name</code>, <code>help</code> e gli sprite.</p>
+<p>Gli sprite (<code>.rle</code>) non fanno parte del controllo. L&#39;elenco completo di ciò che viene controllato è nel <a href="README.html">README</a>.</p>
+<h2 id="what-we-dont-know">Cosa non sappiamo</h2>
+<ul>
+<li>La conversione esatta tra unità di mappa e pixel dello schermo.</li>
+<li>Se <code>sight</code> limiti anche fino a dove un&#39;unità cerca bersagli. Rivela la nebbia e gli script lo usano per cercare, ma il calcolo esatto non è noto.</li>
+<li>Quale <code>formation_priority</code> va davanti in una formazione.</li>
+<li>Cosa succede con un <code>action_time</code> più lungo dell&#39;animazione. Evitalo.</li>
+</ul>
+
+    </article>
+  </main>
+
+<footer class="footer">
+    <div class="footer__id">
+      <a class="footer__logo" href="../../it/" aria-label="Imperivm Resurrected, home"><img loading="lazy" decoding="async" src="../../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Progetto non ufficiale della community.</p>
+    </div>
+    <nav class="footer__links" aria-label="Link">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../../it/credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Crediti</span></a>
+    </nav>
+    <a class="footer__back" href="../../it/sdk.html">Torna a Per i modder</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"it","equivalents":{"en":"../stats.html","es":"../es/stats.html","it":"stats.html"}};</script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/download.js"></script>
+<script src="../../js/motion.js"></script>
+<script src="../../js/support-data.js"></script>
+<script src="../../js/support.js"></script>
+<script src="../../js/menu.js"></script>
+</body>
+</html>

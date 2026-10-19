@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patch — SDK</title>
+<meta name="description" content="Parti dal modello gameplay , una mod vuota con le cartelle usate in questa guida.">
+<link rel="canonical" href="https://www.imperivmresurrected.com/sdk/it/patches.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/patches.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/patches.html">
+<link rel="alternate" hreflang="it" href="https://www.imperivmresurrected.com/sdk/it/patches.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/patches.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Imperivm Resurrected">
+<meta property="og:title" content="Patch — SDK">
+<meta property="og:description" content="Parti dal modello gameplay , una mod vuota con le cartelle usate in questa guida.">
+<meta property="og:url" content="https://www.imperivmresurrected.com/sdk/it/patches.html">
+<meta property="og:image" content="https://www.imperivmresurrected.com/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="../../img/favicon-64.png">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+<script src="../../js/theme.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Vai al contenuto</a>
+<div class="page">
+
+<header class="header">
+    <a class="brand" href="../../it/" aria-label="Imperivm Resurrected, home">
+      <img class="brand__emblem" src="../../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Principale">
+      <a href="../../it/guide.html">Guida e FAQ</a>
+      <a href="../../it/sdk.html" aria-current="page">Per i modder</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener">Mod</a>
+      <div class="languages" role="group" aria-label="Lingua"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span>Scarica</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main id="content" class="doc-layout">
+    <aside class="doc-nav" aria-label="Guide dell'SDK">
+      <p class="guide-index__title">Guide dell'SDK</p>
+      <ol>
+          <li><a href="README.html">Panoramica</a></li>
+          <li><a href="languages.html">Lingue e testi</a></li>
+          <li><a href="keys.html">Tasti delle mod</a></li>
+          <li><a href="patches.html" aria-current="page">Patch</a></li>
+          <li><a href="scripts.html">Script</a></li>
+          <li><a href="civilizations.html">Civiltà</a></li>
+          <li><a href="city-templates.html">Modelli di città e villaggio</a></li>
+          <li><a href="units.html">Nuove unità</a></li>
+          <li><a href="stats.html">Statistiche delle unità</a></li>
+          <li><a href="specials.html">Specialità delle unità</a></li>
+          <li><a href="abilities.html">Abilità delle truppe</a></li>
+          <li><a href="items.html">Nuovi oggetti</a></li>
+          <li><a href="formations.html">Nuove formazioni</a></li>
+          <li><a href="outposts.html">Avamposti ed edifici</a></li>
+          <li><a href="victory-modes.html">Modalità di vittoria</a></li>
+          <li><a href="bonuses.html">Bonus iniziali</a></li>
+          <li><a href="options.html">Opzioni di partita personalizzate</a></li>
+          <li><a href="maps.html">Scenari, avventure e conquiste</a></li>
+          <li><a href="audio.html">Musica, suoni e voci</a></li>
+          <li><a href="random-maps.html">Tipi di mappa casuale</a></li>
+          <li><a href="images.html">Immagini personalizzate</a></li>
+          <li><a href="graphics.html">Grafica personalizzata</a></li>
+          <li><a href="validating.html">Validare una mod</a></li>
+          <li><a href="publishing.html">Pubblicare su GameBanana</a></li>
+          <li><a href="reference.html">Riferimento</a></li>
+          <li><a href="CHANGELOG.html">Cambiamenti</a></li>
+          <li><a href="../LICENSE.html">Licenza (in inglese)</a></li>
+          <li><a href="../game-functions.txt">Funzioni del gioco (in inglese)</a></li>
+      </ol>
+      <p class="guide-index__title">Modelli</p>
+      <ol>
+          <li><a href="templates/scenario.html">Modello di scenario</a></li>
+          <li><a href="templates/adventure.html">Modello di avventura</a></li>
+          <li><a href="templates/conquest.html">Modello di conquista</a></li>
+          <li><a href="templates/units.html">Modello di unità</a></li>
+          <li><a href="templates/civilization.html">Modello di civiltà</a></li>
+          <li><a href="templates/gameplay.html">Modello di gameplay</a></li>
+          <li><a href="templates/audio.html">Modello audio</a></li>
+          <li><a href="templates/translation.html">Modello di traduzione</a></li>
+          <li><a href="templates/graphics.html">Modello di grafica</a></li>
+          <li><a href="templates/full.html">Modello completo</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../../it/sdk.html">&larr; Per i modder</a>
+    </aside>
+    <article class="doc">
+<h1 id="patches">Patch</h1>
+<p>Parti dal <a href="templates/gameplay.html">modello gameplay</a>, una mod vuota con le cartelle usate in questa guida.</p>
+<p>Una patch modifica una parte di un file del gioco senza sostituirlo per intero. Due mod possono applicare patch allo stesso file e le due modifiche si sommano. Se ognuna includesse la propria copia del file, la seconda sovrascriverebbe la prima.</p>
+<p>Funzionano i file XML (ordini, oggetti, bonus, definizioni delle unità), i file INI (costanti, interfaccia) e gli script <code>.vs</code> (IA, comportamenti). Il file deve esistere nel gioco. Esempio da copiare: <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/patches-example" target="_blank" rel="noopener"><code>examples/patches-example</code></a>.</p>
+<h2 id="where-it-goes">Dove va</h2>
+<p>Nella tua mod, dentro <code>patches</code>, con lo stesso percorso che il file ha nel gioco:</p>
+<pre><code>mods\my-mod\
+  mod.json
+  patches\data\commands\RBarracks.xml     patches data\commands\RBarracks.xml
+  patches\data\const.ini                  patches data\const.ini
+</code></pre>
+<ul>
+<li>Ogni volta che il gioco apre quel file, le patch delle mod attive vengono applicate. Gli originali non vengono mai toccati.</li>
+<li>Con più mod, le patch si applicano dall&#39;ultima mod dell&#39;<a href="reference.html#1-mod-structure">ordine di caricamento</a> alla prima: l&#39;ultima parola spetta alla prima. L&#39;ordine lo calcola il gioco ed è lo stesso su ogni computer con le stesse mod; il controllo del multigiocatore non ne dipende.</li>
+<li>Se la tua mod include anche una propria copia del file (senza <code>patches</code>), le patch delle altre mod vengono applicate sopra di essa.</li>
+<li>Per provare una patch senza creare una mod, mettila in <code>&lt;game&gt;\mod\patches\&lt;path&gt;</code>. Viene applicata per ultima, sopra a tutto.</li>
+<li>Una patch cambia il gameplay se lo cambia il file (<code>data\...</code>, mappe, unità). In quel caso tutti i giocatori devono usare la stessa mod.</li>
+<li>Le patch vengono lette quando il gioco apre ciascun file. Se ne modifichi una, riavvia il gioco.</li>
+</ul>
+<h2 id="see-the-result">Vedere il risultato</h2>
+<p>Aggiungi questo a <code>imperivm-mod.ini</code> e apri il gioco:</p>
+<pre><code class="language-ini">[Debug]
+Dump=data/commands/RBarracks.xml,data/const.ini
+</code></pre>
+<p>Ogni file viene copiato in <code>mod-dump\&lt;path&gt;</code> esattamente come lo legge il gioco, con le patch già applicate. Per vedere l&#39;originale, usa il profilo Original. Indica il nome esatto di ogni file, separati da virgole; l&#39;intera riga non può superare i 1.023 caratteri. Un solo <code>*</code> esporta tutti i file che il gioco apre: sono migliaia, quindi fai attenzione.</p>
+<h2 id="xml-patches">Patch XML</h2>
+<p>Un <code>&lt;patch&gt;</code> con operazioni che vengono applicate in ordine:</p>
+<pre><code class="language-xml">&lt;patch&gt;
+  &lt;set select=&quot;/commands/cmd[@name=&#39;trainRHastatus&#39;]&quot; costgold=&quot;60&quot; execdelay=&quot;3000&quot; unset=&quot;costpop&quot;/&gt;
+  &lt;add select=&quot;/commands&quot;&gt;&lt;cmd name=&quot;miOrden&quot; method=&quot;train&quot; .../&gt;&lt;/add&gt;
+  &lt;remove select=&quot;//cmd[@name=&#39;otraOrden&#39;]&quot;/&gt;
+  &lt;replace select=&quot;/commands/cmd[@name=&#39;trainRArcher&#39;]/src&quot;&gt;&lt;src obj=&quot;RBarracks&quot;/&gt;&lt;/replace&gt;
+&lt;/patch&gt;
+</code></pre>
+<ul>
+<li><code>&lt;set select=&quot;…&quot; attribute=&quot;value&quot; …/&gt;</code>: modifica o aggiunge quegli attributi sugli elementi selezionati. <code>unset=&quot;a b&quot;</code> rimuove degli attributi.</li>
+<li><code>&lt;add select=&quot;…&quot;&gt;…&lt;/add&gt;</code>: aggiunge il contenuto in coda all&#39;elemento selezionato. Con <code>position=&quot;start&quot;</code> va all&#39;inizio; con <code>&quot;before&quot;</code> o <code>&quot;after&quot;</code>, accanto all&#39;elemento selezionato anziché al suo interno.</li>
+<li><code>&lt;remove select=&quot;…&quot;/&gt;</code>: rimuove gli elementi selezionati.</li>
+<li><code>&lt;replace select=&quot;…&quot;&gt;…&lt;/replace&gt;</code>: sostituisce gli elementi selezionati con il contenuto.</li>
+</ul>
+<p>Se ciò che cerchi potrebbe non esistere e non vuoi un errore, aggiungi <code>optional=&quot;yes&quot;</code> all&#39;operazione.</p>
+<h3 id="the-selector">Il selettore</h3>
+<p>Un percorso come quelli delle cartelle, con condizioni tra parentesi quadre. Iniziarlo sempre con <code>/</code> o <code>//</code>: il validatore segnala un errore se non lo fai.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Selettore</th>
+<th>Seleziona</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/commands</code></td>
+<td>la radice <code>&lt;commands&gt;</code></td>
+</tr>
+<tr>
+<td><code>/commands/cmd</code></td>
+<td>tutti i <code>&lt;cmd&gt;</code> dentro <code>&lt;commands&gt;</code></td>
+</tr>
+<tr>
+<td><code>/commands/cmd[@name=&#39;trainRHastatus&#39;]</code></td>
+<td>il <code>&lt;cmd&gt;</code> con quel <code>name</code></td>
+</tr>
+<tr>
+<td><code>//cmd[@name=&#39;trainRHastatus&#39;]</code></td>
+<td>quel <code>&lt;cmd&gt;</code>, ovunque si trovi</td>
+</tr>
+<tr>
+<td><code>/commands/cmd[@key]</code></td>
+<td>gli elementi <code>&lt;cmd&gt;</code> che hanno un attributo <code>key</code></td>
+</tr>
+<tr>
+<td><code>/commands/cmd[3]</code></td>
+<td>il terzo <code>&lt;cmd&gt;</code></td>
+</tr>
+<tr>
+<td><code>/commands/cmd[@name=&#39;x&#39;]/src</code></td>
+<td>gli elementi <code>&lt;src&gt;</code> di quel <code>&lt;cmd&gt;</code></td>
+</tr>
+<tr>
+<td><code>//*[@name=&#39;x&#39;]</code></td>
+<td>qualsiasi elemento con <code>name=&quot;x&quot;</code></td>
+</tr>
+</tbody></table></div>
+<p>Esistono solo queste condizioni: <code>[@a=&#39;v&#39;]</code>, <code>[@a]</code> e <code>[n]</code>. Puoi concatenarne diverse (<code>[@a=&#39;v&#39;][2]</code>). Non ci sono <code>and</code>, <code>contains</code>, <code>text()</code> né <code>..</code>. Maiuscole e minuscole non contano, e i valori vanno tra apici singoli o doppi.</p>
+<h3 id="rules">Regole</h3>
+<ul>
+<li>La patch deve essere XML ben formato. Nei valori scrivi <code>&amp;</code> come <code>&amp;amp;</code> e <code>&lt;</code> come <code>&amp;lt;</code>. Se è malformata, l&#39;intera patch viene saltata e l&#39;errore compare nel log e nella scheda della mod.</li>
+<li>Un&#39;operazione che fallisce (un selettore che non trova nulla) viene saltata con un avviso. Le altre vengono applicate.</li>
+<li>La patch non cambia la codifica: usa quella del file del gioco (quasi sempre ASCII).</li>
+<li>Nel risultato si perde l&#39;indentazione degli attributi (finiscono tutti su una riga). Il contenuto è lo stesso.</li>
+<li>Se rimuovi o rinomini qualcosa che altri file usano, si rompe. Le IA del gioco richiamano gli ordini per nome (<code>trainRScout</code>): se rimuovi l&#39;ordine, l&#39;IA fallisce.</li>
+</ul>
+<h2 id="ini-patches">Patch INI</h2>
+<p>Un INI con le sezioni e le chiavi che vuoi cambiare:</p>
+<pre><code class="language-ini">; Change gameplay constants
+[GamePlay]
+DamageAmplify = 250
+-TeachingLevel2
+
+; In lists of bare names (no =), + adds a line if it isn&#39;t there
+[GameOptions Objects]
++MiBotonNuevo
+-RSText
+</code></pre>
+<ul>
+<li><code>Key = value</code> modifica o aggiunge la chiave in quella sezione.</li>
+<li><code>-Key</code> rimuove la chiave (o la riga che coincide esattamente con quel testo).</li>
+<li><code>+Line</code> aggiunge una riga semplice alla sezione, se non c&#39;è già.</li>
+<li>Se la sezione non esiste, viene creata in fondo al file.</li>
+<li>Rimuovere una chiave che non esiste produce un errore nel log.</li>
+<li>I commenti a fine riga nelle righe del file originale (<code>Key = 20 ;comment</code>) si perdono sulla riga che modifichi.</li>
+</ul>
+<p><strong>Non mettere commenti dopo una riga della patch.</strong> Il motore non li elimina: <code>-Key ; text</code> cerca una chiave con quel nome e fallisce, <code>[Section] ; text</code> non viene riconosciuta come sezione e <code>Key = 250 ; text</code> salva il commento dentro il valore. I commenti vanno su righe a sé che iniziano con <code>;</code>. Il validatore non segnala questo problema.</p>
+<h2 id="script-patches">Patch di script</h2>
+<p>Una patch per un <code>.vs</code> (per esempio <code>patches\data\ai\GetTacticScript.vs</code>) è un testo con direttive che iniziano con <code>@</code> nella prima colonna. Il codice che scrivi sotto ciascuna viene aggiunto allo script del gioco:</p>
+<pre><code>@before nRace = set.GetCentralBuilding.race;
+// MOD: my civilization
+if (Mod_TrueRace(set.GetCentralBuilding) == Dacia)
+	return TS_GaulTactic2;
+
+@after player = set.player;
+Mod_Log(&quot;GetTacticScript: choosing a tactic&quot;);
+</code></pre>
+<p><code>Dacia</code> non è una costante del gioco: esiste se c&#39;è una civiltà attiva con quel nome (l&#39;<code>id</code> del suo <code>civs\&lt;id&gt;.json</code>). Vedi <a href="civilizations.html">Civiltà</a>.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Direttiva</th>
+<th>Dove mette il codice</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>@top</code></td>
+<td>Subito dopo la prima riga dello script (la firma). Va bene solo per dichiarare variabili o scrivere commenti.</td>
+</tr>
+<tr>
+<td><code>@bottom</code></td>
+<td>In fondo allo script.</td>
+</tr>
+<tr>
+<td><code>@before TEXT</code></td>
+<td>Prima della prima riga dello script che contiene <code>TEXT</code>.</td>
+</tr>
+<tr>
+<td><code>@after TEXT</code></td>
+<td>Dopo quella riga.</td>
+</tr>
+<tr>
+<td><code>@replace TEXT</code></td>
+<td>Al posto di quella riga.</td>
+</tr>
+<tr>
+<td><code>@end</code></td>
+<td>Chiude il blocco precedente. Facoltativa: tutto ciò che la segue fino alla direttiva successiva viene ignorato.</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><code>TEXT</code> è un frammento di riga dello script, esattamente come è scritta (non un&#39;espressione regolare). Si ancora alla prima riga che lo contiene, quindi scegli un testo che compaia una sola volta; altrimenti il tuo codice finisce dove non te lo aspetti. Se nessuna riga lo contiene, l&#39;errore compare nel log e la direttiva viene saltata.</li>
+<li>Negli script le variabili si dichiarano tutte in cima e il codice viene dopo. Un <code>if</code> o un <code>return</code> messo con <code>@top</code> finisce prima delle dichiarazioni e non compila (<code>Unexpected starting token</code>). Usa <code>@before</code> con la prima riga di codice dello script.</li>
+<li>Le patch di più mod si sommano, quindi due mod possono modificare lo stesso script (per esempio due civiltà che scelgono la propria tattica in <code>GetTacticScript.vs</code>).</li>
+<li>Lo script risultante deve compilare. Se non compila, l&#39;errore compare in <code>Logs\imperivm\imperivm-mod.log</code> come <code>script: compilation error</code>.</li>
+<li>Il validatore non controlla il codice di queste patch, né le funzioni <code>Mod_*</code>, né la firma.</li>
+</ul>
+<h2 id="if-something-goes-wrong">Se qualcosa va storto</h2>
+<p>Cerca in <code>Logs\imperivm\imperivm-mod.log</code> le righe con l&#39;etichetta <code>patch</code>: indicano quale file è stato modificato e quale operazione è fallita. Gli errori compaiono anche nella scheda della mod. Gli errori di compilazione di una patch di script compaiono come <code>script: compilation error</code>.</p>
+
+    </article>
+  </main>
+
+<footer class="footer">
+    <div class="footer__id">
+      <a class="footer__logo" href="../../it/" aria-label="Imperivm Resurrected, home"><img loading="lazy" decoding="async" src="../../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Progetto non ufficiale della community.</p>
+    </div>
+    <nav class="footer__links" aria-label="Link">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../../it/credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Crediti</span></a>
+    </nav>
+    <a class="footer__back" href="../../it/sdk.html">Torna a Per i modder</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"it","equivalents":{"en":"../patches.html","es":"../es/patches.html","it":"patches.html"}};</script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/download.js"></script>
+<script src="../../js/motion.js"></script>
+<script src="../../js/support-data.js"></script>
+<script src="../../js/support.js"></script>
+<script src="../../js/menu.js"></script>
+</body>
+</html>

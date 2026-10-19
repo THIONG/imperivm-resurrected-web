@@ -12,8 +12,8 @@ Everything lives in `src/`:
 - `css/styles.css` holds all the styles.
 - `js/` has the scripts: the language selector and redirect, the theme switch, the mobile menu, the scroll animations, the donation dialog and the download buttons. `dictionary.js` and `i18n-*.js` hold the English and Italian texts and are only read by the generator (and by the 404 page).
 - `img/` has the images and logos.
-- `sdk/` has the modding guides and the SDK templates in English, `sdk/es/` the same in Spanish, plus the SDK zip. They are generated from the `sdk/` folder of the [mod repository](https://github.com/imperivm-resurrected/imperivm-resurrected) and from `docs/sdk-es/`, so don't edit them by hand.
-- `docs/sdk-es/` is the Spanish translation of the SDK guides. It keeps the structure of the English files (headings, code blocks, links and inline code), and `node tools/check-sdk-es.js` checks that. Prose is translated; file names, tools and options stay in English.
+- `sdk/` has the modding guides and the SDK templates in English, `sdk/es/` and `sdk/it/` the same in Spanish and Italian, plus the SDK zip. They are generated from the `sdk/` folder of the [mod repository](https://github.com/imperivm-resurrected/imperivm-resurrected) and from `docs/sdk-es/` and `docs/sdk-it/`, so don't edit them by hand.
+- `docs/sdk-es/` and `docs/sdk-it/` are the Spanish and Italian translations of the SDK guides. They keep the structure of the English files (headings, code blocks, links and inline code), and `node tools/check-sdk-translation.js es` (or `it`) checks that. Prose is translated; file names, tools and options stay in English.
 
 The site is available in Spanish, English and Italian, each with its own address (`/`, `/en/`, `/it/`). On a first visit it suggests the language of your browser by redirecting; the language selector remembers your choice. Light or dark follows your system, and you can switch it from the header.
 
