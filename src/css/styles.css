@@ -170,6 +170,7 @@ a { color: inherit; }
 .row__number { font: 800 clamp(30px, 4.35vw, 68px)/1 var(--f-text); font-stretch: 70%; letter-spacing: -.02em; color: var(--accent-text); }
 .row__title { font: 600 clamp(20px, 2.35vw, 36px)/1.1 var(--f-text); font-stretch: 75%; letter-spacing: -.01em; transition: color var(--motion-fast) var(--ease); }
 .row__arrow { width: clamp(18px, 1.7vw, 26px); height: auto; transition: transform var(--motion) var(--ease); }
+.row summary, .faq__item summary { -webkit-user-select: none; user-select: none; }
 .row summary:hover .row__title { color: var(--accent-text); }
 .row summary:hover .row__arrow { transform: translateX(5px); }
 .row[open] .row__arrow { transform: rotate(90deg); }
