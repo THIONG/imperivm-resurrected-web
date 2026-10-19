@@ -6,6 +6,9 @@
 <title>Validating a mod — SDK</title>
 <meta name="description" content="The validator checks your mod without opening the game and reports problems with file and line. You need Node.js .">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/validating.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/validating.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/validating.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/validating.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Validating a mod — SDK">
@@ -106,21 +109,21 @@ node tools/validate-mod.js &lt;mod folder&gt; --data &lt;DATA folder&gt;
 <ul>
 <li><strong><code>mod.json</code></strong>: broken JSON, a category that isn&#39;t GameBanana&#39;s, wrongly typed texts (errors). Missing <code>id</code>, <code>name</code>, <code>version</code> or <code>category</code>, an old category name, tags that are badly written, in the old form or not used by the game, a map without a players tag and a campaign, translation or audio pack without a language tag (warnings).</li>
 <li><strong>Files</strong>: executable and system script extensions (error: the mod wouldn&#39;t load) and paths with <code>..</code>. An odd but harmless extension (<code>.psd</code>, <code>.gif</code>, <code>.zip</code>…) only gives a warning: the mod loads, the file just takes up space.</li>
-<li><strong>Maps (<code>.bfhp</code>)</strong>: the kind the map itself states (scenario, adventure or conquest) against the folder it is in. An adventure or a conquest in <code>scenarios&lt;/code> doesn't show up in the Scenarios list; a loose map at the root is placed when installing (warnings).</li>
-<li><strong><code>civs\*.json</code></strong>: an invalid <code>id</code>, <code>index</code> outside 10–99 or duplicated, a <code>base</code> that doesn't exist, a <code>letter</code> longer than one letter, an unknown <code>biome</code>, a misspelled <code>template</code> or one without its file. With <code>&quot;ai&quot;: true</code> and no <code>alias</code> table it warns, and it checks that the <code>alias</code> points to classes and commands the mod has.</li>
-<li><strong><code>specials\*.json</code></strong>: an invalid <code>id</code> or one that's a game unit special, a <code>bit</code> outside 36–63 or duplicated.</li>
+<li><strong>Maps (<code>.bfhp</code>)</strong>: the kind the map itself states (scenario, adventure or conquest) against the folder it is in. An adventure or a conquest in <code>scenarios&#92;</code> doesn&#39;t show up in the Scenarios list; a loose map at the root is placed when installing (warnings).</li>
+<li><strong><code>civs\*.json</code></strong>: an invalid <code>id</code>, <code>index</code> outside 10–99 or duplicated, a <code>base</code> that doesn&#39;t exist, a <code>letter</code> longer than one letter, an unknown <code>biome</code>, a misspelled <code>template</code> or one without its file. With <code>&quot;ai&quot;: true</code> and no <code>alias</code> table it warns, and it checks that the <code>alias</code> points to classes and commands the mod has.</li>
+<li><strong><code>specials\*.json</code></strong>: an invalid <code>id</code> or one that&#39;s a game unit special, a <code>bit</code> outside 36–63 or duplicated.</li>
 <li><strong><code>options\*.json</code></strong>: the bit allocation (8 fit across all mods).</li>
-<li><strong>XML patches</strong>: malformed XML (the patch wouldn't apply at all), an operation without <code>select</code>, a misspelled selector, tags that aren't operations. A selector that doesn't start with <code>/</code> or <code>//</code> is an error even though the DLL would accept it.</li>
-<li><strong>Script patches (<code>.vs</code>)</strong>: a directive that doesn't exist, <code>@before</code>, <code>@after</code> or <code>@replace</code> without text, a directive with no code under it, and <code>@top</code> with code that isn't a variable declaration. It doesn't check the patch's code, the <code>Mod_*</code> functions or the signature.</li>
-<li><strong>INI patches</strong>: lines it can't understand, and a new section in <code>UNIT_SPECIALS.INI</code> (the game may crash). It doesn't warn about trailing comments on a patch line, which the engine doesn't support (see <a href="patches.html">Patches</a>).</li>
-<li><strong>Classes (<code>data\classes</code>)</strong>: malformed XML, an unknown <code>race</code>, misspelled or unknown <code>unit_specials</code> (the game is case-sensitive: <code>Parry</code>, not <code>parry</code>), and a class without <code>entity</code> (warning: the game doesn't inherit it from the parent and the unit disappears).</li>
-<li><strong>Encoding</strong>: a Latin-1 class XML with accented characters. The game doesn't load the class and doesn't warn; save it as UTF-8.</li>
+<li><strong>XML patches</strong>: malformed XML (the patch wouldn&#39;t apply at all), an operation without <code>select</code>, a misspelled selector, tags that aren&#39;t operations. A selector that doesn&#39;t start with <code>/</code> or <code>//</code> is an error even though the DLL would accept it.</li>
+<li><strong>Script patches (<code>.vs</code>)</strong>: a directive that doesn&#39;t exist, <code>@before</code>, <code>@after</code> or <code>@replace</code> without text, a directive with no code under it, and <code>@top</code> with code that isn&#39;t a variable declaration. It doesn&#39;t check the patch&#39;s code, the <code>Mod_*</code> functions or the signature.</li>
+<li><strong>INI patches</strong>: lines it can&#39;t understand, and a new section in <code>UNIT_SPECIALS.INI</code> (the game may crash). It doesn&#39;t warn about trailing comments on a patch line, which the engine doesn&#39;t support (see <a href="patches.html">Patches</a>).</li>
+<li><strong>Classes (<code>data\classes</code>)</strong>: malformed XML, an unknown <code>race</code>, misspelled or unknown <code>unit_specials</code> (the game is case-sensitive: <code>Parry</code>, not <code>parry</code>), and a class without <code>entity</code> (warning: the game doesn&#39;t inherit it from the parent and the unit disappears).</li>
+<li><strong>Encoding</strong>: a Latin-1 class XML with accented characters. The game doesn&#39;t load the class and doesn&#39;t warn; save it as UTF-8.</li>
 <li><strong>Commands (<code>data\commands</code>)</strong>: malformed XML, and a warning when two commands with the same name are for the same building (it would have two buttons with that name). With the same name for different buildings they work: the game binds each one to the buildings of its <code>&lt;src&gt;</code>.</li>
-<li><strong>Entities (<code>.ent.xml</code>)</strong>: error if the image doesn't exist (the game hangs when loading the class; checked against the mod folder if it ships its <code>.rle</code> files, and always with <code>--game</code>), duplicate <code>idx</code> or one outside 1–32, layers and animations that point to something that isn't there, engine limits (32 images, 32 layers, 8 states, animations 1–28, 64 frames), and <code>columns</code>, <code>rows</code> or a <code>&lt;frame&gt;</code> count that don't add up. An animation that reads more rows than its image has is only a warning.</li>
-<li><strong>Graphics (<code>.rle</code>, <code>.pass</code>)</strong>: a truncated or corrupt <code>.rle</code>, a renamed <code>.rle.mmp</code> (no pixels, doesn't load from a mod), an empty palette, a malformed or empty <code>.pass</code>, a <code>pass_file</code> that doesn't exist, and an <code>.rle</code> with the same name as one of the game's (the game's wins; with <code>--game</code>).</li>
-<li><strong><code>placeobjects.xml</code></strong> (random maps): a named class that doesn't exist (with <code>--data</code>). Map generation hangs without a message.</li>
+<li><strong>Entities (<code>.ent.xml</code>)</strong>: error if the image doesn&#39;t exist (the game hangs when loading the class; checked against the mod folder if it ships its <code>.rle</code> files, and always with <code>--game</code>), duplicate <code>idx</code> or one outside 1–32, layers and animations that point to something that isn&#39;t there, engine limits (32 images, 32 layers, 8 states, animations 1–28, 64 frames), and <code>columns</code>, <code>rows</code> or a <code>&lt;frame&gt;</code> count that don&#39;t add up. An animation that reads more rows than its image has is only a warning.</li>
+<li><strong>Graphics (<code>.rle</code>, <code>.pass</code>)</strong>: a truncated or corrupt <code>.rle</code>, a renamed <code>.rle.mmp</code> (no pixels, doesn&#39;t load from a mod), an empty palette, a malformed or empty <code>.pass</code>, a <code>pass_file</code> that doesn&#39;t exist, and an <code>.rle</code> with the same name as one of the game&#39;s (the game&#39;s wins; with <code>--game</code>).</li>
+<li><strong><code>placeobjects.xml</code></strong> (random maps): a named class that doesn&#39;t exist (with <code>--data</code>). Map generation hangs without a message.</li>
 <li><strong>Texts (<code>loc</code>)</strong>: malformed XML, entries without <code>text</code> or without <code>result</code>.</li>
-<li><strong>Scripts (<code>.vs</code>)</strong>: missing signature on the first line (except in a class's behaviors, victory modes and item scripts, which the game always loads with their own), an unknown event or one with the wrong signature, <code>Sleep</code> in an event that can't wait, <code>Mod_*</code> functions that don't exist, <code>Mod_HasSpecial</code> with an <code>Obj</code> instead of a <code>Unit</code>.</li>
+<li><strong>Scripts (<code>.vs</code>)</strong>: missing signature on the first line (except in a class&#39;s behaviors, victory modes and item scripts, which the game always loads with their own), an unknown event or one with the wrong signature, <code>Sleep</code> in an event that can&#39;t wait, <code>Mod_*</code> functions that don&#39;t exist, <code>Mod_HasSpecial</code> with an <code>Obj</code> instead of a <code>Unit</code>.</li>
 </ul>
 <h2 id="example-output">Example output</h2>
 <pre><code>WARNING  specials/c.json  no &quot;name&quot;: the id will be shown
@@ -129,9 +132,9 @@ WARNING  data/classes/G.sc.xml:2  unknown unit special &quot;Zzz&quot;: the game
 
 5 files checked: 1 errors, 5 warnings.
 </code></pre>
-<h2 id="what-it-doesnt-do">What it doesn't do</h2>
-<p>It doesn't apply patches or run scripts: you only see that in the game (use <code>Dump=</code> from <a href="patches.html">Patches</a> to see the result, and <code>Logs\imperivm\imperivm-mod.log</code> for runtime errors). It doesn't judge image quality either.</p>
-<p>It's meant for new mods made with this SDK. An old mod that works in the game, like the Community Mod, gives errors (scripts without a signature, class scripts that don't exist, animation rows) without that meaning it won't load.</p>
+<h2 id="what-it-doesnt-do">What it doesn&#39;t do</h2>
+<p>It doesn&#39;t apply patches or run scripts: you only see that in the game (use <code>Dump=</code> from <a href="patches.html">Patches</a> to see the result, and <code>Logs\imperivm\imperivm-mod.log</code> for runtime errors). It doesn&#39;t judge image quality either.</p>
+<p>It&#39;s meant for new mods made with this SDK. An old mod that works in the game, like the Community Mod, gives errors (scripts without a signature, class scripts that don&#39;t exist, animation rows) without that meaning it won&#39;t load.</p>
 
     </article>
   </main>
@@ -152,7 +155,7 @@ WARNING  data/classes/G.sc.xml:2  unknown unit special &quot;Zzz&quot;: the game
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"validating.html","it":"../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"validating.html","es":"es/validating.html","it":"../it/sdk.html"}};</script>
 <script src="../js/i18n.js"></script>
 <script src="../js/download.js"></script>
 <script src="../js/motion.js"></script>

@@ -6,6 +6,9 @@
 <title>Audio pack template — SDK</title>
 <meta name="description" content="Music, sounds and unit voices. Each player can use their own: audio never has to match between players.">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/templates/audio.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/templates/audio.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/templates/audio.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/templates/audio.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Audio pack template — SDK">
@@ -95,7 +98,7 @@
 <p>Music, sounds and unit voices. Each player can use their own: audio never has to match between players.</p>
 <h2 id="steps">Steps</h2>
 <ol>
-<li>Copy this folder into <code>&lt;game folder&gt;\mods&lt;/code> and rename it.</li>
+<li>Copy this folder into <code>&lt;game folder&gt;&#92;mods&#92;</code> and rename it.</li>
 <li>In <code>mod.json</code> change <code>id</code> (lowercase letters, numbers and hyphens: it identifies your mod), <code>name</code>, <code>authors</code> and <code>description</code>.</li>
 <li>In <code>tags</code>, <code>Language</code> is the language of the voices. For music and sounds only, leave <code>&quot;Language: Multilingual&quot;</code>.</li>
 <li>Put your files in the folder that matches what you change and delete the other folders.</li>
@@ -116,10 +119,10 @@
         &lt;unit&gt;\1.wav          up to 5.wav, only with that language
 </code></pre>
 <h2 id="where-to-find-the-names">Where to find the names</h2>
-<p>Extract the game's sounds to see the exact names and folders: <code>node tools\extract-data.js &quot;&lt;game folder&gt;&quot; &lt;output folder&gt; Sounds.pak</code>. The game's music is in <code>&lt;game folder&gt;\Music</code>.</p>
+<p>Extract the game&#39;s sounds to see the exact names and folders: <code>node tools\extract-data.js &quot;&lt;game folder&gt;&quot; &lt;output folder&gt; Sounds.pak</code>. The game&#39;s music is in <code>&lt;game folder&gt;\Music</code>.</p>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Audio goes in GameBanana's <strong>Sounds</strong> section, not in Mods. See <a href="../publishing.html">Publishing</a>.</li>
+<li>Audio goes in GameBanana&#39;s <strong>Sounds</strong> section, not in Mods. See <a href="../publishing.html">Publishing</a>.</li>
 <li>For new sounds that a unit class uses, see <a href="../graphics.html">Custom graphics</a> (<code>&lt;sounds attack=&quot;…&quot; die=&quot;…&quot;/&gt;</code>).</li>
 <li>Cutscenes and music are the same in every language: only voices, texts, help and some menu images change with the language (<a href="../languages.html">Languages</a>).</li>
 </ul>
@@ -147,7 +150,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../../sdk.html","en":"audio.html","it":"../../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"audio.html","es":"../es/templates/audio.html","it":"../../it/sdk.html"}};</script>
 <script src="../../js/i18n.js"></script>
 <script src="../../js/download.js"></script>
 <script src="../../js/motion.js"></script>

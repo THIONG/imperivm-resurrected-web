@@ -6,6 +6,9 @@
 <title>Custom unit specials — SDK</title>
 <meta name="description" content="The game ships with 36 fixed unit specials (Parry, Penetration, Deflection…). They can t be extended, but a mod can declare new ones, and you program…">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/specials.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/specials.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/specials.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/specials.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Custom unit specials — SDK">
@@ -170,19 +173,19 @@ if (rand(100) &gt;= 25) return;
 Mod_SetAttackDamage(damage * 3);
 </code></pre>
 <h2 id="multiplayer">Multiplayer</h2>
-<p><code>specials&lt;/code>, <code>events&lt;/code> and <code>civs&lt;/code> count as gameplay: all players need the same mod.</p>
+<p><code>specials&#92;</code>, <code>events&#92;</code> and <code>civs&#92;</code> count as gameplay: all players need the same mod.</p>
 <h2 id="errors">Errors</h2>
-<p>They show up in <code>Logs\imperivm\imperivm-mod.log</code> (lines tagged <code>specials</code>) and on the mod's card in the manager: an invalid <code>id</code>, a missing or
+<p>They show up in <code>Logs\imperivm\imperivm-mod.log</code> (lines tagged <code>specials</code>) and on the mod&#39;s card in the manager: an invalid <code>id</code>, a missing or
 duplicate <code>bit</code>, a name that belongs to a game special.</p>
 <p>Warning: if you add an unknown <code>[Section]</code> to <code>UNIT_SPECIALS.INI</code> (with a patch, to give a special an icon and text),
-the game may crash. Don't. Mod specials don't use that file.</p>
-<h2 id="whats-missing">What's missing</h2>
+the game may crash. Don&#39;t. Mod specials don&#39;t use that file.</p>
+<h2 id="whats-missing">What&#39;s missing</h2>
 <ul>
-<li>The unit info bar at the top, where the game shows up to three of a unit's specials with their icon, doesn't show mod specials.</li>
-<li>The recruit button's stats text should list them below the game's, without the "Specials" title:
+<li>The unit info bar at the top, where the game shows up to three of a unit&#39;s specials with their icon, doesn&#39;t show mod specials.</li>
+<li>The recruit button&#39;s stats text should list them below the game&#39;s, without the &quot;Specials&quot; title:
 a unit with only mod specials would show them with no title.</li>
 <li>Custom icons: not shown.</li>
-<li>You can't add to the table of the game's 36 or create new native hero abilities. Active ones are made
+<li>You can&#39;t add to the table of the game&#39;s 36 or create new native hero abilities. Active ones are made
 with <a href="abilities.html">commands and scripts</a>.</li>
 </ul>
 
@@ -205,7 +208,7 @@ with <a href="abilities.html">commands and scripts</a>.</li>
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"specials.html","it":"../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"specials.html","es":"es/specials.html","it":"../it/sdk.html"}};</script>
 <script src="../js/i18n.js"></script>
 <script src="../js/download.js"></script>
 <script src="../js/motion.js"></script>

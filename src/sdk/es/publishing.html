@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publicar un mod en GameBanana — SDK</title>
+<meta name="description" content="Los mods de Imperivm Resurrected se publican en https://gamebanana.com/games/26069 . La pestaña Explorar contenido del gestor de contenido lee esa página:…">
+<link rel="canonical" href="https://www.imperivmresurrected.com/sdk/es/publishing.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/publishing.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/publishing.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/publishing.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Imperivm Resurrected">
+<meta property="og:title" content="Publicar un mod en GameBanana — SDK">
+<meta property="og:description" content="Los mods de Imperivm Resurrected se publican en https://gamebanana.com/games/26069 . La pestaña Explorar contenido del gestor de contenido lee esa página:…">
+<meta property="og:url" content="https://www.imperivmresurrected.com/sdk/es/publishing.html">
+<meta property="og:image" content="https://www.imperivmresurrected.com/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="../../img/favicon-64.png">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+<script src="../../js/theme.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Saltar al contenido</a>
+<div class="page">
+
+<header class="header">
+    <a class="brand" href="../../index.html" aria-label="Imperivm Resurrected">
+      <img class="brand__emblem" src="../../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <a href="../../guide.html">Guía y FAQ</a>
+      <a href="../../sdk.html" aria-current="page">Para modders</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener">Mods</a>
+      <div class="languages" role="group" aria-label="Idioma"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span>Descargar</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main id="content" class="doc-layout">
+    <aside class="doc-nav" aria-label="Guías del SDK">
+      <p class="guide-index__title">Guías del SDK</p>
+      <ol>
+          <li><a href="README.html">Resumen</a></li>
+          <li><a href="languages.html">Idiomas y textos</a></li>
+          <li><a href="keys.html">Teclas de mod</a></li>
+          <li><a href="patches.html">Parches</a></li>
+          <li><a href="scripts.html">Scripts</a></li>
+          <li><a href="civilizations.html">Civilizaciones</a></li>
+          <li><a href="city-templates.html">Plantillas de ciudad y aldea</a></li>
+          <li><a href="units.html">Unidades nuevas</a></li>
+          <li><a href="stats.html">Estadísticas de unidades</a></li>
+          <li><a href="specials.html">Especialidades de unidad</a></li>
+          <li><a href="abilities.html">Habilidades de tropa</a></li>
+          <li><a href="items.html">Objetos nuevos</a></li>
+          <li><a href="formations.html">Formaciones nuevas</a></li>
+          <li><a href="outposts.html">Fortines y edificios</a></li>
+          <li><a href="victory-modes.html">Modos de victoria</a></li>
+          <li><a href="bonuses.html">Bonificaciones iniciales</a></li>
+          <li><a href="options.html">Opciones de partida personalizadas</a></li>
+          <li><a href="maps.html">Escenarios, aventuras y conquistas</a></li>
+          <li><a href="audio.html">Música, sonidos y voces</a></li>
+          <li><a href="random-maps.html">Tipos de mapa aleatorio</a></li>
+          <li><a href="images.html">Imágenes personalizadas</a></li>
+          <li><a href="graphics.html">Gráficos personalizados</a></li>
+          <li><a href="validating.html">Validar un mod</a></li>
+          <li><a href="publishing.html" aria-current="page">Publicar en GameBanana</a></li>
+          <li><a href="reference.html">Referencia</a></li>
+          <li><a href="CHANGELOG.html">Cambios</a></li>
+          <li><a href="../LICENSE.html">Licencia (en inglés)</a></li>
+          <li><a href="../game-functions.txt">Funciones del juego (en inglés)</a></li>
+      </ol>
+      <p class="guide-index__title">Plantillas</p>
+      <ol>
+          <li><a href="templates/scenario.html">Plantilla de escenario</a></li>
+          <li><a href="templates/adventure.html">Plantilla de aventura</a></li>
+          <li><a href="templates/conquest.html">Plantilla de conquista</a></li>
+          <li><a href="templates/units.html">Plantilla de unidades</a></li>
+          <li><a href="templates/civilization.html">Plantilla de civilización</a></li>
+          <li><a href="templates/gameplay.html">Plantilla de jugabilidad</a></li>
+          <li><a href="templates/audio.html">Plantilla de audio</a></li>
+          <li><a href="templates/translation.html">Plantilla de traducción</a></li>
+          <li><a href="templates/graphics.html">Plantilla de gráficos</a></li>
+          <li><a href="templates/full.html">Plantilla completa</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../../sdk.html">&larr; Para modders</a>
+    </aside>
+    <article class="doc">
+<h1 id="publishing-a-mod-on-gamebanana">Publicar un mod en GameBanana</h1>
+<p>Los mods de Imperivm Resurrected se publican en <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener">https://gamebanana.com/games/26069</a>. La pestaña <strong>Explorar contenido</strong> del gestor de contenido lee esa página: busca, filtra, abre la página de un mod y lo instala con un clic. Para que tu mod aparezca en el tipo y los filtros correctos, sigue estos pasos.</p>
+<h2 id="before-you-upload">Antes de subirlo</h2>
+<ol>
+<li><p>Pon la categoría en tu <code>mod.json</code> (una de la tabla de abajo) y, si hace falta, sus <a href="#tags">tags</a>: más categorías si tu mod hace varias cosas, los jugadores si es un escenario y el idioma si es una aventura, una traducción o un paquete de audio:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;duel-on-the-nile&quot;,
+  &quot;name&quot;: &quot;Duel on the Nile&quot;,
+  &quot;version&quot;: &quot;1.0&quot;,
+  &quot;authors&quot;: [&quot;Your name&quot;],
+  &quot;category&quot;: &quot;Scenarios&quot;,
+  &quot;tags&quot;: [&quot;Players: 2&quot;]
+}
+</code></pre>
+</li>
+<li><p>Pásalo por el <a href="validating.html">validador</a>. Avisa si la categoría no es una que el juego reconozca o usa un nombre antiguo, si un tag está mal escrito, si un escenario no tiene tag de jugadores y si una aventura, una traducción o un paquete de audio no tiene tag de idioma.</p>
+</li>
+<li><p>Comprime la carpeta del mod en un zip, con su <code>mod.json</code> dentro. No incluyas ejecutables ni scripts de sistema (<code>.exe .dll .asi .bat .cmd .com .scr .ps1 .vbs .js .msi .sys .cpl .lnk .reg .jar .hta .wsf .pif</code>): un mod que contenga alguno no se carga.</p>
+</li>
+</ol>
+<h2 id="on-gamebanana">En GameBanana</h2>
+<ol>
+<li>Ve a <strong>Add → Mod</strong> desde la página del juego (<code>https://gamebanana.com/mods/add?_idGameRow=26069</code>). El audio es la excepción: va en <strong>Add → Sound</strong> (<code>https://gamebanana.com/sounds/add?_idGameRow=26069</code>). Lo que se suba como Tool o Script no aparece en el juego.</li>
+<li><strong>Category</strong>: la misma que en tu <code>mod.json</code>.</li>
+<li><strong>Tags</strong>: los mismos tags. Cada uno tiene un título y un valor: en <code>Type: Civilizations</code> el título es <code>Type</code> y el valor <code>Civilizations</code>. No hace falta crearlos antes: se escriben en cada mod.</li>
+<li><strong>Files</strong>: tu <code>.zip</code> y, en el campo <strong>Version</strong>, la misma versión que en <code>mod.json</code>. Cada versión nueva es un archivo nuevo: no reemplaces el anterior, porque quien juegue en línea con la versión antigua sigue necesitándolo.</li>
+<li><strong>Requirements</strong>: si tu mod necesita otro, enlaza su página (<code>https://gamebanana.com/mods/...</code>, o <code>https://gamebanana.com/sounds/...</code> para audio). El juego lo instala junto con el tuyo.</li>
+<li>Al menos una captura de pantalla. La primera es la imagen que se muestra en el juego.</li>
+<li>Para el registro de cambios, publica un <strong>Update</strong> con la versión como título (por ejemplo <code>1.1</code>). El juego lo muestra junto a esa versión.</li>
+</ol>
+<p>Solo reciben el aviso de versión nueva quienes instalaron el mod desde Explorar contenido (eso escribe <code>sources.gamebanana</code> en su <code>mod.json</code>, o <code>sources.gamebananaSound</code> si viene de Sounds), o quienes tienen un mod con el mismo <code>id</code> que la entrada. Si alguien descarga el zip a mano y lo descomprime, no recibe aviso.</p>
+<h2 id="categories">Categorías</h2>
+<p><strong>En resumen:</strong> en GameBanana eliges <strong>una categoría</strong>, la que mejor describe el mod en conjunto. Todo lo demás que aporte va en los <strong>tags</strong> <code>Type</code>, <code>Players</code> y <code>Language</code>: añade todos los que apliquen, y solo esos.</p>
+<p>GameBanana permite solo una por mod: elige aquella en la que el mod más aporta. Si tu mod hace más, por ejemplo uno grande que trae civilizaciones y mapas, añade las demás con tags <code>Type</code> (mira <a href="#tags">Tags</a>) y aparecerá en todas. Hay nueve, en los tres tipos que distingue el juego. El tipo no lo decide la categoría sino los archivos del mod (mira <a href="README.html#what-counts-as-gameplay">¿Qué cuenta como jugabilidad?</a>); la categoría es cómo lo encuentra la gente en Explorar contenido.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Categoría</th>
+<th>En el juego</th>
+<th>Qué va aquí</th>
+<th>Dónde van sus archivos</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Cambian la jugabilidad</strong></td>
+<td></td>
+<td><em>Todos los jugadores en línea deben tenerlos</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gameplay &amp; Balance</strong></td>
+<td>Gameplay &amp; Balance</td>
+<td>Reglas, estadísticas, costes, IA; también mods grandes que cambian todo el juego</td>
+<td><code>data&#92;</code>, parches</td>
+<td><a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/patches-example" target="_blank" rel="noopener">patches-example</a>, <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/scripts-example" target="_blank" rel="noopener">scripts-example</a>, <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/custom-orders" target="_blank" rel="noopener">custom-orders</a></td>
+</tr>
+<tr>
+<td><strong>Units &amp; Heroes</strong></td>
+<td>Units &amp; Heroes</td>
+<td>Unidades y héroes nuevos o modificados</td>
+<td><code>data&#92;classes&#92;</code>, <code>specials&#92;</code></td>
+<td><a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/ability-example" target="_blank" rel="noopener">ability-example</a>, <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/specialty-example" target="_blank" rel="noopener">specialty-example</a></td>
+</tr>
+<tr>
+<td><strong>Civilizations</strong></td>
+<td>Civilizations</td>
+<td>Civilizaciones nuevas o rehechas</td>
+<td><code>civs&#92;</code>, <code>data&#92;</code></td>
+<td><a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/civilization-example" target="_blank" rel="noopener">civilization-example</a></td>
+</tr>
+<tr>
+<td><strong>Contenido para jugar</strong></td>
+<td></td>
+<td><em>Solo lo necesita quien lo juega</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Scenarios</strong></td>
+<td>Scenarios</td>
+<td>Mapas para escaramuza y multijugador</td>
+<td><code>scenarios\MyMap.bfhp</code></td>
+<td><a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/random-map-example" target="_blank" rel="noopener">random-map-example</a></td>
+</tr>
+<tr>
+<td><strong>Adventures</strong></td>
+<td>Adventures</td>
+<td>Grandes batallas, desafíos y campañas de un jugador, con historia y objetivos</td>
+<td><code>adventures&#92;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Conquests</strong></td>
+<td>Conquests</td>
+<td>Mapas y partidas de conquista</td>
+<td><code>conquests&#92;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Cosméticos</strong></td>
+<td></td>
+<td><em>Cada jugador tiene los suyos</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Graphics</strong></td>
+<td>Graphics</td>
+<td>Texturas, aspecto de unidades, terreno, menús, iconos, fuentes</td>
+<td>las rutas de paquetes del juego, <code>menuini&#92;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Audio &amp; Voices</strong></td>
+<td>Audio &amp; Voices</td>
+<td>Música, sonidos y voces. Se publica en la sección <strong>Sounds</strong> de GameBanana, no en Mods</td>
+<td><code>sounds&#92;</code>, <code>currentlang&#92;voices&#92;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Translations</strong></td>
+<td>Translations</td>
+<td>El juego o un mod en otro idioma, textos cambiados</td>
+<td><code>loc&#92;</code></td>
+<td><a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/french-language" target="_blank" rel="noopener">french-language</a>, <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/custom-texts" target="_blank" rel="noopener">custom-texts</a></td>
+</tr>
+</tbody></table></div>
+<p>Cada categoría tiene una <a href="README.html#templates">plantilla</a> con la estructura de sus carpetas. Para <a href="maps.html">escenarios, aventuras y conquistas</a> y para el <a href="audio.html">audio</a> hay además guías breves.</p>
+<p><strong>Mapas sueltos.</strong> Si el <code>.zip</code> solo contiene el <code>.bfhp</code>, sin carpetas, el juego lo coloca solo al instalarlo, según el tipo que declara el propio mapa (lo que eligió su autor en el editor): una aventura va a <code>adventures&#92;</code> (con su <code>.bmp</code> del mismo nombre), una conquista a <code>conquests&#92;</code> y un mapa de escaramuza a <code>scenarios&#92;</code>, o a <code>adventures&#92;</code> si la categoría es Adventures (misiones de un jugador hechas como un mapa normal). Aun así, es mejor subirlo ya dentro de su carpeta; el <a href="validating.html">validador</a> avisa cuando un mapa está en la equivocada, por ejemplo una aventura en <code>scenarios&#92;</code>, que la lista de Scenarios no muestra.</p>
+<p><strong>Vista previa del escenario.</strong> Cuando se elige un escenario en la sala, el juego dibuja una vista previa a partir del terreno del propio mapa, con sus jugadores y sus civilizaciones, y de dónde procede: no hace falta subir ninguna imagen. Los colores salen de los mosaicos del minimapa del juego, así que un terreno nuevo se ve bien si trae su mosaico en <code>minimapzoom8\terrain</code>.</p>
+<p><strong>Nombres antiguos.</strong> Scenarios, Adventures y Conquests se llaman como las carpetas del juego (<code>scenarios&#92;</code>, <code>adventures&#92;</code>, <code>conquests&#92;</code>). Antes eran <strong>Maps</strong>, <strong>Campaigns</strong> y <strong>Conquest</strong>: un <code>mod.json</code> con esos nombres, o con <code>Interface</code> o <code>Total Conversions</code>, sigue funcionando, pero el validador pide el nombre nuevo.</p>
+<h2 id="tags">Tags</h2>
+<p>Cada tag tiene un título y un valor. El juego usa tres:</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Para qué</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Type: &lt;category&gt;</code></td>
+<td>Más categorías, además de la principal. Un tag por categoría</td>
+<td><code>Type: Civilizations</code>, <code>Type: Scenarios</code></td>
+</tr>
+<tr>
+<td><code>Players: &lt;players&gt;</code></td>
+<td>Jugadores de un escenario, de 2 a 8. Puedes añadir varios</td>
+<td><code>Players: 4</code>, <code>Players: 2-4</code></td>
+</tr>
+<tr>
+<td><code>Language: &lt;language&gt;</code></td>
+<td>Idioma de una aventura, una traducción o un paquete de audio: <code>Spanish</code>, <code>English</code>, <code>Italian</code>, <code>German</code>, <code>French</code>, <code>Polish</code> o <code>Multilingual</code>. Puedes añadir varios</td>
+<td><code>Language: English</code></td>
+</tr>
+</tbody></table></div>
+<p>Escríbelos exactamente como se muestran, en inglés, en los <code>tags</code> de tu <code>mod.json</code> (por ejemplo <code>&quot;tags&quot;: [&quot;Type: Scenarios&quot;, &quot;Players: 2-4&quot;]</code>) y en el campo <strong>Tags</strong> de GameBanana: el juego los muestra en el idioma de cada jugador. Usa solo estos tres: el juego no usa ningún otro, y el validador avisa si hay alguno más.</p>
+<p>Un escenario sin <code>Players</code> no aparece al filtrar por jugadores, y una aventura, una traducción o un paquete de audio sin <code>Language</code> no aparece al filtrar por idioma. Lo mismo vale para las categorías de <code>Type</code>: un mod con <code>Type: Scenarios</code> necesita <code>Players</code> para aparecer al filtrar por jugadores.</p>
+<p>Las formas sin título de versiones anteriores (<code>4 players</code>, <code>Spanish</code>) siguen funcionando, pero el validador pide la nueva. Los tags <code>Gameplay</code>, <code>Cosmetic</code> y <code>Online tested</code> ya no hacen falta: si un mod cambia la jugabilidad, el juego lo sabe por sus archivos.</p>
+<h2 id="mods-made-before-imperivm-resurrected">Mods anteriores a Imperivm Resurrected</h2>
+<p>Los mods antiguos se instalaban copiándolos sobre el juego: traen paquetes <code>.pak</code> enteros que reemplazan los del juego, y casi todo lo que hay dentro son archivos del juego sin tocar. Conviértelos para que contengan solo lo que cambian o añaden:</p>
+<pre><code>node tools/shrink-mod.js &lt;old mod&gt; &lt;game folder&gt; &lt;new folder&gt; --id my-mod --name &quot;My mod&quot; --version 1.0 --category &quot;Gameplay &amp; Balance&quot;
+</code></pre>
+<p>La herramienta calcula qué ve el juego con el mod copiado encima y qué ve sin él, y conserva solo la diferencia:</p>
+<ul>
+<li>De los paquetes, los archivos que difieren de los del juego, respetando su orden (en una carpeta gana el paquete de nombre mayor, como <code>zzMod.pak</code> sobre <code>Data.pak</code>).</li>
+<li>Los textos y sonidos de cada idioma en <code>Local&#92;&lt;language&gt;&#92;</code> (o en <code>currentlang&#92;</code> si son iguales en todos), y el resto de un paquete de idioma en <code>Local\&lt;language&gt;.pak</code>.</li>
+<li>Lo que el mod antiguo quitó del juego al reemplazar sus paquetes, en <code>hidden.txt</code>, para que el juego tampoco lo vea.</li>
+<li><code>data\const.ini</code> como parche y sin la sección <code>[Resolutions]</code>: la resolución la elige el jugador en las opciones.</li>
+<li>Si el mod trae su propio <code>rle.mmp</code>, solo lo que cambia o añade respecto al del juego, en <code>rle.mmp.tail</code>; el del juego se deja como está.</li>
+<li>Deja fuera las copias <code>.bak</code>, <code>Config.ini</code> y <code>Settings.ini</code> (ajustes de instalación) y los ejecutables, con los que el mod no se cargaría.</li>
+</ul>
+<p>Opciones:</p>
+<ul>
+<li><code>--exclude &lt;patterns&gt;</code> deja fuera más archivos del mod antiguo, como las guías de instalación (rutas con <code>*</code> y <code>?</code>, separadas por comas).</li>
+<li><code>--hide &lt;patterns&gt;</code> oculta archivos sueltos del juego que el léame del mod antiguo mandaba borrar (por ejemplo <code>currentlang/*,units/*</code>).</li>
+<li><code>--paths</code>, en lugar de la carpeta de salida, solo muestra qué carpetas hay dentro de los paquetes, sin escribir nada.</li>
+</ul>
+<p>La carpeta de salida tiene que estar vacía. Si el mod antiguo ya tiene un <code>mod.json</code>, la herramienta lo conserva, salvo <code>sources</code> (de dónde se descarga el mod original), para que los avisos de versión no apunten a la página de otra persona. Al final indica qué dejó fuera y qué oculta.</p>
+<p>Pruébalo en el juego antes de subirlo.</p>
+
+    </article>
+  </main>
+
+<footer class="footer">
+    <div class="footer__id">
+      <a class="footer__logo" href="../../index.html" aria-label="Imperivm Resurrected"><img loading="lazy" decoding="async" src="../../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Proyecto no oficial de la comunidad.</p>
+    </div>
+    <nav class="footer__links" aria-label="Enlaces">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../../credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Créditos</span></a>
+    </nav>
+    <a class="footer__back" href="../../sdk.html">Volver a Para modders</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"es","equivalents":{"es":"publishing.html","en":"../publishing.html","it":"../../it/sdk.html"}};</script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/download.js"></script>
+<script src="../../js/motion.js"></script>
+<script src="../../js/support-data.js"></script>
+<script src="../../js/support.js"></script>
+<script src="../../js/menu.js"></script>
+</body>
+</html>

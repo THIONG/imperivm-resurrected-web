@@ -6,6 +6,9 @@
 <title>Civilization template — SDK</title>
 <meta name="description" content="A new civilization that can be picked in the lobby, with its units, buildings and AI.">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/templates/civilization.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/templates/civilization.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/templates/civilization.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/templates/civilization.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Civilization template — SDK">
@@ -95,18 +98,18 @@
 <p>A new civilization that can be picked in the lobby, with its units, buildings and AI.</p>
 <h2 id="steps">Steps</h2>
 <ol>
-<li><p>Copy this folder into <code>&lt;game folder&gt;\mods&lt;/code> and rename it.</p>
+<li><p>Copy this folder into <code>&lt;game folder&gt;&#92;mods&#92;</code> and rename it.</p>
 </li>
 <li><p>In <code>mod.json</code> change <code>id</code> (lowercase letters, numbers and hyphens: it identifies your mod), <code>name</code>, <code>authors</code> and <code>description</code>.</p>
 </li>
-<li><p>Extract the game's data once: <code>node tools\extract-data.js &quot;&lt;game folder&gt;&quot; &lt;output folder&gt;</code>.</p>
+<li><p>Extract the game&#39;s data once: <code>node tools\extract-data.js &quot;&lt;game folder&gt;&quot; &lt;output folder&gt;</code>.</p>
 </li>
 <li><p>Clone a civilization from the game:</p>
 <pre><code>node tools\clone-civilization.js &lt;output folder&gt;\DATA &lt;your mod folder&gt; MyCiv M Gaul 10
 </code></pre>
-<p>It writes <code>civs&lt;/code>, the classes and the commands. <a href="../civilizations.html">Civilizations</a> explains the options, the <code>index</code> (10 to 99, one per civilization) and how to change units afterwards.</p>
+<p>It writes <code>civs&#92;</code>, the classes and the commands. <a href="../civilizations.html">Civilizations</a> explains the options, the <code>index</code> (10 to 99, one per civilization) and how to change units afterwards.</p>
 </li>
-<li><p>Optional: its own city and village for random maps. <code>create-template.js</code> writes them in <code>patches\randommapsettlements&lt;/code> (<a href="../city-templates.html">City and village templates</a>).</p>
+<li><p>Optional: its own city and village for random maps. <code>create-template.js</code> writes them in <code>patches&#92;randommapsettlements&#92;</code> (<a href="../city-templates.html">City and village templates</a>).</p>
 </li>
 <li><p>Delete the notes. Enable the mod in your profile and pick the civilization in the lobby.</p>
 </li>
@@ -156,7 +159,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../../sdk.html","en":"civilization.html","it":"../../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"civilization.html","es":"../es/templates/civilization.html","it":"../../it/sdk.html"}};</script>
 <script src="../../js/i18n.js"></script>
 <script src="../../js/download.js"></script>
 <script src="../../js/motion.js"></script>

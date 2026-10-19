@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modos de victoria propios — SDK</title>
+<meta name="description" content="Las condiciones de victoria del juego (Elimination, Score limit…) son scripts .vs . Un mod puede traer los suyos, y aparecen solos en el desplegable Mode…">
+<link rel="canonical" href="https://www.imperivmresurrected.com/sdk/es/victory-modes.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/victory-modes.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/victory-modes.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/victory-modes.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Imperivm Resurrected">
+<meta property="og:title" content="Modos de victoria propios — SDK">
+<meta property="og:description" content="Las condiciones de victoria del juego (Elimination, Score limit…) son scripts .vs . Un mod puede traer los suyos, y aparecen solos en el desplegable Mode…">
+<meta property="og:url" content="https://www.imperivmresurrected.com/sdk/es/victory-modes.html">
+<meta property="og:image" content="https://www.imperivmresurrected.com/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="../../img/favicon-64.png">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+<script src="../../js/theme.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Saltar al contenido</a>
+<div class="page">
+
+<header class="header">
+    <a class="brand" href="../../index.html" aria-label="Imperivm Resurrected">
+      <img class="brand__emblem" src="../../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <a href="../../guide.html">Guía y FAQ</a>
+      <a href="../../sdk.html" aria-current="page">Para modders</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener">Mods</a>
+      <div class="languages" role="group" aria-label="Idioma"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span>Descargar</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main id="content" class="doc-layout">
+    <aside class="doc-nav" aria-label="Guías del SDK">
+      <p class="guide-index__title">Guías del SDK</p>
+      <ol>
+          <li><a href="README.html">Resumen</a></li>
+          <li><a href="languages.html">Idiomas y textos</a></li>
+          <li><a href="keys.html">Teclas de mod</a></li>
+          <li><a href="patches.html">Parches</a></li>
+          <li><a href="scripts.html">Scripts</a></li>
+          <li><a href="civilizations.html">Civilizaciones</a></li>
+          <li><a href="city-templates.html">Plantillas de ciudad y aldea</a></li>
+          <li><a href="units.html">Unidades nuevas</a></li>
+          <li><a href="stats.html">Estadísticas de unidades</a></li>
+          <li><a href="specials.html">Especialidades de unidad</a></li>
+          <li><a href="abilities.html">Habilidades de tropa</a></li>
+          <li><a href="items.html">Objetos nuevos</a></li>
+          <li><a href="formations.html">Formaciones nuevas</a></li>
+          <li><a href="outposts.html">Fortines y edificios</a></li>
+          <li><a href="victory-modes.html" aria-current="page">Modos de victoria</a></li>
+          <li><a href="bonuses.html">Bonificaciones iniciales</a></li>
+          <li><a href="options.html">Opciones de partida personalizadas</a></li>
+          <li><a href="maps.html">Escenarios, aventuras y conquistas</a></li>
+          <li><a href="audio.html">Música, sonidos y voces</a></li>
+          <li><a href="random-maps.html">Tipos de mapa aleatorio</a></li>
+          <li><a href="images.html">Imágenes personalizadas</a></li>
+          <li><a href="graphics.html">Gráficos personalizados</a></li>
+          <li><a href="validating.html">Validar un mod</a></li>
+          <li><a href="publishing.html">Publicar en GameBanana</a></li>
+          <li><a href="reference.html">Referencia</a></li>
+          <li><a href="CHANGELOG.html">Cambios</a></li>
+          <li><a href="../LICENSE.html">Licencia (en inglés)</a></li>
+          <li><a href="../game-functions.txt">Funciones del juego (en inglés)</a></li>
+      </ol>
+      <p class="guide-index__title">Plantillas</p>
+      <ol>
+          <li><a href="templates/scenario.html">Plantilla de escenario</a></li>
+          <li><a href="templates/adventure.html">Plantilla de aventura</a></li>
+          <li><a href="templates/conquest.html">Plantilla de conquista</a></li>
+          <li><a href="templates/units.html">Plantilla de unidades</a></li>
+          <li><a href="templates/civilization.html">Plantilla de civilización</a></li>
+          <li><a href="templates/gameplay.html">Plantilla de jugabilidad</a></li>
+          <li><a href="templates/audio.html">Plantilla de audio</a></li>
+          <li><a href="templates/translation.html">Plantilla de traducción</a></li>
+          <li><a href="templates/graphics.html">Plantilla de gráficos</a></li>
+          <li><a href="templates/full.html">Plantilla completa</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../../sdk.html">&larr; Para modders</a>
+    </aside>
+    <article class="doc">
+<h1 id="custom-victory-modes">Modos de victoria propios</h1>
+<p>Las condiciones de victoria del juego (Elimination, Score limit…) son scripts <code>.vs</code>. Un mod puede traer los suyos, y aparecen solos en el desplegable &quot;Mode&quot; de la sala.</p>
+<p>Ejemplo: <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/victory-example" target="_blank" rel="noopener"><code>examples/victory-example</code></a> (el modo &quot;Dominio&quot;: gana quien controla N asentamientos).</p>
+<h2 id="the-script">El script</h2>
+<p>Va en <code>data&#92;GameScripts&#92;</code> dentro de tu mod:</p>
+<pre><code>data\GameScripts\6 Dominio.vs
+</code></pre>
+<ul>
+<li><strong>El nombre del archivo es el id del modo</strong>, número incluido. La sala lista los modos por el nombre completo del archivo. Dos mods solo chocan si usan exactamente el mismo nombre (<code>6 Dominio.vs</code> en ambos). Los modos del propio juego son del 1 al 5.</li>
+<li>La sala lo muestra sin el número inicial y lo pasa por la traducción: si el texto &quot;Dominio&quot; tiene una entrada en tu <code>loc</code>, aparece traducido (<a href="languages.html">Idiomas</a>).</li>
+<li>La firma es <code>//void, int player, str param</code>. El juego siempre carga el script con ella, así que la primera línea es opcional, pero conviene escribirla. <code>player</code> es el jugador (de 1 a 8). <code>param</code> es el valor del límite elegido en la sala (mira más abajo).</li>
+<li>El juego lanza 8 copias del script, una por jugador, cada una en su propio hilo, aunque haya menos jugadores. Escríbelo desde el punto de vista de un solo jugador, mirando a los demás. Tiene que soportar los huecos vacíos: el ejemplo los trata como eliminados porque no tienen asentamientos ni tropas.</li>
+</ul>
+<h2 id="functions-youll-use">Funciones que usarás</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Función</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>EndGame(player, false)</code> / <code>EndGame(player, true)</code></td>
+<td>El jugador gana / pierde. Sigue con un <code>return</code></td>
+</tr>
+<tr>
+<td><code>SetPlayerStatus(player, linea, texto, important)</code></td>
+<td>Texto de estado en la parte superior: la línea 0 es el nombre del modo, la 1 el aviso. También existe <code>SetPlayerStatus(player, linea, bool)</code>; los scripts del juego usan las dos</td>
+</tr>
+<tr>
+<td><code>ClassPlayerObjs(&quot;BaseTownhall&quot;, player)</code></td>
+<td>Los objetos de una clase de un jugador; <code>.count</code> los cuenta, <code>.IsEmpty()</code> dice si no hay ninguno</td>
+</tr>
+<tr>
+<td><code>MilUnits(player)</code></td>
+<td>Cuántas tropas tiene</td>
+</tr>
+<tr>
+<td><code>DiplAreAllied(a, b)</code></td>
+<td>Si dos jugadores son aliados</td>
+</tr>
+<tr>
+<td><code>Str2Int(param)</code></td>
+<td>Convierte <code>param</code> en número</td>
+</tr>
+<tr>
+<td><code>EnvReadInt</code> / <code>EnvWriteInt</code></td>
+<td>Variables compartidas entre scripts. Con un jugador (<code>EnvWriteInt(player, &quot;clave&quot;, n)</code>) o sin él (<code>EnvWriteInt(&quot;modo&quot;, 1)</code>)</td>
+</tr>
+<tr>
+<td><code>GetConst(&quot;…&quot;)</code></td>
+<td>Constantes de <code>CONST.INI</code></td>
+</tr>
+<tr>
+<td><code>Translate(&quot;…&quot;)</code> / <code>Translatef(&quot;…&quot;, a, b)</code></td>
+<td>Texto localizado</td>
+</tr>
+</tbody></table></div>
+<p>Para ver cómo lo hace el juego, extrae sus scripts con <code>extract-data.js</code> (<code>node tools\extract-data.js &quot;&lt;game folder&gt;&quot; &lt;output folder&gt;</code>) y lee <code>GAMESCRIPTS\1 ELIMINATION.VS</code> y <code>2 SCORE LIMIT.VS</code>. También puedes usar el volcado de <a href="patches.html">Parches</a>, con la ruta completa: <code>Dump=data/GameScripts/1 ELIMINATION.VS</code>.</p>
+<h2 id="the-limit-dropdown">El desplegable &quot;Limit&quot;</h2>
+<p>El juego lo rellena con entradas de <code>CONST.INI</code>, sección <code>[GamePlay]</code>. La clave es el nombre del archivo con <code>_</code> en lugar de espacios, más un número desde 0. El valor tiene dos partes separadas por una coma: el texto que ves y lo que el script recibe como <code>param</code>.</p>
+<p>El ejemplo lo hace con un parche de INI en <code>patches\data\const.ini</code>:</p>
+<pre><code class="language-ini">[GamePlay]
+6_Dominio0 = 2 asentamientos, 2
+6_Dominio1 = 3 asentamientos, 3
+6_Dominio2 = 4 asentamientos, 4
+6_Dominio3 = 5 asentamientos, 5
+</code></pre>
+<p>Sin entradas, el desplegable sale vacío y no hay límite que elegir. Lo que recibe <code>param</code> en ese caso no se ha visto en partida: el ejemplo recurre a 3 si <code>Str2Int(param)</code> da menos de 2.</p>
+<h2 id="fixed-settings-and-civilizations-of-a-mode">Ajustes fijos y civilizaciones de un modo</h2>
+<p>Un modo puede fijar ajustes de la sala y las civilizaciones que se pueden elegir con él. Va en <code>modes\&lt;name&gt;.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;mode&quot;: &quot;2 LIGA&quot;,
+  &quot;gold&quot;: 5000,
+  &quot;population&quot;: 100,
+  &quot;noFog&quot;: false,
+  &quot;explored&quot;: false,
+  &quot;bonus&quot;: 1,
+  &quot;civilizations&quot;: [&quot;RomeImperial&quot;, &quot;Gaul&quot;, &quot;Iberia&quot;, &quot;CarthageNumidian&quot;]
+}
+</code></pre>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Qué es</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>mode</code></td>
+<td>El nombre del script del modo en <code>data\GameScripts</code>, sin <code>.vs</code> (<code>2 LIGA</code> para <code>2 LIGA.vs</code>), hasta 31 caracteres. Si lo omites, el nombre del archivo json. También vale para los modos del juego.</td>
+</tr>
+<tr>
+<td><code>gold</code></td>
+<td>(Opcional) El oro inicial: uno de los valores del desplegable (<code>5000</code>, <code>10000</code>…).</td>
+</tr>
+<tr>
+<td><code>population</code></td>
+<td>(Opcional) La población: <code>50</code>, <code>100</code> o <code>150</code> (<code>LowPop</code>, <code>NormalPop</code> y <code>HighPop</code> de <code>CONST.INI</code>).</td>
+</tr>
+<tr>
+<td><code>noFog</code></td>
+<td>(Opcional) <code>true</code> quita la niebla, <code>false</code> la mantiene.</td>
+</tr>
+<tr>
+<td><code>explored</code></td>
+<td>(Opcional) <code>true</code> empieza con el mapa explorado.</td>
+</tr>
+<tr>
+<td><code>bonus</code></td>
+<td>(Opcional) La bonificación de todos los jugadores, de 0 (ninguna) a 3, el mismo número que el botón de bonificación de la sala. Ya no se puede marcar Disable bonuses.</td>
+</tr>
+<tr>
+<td><code>civilizations</code></td>
+<td>(Opcional) Las civilizaciones que se pueden jugar en ese modo: las del juego (<code>Gaul</code>, <code>RepublicanRome</code>…) o el <code>id</code> de una del mod. Una base del juego permite todas sus variantes; una variante, solo esa.</td>
+</tr>
+</tbody></table></div>
+<p>Mientras ese modo está elegido, la sala no deja cambiar lo que fija: el anfitrión ve esas filas pero no puede modificarlas. Un jugador con una civilización que el modo no permite pasa a la primera de la lista, y la civilización aleatoria se sortea solo entre las permitidas. El anfitrión lo aplica al crear la partida, así que todos juegan con lo mismo. Las partidas guardadas y los escenarios con civilizaciones fijas no cambian.</p>
+<h2 id="online">Online</h2>
+<p>Un modo nuevo cambia la jugabilidad: todos los jugadores deben tener el mismo mod.</p>
+
+    </article>
+  </main>
+
+<footer class="footer">
+    <div class="footer__id">
+      <a class="footer__logo" href="../../index.html" aria-label="Imperivm Resurrected"><img loading="lazy" decoding="async" src="../../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Proyecto no oficial de la comunidad.</p>
+    </div>
+    <nav class="footer__links" aria-label="Enlaces">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../../credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Créditos</span></a>
+    </nav>
+    <a class="footer__back" href="../../sdk.html">Volver a Para modders</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"es","equivalents":{"es":"victory-modes.html","en":"../victory-modes.html","it":"../../it/sdk.html"}};</script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/download.js"></script>
+<script src="../../js/motion.js"></script>
+<script src="../../js/support-data.js"></script>
+<script src="../../js/support.js"></script>
+<script src="../../js/menu.js"></script>
+</body>
+</html>

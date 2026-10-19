@@ -6,6 +6,9 @@
 <title>Translation template — SDK</title>
 <meta name="description" content="The game, or another mod, in another language; or changed texts in a language the game already has.">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/templates/translation.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/templates/translation.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/templates/translation.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/templates/translation.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Translation template — SDK">
@@ -95,11 +98,11 @@
 <p>The game, or another mod, in another language; or changed texts in a language the game already has.</p>
 <h2 id="steps">Steps</h2>
 <ol>
-<li>Copy this folder into <code>&lt;game folder&gt;\mods&lt;/code> and rename it.</li>
+<li>Copy this folder into <code>&lt;game folder&gt;&#92;mods&#92;</code> and rename it.</li>
 <li>In <code>mod.json</code> change <code>id</code> (lowercase letters, numbers and hyphens: it identifies your mod), <code>name</code>, <code>authors</code> and <code>description</code>.</li>
 <li>In <code>mod.json</code>, <code>language</code> declares a new language: <code>code</code> is its English name in lowercase (<code>french</code>), <code>name</code> is how it appears in the menu and <code>base</code> is the language used for anything you do not translate. Delete <code>language</code> if you only change texts of an existing language. In <code>tags</code>, put the language: <code>&quot;Language: French&quot;</code>.</li>
-<li>Translate the texts in <code>loc\french.loc.xml</code> (rename it to your language's code). Anything you leave out shows in the <code>base</code> language.</li>
-<li>Optional: files for that language only, in <code>local&amp;lt;language&gt;&lt;/code>: <code>help.xml</code>, <code>tips.xml</code>, <code>credits.txt</code>, <code>splash.ini</code>, menu images and <code>voices&lt;/code>. See <a href="../languages.html">Languages and texts</a>.</li>
+<li>Translate the texts in <code>loc\french.loc.xml</code> (rename it to your language&#39;s code). Anything you leave out shows in the <code>base</code> language.</li>
+<li>Optional: files for that language only, in <code>local&#92;&lt;language&gt;&#92;</code>: <code>help.xml</code>, <code>tips.xml</code>, <code>credits.txt</code>, <code>splash.ini</code>, menu images and <code>voices&#92;</code>. See <a href="../languages.html">Languages and texts</a>.</li>
 <li>Enable the mod in your profile, pick the language in Options → Language and restart.</li>
 </ol>
 <h2 id="folder-layout">Folder layout</h2>
@@ -137,7 +140,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../../sdk.html","en":"translation.html","it":"../../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"translation.html","es":"../es/templates/translation.html","it":"../../it/sdk.html"}};</script>
 <script src="../../js/i18n.js"></script>
 <script src="../../js/download.js"></script>
 <script src="../../js/motion.js"></script>

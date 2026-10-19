@@ -6,6 +6,9 @@
 <title>Music, sounds and voices — SDK</title>
 <meta name="description" content="An audio pack replaces or adds music, sounds and unit voices. Audio never has to match between players, so it does not count as gameplay. Start from the…">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/audio.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/audio.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/audio.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/audio.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Music, sounds and voices — SDK">
@@ -103,30 +106,30 @@
 </thead>
 <tbody><tr>
 <td>Music</td>
-<td><code>music&lt;/code></td>
+<td><code>music&#92;</code></td>
 <td><code>.ogg</code></td>
 </tr>
 <tr>
 <td>Sounds</td>
-<td><code>sounds&amp;lt;group&gt;&lt;/code></td>
+<td><code>sounds&#92;&lt;group&gt;&#92;</code></td>
 <td><code>.wav</code></td>
 </tr>
 <tr>
 <td>Unit voices</td>
-<td><code>local&amp;lt;language&gt;\voices&amp;lt;unit&gt;&lt;/code></td>
+<td><code>local&#92;&lt;language&gt;&#92;voices&#92;&lt;unit&gt;&#92;</code></td>
 <td><code>.wav</code>, <code>1.wav</code> to <code>5.wav</code></td>
 </tr>
 </tbody></table></div>
-<p>A file with the same path and name as one of the game's replaces it. A new name adds a file that your own classes and maps can use.</p>
+<p>A file with the same path and name as one of the game&#39;s replaces it. A new name adds a file that your own classes and maps can use.</p>
 <h2 id="music">Music</h2>
-<p>The game's music is in <code>&lt;game folder&gt;\Music</code>: <code>GBR_TRACK_1.ogg</code> to <code>GBR_TRACK_7.ogg</code> and <code>_menu.ogg</code> for the menu. A mod with <code>music\GBR_TRACK_1.ogg</code> replaces that track.</p>
+<p>The game&#39;s music is in <code>&lt;game folder&gt;\Music</code>: <code>GBR_TRACK_1.ogg</code> to <code>GBR_TRACK_7.ogg</code> and <code>_menu.ogg</code> for the menu. A mod with <code>music\GBR_TRACK_1.ogg</code> replaces that track.</p>
 <h2 id="sounds">Sounds</h2>
-<p>The game's sounds are in <code>Packs\Sounds.pak</code>, inside <code>sounds&lt;/code>, grouped in folders: <code>AMBIENT</code>, <code>ANIMALS</code>, <code>DEATH</code>, <code>EFFECTS</code>, <code>FIGHT</code>, <code>GATES</code>, <code>NOTIFICATIONS</code>, <code>SELECTION</code>, <code>UI</code> and <code>WALK</code>. To see the exact names, extract them:</p>
+<p>The game&#39;s sounds are in <code>Packs\Sounds.pak</code>, inside <code>sounds&#92;</code>, grouped in folders: <code>AMBIENT</code>, <code>ANIMALS</code>, <code>DEATH</code>, <code>EFFECTS</code>, <code>FIGHT</code>, <code>GATES</code>, <code>NOTIFICATIONS</code>, <code>SELECTION</code>, <code>UI</code> and <code>WALK</code>. To see the exact names, extract them:</p>
 <pre><code>node tools\extract-data.js &quot;&lt;game folder&gt;&quot; &lt;output folder&gt; Sounds.pak
 </code></pre>
 <p>Your files go in the same folders: <code>sounds\FIGHT\&lt;name&gt;.wav</code>. A class names its sounds with <code>&lt;sounds attack=&quot;…&quot; die=&quot;…&quot;/&gt;</code>; see <a href="graphics.html#sounds">Custom graphics</a> for how to point it to new ones.</p>
 <h2 id="voices">Voices</h2>
-<p>Voices belong to a language, so they go under <code>local&amp;lt;language&gt;\voices&amp;lt;unit&gt;&lt;/code>, with the language's English name in lowercase (<code>english</code>, <code>spanish</code>, <code>french</code>…): <code>local\french\voices\&lt;unit&gt;\1.wav</code>, up to <code>5.wav</code> depending on the unit. Only the language the player has selected is used. See <a href="languages.html#files-for-a-single-language">Languages and texts</a>.</p>
+<p>Voices belong to a language, so they go under <code>local&#92;&lt;language&gt;&#92;voices&#92;&lt;unit&gt;&#92;</code>, with the language&#39;s English name in lowercase (<code>english</code>, <code>spanish</code>, <code>french</code>…): <code>local\french\voices\&lt;unit&gt;\1.wav</code>, up to <code>5.wav</code> depending on the unit. Only the language the player has selected is used. See <a href="languages.html#files-for-a-single-language">Languages and texts</a>.</p>
 <h2 id="in-modjson">In <code>mod.json</code></h2>
 <pre><code class="language-json">{
   &quot;id&quot;: &quot;my-audio-pack&quot;,
@@ -138,7 +141,7 @@
 }
 </code></pre>
 <p><code>Language</code> is the language of the voices. For music and sounds only, use <code>Multilingual</code>.</p>
-<p>Audio is published in GameBanana's <strong>Sounds</strong> section, not in Mods. See <a href="publishing.html">Publishing</a>.</p>
+<p>Audio is published in GameBanana&#39;s <strong>Sounds</strong> section, not in Mods. See <a href="publishing.html">Publishing</a>.</p>
 
     </article>
   </main>
@@ -159,7 +162,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"audio.html","it":"../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"audio.html","es":"es/audio.html","it":"../it/sdk.html"}};</script>
 <script src="../js/i18n.js"></script>
 <script src="../js/download.js"></script>
 <script src="../js/motion.js"></script>

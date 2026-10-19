@@ -6,6 +6,9 @@
 <title>Gameplay template — SDK</title>
 <meta name="description" content="Rules, stats, costs, AI, victory modes, starting bonuses and game options. Patches change part of a game file without replacing it, so two mods can touch…">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/templates/gameplay.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/templates/gameplay.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/templates/gameplay.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/templates/gameplay.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Gameplay template — SDK">
@@ -95,9 +98,9 @@
 <p>Rules, stats, costs, AI, victory modes, starting bonuses and game options. Patches change part of a game file without replacing it, so two mods can touch the same file.</p>
 <h2 id="steps">Steps</h2>
 <ol>
-<li>Copy this folder into <code>&lt;game folder&gt;\mods&lt;/code> and rename it.</li>
+<li>Copy this folder into <code>&lt;game folder&gt;&#92;mods&#92;</code> and rename it.</li>
 <li>In <code>mod.json</code> change <code>id</code> (lowercase letters, numbers and hyphens: it identifies your mod), <code>name</code>, <code>authors</code> and <code>description</code>.</li>
-<li>Put what you need in the folders below and delete the rest. The <code>patches&lt;/code> folder is not in the template (a note file there would be reported as a bad patch): create it with the path of the game file you patch, for example <code>patches\data\classes\RHastatus.sc.xml</code>.</li>
+<li>Put what you need in the folders below and delete the rest. The <code>patches&#92;</code> folder is not in the template (a note file there would be reported as a bad patch): create it with the path of the game file you patch, for example <code>patches\data\classes\RHastatus.sc.xml</code>.</li>
 <li>Enable the mod in your profile and restart the game.</li>
 <li>Read <code>Logs\imperivm\imperivm-mod.log</code>, in the game folder: it lists what your mod loaded and its errors.</li>
 </ol>
@@ -125,23 +128,23 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><code>patches&lt;/code></td>
+<td><code>patches&#92;</code></td>
 <td><a href="../patches.html">Patches</a></td>
 </tr>
 <tr>
-<td><code>events&lt;/code>, <code>data\mod&lt;/code></td>
+<td><code>events&#92;</code>, <code>data&#92;mod&#92;</code></td>
 <td><a href="../scripts.html">Scripts</a></td>
 </tr>
 <tr>
-<td><code>data\GameScripts&lt;/code></td>
+<td><code>data&#92;GameScripts&#92;</code></td>
 <td><a href="../victory-modes.html">Victory modes</a></td>
 </tr>
 <tr>
-<td><code>data\BonusScripts&lt;/code></td>
+<td><code>data&#92;BonusScripts&#92;</code></td>
 <td><a href="../bonuses.html">Starting bonuses</a></td>
 </tr>
 <tr>
-<td><code>options&lt;/code></td>
+<td><code>options&#92;</code></td>
 <td><a href="../options.html">Game options</a></td>
 </tr>
 </tbody></table></div>
@@ -174,7 +177,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../../sdk.html","en":"gameplay.html","it":"../../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"gameplay.html","es":"../es/templates/gameplay.html","it":"../../it/sdk.html"}};</script>
 <script src="../../js/i18n.js"></script>
 <script src="../../js/download.js"></script>
 <script src="../../js/motion.js"></script>

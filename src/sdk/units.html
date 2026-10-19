@@ -6,6 +6,9 @@
 <title>New units — SDK</title>
 <meta name="description" content="Start from the units template , an empty mod with the folders this guide uses.">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/units.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/units.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/units.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/units.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="New units — SDK">
@@ -184,10 +187,10 @@ same alias get mixed up.</li>
 <li><code>edittree_pos</code> (for example <code>Units/Roman/Veteran</code>) is where it shows in the map editor and in the cheats menu: a class with an <code>entity</code>
 whose <code>edittree_pos</code> starts with <code>Units/</code> shows there, in its civilization&#39;s group. The tool copies it from the base and changes the
 last name.</li>
-<li>A new file in <code>data\classes&lt;/code> loads on its own. No registration needed.</li>
+<li>A new file in <code>data&#92;classes&#92;</code> loads on its own. No registration needed.</li>
 </ul>
 <h2 id="2-the-recruit-command">2. The recruit command</h2>
-<p><code>data\commands\Veteran.xml</code>. It's a copy of the game's command (<code>trainRHastatus</code>, in <code>data\commands\RBARRACKS.XML</code>) with a different class and
+<p><code>data\commands\Veteran.xml</code>. It&#39;s a copy of the game&#39;s command (<code>trainRHastatus</code>, in <code>data\commands\RBARRACKS.XML</code>) with a different class and
 cost. The game loads every <code>.xml</code> in <code>data\commands</code>.</p>
 <pre><code class="language-xml">&lt;cmd name=&quot;trainRVeteran&quot; priority=&quot;3&quot;
 	button=&quot;actions/train RVeteran.bmp&quot; queueicon=&quot;gameres/icons/RVeteran.bmp&quot;
@@ -204,7 +207,7 @@ cost. The game loads every <code>.xml</code> in <code>data\commands</code>.</p>
 </ul>
 <h2 id="3-images">3. Images</h2>
 <p>The button is 153 x 51 and the portrait 65 x 76. Build them from a PNG with <code>tools/convert-image.js</code> (<a href="images.html">Custom images</a>). Without
-custom images, use the game unit's (<code>button=&quot;actions/train RHastatus.bmp&quot;</code>, <code>icon=&quot;gameres/icons/RHastatus.bmp&quot;</code>).</p>
+custom images, use the game unit&#39;s (<code>button=&quot;actions/train RHastatus.bmp&quot;</code>, <code>icon=&quot;gameres/icons/RHastatus.bmp&quot;</code>).</p>
 <h2 id="4-texts">4. Texts</h2>
 <p>The class name and the button text are translated with a <code>loc\&lt;language&gt;.loc.xml</code> (<a href="languages.html">Languages and texts</a>):</p>
 <pre><code class="language-xml">&lt;translationtableentry text=&quot;Veteran@RVeteran class name&quot; result=&quot;Veterano&quot;/&gt;
@@ -214,7 +217,7 @@ custom images, use the game unit's (<code>button=&quot;actions/train RHastatus.b
 <h2 id="multiplayer-and-limits">Multiplayer and limits</h2>
 <ul>
 <li>Classes and commands are gameplay: all players need the same mod.</li>
-<li>The AI won't recruit your unit unless you ship your own AI scripts. See <a href="civilizations.html#the-ai">Civilizations</a>.</li>
+<li>The AI won&#39;t recruit your unit unless you ship your own AI scripts. See <a href="civilizations.html#the-ai">Civilizations</a>.</li>
 <li>A unit from a new civilization also needs its buildings and commands. The cloning tool in <a href="civilizations.html">Civilizations</a>
 generates them.</li>
 </ul>
@@ -238,7 +241,7 @@ generates them.</li>
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"units.html","it":"../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"units.html","es":"es/units.html","it":"../it/sdk.html"}};</script>
 <script src="../js/i18n.js"></script>
 <script src="../js/download.js"></script>
 <script src="../js/motion.js"></script>

@@ -6,6 +6,9 @@
 <title>Full template — SDK</title>
 <meta name="description" content="Every folder the game reads from a mod, each with a note about what goes in it. Use it when your mod does several things; for one thing, the other…">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/templates/full.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/templates/full.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/templates/full.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/templates/full.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Full template — SDK">
@@ -139,10 +142,10 @@
 </tbody></table></div>
 <h2 id="steps">Steps</h2>
 <ol>
-<li>Copy this folder into <code>&lt;game folder&gt;\mods&lt;/code> and rename it.</li>
+<li>Copy this folder into <code>&lt;game folder&gt;&#92;mods&#92;</code> and rename it.</li>
 <li>In <code>mod.json</code> change <code>id</code> (lowercase letters, numbers and hyphens: it identifies your mod), <code>name</code>, <code>authors</code> and <code>description</code>.</li>
 <li>Pick <code>category</code> from the list in <a href="../publishing.html">Publishing</a>. <code>tags</code> is only needed for a map (players) or an adventure, translation or audio pack (language).</li>
-<li><strong>Delete every folder you do not use.</strong> An empty folder with its note is harmless, but one that stays under <code>scenarios&lt;/code>, <code>data&lt;/code> or <code>patches&lt;/code> makes the game treat the mod as gameplay: everyone online would need it.</li>
+<li><strong>Delete every folder you do not use.</strong> An empty folder with its note is harmless, but one that stays under <code>scenarios&#92;</code>, <code>data&#92;</code> or <code>patches&#92;</code> makes the game treat the mod as gameplay: everyone online would need it.</li>
 <li>In the folders you keep, delete the <code>PUT-YOUR-FILES-HERE.txt</code> note when you add your files.</li>
 </ol>
 <h2 id="folders">Folders</h2>
@@ -155,137 +158,137 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><code>data\classes&lt;/code></td>
-<td>Unit, building and hero classes (.sc.xml): new ones or copies of the game's. <a href="../units.html">guide</a></td>
+<td><code>data&#92;classes&#92;</code></td>
+<td>Unit, building and hero classes (.sc.xml): new ones or copies of the game&#39;s. <a href="../units.html">guide</a></td>
 <td>yes</td>
 </tr>
 <tr>
-<td><code>data\commands&lt;/code></td>
+<td><code>data&#92;commands&#92;</code></td>
 <td>Orders and their buttons (.xml). <a href="../units.html">guide</a></td>
 <td>yes</td>
 </tr>
 <tr>
-<td><code>data\GameScripts&lt;/code></td>
+<td><code>data&#92;GameScripts&#92;</code></td>
 <td>Victory modes: one .vs per mode. <a href="../victory-modes.html">guide</a></td>
 <td>yes</td>
 </tr>
 <tr>
-<td><code>data\BonusScripts&lt;/code></td>
+<td><code>data&#92;BonusScripts&#92;</code></td>
 <td>Starting bonuses: NNN NAME.vs. <a href="../bonuses.html">guide</a></td>
 <td>yes</td>
 </tr>
 <tr>
-<td><code>data\mod&lt;/code></td>
+<td><code>data&#92;mod&#92;</code></td>
 <td>Your own scripts, called from events and classes. <a href="../scripts.html">guide</a></td>
 <td>yes</td>
 </tr>
 <tr>
-<td><code>patches\data&lt;/code></td>
-<td>Patches over the game's files, with the same path and name. <a href="../patches.html">guide</a></td>
+<td><code>patches&#92;data&#92;</code></td>
+<td>Patches over the game&#39;s files, with the same path and name. <a href="../patches.html">guide</a></td>
 <td>depends on the file</td>
 </tr>
 <tr>
-<td><code>events&lt;/code></td>
+<td><code>events&#92;</code></td>
 <td>Event scripts: OnGameStart.vs, OnObjectDie.vs and so on. <a href="../scripts.html">guide</a></td>
 <td>yes</td>
 </tr>
 <tr>
-<td><code>civs&lt;/code></td>
+<td><code>civs&#92;</code></td>
 <td>New civilizations: <id>.json, one per civilization (index 10 to 99). Its units and buildings go in data/classes and its orders in data/commands; clone-civilization.js writes all of it. <a href="../civilizations.html">guide</a></td>
 <td>yes</td>
 </tr>
 <tr>
-<td><code>specials&lt;/code></td>
+<td><code>specials&#92;</code></td>
 <td>New unit specials: *.json. <a href="../specials.html">guide</a></td>
 <td>yes</td>
 </tr>
 <tr>
-<td><code>options&lt;/code></td>
+<td><code>options&#92;</code></td>
 <td>Lobby switches: *.json. <a href="../options.html">guide</a></td>
 <td>yes</td>
 </tr>
 <tr>
-<td><code>scenarios&lt;/code></td>
+<td><code>scenarios&#92;</code></td>
 <td>Skirmish and multiplayer maps (.bfhp).</td>
 <td>yes</td>
 </tr>
 <tr>
-<td><code>adventures&lt;/code></td>
+<td><code>adventures&#92;</code></td>
 <td>Adventures (.bfhp and the .bmp of the same name).</td>
 <td>yes</td>
 </tr>
 <tr>
-<td><code>conquests&lt;/code></td>
+<td><code>conquests&#92;</code></td>
 <td>Conquests (.bfhp), with their folder in conquestmaps.</td>
 <td>yes</td>
 </tr>
 <tr>
-<td><code>conquestmaps&lt;/code></td>
+<td><code>conquestmaps&#92;</code></td>
 <td>The folder of each conquest map: territories.xml and its images.</td>
 <td>yes</td>
 </tr>
 <tr>
-<td><code>movies&lt;/code></td>
+<td><code>movies&#92;</code></td>
 <td>Cutscenes (.avi) that a map plays with PlayMovie.</td>
 <td>no</td>
 </tr>
 <tr>
-<td><code>music&lt;/code></td>
-<td>Music (.ogg), same name as the game's to replace it.</td>
+<td><code>music&#92;</code></td>
+<td>Music (.ogg), same name as the game&#39;s to replace it.</td>
 <td>no</td>
 </tr>
 <tr>
-<td><code>sounds&lt;/code></td>
-<td>Sounds (.wav), same path as the game's.</td>
+<td><code>sounds&#92;</code></td>
+<td>Sounds (.wav), same path as the game&#39;s.</td>
 <td>no</td>
 </tr>
 <tr>
-<td><code>loc&lt;/code></td>
+<td><code>loc&#92;</code></td>
 <td>Texts: <language>.loc.xml. <a href="../languages.html">guide</a></td>
 <td>no</td>
 </tr>
 <tr>
-<td><code>units&lt;/code></td>
+<td><code>units&#92;</code></td>
 <td>Unit sprites (.rle) and entity files. The .xml and .pass count. <a href="../graphics.html">guide</a></td>
 <td>only .xml and .pass</td>
 </tr>
 <tr>
-<td><code>buildings&lt;/code></td>
+<td><code>buildings&#92;</code></td>
 <td>Building sprites and entity files. The .xml and .pass count. <a href="../graphics.html">guide</a></td>
 <td>only .xml and .pass</td>
 </tr>
 <tr>
-<td><code>mapobjects&lt;/code></td>
+<td><code>mapobjects&#92;</code></td>
 <td>Map object files. The .xml and .pass count.</td>
 <td>only .xml and .pass</td>
 </tr>
 <tr>
-<td><code>visuals&lt;/code></td>
+<td><code>visuals&#92;</code></td>
 <td>Effects and projectiles. Only the .xml counts.</td>
 <td>only .xml</td>
 </tr>
 <tr>
-<td><code>gameres&lt;/code></td>
+<td><code>gameres&#92;</code></td>
 <td>Loose interface images: icons and buttons. <a href="../images.html">guide</a></td>
 <td>no</td>
 </tr>
 <tr>
-<td><code>packs&lt;/code></td>
-<td>Maps (.bfhp) and packs (.pak) mounted next to the game's.</td>
+<td><code>packs&#92;</code></td>
+<td>Maps (.bfhp) and packs (.pak) mounted next to the game&#39;s.</td>
 <td>depends on the contents</td>
 </tr>
 <tr>
-<td><code>randommap&lt;/code></td>
+<td><code>randommap&#92;</code></td>
 <td>Random map shapes. <a href="../random-maps.html">guide</a></td>
 <td>yes</td>
 </tr>
 <tr>
-<td><code>randommapsettlements&lt;/code></td>
+<td><code>randommapsettlements&#92;</code></td>
 <td>City and village templates. <a href="../city-templates.html">guide</a></td>
 <td>yes</td>
 </tr>
 </tbody></table></div>
-<p>The <code>patches&lt;/code> folder is not in the template (a note file there would be reported as a bad patch): create it with the path of the game file you patch. Files that are not listed go in the same path they have in the game. Executables and system scripts are not allowed (<code>.exe .dll .asi .bat .cmd .com .scr .ps1 .vbs .js .msi .sys .cpl .lnk .reg .jar .hta .wsf .pif</code>): a mod with one does not load. The complete reference is <a href="../reference.html">Reference</a>.</p>
+<p>The <code>patches&#92;</code> folder is not in the template (a note file there would be reported as a bad patch): create it with the path of the game file you patch. Files that are not listed go in the same path they have in the game. Executables and system scripts are not allowed (<code>.exe .dll .asi .bat .cmd .com .scr .ps1 .vbs .js .msi .sys .cpl .lnk .reg .jar .hta .wsf .pif</code>): a mod with one does not load. The complete reference is <a href="../reference.html">Reference</a>.</p>
 <h2 id="check-and-publish">Check and publish</h2>
 <pre><code>node tools\validate-mod.js &lt;your mod folder&gt;
 </code></pre>
@@ -310,7 +313,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../../sdk.html","en":"full.html","it":"../../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"full.html","es":"../es/templates/full.html","it":"../../it/sdk.html"}};</script>
 <script src="../../js/i18n.js"></script>
 <script src="../../js/download.js"></script>
 <script src="../../js/motion.js"></script>

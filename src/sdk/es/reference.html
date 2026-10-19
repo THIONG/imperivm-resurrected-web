@@ -1,0 +1,1056 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Referencia del SDK</title>
+<meta name="description" content="Una lista de consulta con todo lo que puede declarar un mod. Para aprender a hacerlo, mira las guías enlazadas en cada tabla.">
+<link rel="canonical" href="https://www.imperivmresurrected.com/sdk/es/reference.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/reference.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/reference.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/reference.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Imperivm Resurrected">
+<meta property="og:title" content="Referencia del SDK">
+<meta property="og:description" content="Una lista de consulta con todo lo que puede declarar un mod. Para aprender a hacerlo, mira las guías enlazadas en cada tabla.">
+<meta property="og:url" content="https://www.imperivmresurrected.com/sdk/es/reference.html">
+<meta property="og:image" content="https://www.imperivmresurrected.com/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="../../img/favicon-64.png">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+<script src="../../js/theme.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Saltar al contenido</a>
+<div class="page">
+
+<header class="header">
+    <a class="brand" href="../../index.html" aria-label="Imperivm Resurrected">
+      <img class="brand__emblem" src="../../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <a href="../../guide.html">Guía y FAQ</a>
+      <a href="../../sdk.html" aria-current="page">Para modders</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener">Mods</a>
+      <div class="languages" role="group" aria-label="Idioma"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span>Descargar</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main id="content" class="doc-layout">
+    <aside class="doc-nav" aria-label="Guías del SDK">
+      <p class="guide-index__title">Guías del SDK</p>
+      <ol>
+          <li><a href="README.html">Resumen</a></li>
+          <li><a href="languages.html">Idiomas y textos</a></li>
+          <li><a href="keys.html">Teclas de mod</a></li>
+          <li><a href="patches.html">Parches</a></li>
+          <li><a href="scripts.html">Scripts</a></li>
+          <li><a href="civilizations.html">Civilizaciones</a></li>
+          <li><a href="city-templates.html">Plantillas de ciudad y aldea</a></li>
+          <li><a href="units.html">Unidades nuevas</a></li>
+          <li><a href="stats.html">Estadísticas de unidades</a></li>
+          <li><a href="specials.html">Especialidades de unidad</a></li>
+          <li><a href="abilities.html">Habilidades de tropa</a></li>
+          <li><a href="items.html">Objetos nuevos</a></li>
+          <li><a href="formations.html">Formaciones nuevas</a></li>
+          <li><a href="outposts.html">Fortines y edificios</a></li>
+          <li><a href="victory-modes.html">Modos de victoria</a></li>
+          <li><a href="bonuses.html">Bonificaciones iniciales</a></li>
+          <li><a href="options.html">Opciones de partida personalizadas</a></li>
+          <li><a href="maps.html">Escenarios, aventuras y conquistas</a></li>
+          <li><a href="audio.html">Música, sonidos y voces</a></li>
+          <li><a href="random-maps.html">Tipos de mapa aleatorio</a></li>
+          <li><a href="images.html">Imágenes personalizadas</a></li>
+          <li><a href="graphics.html">Gráficos personalizados</a></li>
+          <li><a href="validating.html">Validar un mod</a></li>
+          <li><a href="publishing.html">Publicar en GameBanana</a></li>
+          <li><a href="reference.html" aria-current="page">Referencia</a></li>
+          <li><a href="CHANGELOG.html">Cambios</a></li>
+          <li><a href="../LICENSE.html">Licencia (en inglés)</a></li>
+          <li><a href="../game-functions.txt">Funciones del juego (en inglés)</a></li>
+      </ol>
+      <p class="guide-index__title">Plantillas</p>
+      <ol>
+          <li><a href="templates/scenario.html">Plantilla de escenario</a></li>
+          <li><a href="templates/adventure.html">Plantilla de aventura</a></li>
+          <li><a href="templates/conquest.html">Plantilla de conquista</a></li>
+          <li><a href="templates/units.html">Plantilla de unidades</a></li>
+          <li><a href="templates/civilization.html">Plantilla de civilización</a></li>
+          <li><a href="templates/gameplay.html">Plantilla de jugabilidad</a></li>
+          <li><a href="templates/audio.html">Plantilla de audio</a></li>
+          <li><a href="templates/translation.html">Plantilla de traducción</a></li>
+          <li><a href="templates/graphics.html">Plantilla de gráficos</a></li>
+          <li><a href="templates/full.html">Plantilla completa</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../../sdk.html">&larr; Para modders</a>
+    </aside>
+    <article class="doc">
+<h1 id="sdk-reference">Referencia del SDK</h1>
+<p>Una lista de consulta con todo lo que puede declarar un mod. Para aprender a hacerlo, mira las guías enlazadas en cada tabla.</p>
+<p>Las rutas de esta página usan <code>&#92;</code>. El juego no distingue mayúsculas de minúsculas.</p>
+<h2 id="1-mod-structure">1. Estructura del mod</h2>
+<p>Un mod es una carpeta en <code>mods&#92;</code>. Las carpetas que empiezan por <code>.</code> o <code>_</code> se ignoran. Sin <code>mod.json</code>, el juego crea uno básico (con <code>autoGenerated</code>).</p>
+<p>&quot;Jugabilidad&quot; = todos los jugadores deben tener el mismo mod (<a href="README.html#what-counts-as-gameplay">README</a>).</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Ruta en el mod</th>
+<th>Qué hace</th>
+<th>Jugabilidad</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>mod.json</code></td>
+<td>El manifiesto del mod. Mira la sección 2</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>data\…</code></td>
+<td>Archivos nuevos, o que reemplazan los del juego, en la misma ruta</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><code>scenarios&#92;</code>, <code>adventures&#92;</code>, <code>conquests&#92;</code></td>
+<td>Mapas, aventuras y conquistas</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><code>units&#92;</code>, <code>buildings&#92;</code>, <code>mapobjects&#92;</code></td>
+<td>Reemplazan los del juego. Cuentan los <code>.xml</code> y los <code>.pass</code> (huellas); los <code>.rle</code> y el resto, no</td>
+<td>Solo <code>.xml</code> y <code>.pass</code></td>
+</tr>
+<tr>
+<td><code>visuals&#92;</code></td>
+<td>Efectos y proyectiles</td>
+<td>Solo <code>.xml</code></td>
+</tr>
+<tr>
+<td><code>packs\*.bfhp</code></td>
+<td>Mapas (aleatorios, asentamientos…)</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><code>packs\*.pak</code></td>
+<td>Paquetes que se montan junto a los del juego</td>
+<td>Depende de su contenido</td>
+</tr>
+<tr>
+<td><code>randommap&#92;</code>, <code>randommapsettlements&#92;</code></td>
+<td>Formas de mapa aleatorio y plantillas de ciudad (<a href="random-maps.html">Tipos de mapa aleatorio</a>, <a href="city-templates.html">Plantillas de ciudad y aldea</a>)</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><code>patches\&lt;path&gt;</code></td>
+<td>Parche del archivo del juego que está en esa ruta. Solo <code>.xml</code>, <code>.ini</code> y <code>.vs</code>. Mira la sección 6</td>
+<td>Depende de la ruta que parchea</td>
+</tr>
+<tr>
+<td><code>civs\&lt;id&gt;.json</code></td>
+<td>Civilizaciones. Sección 3</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><code>specials\*.json</code></td>
+<td>Especialidades de unidad. Sección 4</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><code>options\*.json</code></td>
+<td>Opciones de partida. Sección 5</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><code>events\&lt;Event&gt;.vs</code></td>
+<td>Scripts de evento. Sección 7</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><code>loc\&lt;language&gt;.loc.xml</code>, <code>loc\&lt;language&gt;\*.loc.xml</code></td>
+<td>Textos que se suman a los del juego (<a href="languages.html">Idiomas</a>)</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>local\&lt;language&gt;\&lt;path&gt;</code></td>
+<td>Archivo que el juego ve como <code>currentlang\&lt;path&gt;</code>, solo con ese idioma</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>local\&lt;language&gt;.pak</code></td>
+<td>Paquete de idioma (también <code>&lt;language&gt;_something.pak</code>). Solo se monta el del idioma del juego</td>
+<td>Depende de su contenido</td>
+</tr>
+<tr>
+<td><code>hidden.txt</code></td>
+<td>Archivos del juego que el mod oculta, uno por línea; los que van después de <code>[language]</code> solo se ocultan con ese idioma. Pensado para mods antiguos que quitaban archivos reemplazando los paquetes del juego; lo escribe <code>shrink-mod.js</code></td>
+<td>Sí, si oculta archivos de jugabilidad</td>
+</tr>
+<tr>
+<td><code>rle.mmp.tail</code></td>
+<td>Los gráficos del mod: lo que cambia o añade en el <code>rle.mmp</code> del juego, que va detrás de este, con la huella del <code>rle.mmp</code> del juego para el que se hizo. Lo escribe <code>shrink-mod.js</code>. Solo un paquete activo puede tenerlo</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>movies\…</code></td>
+<td>Vídeos (<code>PlayMovie</code>): se buscan primero en los paquetes activos, por orden de carga</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>gameres\…</code></td>
+<td>Imágenes sueltas de la interfaz (<a href="images.html">Imágenes</a>)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cualquier otra ruta</td>
+<td>Archivo suelto con la misma ruta que en el juego</td>
+<td>No</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li>Extensiones prohibidas: <code>.exe .dll .asi .bat .cmd .com .scr .ps1 .vbs .js .msi .sys .cpl .lnk .reg .jar .hta .wsf .pif</code>. Con una de ellas, el mod no se carga.</li>
+<li>Una extensión que no es de las conocidas y tampoco está prohibida se permite y nunca se ejecuta.</li>
+<li>Si dos mods incluyen el mismo archivo, uno suelto gana a uno dentro de un <code>.pak</code>; entre dos sueltos, o entre dos dentro de <code>.pak</code>, gana el que va antes en el <strong>orden de carga</strong>. El juego calcula ese orden, nadie lo elige: primero lo que piden los mods (un mod va por encima de los que necesita en <code>requires</code> y de los de su <code>loadAfter</code>, y por debajo de los de su <code>loadBefore</code>); después los mods cosméticos van por encima del contenido (mapas, batallas, conquista), y el contenido por encima de los mods que cambian la jugabilidad; en caso de empate, por <code>id</code>. Los mismos mods dan el mismo orden en todos los ordenadores. En la ficha de cada mod, el gestor de contenido lista los archivos que comparte con otros mods activos y de cuál se usa la copia de cada uno. Si dos mods activos reemplazan los mismos archivos de jugabilidad y ninguno nombra al otro en <code>requires</code>, <code>loadAfter</code> o <code>loadBefore</code>, se muestra como un problema: usa solo uno, o un parche de compatibilidad (un mod que incluye los archivos combinados y tiene a ambos en su <code>loadAfter</code>). Cuando todos los archivos que comparten son cosméticos (texturas, sonidos, interfaz), el jugador puede elegir de quién se usan los archivos; la elección se guarda en el perfil, solo se aplica a archivos sueltos y no cambia ni el orden de carga ni lo que cuenta online. Para cambiar unos pocos valores de un archivo que otro mod también puede cambiar, es mejor un parche (sección 6): los parches se suman en lugar de reemplazar el archivo.</li>
+</ul>
+<p>Carpeta de pruebas <code>&lt;game&gt;&#92;mod&#92;</code> (no hace falta ningún mod; gana a todos los mods):</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Ruta</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>mod\&lt;path&gt;</code></td>
+<td>Reemplaza el archivo del juego que está en esa ruta (si <code>[Mods] Override=1</code>)</td>
+</tr>
+<tr>
+<td><code>mod\patches\&lt;path&gt;</code>, <code>mod\loc\&lt;language&gt;.loc.xml</code>, <code>mod\events\&lt;Event&gt;.vs</code>, <code>mod\civs\*.json</code>, <code>mod\specials\*.json</code></td>
+<td>Igual que en un mod. <code>options&#92;</code> no se lee desde aquí</td>
+</tr>
+<tr>
+<td><code>mod&#92;_cache&#92;</code></td>
+<td>Lo genera el juego (textos combinados, archivos parcheados). No la toques</td>
+</tr>
+</tbody></table></div>
+<h2 id="2-modjson">2. <code>mod.json</code></h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Por defecto</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>texto</td>
+<td>nombre de la carpeta, en minúsculas y con <code>-</code></td>
+<td>El identificador del mod</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>texto, u objeto por idioma</td>
+<td>nombre de la carpeta</td>
+<td>Nombre en el gestor de contenido</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>texto</td>
+<td>vacío</td>
+<td>Versión</td>
+</tr>
+<tr>
+<td><code>authors</code></td>
+<td>lista de textos</td>
+<td>vacía</td>
+<td>Autores</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>texto, u objeto por idioma</td>
+<td>vacía</td>
+<td>Descripción</td>
+</tr>
+<tr>
+<td><code>license</code></td>
+<td>texto</td>
+<td>vacía</td>
+<td>Licencia</td>
+</tr>
+<tr>
+<td><code>redistributable</code></td>
+<td>booleano</td>
+<td><code>false</code></td>
+<td>El anfitrión puede enviar el mod a quien no lo tiene</td>
+</tr>
+<tr>
+<td><code>requires</code></td>
+<td>lista de ids, o de objetos <code>{&quot;id&quot;, &quot;version&quot;}</code></td>
+<td>vacía</td>
+<td>Mods que necesita. <code>version</code> acepta <code>&gt;=</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>=</code>, <code>*</code>, o un número (igual)</td>
+</tr>
+<tr>
+<td><code>incompatibleWith</code></td>
+<td>lista de ids</td>
+<td>vacía</td>
+<td>Mods con los que no se puede activar</td>
+</tr>
+<tr>
+<td><code>loadAfter</code></td>
+<td>lista de ids</td>
+<td>vacía</td>
+<td>Tu mod va por encima de esos: sus archivos, parches y textos ganan</td>
+</tr>
+<tr>
+<td><code>loadBefore</code></td>
+<td>lista de ids</td>
+<td>vacía</td>
+<td>Tu mod va por debajo de esos</td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td>texto</td>
+<td>vacía</td>
+<td>Categoría de GameBanana (<a href="publishing.html">Publicar en GameBanana</a>)</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>lista de textos</td>
+<td>vacía</td>
+<td>Etiquetas de GameBanana, <code>Title: value</code>: más categorías (<code>Type</code>), jugadores (<code>Players</code>) e idioma (<code>Language</code>). Mira <a href="publishing.html#tags">Publicar en GameBanana</a></td>
+</tr>
+<tr>
+<td><code>sources</code></td>
+<td>objeto</td>
+<td>ninguno</td>
+<td><code>url</code> (o <code>page</code>), <code>gamebanana</code> o <code>gamebananaSound</code> (número, de la sección Mods o Sounds) y <code>tags</code> (lista que se suma a las anteriores)</td>
+</tr>
+<tr>
+<td><code>language</code></td>
+<td>objeto, lista de objetos o texto</td>
+<td>ninguno</td>
+<td><code>code</code>, <code>name</code> y <code>base</code> (<code>english</code> por defecto). Un texto solo = solo el código. Mira <a href="languages.html">Idiomas</a></td>
+</tr>
+<tr>
+<td><code>commands</code></td>
+<td>objeto</td>
+<td>ninguno</td>
+<td><code>{&quot;&lt;orders file without extension&gt;&quot;: {&quot;name&quot;: text or object per language}}</code>. Mira <a href="keys.html">Teclas</a></td>
+</tr>
+</tbody></table></div>
+<p>Un texto por idioma toma el del idioma del juego; si falta, el inglés; si tampoco está, el primero.</p>
+<p>Alias en inglés que el juego también lee: <code>name</code>, <code>description</code>, <code>license</code>, <code>redistributable</code>, <code>language</code> (con <code>code</code>, <code>name</code>).</p>
+<h2 id="3-civsjson">3. <code>civs\&lt;id&gt;.json</code></h2>
+<p>Guía: <a href="civilizations.html">Civilizaciones</a>.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Por defecto</th>
+<th>Obligatorio</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>texto</td>
+<td>nombre del archivo</td>
+<td>No</td>
+<td>Letras, números y <code>_</code>; empieza por una letra; hasta 24. Se guarda en minúsculas. En los scripts es la constante tal como la escribes, con la primera letra en mayúscula (<code>Dacia</code>, <code>RomeImperial</code>)</td>
+</tr>
+<tr>
+<td><code>index</code></td>
+<td>entero 10-99</td>
+<td>-</td>
+<td>Sí</td>
+<td>El número de la civilización</td>
+</tr>
+<tr>
+<td><code>base</code></td>
+<td>texto</td>
+<td><code>Gaul</code></td>
+<td>No</td>
+<td>Civilización del juego de la que hereda: <code>Gaul</code>, <code>RepublicanRome</code>, <code>Carthage</code>, <code>Iberia</code>, <code>ImperialRome</code>, <code>Britain</code>, <code>Egypt</code>, <code>Germany</code> (también <code>Rome</code>, <code>Roman</code>, <code>Briton</code>)</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>texto, u objeto por idioma</td>
+<td>el <code>id</code>, con la primera en mayúscula</td>
+<td>No</td>
+<td>Nombre en la sala</td>
+</tr>
+<tr>
+<td><code>letter</code></td>
+<td>una letra</td>
+<td>la de la base</td>
+<td>No</td>
+<td>Prefijo de las clases y las órdenes</td>
+</tr>
+<tr>
+<td><code>template</code></td>
+<td>texto</td>
+<td>vacío</td>
+<td>No</td>
+<td>Prefijo de tus plantillas de ciudad y aldea</td>
+</tr>
+<tr>
+<td><code>internalName</code></td>
+<td>texto</td>
+<td>el de la base</td>
+<td>No</td>
+<td>Nombre que usa el juego para buscar los archivos de la interfaz. También es válido en <code>race=</code> si no es el de la base</td>
+</tr>
+<tr>
+<td><code>folder</code></td>
+<td>texto</td>
+<td>el de la base</td>
+<td>No</td>
+<td>Nombre en los textos de selección</td>
+</tr>
+<tr>
+<td><code>random</code></td>
+<td>booleano</td>
+<td><code>true</code></td>
+<td>No</td>
+<td>Entra en el sorteo de civilización aleatoria</td>
+</tr>
+<tr>
+<td><code>biome</code></td>
+<td>texto (una civilización del juego)</td>
+<td>la base</td>
+<td>No</td>
+<td>Terreno, árboles y objetos del mapa aleatorio</td>
+</tr>
+<tr>
+<td><code>ai</code></td>
+<td>booleano</td>
+<td><code>false</code></td>
+<td>No</td>
+<td>La IA juega con tus clases y órdenes (si no, con las de la base). En el sorteo, una IA solo recibe civilizaciones que la tengan</td>
+</tr>
+<tr>
+<td><code>ownAi</code></td>
+<td>booleano</td>
+<td><code>false</code></td>
+<td>No</td>
+<td>Con <code>ai</code>: el mod incluye todos los scripts de la IA</td>
+</tr>
+<tr>
+<td><code>alias</code></td>
+<td>objeto</td>
+<td>ninguno</td>
+<td>No</td>
+<td><code>classes</code> y <code>commands</code>: nombre en la base → nombre en tu civilización (cada valor, un texto)</td>
+</tr>
+<tr>
+<td><code>variant</code></td>
+<td>booleano</td>
+<td><code>false</code></td>
+<td>No</td>
+<td>Variante de la base: usa sus clases, <code>GetPlayerRace</code> devuelve la base y <code>Mod_PlayerCiv</code> la elegida. Con él, <code>ai</code> es <code>true</code> salvo que lo indiques</td>
+</tr>
+<tr>
+<td><code>replacesBase</code></td>
+<td>booleano</td>
+<td><code>false</code></td>
+<td>No</td>
+<td>La base no aparece en la sala: esta civilización ocupa su lugar y su parte del sorteo aleatorio</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><code>race=&quot;&lt;id&gt;&quot;</code> en las <code>&lt;properties&gt;</code> de una clase usa la civilización por su <code>id</code> o por su <code>internalName</code>.</li>
+<li><code>id</code> o <code>index</code> repetidos: gana el del mod que va antes; los demás se ignoran con una advertencia.</li>
+<li>Alias en inglés: <code>index</code>, <code>name</code>, <code>letter</code>, <code>template</code>, <code>internalName</code>, <code>folder</code>, <code>random</code>, <code>biome</code>, <code>ai</code>, <code>ownAi</code>.</li>
+</ul>
+<h2 id="4-specialsjson">4. <code>specials\*.json</code></h2>
+<p>Guía: <a href="specials.html">Especialidades de unidad</a>.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Por defecto</th>
+<th>Obligatorio</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>texto</td>
+<td>-</td>
+<td>Sí</td>
+<td>Letras, números y <code>_</code>; empieza por una letra; hasta 24. No puede coincidir con un especialidad de unidad del juego. Es la constante del script (<code>Critical</code>) y el nombre en <code>unit_specials</code></td>
+</tr>
+<tr>
+<td><code>bit</code></td>
+<td>entero 36-63</td>
+<td>-</td>
+<td>Sí</td>
+<td>Bit de la máscara. No lo cambies una vez publicado</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>texto, u objeto por idioma</td>
+<td>el <code>id</code></td>
+<td>No</td>
+<td>Nombre</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>texto, u objeto por idioma</td>
+<td>vacía</td>
+<td>No</td>
+<td>Se lee; no se muestra</td>
+</tr>
+<tr>
+<td><code>icon</code></td>
+<td>texto</td>
+<td>vacío</td>
+<td>No</td>
+<td>Se lee; no se usa</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><code>id</code> o <code>bit</code> repetidos: gana el del mod que va antes.</li>
+<li>En <code>unit_specials</code>, los nombres van separados por comas; los de mod no distinguen mayúsculas de minúsculas. El juego ignora los que no conoce.</li>
+<li>Alias en inglés: <code>name</code>, <code>description</code>, <code>icon</code>.</li>
+</ul>
+<h2 id="5-optionsjson">5. <code>options\&lt;id&gt;.json</code></h2>
+<p>Guía: <a href="options.html">Opciones de partida</a>.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Por defecto</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>texto</td>
+<td>nombre del archivo</td>
+<td>Letras, números, <code>_</code> y <code>-</code>; hasta 32. Se guarda en minúsculas. Es lo que usan <code>Mod_GetOption</code> y <code>Mod_GetOptionValue</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>texto, u objeto por idioma</td>
+<td>el <code>id</code></td>
+<td>Texto en la sala</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>texto, u objeto por idioma</td>
+<td>vacía</td>
+<td>El texto de ayuda de la fila</td>
+</tr>
+<tr>
+<td><code>values</code></td>
+<td>lista de 2 a 16</td>
+<td>ninguna (= interruptor)</td>
+<td>Cada valor: un texto, o <code>{&quot;id&quot;, &quot;nombre&quot;}</code>. El primero es el 0</td>
+</tr>
+<tr>
+<td><code>default</code></td>
+<td>booleano, número o texto</td>
+<td><code>false</code> / 0</td>
+<td>Interruptor: <code>true</code>/<code>false</code>. Lista: el número del valor (desde 0) o su <code>id</code>. Un <code>id</code> que no existe da 0</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li>Un <code>values</code> con menos de 2 o más de 16 elementos hace que se ignore la opción entera.</li>
+<li>Bits: interruptor 1; lista de 2 valores 1; de 3-4, 2; de 5-8, 3; de 9-16, 4. Se asignan en orden alfabético de <code>id</code>.</li>
+<li>Con un <code>id</code> repetido, gana el del mod que va antes.</li>
+<li>Alias en inglés: <code>name</code>, <code>description</code>, <code>values</code>, <code>default</code>.</li>
+</ul>
+<h2 id="6-patches">6. Parches</h2>
+<p>Guía: <a href="patches.html">Parches</a>. Un parche va en <code>patches\&lt;path of the game file&gt;</code>. Solo <code>.xml</code>, <code>.ini</code> y <code>.vs</code>. Orden: del último mod del orden de carga al primero, de modo que el primero tiene la última palabra; <code>mod\patches</code> va el último.</p>
+<h3 id="xml">XML</h3>
+<p>La primera etiqueta del parche es la raíz (normalmente se llama <code>&lt;patch&gt;</code>); sus hijas son las operaciones, que se aplican en orden. Los nombres de operaciones, etiquetas y atributos no distinguen mayúsculas de minúsculas.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Operación</th>
+<th>Atributos</th>
+<th>Contenido</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;set&gt;</code></td>
+<td><code>select</code>, <code>optional</code>, <code>unset</code>, y cualquier otro atributo</td>
+<td>Ninguno</td>
+<td>Cambia o añade esos atributos en los elementos seleccionados. <code>unset</code> quita atributos (separados por espacios o comas)</td>
+</tr>
+<tr>
+<td><code>&lt;add&gt;</code></td>
+<td><code>select</code>, <code>optional</code>, <code>position</code></td>
+<td>Elementos o comentarios</td>
+<td>Los añade. <code>position</code>: <code>end</code> (por defecto), <code>start</code>, <code>before</code>, <code>after</code></td>
+</tr>
+<tr>
+<td><code>&lt;remove&gt;</code></td>
+<td><code>select</code>, <code>optional</code></td>
+<td>Ninguno</td>
+<td>Quita los elementos seleccionados</td>
+</tr>
+<tr>
+<td><code>&lt;replace&gt;</code></td>
+<td><code>select</code>, <code>optional</code></td>
+<td>Elementos o comentarios</td>
+<td>Reemplaza los elementos seleccionados por el contenido</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><code>select</code> es obligatorio. Con <code>&lt;set&gt;</code> no puedes asignar un atributo que se llame <code>select</code>, <code>optional</code> o <code>unset</code>.</li>
+<li><code>optional</code>: <code>1</code>, <code>yes</code>, <code>si</code>, <code>sí</code> o <code>true</code> evitan el error si el selector no encuentra nada.</li>
+<li><code>&lt;add&gt;</code> y <code>&lt;replace&gt;</code> sin contenido dan error.</li>
+<li>Un selector sin resultados, o una operación desconocida, se omite con un error; las demás siguen. Si el parche no está bien formado, no se aplica ninguna operación.</li>
+<li>El archivo parcheado conserva los comentarios y las comillas; los atributos se juntan en una sola línea.</li>
+</ul>
+<h3 id="selector">Selector</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Sintaxis</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Paso a hijo / descendiente</td>
+<td><code>/nombre</code>, <code>//nombre</code></td>
+</tr>
+<tr>
+<td>Cualquier nombre</td>
+<td><code>*</code></td>
+</tr>
+<tr>
+<td>Con atributo igual a</td>
+<td><code>[@a=&#39;v&#39;]</code> o <code>[@a=&quot;v&quot;]</code> (sin distinguir mayúsculas; entiende <code>&amp;amp;</code> <code>&amp;lt;</code> <code>&amp;gt;</code> <code>&amp;quot;</code> <code>&amp;apos;</code>)</td>
+</tr>
+<tr>
+<td>Con atributo</td>
+<td><code>[@a]</code></td>
+</tr>
+<tr>
+<td>El enésimo</td>
+<td><code>[n]</code>, desde 1: el enésimo de los que cumplen nombre y condiciones, dentro de cada padre</td>
+</tr>
+</tbody></table></div>
+<p>Puedes encadenar condiciones (<code>[@a=&#39;v&#39;][2]</code>). No existe nada más (<code>and</code>, <code>contains</code>, <code>text()</code>, <code>..</code>). Empieza siempre con <code>/</code> o <code>//</code>.</p>
+<h3 id="ini">INI</h3>
+<p>Cada línea del parche, bajo una <code>[Seccion]</code> (obligatoria antes de cualquier línea):</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Línea</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Clave = valor</code></td>
+<td>Cambia la primera línea con esa clave en la sección, o la añade al final de la sección. Se escribe como <code>Clave = valor</code></td>
+</tr>
+<tr>
+<td><code>-Clave</code></td>
+<td>Quita todas las líneas con esa clave de la sección, o esa línea exacta. Da error si no hay ninguna</td>
+</tr>
+<tr>
+<td><code>+Linea</code></td>
+<td>Añade una línea suelta si no está ya</td>
+</tr>
+<tr>
+<td><code>[Seccion]</code></td>
+<td>Cambia de sección. Si no existe en el archivo, se crea al final</td>
+</tr>
+<tr>
+<td><code>;…</code> o <code>#…</code></td>
+<td>Comentario. Solo vale en una línea entera</td>
+</tr>
+</tbody></table></div>
+<p>Las claves y las secciones no distinguen mayúsculas de minúsculas. Un comentario al final de una línea del parche no se elimina.</p>
+<h3 id="vs-scripts">Scripts <code>.vs</code></h3>
+<p>Las directivas empiezan con <code>@</code> en la primera columna; el código que va debajo de cada una es lo que se inserta.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Directiva</th>
+<th>Dónde inserta</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>@top</code></td>
+<td>Después de la primera línea si es un comentario <code>//</code> (la firma); si no, al principio</td>
+</tr>
+<tr>
+<td><code>@bottom</code></td>
+<td>Al final del script</td>
+</tr>
+<tr>
+<td><code>@before TEXTO</code></td>
+<td>Antes de la primera línea que contiene <code>TEXTO</code></td>
+</tr>
+<tr>
+<td><code>@after TEXTO</code></td>
+<td>Después de esa línea</td>
+</tr>
+<tr>
+<td><code>@replace TEXTO</code></td>
+<td>En lugar de esa línea. Sin código debajo, borra la línea</td>
+</tr>
+<tr>
+<td><code>@end</code></td>
+<td>Cierra el bloque; todo lo que haya después, hasta la siguiente directiva, se ignora</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><code>TEXTO</code> es un trozo literal de una línea (distingue mayúsculas de minúsculas). Se usa la primera línea que lo contiene, y las directivas se aplican en orden: ven lo que insertaron las anteriores.</li>
+<li>Error (y la directiva se omite): directiva desconocida, <code>@before</code>/<code>@after</code>/<code>@replace</code> sin <code>TEXTO</code>, una directiva sin código (salvo <code>@replace</code>), <code>TEXTO</code> no encontrado.</li>
+</ul>
+<h2 id="7-script-events">7. Eventos de script</h2>
+<p>Guía: <a href="scripts.html#events">Scripts</a>. Archivo: <code>events\&lt;Event&gt;.vs</code>. Se ejecuta en todos los PC; con varios mods, se ejecutan todos.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Evento</th>
+<th>Cuándo</th>
+<th>Firma (primera línea)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>OnGameStart</code></td>
+<td>Cuando empieza una partida, después de que arranquen los scripts de victoria. Puede usar <code>Sleep</code></td>
+<td><code>// void</code></td>
+</tr>
+<tr>
+<td><code>OnObjectDie</code></td>
+<td>Muere un objeto, antes de procesar su muerte (la primera vez)</td>
+<td><code>// void, Obj victim</code></td>
+</tr>
+<tr>
+<td><code>OnObjectKill</code></td>
+<td>Un golpe mata a un objeto</td>
+<td><code>// void, Obj killer, Obj victim</code></td>
+</tr>
+<tr>
+<td><code>OnSettlementCaptured</code></td>
+<td>Un asentamiento cambia de dueño mientras la partida está en marcha. Jugadores 1-16; 0 = sin dueño</td>
+<td><code>// void, Obj building, int oldPlayer, int newPlayer</code></td>
+</tr>
+<tr>
+<td><code>OnAttackResolved</code></td>
+<td>Un golpe que causa daño, antes de aplicarlo</td>
+<td><code>// void, Obj attacker, Obj victim, int damage</code></td>
+</tr>
+<tr>
+<td><code>OnPlayerDefeated</code></td>
+<td>Se declara derrotado a un jugador (1-8), una vez por jugador</td>
+<td><code>// void, int player</code></td>
+</tr>
+</tbody></table></div>
+<ul>
+<li>Salvo <code>OnGameStart</code>, se ejecutan de inmediato y no pueden esperar.</li>
+<li>Un evento que se dispara dentro de sí mismo se corta a los 4 niveles.</li>
+<li>Si el script falla en ejecución, el registro lo anota hasta 5 veces por script.</li>
+<li>Solo se leen estos nombres de evento. Los nombres de los parámetros los eliges tú.</li>
+</ul>
+<h2 id="8-mod_-functions">8. Funciones <code>Mod_*</code></h2>
+<p>Guía: <a href="scripts.html#mod_-functions">Scripts</a>. La API actual es la 6; forma parte de la comprobación de multijugador.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Función</th>
+<th>API</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Mod_Log(str text)</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>Mod_LogInt(str text, int value)</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>Mod_IsActive(str id)</code> : <code>bool</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>Mod_ApiVersion()</code> : <code>int</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>Mod_SetInt(str name, int value)</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>Mod_GetInt(str name)</code> : <code>int</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>Mod_AddInt(str name, int delta)</code> : <code>int</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>Mod_HasKey(str name)</code> : <code>bool</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>Mod_AttackDamage()</code> : <code>int</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>Mod_SetAttackDamage(int damage)</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>Mod_HasSpecial(Unit unit, int bit)</code> : <code>bool</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>Mod_SetSpecial(Unit unit, int bit, bool on)</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>Mod_TrueRace(Obj obj)</code> : <code>int</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>Mod_GetOption(str id)</code> : <code>bool</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>Mod_GetOptionValue(str id)</code> : <code>int</code></td>
+<td>6</td>
+</tr>
+</tbody></table></div>
+<p>Constantes de script: el <code>id</code> de cada civilización de mod con la primera letra en mayúscula (valor = su <code>index</code>) y el <code>id</code> de cada especialidad de unidad de mod (valor = su <code>bit</code>).</p>
+<h2 id="9-imperivm-modini">9. <code>imperivm-mod.ini</code></h2>
+<p>Está en la carpeta del juego. Se lee al arrancar.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Sección</th>
+<th>Clave</th>
+<th>Valor</th>
+<th>Por defecto</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>[Debug]</code></td>
+<td><code>LogFiles</code></td>
+<td><code>0</code> o <code>1</code></td>
+<td><code>0</code></td>
+<td>El registro anota cada archivo que abre el juego y marca los que no existen (<code>VFS: opens … -&gt; does not exist</code>)</td>
+</tr>
+<tr>
+<td><code>[Debug]</code></td>
+<td><code>Dump</code></td>
+<td>rutas separadas por comas, o <code>*</code></td>
+<td>vacío</td>
+<td>Copia cada archivo a <code>mod-dump\&lt;path&gt;</code> tal como lo lee el juego (con los parches y los textos de mods ya aplicados), la primera vez que lo abre. Nombre exacto, sin comodines salvo <code>*</code> (todos)</td>
+</tr>
+<tr>
+<td><code>[Debug]</code></td>
+<td><code>DumpAtStartup</code></td>
+<td>rutas separadas por comas</td>
+<td>vacío</td>
+<td>Copia esos archivos a <code>mod-dump&#92;</code> al arrancar, sin esperar a que el juego los abra</td>
+</tr>
+<tr>
+<td><code>[Mods]</code></td>
+<td><code>Override</code></td>
+<td><code>0</code> o <code>1</code></td>
+<td><code>1</code></td>
+<td>Activa <code>&lt;game&gt;\mod\&lt;path&gt;</code> como reemplazo de archivos</td>
+</tr>
+<tr>
+<td><code>[Mods]</code></td>
+<td><code>Profile</code></td>
+<td>nombre del perfil, <code>Original</code> o <code>No profile</code></td>
+<td><code>Original</code></td>
+<td>Perfil con el que arranca el juego (<code>No profile</code> es &quot;Mi contenido&quot; en el gestor). Lo cambia el gestor de contenido; el cambio se aplica al reiniciar</td>
+</tr>
+</tbody></table></div>
+<h2 id="10-limits">10. Límites</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Qué</th>
+<th>Límite</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bits de opciones de partida</td>
+<td>8 entre todas las opciones de todos los mods</td>
+<td>Código</td>
+</tr>
+<tr>
+<td>Valores en una lista de opción</td>
+<td>2 a 16</td>
+<td>Código</td>
+</tr>
+<tr>
+<td><code>id</code> de opción</td>
+<td>hasta 32; letras, números, <code>_</code>, <code>-</code></td>
+<td>Código</td>
+</tr>
+<tr>
+<td><code>id</code> de civilización y de especialidad de unidad</td>
+<td>hasta 24; letras, números, <code>_</code>; empieza por una letra</td>
+<td>Código</td>
+</tr>
+<tr>
+<td><code>index</code> de civilización</td>
+<td>10 a 99</td>
+<td>Código</td>
+</tr>
+<tr>
+<td><code>letter</code> de civilización</td>
+<td>1 carácter</td>
+<td>Código</td>
+</tr>
+<tr>
+<td><code>bit</code> de especialidad de unidad</td>
+<td>36 a 63</td>
+<td>Código</td>
+</tr>
+<tr>
+<td><code>bit</code> en <code>Mod_HasSpecial</code> y <code>Mod_SetSpecial</code></td>
+<td>0 a 63 (fuera de rango: <code>false</code> / no hace nada)</td>
+<td>Código</td>
+</tr>
+<tr>
+<td>Nombre de variable de mod</td>
+<td>hasta 64 caracteres</td>
+<td>Código</td>
+</tr>
+<tr>
+<td>Variables de mod</td>
+<td>hasta 1.024; enteros de 32 bits</td>
+<td>Código</td>
+</tr>
+<tr>
+<td><code>Mod_Log</code> y <code>Mod_LogInt</code></td>
+<td>2.000 líneas por sesión</td>
+<td>Código</td>
+</tr>
+<tr>
+<td><code>Mod_SetAttackDamage</code></td>
+<td>un valor negativo se reduce a 0</td>
+<td>Código</td>
+</tr>
+<tr>
+<td>Errores de scripts de evento en el registro</td>
+<td>5 por script</td>
+<td>Código</td>
+</tr>
+<tr>
+<td>Eventos anidados</td>
+<td>4 niveles</td>
+<td>Código</td>
+</tr>
+<tr>
+<td>Errores de parche por mod</td>
+<td>se conservan los 50 primeros</td>
+<td>Código</td>
+</tr>
+<tr>
+<td><code>Dump</code></td>
+<td>hasta 1.023 caracteres; <code>DumpAtStartup</code>, 2.047</td>
+<td>Código</td>
+</tr>
+<tr>
+<td><code>&lt;behavior&gt;</code> por clase</td>
+<td>8</td>
+<td><a href="scripts.html#where-a-script-hooks-in">Scripts</a></td>
+</tr>
+<tr>
+<td>Imágenes, capas y estados en un <code>.ent.xml</code></td>
+<td>32, 32 y 8</td>
+<td><a href="graphics.html#format-reference">Gráficos</a></td>
+</tr>
+<tr>
+<td><code>idx</code> de <code>&lt;anim&gt;</code> y fotogramas por animación</td>
+<td>1 a 28; hasta 64 (2 son centinelas: 62 filas)</td>
+<td><a href="graphics.html#format-reference">Gráficos</a></td>
+</tr>
+<tr>
+<td>Direcciones de sprite</td>
+<td>8 soldados, 12 héroes y animales, 4 barcos</td>
+<td><a href="graphics.html">Gráficos</a></td>
+</tr>
+<tr>
+<td>Colores de sprite</td>
+<td>256; con color de jugador, 192</td>
+<td><a href="graphics.html">Gráficos</a></td>
+</tr>
+<tr>
+<td>Botón / retrato</td>
+<td>153 x 51 / 65 x 76</td>
+<td><a href="images.html">Imágenes</a></td>
+</tr>
+<tr>
+<td><code>BonusDamage</code>, <code>BonusArmor</code>, <code>BonusRange</code>, <code>BonusLevel</code> de formación</td>
+<td>-1000 a 1000</td>
+<td><a href="formations.html">Formaciones</a></td>
+</tr>
+<tr>
+<td>Nombre de tipo de mapa aleatorio</td>
+<td>2 a 31 caracteres</td>
+<td><a href="random-maps.html">Tipos de mapa aleatorio</a></td>
+</tr>
+<tr>
+<td><code>--players</code>, <code>--small</code>, <code>--distortion</code> de <code>create-random-map.js</code></td>
+<td>2 a 8, 0 a 8, 0 a 0,5</td>
+<td><code>create-random-map.js</code></td>
+</tr>
+<tr>
+<td><code>--width</code> de <code>create-template.js</code></td>
+<td>0 a 4</td>
+<td><a href="city-templates.html">Plantillas de ciudad y aldea</a></td>
+</tr>
+</tbody></table></div>
+<hr>
+<p>Las guías explican cómo hacer cada cosa; esta es la lista completa. Vuelve al <a href="README.html">README</a>.</p>
+
+    </article>
+  </main>
+
+<footer class="footer">
+    <div class="footer__id">
+      <a class="footer__logo" href="../../index.html" aria-label="Imperivm Resurrected"><img loading="lazy" decoding="async" src="../../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Proyecto no oficial de la comunidad.</p>
+    </div>
+    <nav class="footer__links" aria-label="Enlaces">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../../credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Créditos</span></a>
+    </nav>
+    <a class="footer__back" href="../../sdk.html">Volver a Para modders</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"es","equivalents":{"es":"reference.html","en":"../reference.html","it":"../../it/sdk.html"}};</script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/download.js"></script>
+<script src="../../js/motion.js"></script>
+<script src="../../js/support-data.js"></script>
+<script src="../../js/support.js"></script>
+<script src="../../js/menu.js"></script>
+</body>
+</html>

@@ -6,6 +6,9 @@
 <title>Scenarios, adventures and conquests — SDK</title>
 <meta name="description" content="The three kinds of map the game has. They are made in the game s map editor and saved as a .bfhp file; a mod only has to put that file, and the few files…">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/maps.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/maps.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/maps.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/maps.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Scenarios, adventures and conquests — SDK">
@@ -104,33 +107,33 @@
 </thead>
 <tbody><tr>
 <td>Scenario (skirmish and multiplayer map)</td>
-<td><code>scenarios&lt;/code></td>
+<td><code>scenarios&#92;</code></td>
 <td><code>MyMap.bfhp</code></td>
 <td><a href="templates/scenario.html">scenario</a></td>
 </tr>
 <tr>
 <td>Adventure (single-player missions and campaigns)</td>
-<td><code>adventures&lt;/code></td>
+<td><code>adventures&#92;</code></td>
 <td><code>MyAdventure.bfhp</code> and <code>MyAdventure.bmp</code></td>
 <td><a href="templates/adventure.html">adventure</a></td>
 </tr>
 <tr>
 <td>Conquest</td>
-<td><code>conquests&lt;/code> and <code>conquestmaps&lt;/code></td>
+<td><code>conquests&#92;</code> and <code>conquestmaps&#92;</code></td>
 <td><code>MyConquest.bfhp</code> and a folder of images</td>
 <td><a href="templates/conquest.html">conquest</a></td>
 </tr>
 </tbody></table></div>
-<p>The kind is not chosen by the folder: the map itself states it, according to what its author picked in the editor. The folder has to match. An adventure or a conquest in <code>scenarios&lt;/code> does not appear in the Scenarios list, and the <a href="validating.html">validator</a> warns about it.</p>
+<p>The kind is not chosen by the folder: the map itself states it, according to what its author picked in the editor. The folder has to match. An adventure or a conquest in <code>scenarios&#92;</code> does not appear in the Scenarios list, and the <a href="validating.html">validator</a> warns about it.</p>
 <h2 id="scenarios">Scenarios</h2>
-<p>Put the <code>.bfhp</code> in <code>scenarios&lt;/code>. When someone picks it in the room, the game draws the preview from the map's own terrain, with its players and their civilizations: there is no image to provide. The colors come from the game's minimap tiles, so a new terrain looks right if it brings its tile in <code>minimapzoom8\terrain</code>.</p>
+<p>Put the <code>.bfhp</code> in <code>scenarios&#92;</code>. When someone picks it in the room, the game draws the preview from the map&#39;s own terrain, with its players and their civilizations: there is no image to provide. The colors come from the game&#39;s minimap tiles, so a new terrain looks right if it brings its tile in <code>minimapzoom8\terrain</code>.</p>
 <p>In <code>mod.json</code> use <code>&quot;category&quot;: &quot;Scenarios&quot;</code> and tell how many players the map has with a <code>Players</code> tag (<code>&quot;Players: 2&quot;</code>, <code>&quot;Players: 2-4&quot;</code>). See <a href="publishing.html#tags">Publishing</a>.</p>
 <h2 id="adventures">Adventures</h2>
-<p>Each adventure is two files with the same name, in <code>adventures&lt;/code>: the <code>.bfhp</code> and a <code>.bmp</code> (<code>The Punic Wars.BFHP</code> and <code>The Punic Wars.bmp</code>). The game's own campaigns keep each series in a subfolder: <code>Adventures\GreatBattles&lt;/code> and <code>Adventures\GreatChallenges&lt;/code>, with the missions numbered.</p>
+<p>Each adventure is two files with the same name, in <code>adventures&#92;</code>: the <code>.bfhp</code> and a <code>.bmp</code> (<code>The Punic Wars.BFHP</code> and <code>The Punic Wars.bmp</code>). The game&#39;s own campaigns keep each series in a subfolder: <code>Adventures&#92;GreatBattles&#92;</code> and <code>Adventures&#92;GreatChallenges&#92;</code>, with the missions numbered.</p>
 <p>In <code>mod.json</code> use <code>&quot;category&quot;: &quot;Adventures&quot;</code> and a <code>Language</code> tag with the language of its texts.</p>
 <h2 id="conquests">Conquests</h2>
-<p>A conquest is a <code>.bfhp</code> in <code>conquests&lt;/code> and a folder in <code>conquestmaps&lt;/code> with the images and the list of territories. The game's own, <code>Conquests\mediterranean.BFHP</code>, stores the name of its folder inside: <code>ConquestMaps/1 - GBR Europe</code>. Your conquest does the same, so <strong>the folder of <code>conquestmaps&lt;/code> has to be called exactly what the map says</strong>.</p>
-<p>The folder of the game's conquest has these files:</p>
+<p>A conquest is a <code>.bfhp</code> in <code>conquests&#92;</code> and a folder in <code>conquestmaps&#92;</code> with the images and the list of territories. The game&#39;s own, <code>Conquests\mediterranean.BFHP</code>, stores the name of its folder inside: <code>ConquestMaps/1 - GBR Europe</code>. Your conquest does the same, so <strong>the folder of <code>conquestmaps&#92;</code> has to be called exactly what the map says</strong>.</p>
+<p>The folder of the game&#39;s conquest has these files:</p>
 <div class="table"><table>
 <thead>
 <tr>
@@ -155,13 +158,13 @@
 <td>74x79, 16-bit, one per territory (<code>ShieldSpain.bmp</code> for <code>Spain</code>), and <code>ShieldArrow.bmp</code>.</td>
 </tr>
 </tbody></table></div>
-<p>The territories of the game's conquest are <code>Spain</code>, <code>Britain</code>, <code>Gaul</code>, <code>Italy</code>, <code>Carthage</code>, <code>Egypt</code> and <code>Germany</code>. To make yours, copy the folder of the game (<code>&lt;game folder&gt;\ConquestMaps\1 - GBR europe</code>) and change it: it is the quickest way to get <code>index</code> and <code>state</code> right. The <a href="templates/conquest.html">conquest template</a> has the layout and a trimmed <code>territories.xml</code>.</p>
+<p>The territories of the game&#39;s conquest are <code>Spain</code>, <code>Britain</code>, <code>Gaul</code>, <code>Italy</code>, <code>Carthage</code>, <code>Egypt</code> and <code>Germany</code>. To make yours, copy the folder of the game (<code>&lt;game folder&gt;\ConquestMaps\1 - GBR europe</code>) and change it: it is the quickest way to get <code>index</code> and <code>state</code> right. The <a href="templates/conquest.html">conquest template</a> has the layout and a trimmed <code>territories.xml</code>.</p>
 <h2 id="cutscenes">Cutscenes</h2>
-<p>An adventure or a conquest can play videos. Put each <code>.avi</code> in <code>movies&lt;/code> in the mod and play it from the map's script, in the editor:</p>
+<p>An adventure or a conquest can play videos. Put each <code>.avi</code> in <code>movies&#92;</code> in the mod and play it from the map&#39;s script, in the editor:</p>
 <pre><code>PlayMovie(Translate(&quot;movies\\MyVideo.avi&quot;));
 </code></pre>
-<p>That is how the game's own adventures call theirs (<code>movies\\1_Intro_Great_B_Zama.avi</code>). The game looks for the file in the active mods first, in <a href="reference.html#1-mod-structure">load order</a>, and then in its own <code>Movies&lt;/code> folder, so a mod can also replace one of the game's videos.</p>
-<p>The game plays videos through Windows (DirectShow), so the computer has to be able to decode the format. The game's own videos are AVI files with Xvid video (1920x1080, 25 frames per second) and PCM audio: use the same format.</p>
+<p>That is how the game&#39;s own adventures call theirs (<code>movies\\1_Intro_Great_B_Zama.avi</code>). The game looks for the file in the active mods first, in <a href="reference.html#1-mod-structure">load order</a>, and then in its own <code>Movies&#92;</code> folder, so a mod can also replace one of the game&#39;s videos.</p>
+<p>The game plays videos through Windows (DirectShow), so the computer has to be able to decode the format. The game&#39;s own videos are AVI files with Xvid video (1920x1080, 25 frames per second) and PCM audio: use the same format.</p>
 <p>Videos are the same in every language and do not count as gameplay.</p>
 <h2 id="in-multiplayer">In multiplayer</h2>
 <p>Maps, adventures and conquests are gameplay files: everyone in the room needs the same one. With <code>&quot;redistributable&quot;: true</code> in <code>mod.json</code> the host can send the mod to players who do not have it.</p>
@@ -189,7 +192,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"maps.html","it":"../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"maps.html","es":"es/maps.html","it":"../it/sdk.html"}};</script>
 <script src="../js/i18n.js"></script>
 <script src="../js/download.js"></script>
 <script src="../js/motion.js"></script>

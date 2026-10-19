@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gráficos propios para unidades y edificios — SDK</title>
+<meta name="description" content="Empieza desde la plantilla de gráficos , un mod vacío con las carpetas que usa esta guía.">
+<link rel="canonical" href="https://www.imperivmresurrected.com/sdk/es/graphics.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/graphics.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/graphics.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/graphics.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Imperivm Resurrected">
+<meta property="og:title" content="Gráficos propios para unidades y edificios — SDK">
+<meta property="og:description" content="Empieza desde la plantilla de gráficos , un mod vacío con las carpetas que usa esta guía.">
+<meta property="og:url" content="https://www.imperivmresurrected.com/sdk/es/graphics.html">
+<meta property="og:image" content="https://www.imperivmresurrected.com/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="../../img/favicon-64.png">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+<script src="../../js/theme.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Saltar al contenido</a>
+<div class="page">
+
+<header class="header">
+    <a class="brand" href="../../index.html" aria-label="Imperivm Resurrected">
+      <img class="brand__emblem" src="../../img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <a href="../../guide.html">Guía y FAQ</a>
+      <a href="../../sdk.html" aria-current="page">Para modders</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener">Mods</a>
+      <div class="languages" role="group" aria-label="Idioma"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span>Descargar</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main id="content" class="doc-layout">
+    <aside class="doc-nav" aria-label="Guías del SDK">
+      <p class="guide-index__title">Guías del SDK</p>
+      <ol>
+          <li><a href="README.html">Resumen</a></li>
+          <li><a href="languages.html">Idiomas y textos</a></li>
+          <li><a href="keys.html">Teclas de mod</a></li>
+          <li><a href="patches.html">Parches</a></li>
+          <li><a href="scripts.html">Scripts</a></li>
+          <li><a href="civilizations.html">Civilizaciones</a></li>
+          <li><a href="city-templates.html">Plantillas de ciudad y aldea</a></li>
+          <li><a href="units.html">Unidades nuevas</a></li>
+          <li><a href="stats.html">Estadísticas de unidades</a></li>
+          <li><a href="specials.html">Especialidades de unidad</a></li>
+          <li><a href="abilities.html">Habilidades de tropa</a></li>
+          <li><a href="items.html">Objetos nuevos</a></li>
+          <li><a href="formations.html">Formaciones nuevas</a></li>
+          <li><a href="outposts.html">Fortines y edificios</a></li>
+          <li><a href="victory-modes.html">Modos de victoria</a></li>
+          <li><a href="bonuses.html">Bonificaciones iniciales</a></li>
+          <li><a href="options.html">Opciones de partida personalizadas</a></li>
+          <li><a href="maps.html">Escenarios, aventuras y conquistas</a></li>
+          <li><a href="audio.html">Música, sonidos y voces</a></li>
+          <li><a href="random-maps.html">Tipos de mapa aleatorio</a></li>
+          <li><a href="images.html">Imágenes personalizadas</a></li>
+          <li><a href="graphics.html" aria-current="page">Gráficos personalizados</a></li>
+          <li><a href="validating.html">Validar un mod</a></li>
+          <li><a href="publishing.html">Publicar en GameBanana</a></li>
+          <li><a href="reference.html">Referencia</a></li>
+          <li><a href="CHANGELOG.html">Cambios</a></li>
+          <li><a href="../LICENSE.html">Licencia (en inglés)</a></li>
+          <li><a href="../game-functions.txt">Funciones del juego (en inglés)</a></li>
+      </ol>
+      <p class="guide-index__title">Plantillas</p>
+      <ol>
+          <li><a href="templates/scenario.html">Plantilla de escenario</a></li>
+          <li><a href="templates/adventure.html">Plantilla de aventura</a></li>
+          <li><a href="templates/conquest.html">Plantilla de conquista</a></li>
+          <li><a href="templates/units.html">Plantilla de unidades</a></li>
+          <li><a href="templates/civilization.html">Plantilla de civilización</a></li>
+          <li><a href="templates/gameplay.html">Plantilla de jugabilidad</a></li>
+          <li><a href="templates/audio.html">Plantilla de audio</a></li>
+          <li><a href="templates/translation.html">Plantilla de traducción</a></li>
+          <li><a href="templates/graphics.html">Plantilla de gráficos</a></li>
+          <li><a href="templates/full.html">Plantilla completa</a></li>
+      </ol>
+      <a class="guide-link doc-back" href="../../sdk.html">&larr; Para modders</a>
+    </aside>
+    <article class="doc">
+<h1 id="custom-graphics-for-units-and-buildings">Gráficos propios para unidades y edificios</h1>
+<p>Empieza desde la <a href="templates/graphics.html">plantilla de gráficos</a>, un mod vacío con las carpetas que usa esta guía.</p>
+<p>El SDK no dibuja nada: usa Photoshop, Paint.NET, Aseprite, Blender… El juego solo lee su formato <code>.rle</code>, que ningún programa exporta, así que el SDK incluye un conversor.</p>
+<p>Un mod puede incluir sus sprites como archivos sueltos, con las mismas rutas que usa el juego. Una unidad o un edificio nuevos cambian la jugabilidad: todos los jugadores de la partida deben tener el mod.</p>
+<p>Ejemplo: <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/unit-graphics-example" target="_blank" rel="noopener"><code>examples/unit-graphics-example</code></a> (un soldado cubo, 8 direcciones, color de jugador). Lo dibuja <code>tools\draw-soldier.js</code>, lo único que sustituirías por tus propios dibujos.</p>
+<p>Ejecuta todos los comandos de esta guía desde la raíz del repositorio. Las herramientas son de Node.js y no necesitan nada más.</p>
+<h2 id="what-you-can-do">Qué puedes hacer</h2>
+<ul>
+<li>Una unidad nueva con sprites propios: sí, en una carpeta <code>units&#92;MyUnit&#92;</code> nueva.</li>
+<li>Cambiar el sprite de una unidad existente: no con un archivo suelto, porque el juego prefiere el suyo. Crea una unidad nueva.</li>
+<li>Un edificio nuevo con sprites propios: sí, con más trabajo (hojas grandes, fases de construcción, huella <code>.pass</code> y puntos). Mira Edificios.</li>
+<li>Iconos y botones de interfaz: ya se explican en <a href="images.html">Imágenes personalizadas</a>.</li>
+<li>Sonidos nuevos: <code>.wav</code> y <code>.ogg</code>.</li>
+</ul>
+<h2 id="the-tools">Las herramientas</h2>
+<ul>
+<li><code>tools\convert-sprite.js</code>: tus PNG a <code>.rle</code>. Recorta, reduce a 256 colores, marca el color de jugador y crea la sombra.</li>
+<li><code>tools\create-entity.js</code>: escribe el <code>.ent.xml</code> (imágenes, capas, estados, animaciones) de una unidad o un edificio, y la huella <code>.pass</code> de un edificio.</li>
+<li><code>tools\read-rle.js</code>: lo inverso, de <code>.rle</code> a PNG. Úsalo para ver un sprite del juego y para partir de él.</li>
+<li><code>tools\validate-mod.js</code>: avisa de imágenes que faltan, valores de <code>idx</code> repetidos y filas y columnas que no cuadran (<a href="validating.html">Validar</a>).</li>
+</ul>
+<h2 id="a-unit-step-by-step">Una unidad, paso a paso</h2>
+<h3 id="1-draw-and-save-the-pngs">1. Dibuja y guarda los PNG</h3>
+<p>Un PNG por animación, dirección y fotograma, todos del mismo tamaño (el lienzo, 150 x 150 para una unidad) y con fondo transparente:</p>
+<pre><code>Idle_d0_f00.png  Idle_d0_f01.png  ...  Idle_d7_f07.png      &lt;Name&gt;_d&lt;direction&gt;_f&lt;frame&gt;.png, counting from 0
+Walk_d0_f00.png  ...
+Fight_..., Death_..., Transition_..., Taunt_...
+</code></pre>
+<ul>
+<li><strong>Animaciones.</strong> Obligatorias: <code>Idle</code> (de pie), <code>Walk</code>, <code>Fight</code> (ataque) y <code>Death</code>. Opcionales: <code>Transition</code> (de reposo a combate) y <code>Taunt</code>. Si faltan, se usa <code>Idle</code> en su lugar.</li>
+<li><strong>Direcciones.</strong> 8 para soldados, 12 para héroes y animales, 4 para barcos. Todas las animaciones de una unidad usan el mismo número.</li>
+<li><strong>Orden de las direcciones.</strong> En las hojas del juego, la columna 0 mira a la cámara (hacia abajo en pantalla) y las demás siguen el sentido horario: sur, oeste, norte, este, con las diagonales entre medias. Si usas un sprite propio, mira una hoja del juego con <code>read-rle.js</code> antes de dibujar las ocho.</li>
+<li><strong>Lienzo y pies.</strong> El mismo lienzo en todos los fotogramas, con los pies en el mismo punto. En las unidades del juego es el píxel (75, 100) de 150 x 150. Cámbialo con <code>--canvas</code> y <code>--feet</code>.</li>
+<li><strong>Tamaño.</strong> El motor no impone ninguno: cada fotograma se recorta a lo que hayas dibujado. Como referencia, un soldado del juego mide unos 40 x 52 píxeles y un héroe unos 40 x 88 (aproximado).</li>
+<li><strong>Fotogramas.</strong> Hasta 62 por animación. Hastatus: caminar 15, atacar 14, morir 20, reposo 8.</li>
+<li><strong>Transparencia.</strong> Todo o nada: un alfa por debajo de 128 es transparente. El juego no tiene semitransparencia.</li>
+<li><strong>Colores.</strong> Hasta 256 por conjunto; con color de jugador, 192 (los otros 64 son el tinte). Si usas más, el conversor los reduce y te avisa.</li>
+<li><strong>Color de jugador.</strong> Pinta en magenta lo que deba cambiar con el equipo. El conversor trata los magentas (rojo y azul parecidos, casi nada de verde) como el tinte. <code>(255, 0, 255)</code> es casi el color de jugador puro; <code>(128, 0, 128)</code>, <code>(64, 0, 64)</code>… son sus tonos (7 niveles utilizables). Evita los morados y rosas en el resto de la figura: pueden acabar como tinte por accidente. No suavices los bordes: un borde semitransparente mezclado sale rosa, no tinte.</li>
+<li><strong>Sombra.</strong> Opcional: un PNG por fotograma con el mismo nombre más <code>_sombra</code> (<code>Walk_d3_f05_sombra.png</code>), en negro opaco o gris oscuro sobre transparente. Si la omites, el conversor dibuja una elipse bajo los pies. El juego oscurece a la mitad el suelo bajo la sombra.</li>
+</ul>
+<p>También puedes dar una hoja ensamblada por animación: <code>Walk.png</code> con las direcciones como columnas y los fotogramas como filas, cada celda del tamaño del lienzo (<code>--canvas WidthxHeight</code>). La sombra va en <code>Walk_sombra.png</code> con la misma disposición.</p>
+<h3 id="starting-from-a-game-sprite">Partir de un sprite del juego</h3>
+<p>Los sprites del juego están en los archivos <code>.rle.mmp</code> de los <code>.pak</code>, y sus píxeles en <code>rle.mmp</code>, en la carpeta del juego. Extráelos primero con <code>extract-data.js</code>:</p>
+<pre><code>node tools\extract-data.js &quot;&lt;game folder&gt;&quot; &lt;output folder&gt; Units.pak HASTATUS
+</code></pre>
+<p>Y conviértelos a PNG con <code>--convention</code>, que escribe exactamente lo que espera <code>convert-sprite.js</code> (un PNG por dirección y fotograma, lienzo completo, el tinte de jugador en magenta y la sombra en <code>_sombra</code>):</p>
+<pre><code>node tools\read-rle.js &lt;output folder&gt;\UNITS\RHASTATUS\WALK.RLE.MMP --rle-mmp &quot;&lt;game folder&gt;\rle.mmp&quot; --convention --output &lt;carpeta de PNG&gt;
+node tools\convert-sprite.js &lt;carpeta de PNG&gt; --player --output &lt;mod&gt;\units\MyUnit
+</code></pre>
+<p>Sin <code>--convention</code>, <code>read-rle.js</code> escribe una hoja con celdas del tamaño de cada recorte, y <code>convert-sprite.js</code> no la acepta. <code>--canvas WidthxHeight</code> cambia el lienzo (150 x 150 por defecto). La sombra del juego es un archivo aparte (<code>WALK_SHADOW.RLE.MMP</code>): si no lo extraes, el conversor dibuja la elipse. Estos son archivos de tu juego, para estudiarlos o partir de ellos: no los redistribuyas.</p>
+<h3 id="2-convert-to-rle">2. Convierte a <code>.rle</code></h3>
+<pre><code>node tools\convert-sprite.js &lt;folder with the PNGs&gt; --output &lt;mod&gt;\units\MyUnit --player
+</code></pre>
+<ul>
+<li><code>--player</code>: usa color de jugador (el magenta se convierte en el tinte del equipo). Sin él, la paleta son 256 colores libres sin color de jugador; es lo más simple y lo que usan los lobos y los ciervos.</li>
+<li><code>--shadow auto|files|none</code>: <code>auto</code> por defecto (tus archivos <code>_shadow</code> si existen, si no una elipse).</li>
+<li><code>--palette-per-animation</code>: una paleta por <code>.rle</code>. Por defecto hay una para toda la unidad, con la pérdida de calidad de reducir a 192 o 256 colores si usas más. El juego usa una por animación.</li>
+<li><code>--canvas WidthxHeight</code> (por defecto, el tamaño de los PNG), <code>--feet X,Y</code> (solo para la sombra automática), <code>--alpha-threshold N</code>.</li>
+</ul>
+<p>Escribe <code>Idle.rle</code>, <code>Idle_shadow.rle</code>, <code>Walk.rle</code>…</p>
+<h3 id="3-create-the-entity-entxml">3. Crea la entidad (<code>.ent.xml</code>)</h3>
+<pre><code>node tools\create-entity.js unit &lt;mod&gt;\units\MyUnit --name MyUnit
+</code></pre>
+<p>Lee los archivos <code>.rle</code> de la carpeta y escribe <code>MyUnit.ent.xml</code>: 2 capas (unidad <code>z=1000</code>, sombra <code>z=800</code>), 2 estados (reposo y combate) y las 7 animaciones del motor (caminar 1, atacar 5, morir 9, <code>Idle</code> 13, <code>ToIdle</code> 18, <code>ToAttack</code> 19, <code>Taunt</code> 20) con los tiempos del Hastatus (caminar 55 ms por fotograma, atacar 71, morir 80 con una parte final lenta, reposo 150…). Son 6 hojas de animación para 7 animaciones del motor, porque la hoja <code>Transition</code> sirve para <code>ToAttack</code> y, invertida, para <code>ToIdle</code>.</p>
+<p>Límites del motor: mira <em>Referencia de formatos</em>. Para cambiar el ritmo, usa <code>--config animations.json</code>:</p>
+<pre><code class="language-json">{ &quot;Walk&quot;: { &quot;duration&quot;: 55, &quot;step&quot;: 42 }, &quot;Fight&quot;: { &quot;duration&quot;: 71, &quot;hit&quot;: 426 } }
+</code></pre>
+<p><code>duration</code> son milisegundos por fotograma. <code>step</code> y <code>hit</code> (<code>action_time</code>, los milisegundos hasta que cae el golpe) forman parte de la simulación y afectan a la jugabilidad.</p>
+<h3 id="4-the-class-and-the-rest">4. La clase y el resto</h3>
+<p>La clase (<code>data\classes\MyUnit.sc.xml</code>) es una copia completa de una clase del juego con <code>entity=&quot;Units/MyUnit/MyUnit.ent.xml&quot;</code>. La orden de reclutamiento, el botón y los textos se explican en <a href="units.html">Unidades nuevas</a>. No hagas que la clase sea hija de otra: el juego no hereda <code>entity</code> del padre y la unidad desaparece. El nombre de la carpeta tiene que ser nuevo: si reutilizas el nombre de una unidad del juego, el juego usa su <code>.rle</code> y el tuyo se ignora.</p>
+<h3 id="5-validate-and-test">5. Valida y prueba</h3>
+<pre><code>node tools\validate-mod.js &lt;mod&gt; --data &lt;DATA&gt; --game &quot;&lt;game folder&gt;&quot;
+</code></pre>
+<p>Una imagen que falta cuelga el juego al cargar la clase (un <code>idx</code> repetido o un <code>.rle</code> corrupto hacen lo mismo), y el validador lo detecta de antemano. Después copia el mod a <code>&lt;game&gt;&#92;mods&#92;</code>, actívalo y reinicia. Si el juego se cierra, <code>Logs\imperivm\imperivm-mod.log</code> señala la imagen que falló.</p>
+<h2 id="buildings">Edificios</h2>
+<p>Misma forma que una unidad, con estas diferencias:</p>
+<ul>
+<li><strong>Una dirección</strong> (<code>_d0</code>) y varias filas, que son las fases de construcción (las del juego usan 4). Una hoja por capa del edificio, <code>layer1</code>, <code>layer2</code>… (hasta 5 en el juego), más <code>shadow</code>. PNG: <code>layer1_d0_f00.png</code> (capa 1, fase 0), <code>layer1_d0_f01.png</code>… y <code>shadow_d0_f00.png</code>… Una animación llamada <code>shadow</code> se toma directamente como máscara de sombra (cuenta cualquier píxel opaco).</li>
+<li><strong>Lienzos grandes</strong>, de unos 700 x 700 en el juego. Tú eliges el punto donde se ancla el edificio (<code>--feet</code>); en el cuartel romano es (305, 330).</li>
+</ul>
+<pre><code>node tools\convert-sprite.js &lt;PNG&gt; --output &lt;mod&gt;\buildings\MyBuilding --player --shadow none
+node tools\create-entity.js building &lt;mod&gt;\buildings\MyBuilding --name MyBuilding --feet 305,330 --footprint 8x8 --points-from &lt;another .ent.xml&gt;
+</code></pre>
+<ul>
+<li><strong>La huella (<code>.pass</code>)</strong> es la cuadrícula de 1 bit que indica dónde no pueden caminar las unidades. Cada celda son 16 unidades de mapa (algo menos de la mitad del ancho de un soldado). <code>--footprint WidthxHeight</code> crea un rectángulo centrado en el punto de anclaje. <code>--footprint-png máscara.png</code> usa un dibujo (1 píxel = 1 celda, norte arriba; opaco y oscuro = bloqueado, transparente o blanco = libre). Mantenla en unas 120 x 120 celdas como máximo. Una casa del juego mide unas 15 celdas por lado y el cuartel romano unas 29.</li>
+<li><strong>Los puntos (<code>&lt;point&gt;</code>)</strong> son puertas, puestos de centinela, humo… El conversor no puede inventarlos. Con <code>--points-from &lt;.ent.xml of a similar game building&gt;</code> copia los puntos de ese edificio; sus coordenadas son relativas al punto de anclaje, así que ajústalas si el tuyo tiene otra forma.</li>
+<li>La clase del edificio (<code>CVXBuilding</code>, <code>parent=&quot;Building&quot;</code>, órdenes, costes…) se hace como en <a href="units.html">Unidades nuevas</a>: una copia completa de una del juego.</li>
+<li>Sin hacer: versiones de invierno (<code>entity_winter</code>) y animaciones de edificio (humo, fuego). Puedes añadirlas a mano.</li>
+<li>El mensaje final de <code>convert-sprite.js</code> sugiere <code>create-entity.js unit</code> incluso cuando conviertes un edificio: usa <code>edificio</code>.</li>
+</ul>
+<h2 id="format-reference">Referencia de formatos</h2>
+<p>Si quieres leer o escribir los formatos tú mismo, el código está en <code>tools\lib\rle.js</code> (<code>.rle</code>) y <code>tools\lib\pass.js</code> (<code>.pass</code>). Las herramientas escriben archivos <code>.rle</code> de 256 colores (con o sin color de jugador) y sombra; no hay color verdadero.</p>
+<p>Límites del <code>.ent.xml</code>:</p>
+<ul>
+<li><code>&lt;image idx file rows columns drawmode&gt;</code>: 32 imágenes; <code>idx</code> del 1 al 32, sin repetir; <code>file</code> sin extensión o con <code>.rle</code>.</li>
+<li><code>&lt;layer idx name image z …&gt;</code>: 32. Unidad <code>z=1000</code>, sombra <code>z=800</code>.</li>
+<li><code>&lt;state idx …&gt;</code>: 8.</li>
+<li><code>&lt;anim idx name frames duration action_time step&gt;</code>: <code>idx</code> del 1 al 28; <code>frames</code> = filas + 2 (dos fotogramas centinela con duración 0); hasta 64 fotogramas.</li>
+<li><code>variations</code> de <code>&lt;entity&gt;</code>: igual a las columnas de todas las imágenes.</li>
+</ul>
+<h2 id="sounds">Sonidos</h2>
+<p>La clase nombra sus sonidos con <code>&lt;sounds attack=&quot;…&quot; die=&quot;…&quot;/&gt;</code>. Cada nombre es un archivo <code>data\sound entities\&lt;Name&gt;.xml</code> que lista los archivos <code>.wav</code> u <code>.ogg</code>; puedes poner los tuyos en el mod. Si no quieres sonidos nuevos, copia los de una unidad parecida (<code>attack=&quot;UnitSwordFight&quot; die=&quot;UnitDeath&quot;</code>).</p>
+
+    </article>
+  </main>
+
+<footer class="footer">
+    <div class="footer__id">
+      <a class="footer__logo" href="../../index.html" aria-label="Imperivm Resurrected"><img loading="lazy" decoding="async" src="../../img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p>Proyecto no oficial de la comunidad.</p>
+    </div>
+    <nav class="footer__links" aria-label="Enlaces">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="../../credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span>Créditos</span></a>
+    </nav>
+    <a class="footer__back" href="../../sdk.html">Volver a Para modders</a>
+  </footer>
+
+</div>
+
+<script>window.GUIDE = {"lang":"es","equivalents":{"es":"graphics.html","en":"../graphics.html","it":"../../it/sdk.html"}};</script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/download.js"></script>
+<script src="../../js/motion.js"></script>
+<script src="../../js/support-data.js"></script>
+<script src="../../js/support.js"></script>
+<script src="../../js/menu.js"></script>
+</body>
+</html>

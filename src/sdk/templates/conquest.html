@@ -6,6 +6,9 @@
 <title>Conquest template — SDK</title>
 <meta name="description" content="A conquest: a map of territories (the game s own is the Mediterranean) with its own folder of images, listed in the game s menu as a conquest.">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/templates/conquest.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/templates/conquest.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/templates/conquest.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/templates/conquest.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Conquest template — SDK">
@@ -95,13 +98,13 @@
 <p>A conquest: a map of territories (the game&#39;s own is the Mediterranean) with its own folder of images, listed in the game&#39;s menu as a conquest.</p>
 <h2 id="steps">Steps</h2>
 <ol>
-<li>Copy this folder into <code>&lt;game folder&gt;\mods&lt;/code> and rename it.</li>
+<li>Copy this folder into <code>&lt;game folder&gt;&#92;mods&#92;</code> and rename it.</li>
 <li>In <code>mod.json</code> change <code>id</code> (lowercase letters, numbers and hyphens: it identifies your mod), <code>name</code>, <code>authors</code> and <code>description</code>.</li>
-<li>Make your conquest in the editor and put its <code>.bfhp</code> in <code>conquests&lt;/code>.</li>
-<li>The conquest map is a folder in <code>conquestmaps&lt;/code>. Its name must be <strong>exactly</strong> the one stored inside your conquest's <code>.bfhp</code> (the game's own conquest stores <code>ConquestMaps/1 - GBR Europe</code>). Rename <code>MY-CONQUEST-MAP</code> to it and change <code>data=</code> in <code>territories.xml</code> to the same name.</li>
+<li>Make your conquest in the editor and put its <code>.bfhp</code> in <code>conquests&#92;</code>.</li>
+<li>The conquest map is a folder in <code>conquestmaps&#92;</code>. Its name must be <strong>exactly</strong> the one stored inside your conquest&#39;s <code>.bfhp</code> (the game&#39;s own conquest stores <code>ConquestMaps/1 - GBR Europe</code>). Rename <code>MY-CONQUEST-MAP</code> to it and change <code>data=</code> in <code>territories.xml</code> to the same name.</li>
 <li>Put the images in that folder (list below) and edit <code>territories.xml</code>.</li>
-<li>Cutscenes are optional, in <code>movies&lt;/code>, played from the map's script with <code>PlayMovie(Translate(&quot;movies\\MyVideo.avi&quot;))</code>.</li>
-<li>Delete the notes and the folders you do not use. Enable the mod in your profile and look for the conquest in the game's menu.</li>
+<li>Cutscenes are optional, in <code>movies&#92;</code>, played from the map&#39;s script with <code>PlayMovie(Translate(&quot;movies\\MyVideo.avi&quot;))</code>.</li>
+<li>Delete the notes and the folders you do not use. Enable the mod in your profile and look for the conquest in the game&#39;s menu.</li>
 </ol>
 <h2 id="folder-layout">Folder layout</h2>
 <pre><code>my-conquest\
@@ -126,7 +129,7 @@
     MyVideo.avi
 </code></pre>
 <h2 id="the-files-of-the-conquest-map">The files of the conquest map</h2>
-<p>These are the files of the game's own conquest (<code>ConquestMaps\1 - GBR europe&lt;/code>), with the sizes it uses:</p>
+<p>These are the files of the game&#39;s own conquest (<code>ConquestMaps&#92;1 - GBR europe&#92;</code>), with the sizes it uses:</p>
 <div class="table"><table>
 <thead>
 <tr>
@@ -136,7 +139,7 @@
 </thead>
 <tbody><tr>
 <td><code>territories.xml</code></td>
-<td>The territories. Each one has an <code>id</code>, an <code>index</code>, a <code>state</code> and its <code>neighbours</code>. The ids of the game's conquest are <code>Spain</code>, <code>Britain</code>, <code>Gaul</code>, <code>Italy</code>, <code>Carthage</code>, <code>Egypt</code> and <code>Germany</code>. The file in this template has three of them as an example; if in doubt about <code>index</code> and <code>state</code>, copy the game's file.</td>
+<td>The territories. Each one has an <code>id</code>, an <code>index</code>, a <code>state</code> and its <code>neighbours</code>. The ids of the game&#39;s conquest are <code>Spain</code>, <code>Britain</code>, <code>Gaul</code>, <code>Italy</code>, <code>Carthage</code>, <code>Egypt</code> and <code>Germany</code>. The file in this template has three of them as an example; if in doubt about <code>index</code> and <code>state</code>, copy the game&#39;s file.</td>
 </tr>
 <tr>
 <td><code>territories.bmp</code></td>
@@ -151,10 +154,10 @@
 <td>74x79, 16-bit: one shield per territory (<code>ShieldSpain.bmp</code> for <code>Spain</code>), plus <code>ShieldArrow.bmp</code>.</td>
 </tr>
 </tbody></table></div>
-<p>The game's own files are in <code>&lt;game folder&gt;\ConquestMaps\1 - GBR europe</code>: open them in an image editor to see what each one holds.</p>
+<p>The game&#39;s own files are in <code>&lt;game folder&gt;\ConquestMaps\1 - GBR europe</code>: open them in an image editor to see what each one holds.</p>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>The conquest's <code>.bfhp</code> and everything in <code>conquestmaps&lt;/code> count as game content: every player in the room needs the same mod.</li>
+<li>The conquest&#39;s <code>.bfhp</code> and everything in <code>conquestmaps&#92;</code> count as game content: every player in the room needs the same mod.</li>
 <li>Videos are looked up in the active mods first, in load order.</li>
 </ul>
 <h2 id="check-and-publish">Check and publish</h2>
@@ -181,7 +184,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../../sdk.html","en":"conquest.html","it":"../../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"conquest.html","es":"../es/templates/conquest.html","it":"../../it/sdk.html"}};</script>
 <script src="../../js/i18n.js"></script>
 <script src="../../js/download.js"></script>
 <script src="../../js/motion.js"></script>

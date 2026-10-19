@@ -6,6 +6,9 @@
 <title>Languages and texts — SDK</title>
 <meta name="description" content="Start from the translation template , an empty mod with the folders this guide uses.">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/languages.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/languages.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/languages.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/languages.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Languages and texts — SDK">
@@ -101,22 +104,22 @@
 <pre><code class="language-xml">&lt;translationtableentry text=&quot;Single player@/Menu/mainmenu.ini:SinglePlayer:Text&quot; justtext=&quot;Single player&quot; result=&quot;Estrategia&quot;/&gt;
 </code></pre>
 <p><code>text</code> is the key: the original English text, sometimes followed by <code>@</code> and a context (where it&#39;s used). <code>result</code> is what you see in that language. If a text has no translation, the game shows the key, which is the English. That&#39;s why English hardly needs a file.</p>
-<p>Imperivm Resurrected&#39;s own interface (content manager, lobby, Controls, saved games, performance panel) comes in Spanish, English and Italian. With the game in Italian it shows in Italian; with any other language, in English. Your mod&#39;s texts (name, description, commands) are translated with the <code>loc&lt;/code> files below.</p>
+<p>Imperivm Resurrected&#39;s own interface (content manager, lobby, Controls, saved games, performance panel) comes in Spanish, English and Italian. With the game in Italian it shows in Italian; with any other language, in English. Your mod&#39;s texts (name, description, commands) are translated with the <code>loc&#92;</code> files below.</p>
 <p>Cutscenes and music are the same in every language. What changes is texts, unit voices, help, tips and some menu images.</p>
 <p>To see the text file, add this to <code>imperivm-mod.ini</code> and open the game:</p>
 <pre><code class="language-ini">[Debug]
 Dump=currentlang/game.loc.xml
 </code></pre>
-<p>It's copied to <code>mod-dump\currentlang\game.loc.xml</code> with your mods' texts already merged in. To see the original, use the Original profile.</p>
+<p>It&#39;s copied to <code>mod-dump\currentlang\game.loc.xml</code> with your mods&#39; texts already merged in. To see the original, use the Original profile.</p>
 <h2 id="change-or-add-texts">Change or add texts</h2>
-<p>Put the texts in <code>loc\&lt;language&gt;.loc.xml</code> inside your mod. If there are many, split them across several <code>*.loc.xml</code> files inside <code>loc&amp;lt;language&gt;&lt;/code>:</p>
+<p>Put the texts in <code>loc\&lt;language&gt;.loc.xml</code> inside your mod. If there are many, split them across several <code>*.loc.xml</code> files inside <code>loc&#92;&lt;language&gt;&#92;</code>:</p>
 <pre><code>mods\my-mod\
   mod.json
   loc\spanish.loc.xml
   loc\italian.loc.xml
   loc\english\unidades.loc.xml
 </code></pre>
-<p><code>&lt;language&gt;</code> is the language's English name in lowercase, as in <code>Settings.ini</code>: <code>spanish</code>, <code>english</code>, <code>italian</code>, <code>french</code>, <code>german</code>…</p>
+<p><code>&lt;language&gt;</code> is the language&#39;s English name in lowercase, as in <code>Settings.ini</code>: <code>spanish</code>, <code>english</code>, <code>italian</code>, <code>french</code>, <code>german</code>…</p>
 <pre><code class="language-xml">&lt;translationtable&gt;
   &lt;!-- Changes the text everywhere it appears --&gt;
   &lt;translationtableentry text=&quot;Single player&quot; result=&quot;Un jugador&quot;/&gt;
@@ -133,29 +136,29 @@ Dump=currentlang/game.loc.xml
 </code></pre>
 <ul>
 <li>Without a context (<code>text=&quot;Single player&quot;</code>), the change applies everywhere the game uses that text. With a context (<code>text=&quot;…@…&quot;</code> or the <code>context</code> attribute), only in that place.</li>
-<li>Line break: <code>\n</code> inside the text, as in the game's files.</li>
+<li>Line break: <code>\n</code> inside the text, as in the game&#39;s files.</li>
 <li>In a text, write <code>&amp;</code> as <code>&amp;amp;</code>, <code>&lt;</code> as <code>&amp;lt;</code> and double quotes as <code>&amp;quot;</code> (or use single quotes around the value).</li>
-<li>Save as UTF-8. If it's ANSI, the mod converts it, but UTF-8 is the safe choice.</li>
+<li>Save as UTF-8. If it&#39;s ANSI, the mod converts it, but UTF-8 is the safe choice.</li>
 <li>A malformed line is skipped and logged in <code>Logs\imperivm\imperivm-mod.log</code> with its line number. The rest of the file loads.</li>
 <li><code>&lt;game&gt;\mod\loc\&lt;language&gt;.loc.xml</code> works for testing without creating a mod, and beats all mods.</li>
 <li>If two mods change the same text, the one first in the <a href="reference.html#1-mod-structure">load order</a> should win, as with files.</li>
 <li>Texts are read at startup: restart after changing them.</li>
 </ul>
-<p>The names of your mod's units, buildings and commands are written in English in their files (<code>display_name</code>, <code>rollover</code>…). That's the key. To translate them, add the translation to <code>loc\spanish.loc.xml</code>, <code>loc\italian.loc.xml</code>, etc.</p>
+<p>The names of your mod&#39;s units, buildings and commands are written in English in their files (<code>display_name</code>, <code>rollover</code>…). That&#39;s the key. To translate them, add the translation to <code>loc\spanish.loc.xml</code>, <code>loc\italian.loc.xml</code>, etc.</p>
 <h2 id="add-a-new-language">Add a new language</h2>
 <ol>
 <li><p>Declare the language in <code>mod.json</code>:</p>
 <pre><code class="language-json">&quot;language&quot;: {&quot;code&quot;: &quot;french&quot;, &quot;name&quot;: &quot;Français&quot;, &quot;base&quot;: &quot;spanish&quot;}
 </code></pre>
 <ul>
-<li><code>code</code>: the language's English name in lowercase. It's what gets stored in <code>Settings.ini</code>.</li>
+<li><code>code</code>: the language&#39;s English name in lowercase. It&#39;s what gets stored in <code>Settings.ini</code>.</li>
 <li><code>name</code>: what shows in the selector.</li>
-<li><code>base</code> (optional, <code>english</code> by default): the language to take whatever your mod doesn't provide from. Read the warning below before leaving it as English.</li>
+<li><code>base</code> (optional, <code>english</code> by default): the language to take whatever your mod doesn&#39;t provide from. Read the warning below before leaving it as English.</li>
 </ul>
 </li>
-<li><p>Translate the texts in <code>loc\french.loc.xml</code> (or in several files inside <code>loc\french&lt;/code>). Anything you don't translate shows in English.</p>
+<li><p>Translate the texts in <code>loc\french.loc.xml</code> (or in several files inside <code>loc&#92;french&#92;</code>). Anything you don&#39;t translate shows in English.</p>
 </li>
-<li><p>Optional: language files in <code>Local\french&lt;/code>, with the paths they have inside <code>currentlang&lt;/code>. The ones the game asks for are:</p>
+<li><p>Optional: language files in <code>Local&#92;french&#92;</code>, with the paths they have inside <code>currentlang&#92;</code>. The ones the game asks for are:</p>
 <pre><code>Local\french\help.xml              help (F1)
 Local\french\tips.xml              loading screen tips
 Local\french\credits.txt           credits
@@ -168,14 +171,14 @@ Local\french\voices\&lt;unit&gt;\1.wav unit voices (1.wav up to 5.wav depending 
 <li><p>Enable the mod in your profile, pick <strong>Français</strong> in Options → Language and restart.</p>
 </li>
 </ol>
-<p><strong>What the base language provides.</strong> Anything your language doesn't provide is taken from the <code>base</code> language. English has no help (<code>help.xml</code>), tips (<code>tips.xml</code>), <code>splash.ini</code> or menu images. A new language with English as its base ends up without those files. Spanish and Italian do have them: with <code>&quot;base&quot;: &quot;spanish&quot;</code> or <code>&quot;italian&quot;</code> you get them, or you ship your own in <code>Local&amp;lt;language&gt;&lt;/code>.</p>
-<p>Maps ship their own texts per language. If a map doesn't have yours, the base language's are used.</p>
-<p><strong>Characters.</strong> The game's fonts should cover Latin (with European accents), Greek and Cyrillic. Chinese, Japanese and Korean can't be displayed without new fonts.</p>
-<p>In multiplayer the language doesn't matter: players with different languages can play together.</p>
+<p><strong>What the base language provides.</strong> Anything your language doesn&#39;t provide is taken from the <code>base</code> language. English has no help (<code>help.xml</code>), tips (<code>tips.xml</code>), <code>splash.ini</code> or menu images. A new language with English as its base ends up without those files. Spanish and Italian do have them: with <code>&quot;base&quot;: &quot;spanish&quot;</code> or <code>&quot;italian&quot;</code> you get them, or you ship your own in <code>Local&#92;&lt;language&gt;&#92;</code>.</p>
+<p>Maps ship their own texts per language. If a map doesn&#39;t have yours, the base language&#39;s are used.</p>
+<p><strong>Characters.</strong> The game&#39;s fonts should cover Latin (with European accents), Greek and Cyrillic. Chinese, Japanese and Korean can&#39;t be displayed without new fonts.</p>
+<p>In multiplayer the language doesn&#39;t matter: players with different languages can play together.</p>
 <h2 id="files-for-a-single-language">Files for a single language</h2>
-<p>Any file in <code>currentlang&lt;/code> can be changed for one language only with your mod's <code>Local&amp;lt;language&gt;&lt;/code> folder. <code>Local\spanish\help.xml</code> changes the help in Spanish only. If you put the file in <code>currentlang\help.xml</code> (outside <code>Local&lt;/code>), it applies to all languages.</p>
+<p>Any file in <code>currentlang&#92;</code> can be changed for one language only with your mod&#39;s <code>Local&#92;&lt;language&gt;&#92;</code> folder. <code>Local\spanish\help.xml</code> changes the help in Spanish only. If you put the file in <code>currentlang\help.xml</code> (outside <code>Local&#92;</code>), it applies to all languages.</p>
 <h2 id="if-something-goes-wrong">If something goes wrong</h2>
-<p>Look in <code>Logs\imperivm\imperivm-mod.log</code> for the lines tagged <code>language</code>. The warnings (<code>W</code>) point at the lines with errors. To also see which text files were read and which <code>Local&amp;lt;language&gt;&lt;/code> files are in use, put <code>LogChannels=language:debug</code> under <code>[Debug]</code> in <code>imperivm-mod.ini</code>.</p>
+<p>Look in <code>Logs\imperivm\imperivm-mod.log</code> for the lines tagged <code>language</code>. The warnings (<code>W</code>) point at the lines with errors. To also see which text files were read and which <code>Local&#92;&lt;language&gt;&#92;</code> files are in use, put <code>LogChannels=language:debug</code> under <code>[Debug]</code> in <code>imperivm-mod.ini</code>.</p>
 
     </article>
   </main>
@@ -196,7 +199,7 @@ Local\french\voices\&lt;unit&gt;\1.wav unit voices (1.wav up to 5.wav depending 
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"languages.html","it":"../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"languages.html","es":"es/languages.html","it":"../it/sdk.html"}};</script>
 <script src="../js/i18n.js"></script>
 <script src="../js/download.js"></script>
 <script src="../js/motion.js"></script>

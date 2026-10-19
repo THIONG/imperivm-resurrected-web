@@ -6,6 +6,9 @@
 <title>Publishing a mod on GameBanana — SDK</title>
 <meta name="description" content="Imperivm Resurrected mods are published at https://gamebanana.com/games/26069 . The Browse content tab in the content manager reads that page: search,…">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/publishing.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/publishing.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/publishing.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/publishing.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Publishing a mod on GameBanana — SDK">
@@ -146,21 +149,21 @@
 <td><strong>Gameplay &amp; Balance</strong></td>
 <td>Gameplay &amp; Balance</td>
 <td>Rules, stats, costs, AI; also big mods that change the whole game</td>
-<td><code>data&lt;/code>, patches</td>
+<td><code>data&#92;</code>, patches</td>
 <td><a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/patches-example" target="_blank" rel="noopener">patches-example</a>, <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/scripts-example" target="_blank" rel="noopener">scripts-example</a>, <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/custom-orders" target="_blank" rel="noopener">custom-orders</a></td>
 </tr>
 <tr>
-<td><strong>Units & Heroes</strong></td>
-<td>Units & Heroes</td>
+<td><strong>Units &amp; Heroes</strong></td>
+<td>Units &amp; Heroes</td>
 <td>New or changed units and heroes</td>
-<td><code>data\classes&lt;/code>, <code>specials&lt;/code></td>
+<td><code>data&#92;classes&#92;</code>, <code>specials&#92;</code></td>
 <td><a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/ability-example" target="_blank" rel="noopener">ability-example</a>, <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/specialty-example" target="_blank" rel="noopener">specialty-example</a></td>
 </tr>
 <tr>
 <td><strong>Civilizations</strong></td>
 <td>Civilizations</td>
 <td>New or reworked civilizations</td>
-<td><code>civs&lt;/code>, <code>data&lt;/code></td>
+<td><code>civs&#92;</code>, <code>data&#92;</code></td>
 <td><a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/civilization-example" target="_blank" rel="noopener">civilization-example</a></td>
 </tr>
 <tr>
@@ -181,14 +184,14 @@
 <td><strong>Adventures</strong></td>
 <td>Adventures</td>
 <td>Great battles, challenges and single-player campaigns, with a story and objectives</td>
-<td><code>adventures&lt;/code></td>
+<td><code>adventures&#92;</code></td>
 <td></td>
 </tr>
 <tr>
 <td><strong>Conquests</strong></td>
 <td>Conquests</td>
 <td>Conquest maps and games</td>
-<td><code>conquests&lt;/code></td>
+<td><code>conquests&#92;</code></td>
 <td></td>
 </tr>
 <tr>
@@ -202,28 +205,28 @@
 <td><strong>Graphics</strong></td>
 <td>Graphics</td>
 <td>Textures, unit looks, terrain, menus, icons, fonts</td>
-<td>the game's package paths, <code>menuini&lt;/code></td>
+<td>the game&#39;s package paths, <code>menuini&#92;</code></td>
 <td></td>
 </tr>
 <tr>
-<td><strong>Audio & Voices</strong></td>
-<td>Audio & Voices</td>
-<td>Music, sounds and voices. Published in GameBanana's <strong>Sounds</strong> section, not in Mods</td>
-<td><code>sounds&lt;/code>, <code>currentlang\voices&lt;/code></td>
+<td><strong>Audio &amp; Voices</strong></td>
+<td>Audio &amp; Voices</td>
+<td>Music, sounds and voices. Published in GameBanana&#39;s <strong>Sounds</strong> section, not in Mods</td>
+<td><code>sounds&#92;</code>, <code>currentlang&#92;voices&#92;</code></td>
 <td></td>
 </tr>
 <tr>
 <td><strong>Translations</strong></td>
 <td>Translations</td>
 <td>The game or a mod in another language, changed texts</td>
-<td><code>loc&lt;/code></td>
+<td><code>loc&#92;</code></td>
 <td><a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/french-language" target="_blank" rel="noopener">french-language</a>, <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/custom-texts" target="_blank" rel="noopener">custom-texts</a></td>
 </tr>
 </tbody></table></div>
 <p>Every category has a <a href="README.html#templates">template</a> with its folder layout. For <a href="maps.html">scenarios, adventures and conquests</a> and for <a href="audio.html">audio</a> there are also short guides.</p>
-<p><strong>Loose maps.</strong> If the <code>.zip</code> only holds the <code>.bfhp</code>, with no folders, the game places it by itself when installing, by the kind the map itself states (what its author chose in the editor): an adventure goes to <code>adventures&lt;/code> (with its <code>.bmp</code> of the same name), a conquest to <code>conquests&lt;/code> and a skirmish map to <code>scenarios&lt;/code>, or to <code>adventures&lt;/code> if the category is Adventures (single-player missions made as a normal map). Even so, it is better to upload it already inside its folder; the <a href="validating.html">validator</a> warns when a map is in the wrong one, for example an adventure in <code>scenarios&lt;/code>, which the Scenarios list doesn't show.</p>
-<p><strong>Scenario preview.</strong> When a scenario is chosen in the room, the game draws a preview from the map's own terrain, with its players and their civilizations, and where it comes from: you don't need to upload any image. The colors come from the game's minimap tiles, so a new terrain looks right if it brings its tile in <code>minimapzoom8\terrain</code>.</p>
-<p><strong>Old names.</strong> Scenarios, Adventures and Conquests are named after the game's folders (<code>scenarios&lt;/code>, <code>adventures&lt;/code>, <code>conquests&lt;/code>). They used to be <strong>Maps</strong>, <strong>Campaigns</strong> and <strong>Conquest</strong>: a <code>mod.json</code> with those names, or with <code>Interface</code> or <code>Total Conversions</code>, still works, but the validator asks for the new name.</p>
+<p><strong>Loose maps.</strong> If the <code>.zip</code> only holds the <code>.bfhp</code>, with no folders, the game places it by itself when installing, by the kind the map itself states (what its author chose in the editor): an adventure goes to <code>adventures&#92;</code> (with its <code>.bmp</code> of the same name), a conquest to <code>conquests&#92;</code> and a skirmish map to <code>scenarios&#92;</code>, or to <code>adventures&#92;</code> if the category is Adventures (single-player missions made as a normal map). Even so, it is better to upload it already inside its folder; the <a href="validating.html">validator</a> warns when a map is in the wrong one, for example an adventure in <code>scenarios&#92;</code>, which the Scenarios list doesn&#39;t show.</p>
+<p><strong>Scenario preview.</strong> When a scenario is chosen in the room, the game draws a preview from the map&#39;s own terrain, with its players and their civilizations, and where it comes from: you don&#39;t need to upload any image. The colors come from the game&#39;s minimap tiles, so a new terrain looks right if it brings its tile in <code>minimapzoom8\terrain</code>.</p>
+<p><strong>Old names.</strong> Scenarios, Adventures and Conquests are named after the game&#39;s folders (<code>scenarios&#92;</code>, <code>adventures&#92;</code>, <code>conquests&#92;</code>). They used to be <strong>Maps</strong>, <strong>Campaigns</strong> and <strong>Conquest</strong>: a <code>mod.json</code> with those names, or with <code>Interface</code> or <code>Total Conversions</code>, still works, but the validator asks for the new name.</p>
 <h2 id="tags">Tags</h2>
 <p>Each tag has a title and a value. The game uses three:</p>
 <div class="table"><table>
@@ -250,29 +253,29 @@
 <td><code>Language: English</code></td>
 </tr>
 </tbody></table></div>
-<p>Write them exactly as shown, in English, in the <code>tags</code> of your <code>mod.json</code> (for example <code>&quot;tags&quot;: [&quot;Type: Scenarios&quot;, &quot;Players: 2-4&quot;]</code>) and in GameBanana's <strong>Tags</strong> field: the game displays them in each player's language. Use only these three: the game uses no other, and the validator warns you if there is any other.</p>
-<p>A scenario without <code>Players</code> doesn't show up when filtering by players, and an adventure, translation or audio pack without <code>Language</code> doesn't show up when filtering by language. The same goes for the categories in <code>Type</code>: a mod with <code>Type: Scenarios</code> needs <code>Players</code> to show up when filtering by players.</p>
+<p>Write them exactly as shown, in English, in the <code>tags</code> of your <code>mod.json</code> (for example <code>&quot;tags&quot;: [&quot;Type: Scenarios&quot;, &quot;Players: 2-4&quot;]</code>) and in GameBanana&#39;s <strong>Tags</strong> field: the game displays them in each player&#39;s language. Use only these three: the game uses no other, and the validator warns you if there is any other.</p>
+<p>A scenario without <code>Players</code> doesn&#39;t show up when filtering by players, and an adventure, translation or audio pack without <code>Language</code> doesn&#39;t show up when filtering by language. The same goes for the categories in <code>Type</code>: a mod with <code>Type: Scenarios</code> needs <code>Players</code> to show up when filtering by players.</p>
 <p>The forms without a title from earlier versions (<code>4 players</code>, <code>Spanish</code>) still work, but the validator asks for the new one. The <code>Gameplay</code>, <code>Cosmetic</code> and <code>Online tested</code> tags are no longer needed: whether a mod changes gameplay, the game knows from its files.</p>
 <h2 id="mods-made-before-imperivm-resurrected">Mods made before Imperivm Resurrected</h2>
-<p>Older mods were installed by copying them over the game: they ship whole <code>.pak</code> packages that replace the game's ones, and most of what's inside is untouched game files. Convert them so they contain only what they change or add:</p>
+<p>Older mods were installed by copying them over the game: they ship whole <code>.pak</code> packages that replace the game&#39;s ones, and most of what&#39;s inside is untouched game files. Convert them so they contain only what they change or add:</p>
 <pre><code>node tools/shrink-mod.js &lt;old mod&gt; &lt;game folder&gt; &lt;new folder&gt; --id my-mod --name &quot;My mod&quot; --version 1.0 --category &quot;Gameplay &amp; Balance&quot;
 </code></pre>
 <p>The tool works out what the game sees with the mod copied over it and what it sees without it, and keeps only the difference:</p>
 <ul>
-<li>From the packages, the files that differ from the game's, keeping their order (in a folder the package with the greater name wins, like <code>zzMod.pak</code> over <code>Data.pak</code>).</li>
-<li>The texts and sounds of each language in <code>Local&amp;lt;language&gt;&lt;/code> (or in <code>currentlang&lt;/code> if they are the same in all), and the rest of a language package in <code>Local\&lt;language&gt;.pak</code>.</li>
-<li>What the old mod removed from the game by replacing its packages, in <code>hidden.txt</code>, so that the game doesn't see it either.</li>
+<li>From the packages, the files that differ from the game&#39;s, keeping their order (in a folder the package with the greater name wins, like <code>zzMod.pak</code> over <code>Data.pak</code>).</li>
+<li>The texts and sounds of each language in <code>Local&#92;&lt;language&gt;&#92;</code> (or in <code>currentlang&#92;</code> if they are the same in all), and the rest of a language package in <code>Local\&lt;language&gt;.pak</code>.</li>
+<li>What the old mod removed from the game by replacing its packages, in <code>hidden.txt</code>, so that the game doesn&#39;t see it either.</li>
 <li><code>data\const.ini</code> as a patch and without the <code>[Resolutions]</code> section: the player picks the resolution in the options.</li>
-<li>If the mod ships its own <code>rle.mmp</code>, only what it changes in or adds to the game's, in <code>rle.mmp.tail</code>; the game's is left as it is.</li>
-<li>It leaves out <code>.bak</code> copies, <code>Config.ini</code> and <code>Settings.ini</code> (install settings) and executables, with which the mod wouldn't load.</li>
+<li>If the mod ships its own <code>rle.mmp</code>, only what it changes in or adds to the game&#39;s, in <code>rle.mmp.tail</code>; the game&#39;s is left as it is.</li>
+<li>It leaves out <code>.bak</code> copies, <code>Config.ini</code> and <code>Settings.ini</code> (install settings) and executables, with which the mod wouldn&#39;t load.</li>
 </ul>
 <p>Options:</p>
 <ul>
 <li><code>--exclude &lt;patterns&gt;</code> leaves more files of the old mod out, like install guides (paths with <code>*</code> and <code>?</code>, separated by commas).</li>
-<li><code>--hide &lt;patterns&gt;</code> hides loose game files that the old mod's readme said to delete (for example <code>currentlang/*,units/*</code>).</li>
+<li><code>--hide &lt;patterns&gt;</code> hides loose game files that the old mod&#39;s readme said to delete (for example <code>currentlang/*,units/*</code>).</li>
 <li><code>--paths</code>, instead of the output folder, only shows which folders are inside the packages, without writing anything.</li>
 </ul>
-<p>The output folder has to be empty. If the old mod already has a <code>mod.json</code>, the tool keeps it, except <code>sources</code> (where the original mod is downloaded from), so that version notices don't point to someone else's page. At the end it says what it left out and what it hides.</p>
+<p>The output folder has to be empty. If the old mod already has a <code>mod.json</code>, the tool keeps it, except <code>sources</code> (where the original mod is downloaded from), so that version notices don&#39;t point to someone else&#39;s page. At the end it says what it left out and what it hides.</p>
 <p>Test it in the game before uploading it.</p>
 
     </article>
@@ -294,7 +297,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"publishing.html","it":"../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"publishing.html","es":"es/publishing.html","it":"../it/sdk.html"}};</script>
 <script src="../js/i18n.js"></script>
 <script src="../js/download.js"></script>
 <script src="../js/motion.js"></script>

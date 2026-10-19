@@ -6,6 +6,9 @@
 <title>Adventure template — SDK</title>
 <meta name="description" content="A single-player adventure or campaign: great battles, challenges, missions with a story and objectives.">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/templates/adventure.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/templates/adventure.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/templates/adventure.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/templates/adventure.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Adventure template — SDK">
@@ -95,12 +98,12 @@
 <p>A single-player adventure or campaign: great battles, challenges, missions with a story and objectives.</p>
 <h2 id="steps">Steps</h2>
 <ol>
-<li>Copy this folder into <code>&lt;game folder&gt;\mods&lt;/code> and rename it.</li>
+<li>Copy this folder into <code>&lt;game folder&gt;&#92;mods&#92;</code> and rename it.</li>
 <li>In <code>mod.json</code> change <code>id</code> (lowercase letters, numbers and hyphens: it identifies your mod), <code>name</code>, <code>authors</code> and <code>description</code>.</li>
 <li>In <code>tags</code> write the language of the texts of your adventure (<code>&quot;Language: English&quot;</code>, <code>Spanish</code>, <code>Italian</code>, <code>German</code>, <code>French</code>, <code>Polish</code> or <code>Multilingual</code>).</li>
-<li>Save your adventure in the editor and put the <code>.bfhp</code> in <code>adventures&lt;/code> together with its image: a <code>.bmp</code> with exactly the same name.</li>
-<li>Cutscenes are optional. Put each <code>.avi</code> in <code>movies&lt;/code> and play it from the map's script with <code>PlayMovie(Translate(&quot;movies\\MyVideo.avi&quot;))</code>. That is the form the game's own adventures use.</li>
-<li>Delete the notes and the folders you do not use. Enable the mod in your profile and find the adventure in the game's menu.</li>
+<li>Save your adventure in the editor and put the <code>.bfhp</code> in <code>adventures&#92;</code> together with its image: a <code>.bmp</code> with exactly the same name.</li>
+<li>Cutscenes are optional. Put each <code>.avi</code> in <code>movies&#92;</code> and play it from the map&#39;s script with <code>PlayMovie(Translate(&quot;movies\\MyVideo.avi&quot;))</code>. That is the form the game&#39;s own adventures use.</li>
+<li>Delete the notes and the folders you do not use. Enable the mod in your profile and find the adventure in the game&#39;s menu.</li>
 </ol>
 <h2 id="folder-layout">Folder layout</h2>
 <pre><code>my-adventure\
@@ -112,10 +115,10 @@
   movies\
     MyVideo.avi
 </code></pre>
-<p>The game's own campaigns follow this layout: for example <code>Adventures\GreatBattles\1_Great_Battles_Zama.BFHP</code> and <code>.bmp</code>, and the matching <code>Movies\1_Intro_Great_B_Zama.avi</code> and <code>1_Extro_Great_B_Zama.avi</code> (intro and outro of each mission).</p>
+<p>The game&#39;s own campaigns follow this layout: for example <code>Adventures\GreatBattles\1_Great_Battles_Zama.BFHP</code> and <code>.bmp</code>, and the matching <code>Movies\1_Intro_Great_B_Zama.avi</code> and <code>1_Extro_Great_B_Zama.avi</code> (intro and outro of each mission).</p>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Videos are looked up in the active mods first, in load order, so a mod can also replace one of the game's.</li>
+<li>Videos are looked up in the active mods first, in load order, so a mod can also replace one of the game&#39;s.</li>
 </ul>
 <h2 id="check-and-publish">Check and publish</h2>
 <pre><code>node tools\validate-mod.js &lt;your mod folder&gt;
@@ -141,7 +144,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../../sdk.html","en":"adventure.html","it":"../../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"adventure.html","es":"../es/templates/adventure.html","it":"../../it/sdk.html"}};</script>
 <script src="../../js/i18n.js"></script>
 <script src="../../js/download.js"></script>
 <script src="../../js/motion.js"></script>

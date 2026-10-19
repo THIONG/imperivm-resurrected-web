@@ -6,6 +6,9 @@
 <title>Custom victory modes — SDK</title>
 <meta name="description" content="The game s victory conditions (Elimination, Score limit…) are .vs scripts. A mod can ship its own, and they show up by themselves in the lobby s Mode…">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/victory-modes.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/victory-modes.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/victory-modes.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/victory-modes.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Custom victory modes — SDK">
@@ -95,16 +98,16 @@
 <p>The game&#39;s victory conditions (Elimination, Score limit…) are <code>.vs</code> scripts. A mod can ship its own, and they show up by themselves in the lobby&#39;s &quot;Mode&quot; dropdown.</p>
 <p>Example: <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/victory-example" target="_blank" rel="noopener"><code>examples/victory-example</code></a> (the &quot;Dominio&quot; mode: whoever controls N settlements wins).</p>
 <h2 id="the-script">The script</h2>
-<p>It goes in <code>data\GameScripts&lt;/code> in your mod:</p>
+<p>It goes in <code>data&#92;GameScripts&#92;</code> in your mod:</p>
 <pre><code>data\GameScripts\6 Dominio.vs
 </code></pre>
 <ul>
-<li><strong>The file name is the mode's id</strong>, number included. The lobby lists modes by full file name. Two mods clash only if they use exactly the same name (<code>6 Dominio.vs</code> in both). The game's own modes are 1 to 5.</li>
-<li>The lobby shows it without the leading number, and runs it through translation: if the text "Dominio" has an entry in your <code>loc</code>, it shows up translated (<a href="languages.html">Languages</a>).</li>
+<li><strong>The file name is the mode&#39;s id</strong>, number included. The lobby lists modes by full file name. Two mods clash only if they use exactly the same name (<code>6 Dominio.vs</code> in both). The game&#39;s own modes are 1 to 5.</li>
+<li>The lobby shows it without the leading number, and runs it through translation: if the text &quot;Dominio&quot; has an entry in your <code>loc</code>, it shows up translated (<a href="languages.html">Languages</a>).</li>
 <li>The signature is <code>//void, int player, str param</code>. The game always loads the script with it, so the first line is optional, but it is best to write it. <code>player</code> is the player (1 to 8). <code>param</code> is the limit value chosen in the lobby (see below).</li>
-<li>The game launches 8 copies of the script, one per player, each in its own thread, even with fewer players. Write it from a single player's point of view, looking at the others. It has to cope with empty slots: the example treats them as eliminated because they have no settlements and no troops.</li>
+<li>The game launches 8 copies of the script, one per player, each in its own thread, even with fewer players. Write it from a single player&#39;s point of view, looking at the others. It has to cope with empty slots: the example treats them as eliminated because they have no settlements and no troops.</li>
 </ul>
-<h2 id="functions-youll-use">Functions you'll use</h2>
+<h2 id="functions-youll-use">Functions you&#39;ll use</h2>
 <div class="table"><table>
 <thead>
 <tr>
@@ -118,11 +121,11 @@
 </tr>
 <tr>
 <td><code>SetPlayerStatus(player, linea, texto, important)</code></td>
-<td>Status text at the top: line 0 is the mode name, line 1 the notice. There's also <code>SetPlayerStatus(player, linea, bool)</code>; the game's scripts use both</td>
+<td>Status text at the top: line 0 is the mode name, line 1 the notice. There&#39;s also <code>SetPlayerStatus(player, linea, bool)</code>; the game&#39;s scripts use both</td>
 </tr>
 <tr>
 <td><code>ClassPlayerObjs(&quot;BaseTownhall&quot;, player)</code></td>
-<td>A player's objects of a class; <code>.count</code> counts them, <code>.IsEmpty()</code> tells you if there are none</td>
+<td>A player&#39;s objects of a class; <code>.count</code> counts them, <code>.IsEmpty()</code> tells you if there are none</td>
 </tr>
 <tr>
 <td><code>MilUnits(player)</code></td>
@@ -150,7 +153,7 @@
 </tr>
 </tbody></table></div>
 <p>To see how the game does it, extract its scripts with <code>extract-data.js</code> (<code>node tools\extract-data.js &quot;&lt;game folder&gt;&quot; &lt;output folder&gt;</code>) and read <code>GAMESCRIPTS\1 ELIMINATION.VS</code> and <code>2 SCORE LIMIT.VS</code>. You can also use the dump from <a href="patches.html">Patches</a>, with the full path: <code>Dump=data/GameScripts/1 ELIMINATION.VS</code>.</p>
-<h2 id="the-limit-dropdown">The "Limit" dropdown</h2>
+<h2 id="the-limit-dropdown">The &quot;Limit&quot; dropdown</h2>
 <p>The game fills it from <code>CONST.INI</code> entries, section <code>[GamePlay]</code>. The key is the file name with <code>_</code> instead of spaces, plus a number from 0. The value has two parts separated by a comma: the text you see and what the script receives as <code>param</code>.</p>
 <p>The example does it with an INI patch in <code>patches\data\const.ini</code>:</p>
 <pre><code class="language-ini">[GamePlay]
@@ -159,7 +162,7 @@
 6_Dominio2 = 4 asentamientos, 4
 6_Dominio3 = 5 asentamientos, 5
 </code></pre>
-<p>With no entries, the dropdown comes up empty and there's no limit to pick. What <code>param</code> receives then hasn't been seen in game: the example falls back to 3 if <code>Str2Int(param)</code> gives less than 2.</p>
+<p>With no entries, the dropdown comes up empty and there&#39;s no limit to pick. What <code>param</code> receives then hasn&#39;t been seen in game: the example falls back to 3 if <code>Str2Int(param)</code> gives less than 2.</p>
 <h2 id="fixed-settings-and-civilizations-of-a-mode">Fixed settings and civilizations of a mode</h2>
 <p>A mode can fix room settings and the civilizations that can be chosen with it. It goes in <code>modes\&lt;name&gt;.json</code>:</p>
 <pre><code class="language-json">{
@@ -181,7 +184,7 @@
 </thead>
 <tbody><tr>
 <td><code>mode</code></td>
-<td>The name of the mode's script in <code>data\GameScripts</code>, without <code>.vs</code> (<code>2 LIGA</code> for <code>2 LIGA.vs</code>), up to 31 characters. If you leave it out, the name of the json file. It also works for the game's modes.</td>
+<td>The name of the mode&#39;s script in <code>data\GameScripts</code>, without <code>.vs</code> (<code>2 LIGA</code> for <code>2 LIGA.vs</code>), up to 31 characters. If you leave it out, the name of the json file. It also works for the game&#39;s modes.</td>
 </tr>
 <tr>
 <td><code>gold</code></td>
@@ -201,14 +204,14 @@
 </tr>
 <tr>
 <td><code>bonus</code></td>
-<td>(Optional) The bonus of every player, from 0 (none) to 3, the same number as the room's bonus button. Disable bonuses can no longer be ticked.</td>
+<td>(Optional) The bonus of every player, from 0 (none) to 3, the same number as the room&#39;s bonus button. Disable bonuses can no longer be ticked.</td>
 </tr>
 <tr>
 <td><code>civilizations</code></td>
-<td>(Optional) The civilizations that can be played in that mode: the game's (<code>Gaul</code>, <code>RepublicanRome</code>…) or the <code>id</code> of one of the mod's. A game base allows all its variants; a variant, only that one.</td>
+<td>(Optional) The civilizations that can be played in that mode: the game&#39;s (<code>Gaul</code>, <code>RepublicanRome</code>…) or the <code>id</code> of one of the mod&#39;s. A game base allows all its variants; a variant, only that one.</td>
 </tr>
 </tbody></table></div>
-<p>While that mode is chosen, the room doesn't let anyone change what it fixes: the host sees those rows but can't change them. A player with a civilization the mode doesn't allow moves to the first one of the list, and the random civilization is drawn only among the allowed ones. The host applies it when the game is created, so everyone plays with the same. Saved games and scenarios with fixed civilizations don't change.</p>
+<p>While that mode is chosen, the room doesn&#39;t let anyone change what it fixes: the host sees those rows but can&#39;t change them. A player with a civilization the mode doesn&#39;t allow moves to the first one of the list, and the random civilization is drawn only among the allowed ones. The host applies it when the game is created, so everyone plays with the same. Saved games and scenarios with fixed civilizations don&#39;t change.</p>
 <h2 id="online">Online</h2>
 <p>A new mode changes gameplay: every player must have the same mod.</p>
 
@@ -231,7 +234,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"victory-modes.html","it":"../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"victory-modes.html","es":"es/victory-modes.html","it":"../it/sdk.html"}};</script>
 <script src="../js/i18n.js"></script>
 <script src="../js/download.js"></script>
 <script src="../js/motion.js"></script>

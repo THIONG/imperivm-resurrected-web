@@ -6,6 +6,9 @@
 <title>Scenario template — SDK</title>
 <meta name="description" content="A map for skirmish and multiplayer games, made in the game s map editor.">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/templates/scenario.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/templates/scenario.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/templates/scenario.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/templates/scenario.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Scenario template — SDK">
@@ -95,10 +98,10 @@
 <p>A map for skirmish and multiplayer games, made in the game&#39;s map editor.</p>
 <h2 id="steps">Steps</h2>
 <ol>
-<li>Copy this folder into <code>&lt;game folder&gt;\mods&lt;/code> and rename it.</li>
+<li>Copy this folder into <code>&lt;game folder&gt;&#92;mods&#92;</code> and rename it.</li>
 <li>In <code>mod.json</code> change <code>id</code> (lowercase letters, numbers and hyphens: it identifies your mod), <code>name</code>, <code>authors</code> and <code>description</code>.</li>
 <li>In <code>tags</code> write how many players the map has: <code>&quot;Players: 2&quot;</code>, or a range such as <code>&quot;Players: 2-4&quot;</code>. Without it the map does not show when people filter by players.</li>
-<li>Save your map in the editor as a skirmish map and put its <code>.bfhp</code> in <code>scenarios&lt;/code>. Delete <code>PUT-YOUR-FILES-HERE.txt</code>.</li>
+<li>Save your map in the editor as a skirmish map and put its <code>.bfhp</code> in <code>scenarios&#92;</code>. Delete <code>PUT-YOUR-FILES-HERE.txt</code>.</li>
 <li>Enable the mod in your profile (<strong>Additional content</strong> in the main menu), start a room and pick the map in the scenario list. The game draws the preview from the map itself: there is no image to provide.</li>
 </ol>
 <h2 id="folder-layout">Folder layout</h2>
@@ -112,7 +115,7 @@
 <ul>
 <li>A map changes what happens in the game, so every player in the room needs the same one. With <code>&quot;redistributable&quot;: true</code> the host can send it to players who do not have it.</li>
 <li>A map saved in the editor as an adventure or a conquest does not appear in the Scenarios list, even in this folder. The validator warns about it.</li>
-<li>If the map comes with its own music or texts, add <code>music&lt;/code> or <code>loc&lt;/code> as shown in the <a href="full.html">full template</a>.</li>
+<li>If the map comes with its own music or texts, add <code>music&#92;</code> or <code>loc&#92;</code> as shown in the <a href="full.html">full template</a>.</li>
 </ul>
 <h2 id="check-and-publish">Check and publish</h2>
 <pre><code>node tools\validate-mod.js &lt;your mod folder&gt;
@@ -138,7 +141,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../../sdk.html","en":"scenario.html","it":"../../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"scenario.html","es":"../es/templates/scenario.html","it":"../../it/sdk.html"}};</script>
 <script src="../../js/i18n.js"></script>
 <script src="../../js/download.js"></script>
 <script src="../../js/motion.js"></script>

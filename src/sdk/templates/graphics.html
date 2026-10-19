@@ -6,6 +6,9 @@
 <title>Graphics template — SDK</title>
 <meta name="description" content="Textures, unit looks, buildings, icons and menu images. Each player can use their own: graphics never have to match between players.">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/templates/graphics.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/templates/graphics.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/templates/graphics.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/templates/graphics.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Graphics template — SDK">
@@ -95,9 +98,9 @@
 <p>Textures, unit looks, buildings, icons and menu images. Each player can use their own: graphics never have to match between players.</p>
 <h2 id="steps">Steps</h2>
 <ol>
-<li>Copy this folder into <code>&lt;game folder&gt;\mods&lt;/code> and rename it.</li>
+<li>Copy this folder into <code>&lt;game folder&gt;&#92;mods&#92;</code> and rename it.</li>
 <li>In <code>mod.json</code> change <code>id</code> (lowercase letters, numbers and hyphens: it identifies your mod), <code>name</code>, <code>authors</code> and <code>description</code>.</li>
-<li>Put your files in the folder that matches what you change, with the same path and name as the game's file when you replace one. Delete the other folders.</li>
+<li>Put your files in the folder that matches what you change, with the same path and name as the game&#39;s file when you replace one. Delete the other folders.</li>
 <li>Enable the mod in your profile and restart the game.</li>
 </ol>
 <h2 id="folder-layout">Folder layout</h2>
@@ -120,8 +123,8 @@
 </ul>
 <h2 id="notes">Notes</h2>
 <ul>
-<li><code>.rle</code> files and images do not count as gameplay. The <code>.xml</code> and <code>.pass</code> files in <code>units&lt;/code>, <code>buildings&lt;/code> and <code>mapobjects&lt;/code> do: if you change them, everyone in the room needs the mod.</li>
-<li>An <code>.rle</code> with the same name as one of the game's is ignored; the validator warns with <code>--game</code>.</li>
+<li><code>.rle</code> files and images do not count as gameplay. The <code>.xml</code> and <code>.pass</code> files in <code>units&#92;</code>, <code>buildings&#92;</code> and <code>mapobjects&#92;</code> do: if you change them, everyone in the room needs the mod.</li>
+<li>An <code>.rle</code> with the same name as one of the game&#39;s is ignored; the validator warns with <code>--game</code>.</li>
 </ul>
 <h2 id="check-and-publish">Check and publish</h2>
 <pre><code>node tools\validate-mod.js &lt;your mod folder&gt;
@@ -147,7 +150,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../../sdk.html","en":"graphics.html","it":"../../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"graphics.html","es":"../es/templates/graphics.html","it":"../../it/sdk.html"}};</script>
 <script src="../../js/i18n.js"></script>
 <script src="../../js/download.js"></script>
 <script src="../../js/motion.js"></script>

@@ -11,11 +11,6 @@
       "permanent": true
     },
     {
-      "source": "/sdk/es/:path*",
-      "destination": "/sdk/README.html",
-      "permanent": true
-    },
-    {
       "source": "/sdk/it/:path*",
       "destination": "/sdk/README.html",
       "permanent": true

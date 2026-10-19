@@ -6,6 +6,9 @@
 <title>Imperivm Resurrected SDK</title>
 <meta name="description" content="Imperivm Resurrected is a mod for Imperivm HD (Great Battles of Rome) that opens the game up to mods that weren t possible before: new civilizations,…">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/README.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/README.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/README.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/README.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Imperivm Resurrected SDK">
@@ -96,14 +99,14 @@
 <h2 id="start-here">Start here</h2>
 <ol>
 <li>Install Imperivm Resurrected: copy its contents into the game folder (<code>...\steamapps\common\Imperivm - Great Battles of Rome HD</code>) and launch the game from Steam.</li>
-<li>Copy a folder from <a href="README.html#templates"><code>templates/</code></a> into <code>mods&lt;/code>, inside the game folder: it has the exact layout the game expects for what you want to make (see <a href="#templates">Templates</a>). To see a finished mod, copy one from <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples" target="_blank" rel="noopener"><code>examples/</code></a>, for example <code>patches-example</code>.</li>
+<li>Copy a folder from <a href="README.html#templates"><code>templates/</code></a> into <code>mods&#92;</code>, inside the game folder: it has the exact layout the game expects for what you want to make (see <a href="#templates">Templates</a>). To see a finished mod, copy one from <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples" target="_blank" rel="noopener"><code>examples/</code></a>, for example <code>patches-example</code>.</li>
 <li>In the main menu, click <strong>Additional content</strong> and enable the mod in your profile.</li>
-<li>Restart the game if it didn't restart on its own.</li>
-<li>Open <code>Logs\imperivm\imperivm-mod.log</code>, in the game folder. It lists your mod's errors and what it loaded.</li>
+<li>Restart the game if it didn&#39;t restart on its own.</li>
+<li>Open <code>Logs\imperivm\imperivm-mod.log</code>, in the game folder. It lists your mod&#39;s errors and what it loaded.</li>
 </ol>
 <p>Before you launch the game, run your mod through the <a href="validating.html">validator</a>.</p>
 <h2 id="what-a-mod-looks-like">What a mod looks like</h2>
-<p>A folder inside <code>mods&lt;/code> with a <code>mod.json</code> and the files it changes or adds, using the same paths as the game:</p>
+<p>A folder inside <code>mods&#92;</code> with a <code>mod.json</code> and the files it changes or adds, using the same paths as the game:</p>
 <pre><code>mods\
   my-mod\
     mod.json
@@ -171,7 +174,7 @@
 <td><a href="reference.html">Reference</a></td>
 </tr>
 </tbody></table></div>
-<p>Don't include executables or system scripts (<code>.exe .dll .asi .bat .cmd .com .scr .ps1 .vbs .js .msi .sys .cpl .lnk .reg .jar .hta .wsf .pif</code>). If there's one, the mod won't load. A stray <code>.js</code>, like a generator of your own, counts.</p>
+<p>Don&#39;t include executables or system scripts (<code>.exe .dll .asi .bat .cmd .com .scr .ps1 .vbs .js .msi .sys .cpl .lnk .reg .jar .hta .wsf .pif</code>). If there&#39;s one, the mod won&#39;t load. A stray <code>.js</code>, like a generator of your own, counts.</p>
 <h2 id="modjson"><code>mod.json</code></h2>
 <pre><code class="language-json">{
   &quot;id&quot;: &quot;my-mod&quot;,
@@ -187,12 +190,12 @@
 <thead>
 <tr>
 <th>Field</th>
-<th>What it's for</th>
+<th>What it&#39;s for</th>
 </tr>
 </thead>
 <tbody><tr>
 <td><code>id</code>, <code>name</code>, <code>version</code>, <code>authors</code>, <code>description</code></td>
-<td>The mod's card in the content manager. <code>name</code> and <code>description</code> take either a single text or an object with one text per language (the game language is shown; if missing, English; if missing, the first).</td>
+<td>The mod&#39;s card in the content manager. <code>name</code> and <code>description</code> take either a single text or an object with one text per language (the game language is shown; if missing, English; if missing, the first).</td>
 </tr>
 <tr>
 <td><code>category</code>, <code>tags</code></td>
@@ -200,7 +203,7 @@
 </tr>
 <tr>
 <td><code>redistributable</code></td>
-<td>With <code>true</code>, the lobby host can send the mod to players who don't have it. Defaults to <code>false</code>.</td>
+<td>With <code>true</code>, the lobby host can send the mod to players who don&#39;t have it. Defaults to <code>false</code>.</td>
 </tr>
 <tr>
 <td><code>license</code></td>
@@ -212,7 +215,7 @@
 </tr>
 <tr>
 <td><code>incompatibleWith</code></td>
-<td>List of mod ids it can't be enabled with.</td>
+<td>List of mod ids it can&#39;t be enabled with.</td>
 </tr>
 <tr>
 <td><code>loadAfter</code>, <code>loadBefore</code></td>
@@ -220,7 +223,7 @@
 </tr>
 <tr>
 <td><code>sources</code></td>
-<td><code>{&quot;url&quot;: &quot;...&quot;, &quot;gamebanana&quot;: 123456}</code>. The game writes it when you install from Browse content; it's used to flag new versions. If it comes from the Sounds section, the number is in <code>gamebananaSound</code>.</td>
+<td><code>{&quot;url&quot;: &quot;...&quot;, &quot;gamebanana&quot;: 123456}</code>. The game writes it when you install from Browse content; it&#39;s used to flag new versions. If it comes from the Sounds section, the number is in <code>gamebananaSound</code>.</td>
 </tr>
 <tr>
 <td><code>language</code></td>
@@ -237,20 +240,20 @@
 <h2 id="guides">Guides</h2>
 <ul>
 <li><a href="languages.html">Languages and texts</a>: change game texts or add a language without replacing the whole file.</li>
-<li><a href="keys.html">Mod keys</a>: how your mod's commands show up in Controls and how to name them.</li>
+<li><a href="keys.html">Mod keys</a>: how your mod&#39;s commands show up in Controls and how to name them.</li>
 <li><a href="patches.html">Patches</a>: change part of a game XML, INI or script without replacing it; two mods can touch the same file.</li>
 <li><a href="scripts.html">Scripts</a>: <code>.vs</code> scripts, events and the <code>Mod_...</code> functions.</li>
 <li><a href="civilizations.html">Civilizations</a>: declare a new civilization or clone one from the game, with its AI, and play it in the lobby.</li>
-<li><a href="city-templates.html">City and village templates</a>: a mod civilization's own starting city and village (<code>create-template.js</code>).</li>
-<li><a href="units.html">New units</a>: class, recruit command, images and texts, reusing another unit's model.</li>
+<li><a href="city-templates.html">City and village templates</a>: a mod civilization&#39;s own starting city and village (<code>create-template.js</code>).</li>
+<li><a href="units.html">New units</a>: class, recruit command, images and texts, reusing another unit&#39;s model.</li>
 <li><a href="stats.html">Unit stats</a>: which attribute does what, which ones do nothing and which ones crash the game.</li>
 <li><a href="specials.html">Unit specials</a>: new unit specials and their effect through scripts.</li>
 <li><a href="abilities.html">Troop abilities</a>: new abilities for units or heroes (a command with button and key, plus a script method).</li>
 <li><a href="items.html">New items</a>: hero amulets, herbs and gems.</li>
 <li><a href="formations.html">New formations</a>: hero formations with their bonuses and button.</li>
 <li><a href="outposts.html">Outposts and buildings</a>: new neutral outposts on random maps (<code>create-outpost.js</code>) and tower, wall and gate classes.</li>
-<li><a href="victory-modes.html">Victory modes</a>: a script in <code>data\GameScripts</code> adds a mode to the lobby's "Mode" dropdown.</li>
-<li><a href="bonuses.html">Starting bonuses</a>: scripts in <code>data\BonusScripts</code> add choices to the "Bonus" column of the lobby.</li>
+<li><a href="victory-modes.html">Victory modes</a>: a script in <code>data\GameScripts</code> adds a mode to the lobby&#39;s &quot;Mode&quot; dropdown.</li>
+<li><a href="bonuses.html">Starting bonuses</a>: scripts in <code>data\BonusScripts</code> add choices to the &quot;Bonus&quot; column of the lobby.</li>
 <li><a href="options.html">Custom game options</a>: new switches in the lobby rules, which scripts read with <code>Mod_GetOption</code>.</li>
 <li><a href="maps.html">Scenarios, adventures and conquests</a>: the three kinds of map, the files each needs and cutscenes.</li>
 <li><a href="audio.html">Music, sounds and voices</a>: replace or add audio.</li>
@@ -262,7 +265,7 @@
 <li><a href="reference.html">Reference</a>: the full list of what a mod can declare (files, fields, patches, events, functions and limits).</li>
 </ul>
 <h2 id="tools">Tools</h2>
-<p>They're in <code>tools&lt;/code> and need <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a>. Open a terminal in this folder and run them from here (<code>node tools\validate-mod.js ...</code>). Each one explains its usage when you run it with no arguments, and the topic's guide has examples.</p>
+<p>They&#39;re in <code>tools&#92;</code> and need <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a>. Open a terminal in this folder and run them from here (<code>node tools\validate-mod.js ...</code>). Each one explains its usage when you run it with no arguments, and the topic&#39;s guide has examples.</p>
 <div class="table"><table>
 <thead>
 <tr>
@@ -295,7 +298,7 @@
 <td><code>clone-civilization.js</code> (<a href="civilizations.html">guide</a>)</td>
 </tr>
 <tr>
-<td>A civilization's own city and village</td>
+<td>A civilization&#39;s own city and village</td>
 <td><code>create-template.js</code> (<a href="city-templates.html">guide</a>)</td>
 </tr>
 <tr>
@@ -311,7 +314,7 @@
 <td><code>convert-image.js</code> (<a href="images.html">guide</a>)</td>
 </tr>
 <tr>
-<td>Sprites from PNG, and a unit or building's entity file</td>
+<td>Sprites from PNG, and a unit or building&#39;s entity file</td>
 <td><code>convert-sprite.js</code>, <code>create-entity.js</code>, <code>read-rle.js</code> (<a href="graphics.html">guide</a>)</td>
 </tr>
 <tr>
@@ -332,15 +335,15 @@
 </tr>
 </tbody></table></div>
 <h2 id="game-data">Game data</h2>
-<p>Several tools ask for the game's <code>DATA</code> folder. <code>extract-data.js</code> extracts it (you need <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a>):</p>
+<p>Several tools ask for the game&#39;s <code>DATA</code> folder. <code>extract-data.js</code> extracts it (you need <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a>):</p>
 <pre><code>node tools/extract-data.js &quot;&lt;game folder&gt;&quot; &lt;output folder&gt;
 </code></pre>
-<p>It leaves <code>data.pak</code> in <code>&lt;output folder&gt;\DATA</code>. That's the folder that <code>clone-civilization.js</code>, <code>create-outpost.js</code> and <code>validate-mod.js --data</code> ask for.</p>
+<p>It leaves <code>data.pak</code> in <code>&lt;output folder&gt;\DATA</code>. That&#39;s the folder that <code>clone-civilization.js</code>, <code>create-outpost.js</code> and <code>validate-mod.js --data</code> ask for.</p>
 <h2 id="what-counts-as-gameplay">What counts as gameplay?</h2>
 <p>In multiplayer, everyone must run the same mods if they change what happens in the game. The game works this out from the folders your mod touches: <code>data/</code>, <code>scenarios/</code>, <code>adventures/</code>, <code>conquests/</code>, <code>civs/</code>, <code>specials/</code>, <code>events/</code>, <code>options/</code>, <code>rules/</code>, <code>modes/</code>, <code>randommap/</code>, <code>randommapsettlements/</code>, the <code>.xml</code> and <code>.pass</code> files in <code>units/</code>, <code>buildings/</code> and <code>mapobjects/</code>, the <code>.xml</code> files in <code>visuals/</code>, the <code>.bfhp</code> maps in <code>packs/</code>, and patches (depending on the file they patch).</p>
-<p>Graphics, sounds, texts (<code>loc/</code>) and languages don't count: each player can use their own.</p>
+<p>Graphics, sounds, texts (<code>loc/</code>) and languages don&#39;t count: each player can use their own.</p>
 <h2 id="if-something-fails">If something fails</h2>
-<p>Your mod's errors show on its card in the content manager and in <code>Logs\imperivm\imperivm-mod.log</code>. Each line of the log has the time, a level (<code>I</code> information, <code>W</code> warning, <code>E</code> error) and a tag for the part of the mod it comes from: <code>patch</code>, <code>language</code>, <code>civilizations</code>, <code>specials</code>, <code>script</code>, <code>event</code>. Look at the <code>W</code> and <code>E</code> lines of your mod's tags first.</p>
+<p>Your mod&#39;s errors show on its card in the content manager and in <code>Logs\imperivm\imperivm-mod.log</code>. Each line of the log has the time, a level (<code>I</code> information, <code>W</code> warning, <code>E</code> error) and a tag for the part of the mod it comes from: <code>patch</code>, <code>language</code>, <code>civilizations</code>, <code>specials</code>, <code>script</code>, <code>event</code>. Look at the <code>W</code> and <code>E</code> lines of your mod&#39;s tags first.</p>
 <p>The log keeps the last five sessions (<code>imperivm-mod.1.log</code> to <code>imperivm-mod.4.log</code>) and, if the game closed badly, <code>imperivm-mod.crashed.log</code>. For more detail about one part, put its tag and a level under <code>[Debug]</code> in <code>imperivm-mod.ini</code>, for example <code>LogChannels=patch:debug</code>; <code>LogLevel=debug</code> does it for everything.</p>
 <p>To ask for help, click the heart at the bottom left of the main menu and then <strong>Create report</strong>. It makes a zip with the logs and your system, without your Windows user name, Steam IDs or IP addresses, and sends nothing: you decide whether to share it.</p>
 <h2 id="version-and-license">Version and license</h2>
@@ -365,7 +368,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"README.html","it":"../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"README.html","es":"es/README.html","it":"../it/sdk.html"}};</script>
 <script src="../js/i18n.js"></script>
 <script src="../js/download.js"></script>
 <script src="../js/motion.js"></script>

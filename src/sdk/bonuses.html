@@ -6,6 +6,9 @@
 <title>Starting bonuses — SDK</title>
 <meta name="description" content="A starting bonus is a script the game runs for one player when the match begins. The lobby lists them in the Bonus column of each player, and a mod can…">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/bonuses.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/bonuses.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/bonuses.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/bonuses.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Starting bonuses — SDK">
@@ -94,13 +97,13 @@
 <h1 id="starting-bonuses">Starting bonuses</h1>
 <p>A starting bonus is a script the game runs for one player when the match begins. The lobby lists them in the &quot;Bonus&quot; column of each player, and a mod can add its own.</p>
 <h2 id="the-script">The script</h2>
-<p>It goes in <code>data\BonusScripts&lt;/code> in your mod, named <code>NNN NAME.vs</code>:</p>
+<p>It goes in <code>data&#92;BonusScripts&#92;</code> in your mod, named <code>NNN NAME.vs</code>:</p>
 <pre><code>data\BonusScripts\004 Tribute.vs
 </code></pre>
 <ul>
-<li>The number sorts the list and is the value the lobby sends to the other players. Only numbers from <code>000</code> to <code>099</code> appear in the lobby; <code>100</code> and above are scripts that other scripts start (the game's conquests use them) and are never offered.</li>
-<li><code>000 None.vs</code> must exist and stay empty: it is the "no bonus" choice. The game brings <code>000</code> to <code>003</code>; a new bonus takes the next free number.</li>
-<li>The name in the list is the file name without the number, in capitals only at the start of each word (<code>004 BOAR TEETH.vs</code> is "Boar Teeth").</li>
+<li>The number sorts the list and is the value the lobby sends to the other players. Only numbers from <code>000</code> to <code>099</code> appear in the lobby; <code>100</code> and above are scripts that other scripts start (the game&#39;s conquests use them) and are never offered.</li>
+<li><code>000 None.vs</code> must exist and stay empty: it is the &quot;no bonus&quot; choice. The game brings <code>000</code> to <code>003</code>; a new bonus takes the next free number.</li>
+<li>The name in the list is the file name without the number, in capitals only at the start of each word (<code>004 BOAR TEETH.vs</code> is &quot;Boar Teeth&quot;).</li>
 <li>The signature is fixed: <code>//void, Settlement set, int playerid</code>. The script runs once per player that chose it, with their main settlement.</li>
 </ul>
 <p>Example, 3000 gold at the start:</p>
@@ -125,7 +128,7 @@ set.GoldConverted(3000);
 </thead>
 <tbody><tr>
 <td><code>//@name Text</code></td>
-<td>The name shown in the dropdown and in the player's row (short: the column is narrow).</td>
+<td>The name shown in the dropdown and in the player&#39;s row (short: the column is narrow).</td>
 </tr>
 <tr>
 <td><code>//@description Text</code></td>
@@ -133,10 +136,10 @@ set.GoldConverted(3000);
 </tr>
 <tr>
 <td><code>//@name.es</code>, <code>//@description.it</code>…</td>
-<td>The same for one language (<code>en</code>, <code>es</code>, <code>it</code>). If the player's language has no line, the line without a language is used, then the English one.</td>
+<td>The same for one language (<code>en</code>, <code>es</code>, <code>it</code>). If the player&#39;s language has no line, the line without a language is used, then the English one.</td>
 </tr>
 </tbody></table></div>
-<p>Without these lines the name is the file's and there is no description. The three bonuses of the game have their own names and descriptions while their script is the game's own; a mod that changes the effect of one of them gets the file name, so it should add these lines. If two bonuses end up with the same name, the lobby adds the file number to tell them apart.</p>
+<p>Without these lines the name is the file&#39;s and there is no description. The three bonuses of the game have their own names and descriptions while their script is the game&#39;s own; a mod that changes the effect of one of them gets the file name, so it should add these lines. If two bonuses end up with the same name, the lobby adds the file number to tell them apart.</p>
 <h2 id="online">Online</h2>
 <p>All players need the same files: the content of the room is compared before the match, and the bonus value is a position in the list.</p>
 <p>Needs Imperivm Resurrected 0.9.0 or later.</p>
@@ -160,7 +163,7 @@ set.GoldConverted(3000);
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"bonuses.html","it":"../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"bonuses.html","es":"es/bonuses.html","it":"../it/sdk.html"}};</script>
 <script src="../js/i18n.js"></script>
 <script src="../js/download.js"></script>
 <script src="../js/motion.js"></script>

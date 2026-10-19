@@ -6,6 +6,9 @@
 <title>Outposts and defensive buildings — SDK</title>
 <meta name="description" content="Outpost covers two different things:">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/outposts.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/outposts.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/outposts.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/outposts.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Outposts and defensive buildings — SDK">
@@ -175,10 +178,10 @@ with the tool in <a href="civilizations.html">Civilizations</a>.</li>
 <td>Guard post, Gaul only: 12 sentries by script. It isn&#39;t in <code>placeobjects.xml</code>, and <code>create-outpost.js</code> warns about it</td>
 </tr>
 </tbody></table></div>
-<p>For a new class: a <code>.sc.xml</code> in <code>data\classes&lt;/code> with <code>parent=</code> one of the above, a <code>cpp_class</code> that already exists (<code>CVXBuilding</code>, <code>CVXGate</code>,
-<code>CVXOutpost</code>, <code>CVXTownHall</code>) and its <code>entity</code>. Copy the <code>entity</code> from the base's class, because the game doesn't inherit it from the parent. Custom
+<p>For a new class: a <code>.sc.xml</code> in <code>data&#92;classes&#92;</code> with <code>parent=</code> one of the above, a <code>cpp_class</code> that already exists (<code>CVXBuilding</code>, <code>CVXGate</code>,
+<code>CVXOutpost</code>, <code>CVXTownHall</code>) and its <code>entity</code>. Copy the <code>entity</code> from the base&#39;s class, because the game doesn&#39;t inherit it from the parent. Custom
 behavior goes in <code>&lt;behavior&gt;</code> and <code>&lt;method sig=&quot;…&quot; vs=&quot;…&quot;&gt;</code>, and commands in <code>&lt;cmd&gt;</code>, the same as in <a href="abilities.html">Abilities</a>. A building type
-with a new <code>cpp_class</code> isn't possible.</p>
+with a new <code>cpp_class</code> isn&#39;t possible.</p>
 <h2 id="where-to-place-it">Where to place it</h2>
 <div class="table"><table>
 <thead>
@@ -192,12 +195,12 @@ with a new <code>cpp_class</code> isn't possible.</p>
 <td>Add it to <code>placeobjects.xml</code>, which is what <code>create-outpost.js</code> does</td>
 </tr>
 <tr>
-<td>A civilization's starting city or village</td>
+<td>A civilization&#39;s starting city or village</td>
 <td>Cloned classes show up in the starting city on their own. To change the layout, see <a href="city-templates.html">Templates</a></td>
 </tr>
 <tr>
 <td>The map editor</td>
-<td>With <code>edittree_pos</code> in the class. The editor has fixed folders per civilization: a new civilization's show up mixed in with its base's</td>
+<td>With <code>edittree_pos</code> in the class. The editor has fixed folders per civilization: a new civilization&#39;s show up mixed in with its base&#39;s</td>
 </tr>
 <tr>
 <td>A hand-made map</td>
@@ -229,7 +232,7 @@ with a new <code>cpp_class</code> isn't possible.</p>
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"outposts.html","it":"../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"outposts.html","es":"es/outposts.html","it":"../it/sdk.html"}};</script>
 <script src="../js/i18n.js"></script>
 <script src="../js/download.js"></script>
 <script src="../js/motion.js"></script>

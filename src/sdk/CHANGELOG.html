@@ -6,6 +6,9 @@
 <title>Changes — SDK</title>
 <meta name="description" content="The SDK version and which mods you can make with each one. The script API version ( Mod_ApiVersion() ) is separate: it s currently 7.">
 <link rel="canonical" href="https://www.imperivmresurrected.com/sdk/CHANGELOG.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/CHANGELOG.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/CHANGELOG.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/CHANGELOG.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Changes — SDK">
@@ -99,8 +102,8 @@
 <ul>
 <li><strong>Templates</strong> in <a href="README.html#templates"><code>templates/</code></a>: one empty mod for each kind of content (scenario, adventure, conquest, units, civilization, gameplay, audio, translation, graphics) and a full one with every folder the game reads. Each has its <code>mod.json</code>, a README with the steps and the folder layout, and a <code>PUT-YOUR-FILES-HERE.txt</code> note in every empty folder. They pass the validator.</li>
 <li><strong>Guides</strong> for everything a mod can do: languages and texts, keys, patches, scripts, civilizations, city and village templates, units, stats, specials, abilities, items, formations, outposts, victory modes, starting bonuses, game options, random maps, images, graphics, <a href="maps.html">scenarios, adventures and conquests</a> (with cutscenes) and <a href="audio.html">music, sounds and voices</a>, plus the validator, publishing on GameBanana and a reference.</li>
-<li><strong>Tools</strong> in <code>tools&lt;/code>, written in English: <code>create-unit</code>, <code>create-item</code>, <code>create-ability</code>, <code>create-formation</code>, <code>create-option</code>, <code>create-outpost</code>, <code>create-random-map</code>, <code>create-template</code>, <code>clone-civilization</code>, <code>convert-image</code>, <code>convert-sprite</code>, <code>create-entity</code>, <code>read-rle</code>, <code>extract-data</code>, <code>validate-mod</code> and <code>shrink-mod</code>. Their options are English (<code>--name</code>, <code>--player</code>, <code>--output</code>). In <code>create-unit</code>, <code>create-ability</code> and <code>create-option</code>, <code>--name</code> is the English text and the Spanish one goes in <code>--name-es</code>.</li>
-<li><strong>Examples</strong> in <code>examples&lt;/code>, all validating, with English ids (<code>example-unit</code>, <code>example-options</code>…). <code>draw-soldier.js</code>, which redraws the sprites of <code>unit-graphics-example</code>, is in <code>tools&lt;/code>.</li>
+<li><strong>Tools</strong> in <code>tools&#92;</code>, written in English: <code>create-unit</code>, <code>create-item</code>, <code>create-ability</code>, <code>create-formation</code>, <code>create-option</code>, <code>create-outpost</code>, <code>create-random-map</code>, <code>create-template</code>, <code>clone-civilization</code>, <code>convert-image</code>, <code>convert-sprite</code>, <code>create-entity</code>, <code>read-rle</code>, <code>extract-data</code>, <code>validate-mod</code> and <code>shrink-mod</code>. Their options are English (<code>--name</code>, <code>--player</code>, <code>--output</code>). In <code>create-unit</code>, <code>create-ability</code> and <code>create-option</code>, <code>--name</code> is the English text and the Spanish one goes in <code>--name-es</code>.</li>
+<li><strong>Examples</strong> in <code>examples&#92;</code>, all validating, with English ids (<code>example-unit</code>, <code>example-options</code>…). <code>draw-soldier.js</code>, which redraws the sprites of <code>unit-graphics-example</code>, is in <code>tools&#92;</code>.</li>
 <li>The Spanish keys of an old <code>mod.json</code> are still read by the validator.</li>
 </ul>
 
@@ -123,7 +126,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"en","equivalents":{"es":"../sdk.html","en":"CHANGELOG.html","it":"../it/sdk.html"}};</script>
+<script>window.GUIDE = {"lang":"en","equivalents":{"en":"CHANGELOG.html","es":"es/CHANGELOG.html","it":"../it/sdk.html"}};</script>
 <script src="../js/i18n.js"></script>
 <script src="../js/download.js"></script>
 <script src="../js/motion.js"></script>
