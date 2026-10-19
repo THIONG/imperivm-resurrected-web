@@ -342,6 +342,7 @@ a { color: inherit; }
 .doc-layout { display: grid; grid-template-columns: clamp(210px, 22vw, 300px) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); padding: clamp(20px, 2.4vw, 36px) var(--margin) clamp(36px, 5vw, 80px); }
 .doc-nav { align-self: start; position: sticky; top: calc(var(--header-height) + 16px); max-height: calc(100vh - 110px); overflow: auto; border-right: 1px solid #8a8a8a; padding-right: 18px; }
 .doc-nav ol { list-style: none; margin: 0; padding: 0; }
+.doc-nav ol + .guide-index__title { margin-top: 26px; }
 .doc-nav a:not(.guide-link) { display: block; padding: 6px 0 6px 12px; border-left: 2px solid transparent; text-decoration: none; font-size: 14px; }
 .doc-nav a:not(.guide-link):hover { color: var(--accent-text); }
 .doc-nav a[aria-current] { border-left-color: var(--accent-text); color: var(--accent-text); font-weight: 600; }

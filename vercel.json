@@ -9,6 +9,36 @@
       "source": "/sdk/en/:path*",
       "destination": "/sdk/:path*",
       "permanent": true
+    },
+    {
+      "source": "/sdk/README.html",
+      "destination": "/sdk/overview.html",
+      "permanent": true
+    },
+    {
+      "source": "/sdk/:lang(es|it)/README.html",
+      "destination": "/sdk/:lang/overview.html",
+      "permanent": true
+    },
+    {
+      "source": "/sdk/CHANGELOG.html",
+      "destination": "/sdk/changelog.html",
+      "permanent": true
+    },
+    {
+      "source": "/sdk/:lang(es|it)/CHANGELOG.html",
+      "destination": "/sdk/:lang/changelog.html",
+      "permanent": true
+    },
+    {
+      "source": "/sdk/LICENSE.html",
+      "destination": "/sdk/license.html",
+      "permanent": true
+    },
+    {
+      "source": "/sdk/:lang(es|it)/LICENSE.html",
+      "destination": "/sdk/:lang/license.html",
+      "permanent": true
     }
   ],
   "headers": [

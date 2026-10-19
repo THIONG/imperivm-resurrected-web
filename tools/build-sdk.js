@@ -19,6 +19,7 @@ const LABELS = {
   it: { skip: 'Vai al contenuto', guides: 'Guide dell\'SDK', templates: 'Modelli', overview: 'Panoramica', changes: 'Cambiamenti', license: 'Licenza (in inglese)', functions: 'Funzioni del gioco (in inglese)', back: 'Per i modder', backFooter: 'Torna a Per i modder', suffix: ' — SDK', lang: 'it' },
 };
 
+const htmlName = (md) => ({ 'README.md': 'overview.html', 'CHANGELOG.md': 'changelog.html', 'LICENSE.md': 'license.html' })[md] || md.replace(/\.md$/, '.html');
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const slug = (t) => t.toLowerCase().replace(/<[^>]+>/g, '').replace(/[^\p{L}\p{N}\s_-]/gu, '').trim().replace(/\s+/g, '-');
 const read = (file) => fs.readFileSync(file, 'utf8');
@@ -34,7 +35,7 @@ function pageOf(target) {
   const m = /^templates\/([^/]+)\/README\.md$/.exec(target);
   if (m) return 'templates/' + m[1] + '.html';
   if (/^templates\/([^/]+)\/?$/.test(target) && fs.existsSync(path.join(SDK, target, 'README.md'))) return 'templates/' + target.split('/')[1] + '.html';
-  if (/^[^/]+\.md$/.test(target)) return target.replace(/\.md$/, '.html');
+  if (/^[^/]+\.md$/.test(target)) return htmlName(target);
   return null;
 }
 
@@ -77,7 +78,7 @@ marked.use({
       const prefix = (p) => (state.lang !== 'en' && state.available[state.lang].has(p) ? state.lang + '/' : '') + p;
       if (page) return `<a href="${relative(state.page, prefix(page))}${anchor}">${text}</a>`;
       if (/\.txt$/.test(target) && fs.existsSync(path.join(SDK, target))) return `<a href="${relative(state.page, target)}">${text}</a>`;
-      if (target === 'templates') return `<a href="${relative(state.page, prefix('README.html'))}#templates">${text}</a>`;
+      if (target === 'templates') return `<a href="${relative(state.page, prefix('overview.html'))}#templates">${text}</a>`;
       const full = path.join(SDK, target);
       const kind = fs.existsSync(full) && fs.statSync(full).isFile() ? 'blob' : 'tree';
       return `<a href="${REPO}/${kind}/main/sdk/${target}" target="_blank" rel="noopener">${text}</a>`;
@@ -163,9 +164,9 @@ function frame(lang, page, title, body, info, available) {
     .replace(/<a class="footer__back" href="index.html">[^<]*<\/a>/, `<a class="footer__back" href="${site}sdk.html">${L.backFooter}</a>`)
     .replace(/src="(?:\.\.\/)?img\//g, `src="${up}img/`);
   const link = (item, current) => `<li><a href="${relative(here, (lang === 'en' ? '' : lang + '/') + item.file)}"${current ? ' aria-current="page"' : ''}>${esc(item.title)}</a></li>`;
-  const license = { title: L.license, file: 'LICENSE.html' };
-  const licenseLink = lang !== 'en' ? `<li><a href="${relative(here, 'LICENSE.html')}"${page === 'LICENSE.html' ? ' aria-current="page"' : ''}>${esc(L.license)}</a></li>` : link(license, page === 'LICENSE.html');
-  const items = [{ title: L.overview, file: 'README.html' }].concat(info.guides, [{ title: L.changes, file: 'CHANGELOG.html' }]);
+  const license = { title: L.license, file: 'license.html' };
+  const licenseLink = lang !== 'en' ? `<li><a href="${relative(here, 'license.html')}"${page === 'license.html' ? ' aria-current="page"' : ''}>${esc(L.license)}</a></li>` : link(license, page === 'license.html');
+  const items = [{ title: L.overview, file: 'overview.html' }].concat(info.guides, [{ title: L.changes, file: 'changelog.html' }]);
   const guideList = items.map((g) => link(g, g.file === page)).join('\n          ') + '\n          ' + licenseLink;
   const templateList = info.templates.map((t) => link(t, t.file === page)).join('\n          ');
   const functions = `<li><a href="${relative(here, 'game-functions.txt')}">${L.functions}</a></li>`;
@@ -248,7 +249,7 @@ const infos = { en: english };
 for (const l of ['es', 'it']) if (fs.existsSync(path.join(docs(l), 'README.md'))) infos[l] = describe(docs(l));
 
 const sourceFiles = (info) => ['README.md', 'CHANGELOG.md', 'LICENSE.md']
-  .map((f) => ({ file: f, page: f.replace(/\.md$/, '.html') }))
+  .map((f) => ({ file: f, page: htmlName(f) }))
   .concat(info.guides.map((g) => ({ file: g.id + '.md', page: g.file })))
   .concat(info.templates.map((t) => ({ file: 'templates/' + t.id + '/README.md', page: t.file })));
 
@@ -288,7 +289,7 @@ fs.copyFileSync(path.join(SDK, 'game-functions.txt'), path.join(OUT, 'game-funct
 
 const changelog = read(path.join(SDK, 'CHANGELOG.md'));
 const version = (changelog.match(/^##\s+(\d+\.\d+(?:\.\d+)?)/m) || [])[1];
-const requires = (changelog.match(/(\d+\.\d+\.\d+)\s+or later/) || [null, ''])[1];
+const requires = (changelog.match(/(\d+\.\d+(?:\.\d+)?)\s+or later/) || [null, ''])[1];
 if (!version) throw new Error('No version in CHANGELOG.md');
 const zip = `imperivm-resurrected-sdk-${version}.zip`;
 
@@ -303,8 +304,8 @@ const index = {
   version,
   requires,
   zip,
-  readme: 'README.html',
-  extra: { changes: 'CHANGELOG.html', license: 'LICENSE.html' },
+  readme: 'overview.html',
+  extra: { changes: 'changelog.html', license: 'license.html' },
   anchors: { start: anchor('Start here'), mod: anchor('What a mod looks like'), templates: anchor('Templates') },
   languages: Object.fromEntries(Object.entries(infos).map(([l, info]) => [l, pack(info)])),
 };

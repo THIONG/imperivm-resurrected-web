@@ -45,4 +45,4 @@ Sin estas líneas, el nombre es el del archivo y no hay descripción. Las tres b
 
 Todos los jugadores necesitan los mismos archivos: el contenido de la sala se compara antes de la partida, y el valor de la bonificación es una posición en la lista.
 
-Requiere Imperivm Resurrected 0.9.0 o posterior.
+Requiere Imperivm Resurrected 1.0 o posterior.

@@ -50,7 +50,7 @@
     <aside class="doc-nav" aria-label="Guías del SDK">
       <p class="guide-index__title">Guías del SDK</p>
       <ol>
-          <li><a href="README.html">Resumen</a></li>
+          <li><a href="overview.html">Resumen</a></li>
           <li><a href="languages.html">Idiomas y textos</a></li>
           <li><a href="keys.html">Teclas de mod</a></li>
           <li><a href="patches.html">Parches</a></li>
@@ -75,8 +75,8 @@
           <li><a href="validating.html">Validar un mod</a></li>
           <li><a href="publishing.html" aria-current="page">Publicar en GameBanana</a></li>
           <li><a href="reference.html">Referencia</a></li>
-          <li><a href="CHANGELOG.html">Cambios</a></li>
-          <li><a href="../LICENSE.html">Licencia (en inglés)</a></li>
+          <li><a href="changelog.html">Cambios</a></li>
+          <li><a href="../license.html">Licencia (en inglés)</a></li>
           <li><a href="../game-functions.txt">Funciones del juego (en inglés)</a></li>
       </ol>
       <p class="guide-index__title">Plantillas</p>
@@ -128,7 +128,7 @@
 <p>Solo reciben el aviso de versión nueva quienes instalaron el mod desde Explorar contenido (eso escribe <code>sources.gamebanana</code> en su <code>mod.json</code>, o <code>sources.gamebananaSound</code> si viene de Sounds), o quienes tienen un mod con el mismo <code>id</code> que la entrada. Si alguien descarga el zip a mano y lo descomprime, no recibe aviso.</p>
 <h2 id="categories">Categorías</h2>
 <p><strong>En resumen:</strong> en GameBanana eliges <strong>una categoría</strong>, la que mejor describe el mod en conjunto. Todo lo demás que aporte va en los <strong>tags</strong> <code>Type</code>, <code>Players</code> y <code>Language</code>: añade todos los que apliquen, y solo esos.</p>
-<p>GameBanana permite solo una por mod: elige aquella en la que el mod más aporta. Si tu mod hace más, por ejemplo uno grande que trae civilizaciones y mapas, añade las demás con tags <code>Type</code> (mira <a href="#tags">Tags</a>) y aparecerá en todas. Hay nueve, en los tres tipos que distingue el juego. El tipo no lo decide la categoría sino los archivos del mod (mira <a href="README.html#what-counts-as-gameplay">¿Qué cuenta como jugabilidad?</a>); la categoría es cómo lo encuentra la gente en Explorar contenido.</p>
+<p>GameBanana permite solo una por mod: elige aquella en la que el mod más aporta. Si tu mod hace más, por ejemplo uno grande que trae civilizaciones y mapas, añade las demás con tags <code>Type</code> (mira <a href="#tags">Tags</a>) y aparecerá en todas. Hay nueve, en los tres tipos que distingue el juego. El tipo no lo decide la categoría sino los archivos del mod (mira <a href="overview.html#what-counts-as-gameplay">¿Qué cuenta como jugabilidad?</a>); la categoría es cómo lo encuentra la gente en Explorar contenido.</p>
 <div class="table"><table>
 <thead>
 <tr>
@@ -224,7 +224,7 @@
 <td><a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/french-language" target="_blank" rel="noopener">french-language</a>, <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples/custom-texts" target="_blank" rel="noopener">custom-texts</a></td>
 </tr>
 </tbody></table></div>
-<p>Cada categoría tiene una <a href="README.html#templates">plantilla</a> con la estructura de sus carpetas. Para <a href="maps.html">escenarios, aventuras y conquistas</a> y para el <a href="audio.html">audio</a> hay además guías breves.</p>
+<p>Cada categoría tiene una <a href="overview.html#templates">plantilla</a> con la estructura de sus carpetas. Para <a href="maps.html">escenarios, aventuras y conquistas</a> y para el <a href="audio.html">audio</a> hay además guías breves.</p>
 <p><strong>Mapas sueltos.</strong> Si el <code>.zip</code> solo contiene el <code>.bfhp</code>, sin carpetas, el juego lo coloca solo al instalarlo, según el tipo que declara el propio mapa (lo que eligió su autor en el editor): una aventura va a <code>adventures&#92;</code> (con su <code>.bmp</code> del mismo nombre), una conquista a <code>conquests&#92;</code> y un mapa de escaramuza a <code>scenarios&#92;</code>, o a <code>adventures&#92;</code> si la categoría es Adventures (misiones de un jugador hechas como un mapa normal). Aun así, es mejor subirlo ya dentro de su carpeta; el <a href="validating.html">validador</a> avisa cuando un mapa está en la equivocada, por ejemplo una aventura en <code>scenarios&#92;</code>, que la lista de Scenarios no muestra.</p>
 <p><strong>Vista previa del escenario.</strong> Cuando se elige un escenario en la sala, el juego dibuja una vista previa a partir del terreno del propio mapa, con sus jugadores y sus civilizaciones, y de dónde procede: no hace falta subir ninguna imagen. Los colores salen de los mosaicos del minimapa del juego, así que un terreno nuevo se ve bien si trae su mosaico en <code>minimapzoom8\terrain</code>.</p>
 <p><strong>Nombres antiguos.</strong> Scenarios, Adventures y Conquests se llaman como las carpetas del juego (<code>scenarios&#92;</code>, <code>adventures&#92;</code>, <code>conquests&#92;</code>). Antes eran <strong>Maps</strong>, <strong>Campaigns</strong> y <strong>Conquest</strong>: un <code>mod.json</code> con esos nombres, o con <code>Interface</code> o <code>Total Conversions</code>, sigue funcionando, pero el validador pide el nombre nuevo.</p>

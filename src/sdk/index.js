@@ -1,11 +1,11 @@
 window.SDK_INDEX = {
  "version": "1.0",
- "requires": "0.9.0",
+ "requires": "1.0",
  "zip": "imperivm-resurrected-sdk-1.0.zip",
- "readme": "README.html",
+ "readme": "overview.html",
  "extra": {
-  "changes": "CHANGELOG.html",
-  "license": "LICENSE.html"
+  "changes": "changelog.html",
+  "license": "license.html"
  },
  "anchors": {
   "start": "start-here",

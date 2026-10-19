@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cambios — SDK</title>
 <meta name="description" content="La versión del SDK y qué mods puedes hacer con cada una. La versión de la API de scripts ( Mod_ApiVersion() ) es aparte: ahora es la 7.">
-<link rel="canonical" href="https://www.imperivmresurrected.com/sdk/es/CHANGELOG.html">
-<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/CHANGELOG.html">
-<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/CHANGELOG.html">
-<link rel="alternate" hreflang="it" href="https://www.imperivmresurrected.com/sdk/it/CHANGELOG.html">
-<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/CHANGELOG.html">
+<link rel="canonical" href="https://www.imperivmresurrected.com/sdk/es/changelog.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/changelog.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/changelog.html">
+<link rel="alternate" hreflang="it" href="https://www.imperivmresurrected.com/sdk/it/changelog.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/changelog.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="Cambios — SDK">
 <meta property="og:description" content="La versión del SDK y qué mods puedes hacer con cada una. La versión de la API de scripts ( Mod_ApiVersion() ) es aparte: ahora es la 7.">
-<meta property="og:url" content="https://www.imperivmresurrected.com/sdk/es/CHANGELOG.html">
+<meta property="og:url" content="https://www.imperivmresurrected.com/sdk/es/changelog.html">
 <meta property="og:image" content="https://www.imperivmresurrected.com/img/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
@@ -50,7 +50,7 @@
     <aside class="doc-nav" aria-label="Guías del SDK">
       <p class="guide-index__title">Guías del SDK</p>
       <ol>
-          <li><a href="README.html">Resumen</a></li>
+          <li><a href="overview.html">Resumen</a></li>
           <li><a href="languages.html">Idiomas y textos</a></li>
           <li><a href="keys.html">Teclas de mod</a></li>
           <li><a href="patches.html">Parches</a></li>
@@ -75,8 +75,8 @@
           <li><a href="validating.html">Validar un mod</a></li>
           <li><a href="publishing.html">Publicar en GameBanana</a></li>
           <li><a href="reference.html">Referencia</a></li>
-          <li><a href="CHANGELOG.html" aria-current="page">Cambios</a></li>
-          <li><a href="../LICENSE.html">Licencia (en inglés)</a></li>
+          <li><a href="changelog.html" aria-current="page">Cambios</a></li>
+          <li><a href="../license.html">Licencia (en inglés)</a></li>
           <li><a href="../game-functions.txt">Funciones del juego (en inglés)</a></li>
       </ol>
       <p class="guide-index__title">Plantillas</p>
@@ -98,10 +98,10 @@
 <h1 id="changes">Cambios</h1>
 <p>La versión del SDK y qué mods puedes hacer con cada una. La versión de la API de scripts (<code>Mod_ApiVersion()</code>) es aparte: ahora es la 7.</p>
 <h2 id="10">1.0</h2>
-<p>Necesita Imperivm Resurrected 0.9.0 o posterior.</p>
+<p>Necesita Imperivm Resurrected 1.0 o posterior.</p>
 <p>La primera versión numerada del SDK. Está solo en inglés.</p>
 <ul>
-<li><strong>Plantillas</strong> en <a href="README.html#templates"><code>templates/</code></a>: un mod vacío para cada tipo de contenido (escenario, aventura, conquista, unidades, civilización, jugabilidad, audio, traducción, gráficos) y uno completo con todas las carpetas que lee el juego. Cada una tiene su <code>mod.json</code>, un README con los pasos y la estructura de carpetas, y una nota <code>PUT-YOUR-FILES-HERE.txt</code> en cada carpeta vacía. Pasan el validador.</li>
+<li><strong>Plantillas</strong> en <a href="overview.html#templates"><code>templates/</code></a>: un mod vacío para cada tipo de contenido (escenario, aventura, conquista, unidades, civilización, jugabilidad, audio, traducción, gráficos) y uno completo con todas las carpetas que lee el juego. Cada una tiene su <code>mod.json</code>, un README con los pasos y la estructura de carpetas, y una nota <code>PUT-YOUR-FILES-HERE.txt</code> en cada carpeta vacía. Pasan el validador.</li>
 <li><strong>Guías</strong> para todo lo que puede hacer un mod: idiomas y textos, claves, parches, scripts, civilizaciones, plantillas de ciudad y aldea, unidades, estadísticas, especiales, habilidades, objetos, formaciones, fortines, modos de victoria, bonificaciones iniciales, opciones de partida, mapas aleatorios, imágenes, gráficos, <a href="maps.html">escenarios, aventuras y conquistas</a> (con vídeos) y <a href="audio.html">música, sonidos y voces</a>, además del validador, la publicación en GameBanana y una referencia.</li>
 <li><strong>Herramientas</strong> en <code>tools&#92;</code>, escritas en inglés: <code>create-unit</code>, <code>create-item</code>, <code>create-ability</code>, <code>create-formation</code>, <code>create-option</code>, <code>create-outpost</code>, <code>create-random-map</code>, <code>create-template</code>, <code>clone-civilization</code>, <code>convert-image</code>, <code>convert-sprite</code>, <code>create-entity</code>, <code>read-rle</code>, <code>extract-data</code>, <code>validate-mod</code> y <code>shrink-mod</code>. Sus opciones están en inglés (<code>--name</code>, <code>--player</code>, <code>--output</code>). En <code>create-unit</code>, <code>create-ability</code> y <code>create-option</code>, <code>--name</code> es el texto en inglés y el español va en <code>--name-es</code>.</li>
 <li><strong>Ejemplos</strong> en <code>examples&#92;</code>, todos válidos, con ids en inglés (<code>example-unit</code>, <code>example-options</code>…). <code>draw-soldier.js</code>, que vuelve a dibujar los sprites de <code>unit-graphics-example</code>, está en <code>tools&#92;</code>.</li>
@@ -127,7 +127,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"es","equivalents":{"en":"../CHANGELOG.html","es":"CHANGELOG.html","it":"../it/CHANGELOG.html"}};</script>
+<script>window.GUIDE = {"lang":"es","equivalents":{"en":"../changelog.html","es":"changelog.html","it":"../it/changelog.html"}};</script>
 <script src="../../js/i18n.js"></script>
 <script src="../../js/download.js"></script>
 <script src="../../js/motion.js"></script>

@@ -17,7 +17,7 @@ for (const prefix of ['', 'en/', 'it/']) {
 }
 
 const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]));
-const guides = walk(path.join(SRC, 'sdk')).filter((f) => f.endsWith('.html')).map((f) => path.relative(SRC, f).split(path.sep).join('/')).sort((a, b) => (a === 'sdk/README.html' ? -1 : b === 'sdk/README.html' ? 1 : a.localeCompare(b)));
+const guides = walk(path.join(SRC, 'sdk')).filter((f) => f.endsWith('.html')).map((f) => path.relative(SRC, f).split(path.sep).join('/')).sort((a, b) => (a === 'sdk/overview.html' ? -1 : b === 'sdk/overview.html' ? 1 : a.localeCompare(b)));
 for (const page of guides) add('/' + page, '0.6');
 
 const xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + entries.join('\n') + '\n</urlset>\n';

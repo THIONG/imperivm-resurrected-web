@@ -50,7 +50,7 @@
     <aside class="doc-nav" aria-label="Guide dell'SDK">
       <p class="guide-index__title">Guide dell'SDK</p>
       <ol>
-          <li><a href="README.html">Panoramica</a></li>
+          <li><a href="overview.html">Panoramica</a></li>
           <li><a href="languages.html">Lingue e testi</a></li>
           <li><a href="keys.html">Tasti delle mod</a></li>
           <li><a href="patches.html">Patch</a></li>
@@ -75,8 +75,8 @@
           <li><a href="validating.html" aria-current="page">Validare una mod</a></li>
           <li><a href="publishing.html">Pubblicare su GameBanana</a></li>
           <li><a href="reference.html">Riferimento</a></li>
-          <li><a href="CHANGELOG.html">Cambiamenti</a></li>
-          <li><a href="../LICENSE.html">Licenza (in inglese)</a></li>
+          <li><a href="changelog.html">Cambiamenti</a></li>
+          <li><a href="../license.html">Licenza (in inglese)</a></li>
           <li><a href="../game-functions.txt">Funzioni del gioco (in inglese)</a></li>
       </ol>
       <p class="guide-index__title">Modelli</p>
@@ -100,7 +100,7 @@
 <pre><code>node tools/validate-mod.js &lt;mod folder&gt;
 node tools/validate-mod.js &lt;mod folder&gt; --data &lt;DATA folder&gt;
 </code></pre>
-<p><code>--data</code> è la cartella <code>DATA</code> ottenuta estraendo <code>data.pak</code> (la estrae <code>tools/extract-data.js</code>, vedi il <a href="README.html#game-data">README</a>). Con essa, il validatore controlla anche che i file a cui la tua mod applica patch esistano e che gli script a cui puntano le tue classi esistano. Guarda solo i percorsi che iniziano con <code>data/</code>: se applichi patch a <code>units/…</code>, <code>buildings/…</code> o <code>currentlang/…</code>, non li controlla. Senza <code>--data</code>, tutto il resto viene comunque controllato.</p>
+<p><code>--data</code> è la cartella <code>DATA</code> ottenuta estraendo <code>data.pak</code> (la estrae <code>tools/extract-data.js</code>, vedi il <a href="overview.html#game-data">README</a>). Con essa, il validatore controlla anche che i file a cui la tua mod applica patch esistano e che gli script a cui puntano le tue classi esistano. Guarda solo i percorsi che iniziano con <code>data/</code>: se applichi patch a <code>units/…</code>, <code>buildings/…</code> o <code>currentlang/…</code>, non li controlla. Senza <code>--data</code>, tutto il resto viene comunque controllato.</p>
 <p>Con <code>--game &lt;game folder&gt;</code> (sola lettura) controlla i nomi in <code>Units.pak</code>, <code>Buildings.pak</code>, <code>MapObjects.pak</code> e <code>Visuals.pak</code> per verificare se esistono le immagini e le entità che la tua mod prende dal gioco, e avvisa se un tuo <code>.rle</code> ha lo stesso nome di uno del gioco:</p>
 <pre><code>node tools/validate-mod.js &lt;mod folder&gt; --data &lt;DATA&gt; --game &quot;C:\Program Files (x86)\Steam\steamapps\common\Imperivm - Great Battles of Rome HD&quot;
 </code></pre>

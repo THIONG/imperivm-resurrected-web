@@ -45,4 +45,4 @@ Senza queste righe il nome è quello del file e non c'è nessuna descrizione. I 
 
 Tutti i giocatori devono avere gli stessi file: il contenuto della stanza viene confrontato prima della partita, e il valore del bonus è una posizione nell'elenco.
 
-Richiede Imperivm Resurrected 0.9.0 o successivo.
+Richiede Imperivm Resurrected 1.0 o successivo.

@@ -50,7 +50,7 @@
     <aside class="doc-nav" aria-label="SDK guides">
       <p class="guide-index__title">SDK guides</p>
       <ol>
-          <li><a href="README.html">Overview</a></li>
+          <li><a href="overview.html">Overview</a></li>
           <li><a href="languages.html">Languages and texts</a></li>
           <li><a href="keys.html">Mod keys</a></li>
           <li><a href="patches.html">Patches</a></li>
@@ -75,8 +75,8 @@
           <li><a href="validating.html" aria-current="page">Validating a mod</a></li>
           <li><a href="publishing.html">Publishing on GameBanana</a></li>
           <li><a href="reference.html">Reference</a></li>
-          <li><a href="CHANGELOG.html">Changes</a></li>
-          <li><a href="LICENSE.html">License</a></li>
+          <li><a href="changelog.html">Changes</a></li>
+          <li><a href="license.html">License</a></li>
           <li><a href="game-functions.txt">Game functions</a></li>
       </ol>
       <p class="guide-index__title">Templates</p>
@@ -100,7 +100,7 @@
 <pre><code>node tools/validate-mod.js &lt;mod folder&gt;
 node tools/validate-mod.js &lt;mod folder&gt; --data &lt;DATA folder&gt;
 </code></pre>
-<p><code>--data</code> is the <code>DATA</code> folder from the extracted <code>data.pak</code> (<code>tools/extract-data.js</code> extracts it, see the <a href="README.html#game-data">README</a>). With it, the validator also checks that the files your mod patches exist and that the scripts your classes point to exist. It only looks at paths starting with <code>data/</code>: if you patch <code>units/…</code>, <code>buildings/…</code> or <code>currentlang/…</code>, it doesn&#39;t check them. Without <code>--data</code>, everything else is still checked.</p>
+<p><code>--data</code> is the <code>DATA</code> folder from the extracted <code>data.pak</code> (<code>tools/extract-data.js</code> extracts it, see the <a href="overview.html#game-data">README</a>). With it, the validator also checks that the files your mod patches exist and that the scripts your classes point to exist. It only looks at paths starting with <code>data/</code>: if you patch <code>units/…</code>, <code>buildings/…</code> or <code>currentlang/…</code>, it doesn&#39;t check them. Without <code>--data</code>, everything else is still checked.</p>
 <p>With <code>--game &lt;game folder&gt;</code> (read-only) it checks the names in <code>Units.pak</code>, <code>Buildings.pak</code>, <code>MapObjects.pak</code> and <code>Visuals.pak</code> to see whether the images and entities your mod takes from the game exist, and warns if your <code>.rle</code> has the same name as one of the game&#39;s:</p>
 <pre><code>node tools/validate-mod.js &lt;mod folder&gt; --data &lt;DATA&gt; --game &quot;C:\Program Files (x86)\Steam\steamapps\common\Imperivm - Great Battles of Rome HD&quot;
 </code></pre>

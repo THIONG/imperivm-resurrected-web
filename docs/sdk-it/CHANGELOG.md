@@ -4,7 +4,7 @@ La versione dell'SDK e le mod che puoi creare con ciascuna. La versione dell'API
 
 ## 1.0
 
-Richiede Imperivm Resurrected 0.9.0 o successivo.
+Richiede Imperivm Resurrected 1.0 o successivo.
 
 La prima versione numerata dell'SDK. È solo in inglese.
 

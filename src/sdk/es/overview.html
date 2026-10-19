@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SDK de Imperivm Resurrected</title>
 <meta name="description" content="Imperivm Resurrected es un mod para Imperivm HD (Great Battles of Rome) que abre el juego a mods que antes no eran posibles: civilizaciones nuevas,…">
-<link rel="canonical" href="https://www.imperivmresurrected.com/sdk/es/README.html">
-<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/README.html">
-<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/README.html">
-<link rel="alternate" hreflang="it" href="https://www.imperivmresurrected.com/sdk/it/README.html">
-<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/README.html">
+<link rel="canonical" href="https://www.imperivmresurrected.com/sdk/es/overview.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/sdk/overview.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/sdk/es/overview.html">
+<link rel="alternate" hreflang="it" href="https://www.imperivmresurrected.com/sdk/it/overview.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/sdk/overview.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Imperivm Resurrected">
 <meta property="og:title" content="SDK de Imperivm Resurrected">
 <meta property="og:description" content="Imperivm Resurrected es un mod para Imperivm HD (Great Battles of Rome) que abre el juego a mods que antes no eran posibles: civilizaciones nuevas,…">
-<meta property="og:url" content="https://www.imperivmresurrected.com/sdk/es/README.html">
+<meta property="og:url" content="https://www.imperivmresurrected.com/sdk/es/overview.html">
 <meta property="og:image" content="https://www.imperivmresurrected.com/img/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
@@ -50,7 +50,7 @@
     <aside class="doc-nav" aria-label="Guías del SDK">
       <p class="guide-index__title">Guías del SDK</p>
       <ol>
-          <li><a href="README.html" aria-current="page">Resumen</a></li>
+          <li><a href="overview.html" aria-current="page">Resumen</a></li>
           <li><a href="languages.html">Idiomas y textos</a></li>
           <li><a href="keys.html">Teclas de mod</a></li>
           <li><a href="patches.html">Parches</a></li>
@@ -75,8 +75,8 @@
           <li><a href="validating.html">Validar un mod</a></li>
           <li><a href="publishing.html">Publicar en GameBanana</a></li>
           <li><a href="reference.html">Referencia</a></li>
-          <li><a href="CHANGELOG.html">Cambios</a></li>
-          <li><a href="../LICENSE.html">Licencia (en inglés)</a></li>
+          <li><a href="changelog.html">Cambios</a></li>
+          <li><a href="../license.html">Licencia (en inglés)</a></li>
           <li><a href="../game-functions.txt">Funciones del juego (en inglés)</a></li>
       </ol>
       <p class="guide-index__title">Plantillas</p>
@@ -100,7 +100,7 @@
 <h2 id="start-here">Por dónde empezar</h2>
 <ol>
 <li>Instala Imperivm Resurrected: copia su contenido en la carpeta del juego (<code>...\steamapps\common\Imperivm - Great Battles of Rome HD</code>) y lanza el juego desde Steam.</li>
-<li>Copia una carpeta de <a href="README.html#templates"><code>templates/</code></a> en <code>mods&#92;</code>, dentro de la carpeta del juego: tiene la estructura exacta que el juego espera para lo que quieres hacer (mira <a href="#templates">Plantillas</a>). Para ver un mod terminado, copia uno de <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples" target="_blank" rel="noopener"><code>examples/</code></a>, por ejemplo <code>patches-example</code>.</li>
+<li>Copia una carpeta de <a href="overview.html#templates"><code>templates/</code></a> en <code>mods&#92;</code>, dentro de la carpeta del juego: tiene la estructura exacta que el juego espera para lo que quieres hacer (mira <a href="#templates">Plantillas</a>). Para ver un mod terminado, copia uno de <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/tree/main/sdk/examples" target="_blank" rel="noopener"><code>examples/</code></a>, por ejemplo <code>patches-example</code>.</li>
 <li>En el menú principal, pulsa <strong>Contenido adicional</strong> y activa el mod en tu perfil.</li>
 <li>Reinicia el juego si no se ha reiniciado solo.</li>
 <li>Abre <code>Logs\imperivm\imperivm-mod.log</code>, en la carpeta del juego. Ahí aparecen los errores de tu mod y lo que ha cargado.</li>
@@ -348,7 +348,7 @@
 <p>El registro conserva las cinco últimas sesiones (<code>imperivm-mod.1.log</code> a <code>imperivm-mod.4.log</code>) y, si el juego se cerró mal, <code>imperivm-mod.crashed.log</code>. Para tener más detalle de una parte, pon su etiqueta y un nivel bajo <code>[Debug]</code> en <code>imperivm-mod.ini</code>, por ejemplo <code>LogChannels=patch:debug</code>; <code>LogLevel=debug</code> lo hace para todo.</p>
 <p>Para pedir ayuda, pulsa el corazón de la esquina inferior izquierda del menú principal y luego <strong>Crear informe</strong>. Genera un zip con los registros y tu sistema, sin tu nombre de usuario de Windows, sin los ids de Steam y sin direcciones IP, y no envía nada: tú decides si lo compartes.</p>
 <h2 id="version-and-license">Versión y licencia</h2>
-<p>La versión del SDK y los cambios de cada una están en <a href="CHANGELOG.html">Cambios</a>. La licencia está en <a href="../LICENSE.html">Licencia</a>.</p>
+<p>La versión del SDK y los cambios de cada una están en <a href="changelog.html">Cambios</a>. La licencia está en <a href="../license.html">Licencia</a>.</p>
 
     </article>
   </main>
@@ -369,7 +369,7 @@
 
 </div>
 
-<script>window.GUIDE = {"lang":"es","equivalents":{"en":"../README.html","es":"README.html","it":"../it/README.html"}};</script>
+<script>window.GUIDE = {"lang":"es","equivalents":{"en":"../overview.html","es":"overview.html","it":"../it/overview.html"}};</script>
 <script src="../../js/i18n.js"></script>
 <script src="../../js/download.js"></script>
 <script src="../../js/motion.js"></script>

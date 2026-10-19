@@ -12,17 +12,17 @@
   <url><loc>https://www.imperivmresurrected.com/it/guide.html</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://www.imperivmresurrected.com/it/sdk.html</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://www.imperivmresurrected.com/it/credits.html</loc><lastmod>2026-10-19</lastmod><priority>0.4</priority></url>
-  <url><loc>https://www.imperivmresurrected.com/sdk/README.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.imperivmresurrected.com/sdk/overview.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/abilities.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/audio.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/bonuses.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
-  <url><loc>https://www.imperivmresurrected.com/sdk/CHANGELOG.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.imperivmresurrected.com/sdk/changelog.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/city-templates.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/civilizations.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/es/abilities.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/es/audio.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/es/bonuses.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
-  <url><loc>https://www.imperivmresurrected.com/sdk/es/CHANGELOG.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.imperivmresurrected.com/sdk/es/changelog.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/es/city-templates.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/es/civilizations.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/es/formations.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
@@ -34,10 +34,10 @@
   <url><loc>https://www.imperivmresurrected.com/sdk/es/maps.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/es/options.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/es/outposts.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.imperivmresurrected.com/sdk/es/overview.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/es/patches.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/es/publishing.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/es/random-maps.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
-  <url><loc>https://www.imperivmresurrected.com/sdk/es/README.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/es/reference.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/es/scripts.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/es/specials.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
@@ -61,7 +61,7 @@
   <url><loc>https://www.imperivmresurrected.com/sdk/it/abilities.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/it/audio.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/it/bonuses.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
-  <url><loc>https://www.imperivmresurrected.com/sdk/it/CHANGELOG.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.imperivmresurrected.com/sdk/it/changelog.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/it/city-templates.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/it/civilizations.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/it/formations.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
@@ -73,10 +73,10 @@
   <url><loc>https://www.imperivmresurrected.com/sdk/it/maps.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/it/options.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/it/outposts.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.imperivmresurrected.com/sdk/it/overview.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/it/patches.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/it/publishing.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/it/random-maps.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
-  <url><loc>https://www.imperivmresurrected.com/sdk/it/README.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/it/reference.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/it/scripts.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/it/specials.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
@@ -97,7 +97,7 @@
   <url><loc>https://www.imperivmresurrected.com/sdk/items.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/keys.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/languages.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
-  <url><loc>https://www.imperivmresurrected.com/sdk/LICENSE.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.imperivmresurrected.com/sdk/license.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/maps.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/options.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.imperivmresurrected.com/sdk/outposts.html</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
