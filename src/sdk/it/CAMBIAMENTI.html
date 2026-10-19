@@ -81,7 +81,7 @@
 <h1 id="cambiamenti">Cambiamenti</h1>
 <p>Versione dell&#39;SDK e quali mod si possono fare con ognuna. La versione dell&#39;API degli script (<code>Mod_ApiVersion()</code>) è a parte: ora è la 7.</p>
 <h2 id="16">1.6</h2>
-<p>Richiede Imperivm Resurrected 0.32.24 o successiva.</p>
+<p>Richiede Imperivm Resurrected 0.9.0 o successiva.</p>
 <ul>
 <li>Una variante che sostituisce la sua base (<code>&quot;replacesBase&quot;: true</code>) può cambiare con <code>letter</code> e <code>template</code> la lettera e i modelli di
 città e villaggio di quella base per tutta la partita, anche quelli degli insediamenti neutrali della mappa casuale. Così si
@@ -94,7 +94,7 @@ non si possono selezionare e alcune classi non si possono attaccare (<a href="op
 <li>Il validatore conosce <code>Mod_PlayerCiv</code> e <code>Mod_CanExecCmd</code>.</li>
 </ul>
 <h2 id="15">1.5</h2>
-<p>Richiede Imperivm Resurrected 0.32.20 o successiva.</p>
+<p>Richiede Imperivm Resurrected 0.9.0 o successiva.</p>
 <ul>
 <li><code>riduci-mod.js</code> converte anche le mod il cui <code>rle.mmp</code> cambia la grafica del gioco, non solo quelle che aggiungono grafica
 in fondo. L&#39;<code>rle.mmp</code> del gioco resta intero: ciò che la mod cambia o aggiunge va dopo, in <code>rle.mmp.tail</code>, e le sue immagini
@@ -107,7 +107,7 @@ del suo <code>&lt;src&gt;</code>; avvisa solo se sono tutti e due per lo stesso 
 modalità di vittoria (<code>data\GameScripts</code>) né degli script degli oggetti: gliela passa il gioco.</li>
 </ul>
 <h2 id="14">1.4</h2>
-<p>Richiede Imperivm Resurrected 0.32.20 o successiva.</p>
+<p>Richiede Imperivm Resurrected 0.9.0 o successiva.</p>
 <ul>
 <li>Una mod può comparire in più categorie di Sfoglia contenuti: quella principale è la sua categoria di GameBanana e le altre si
 aggiungono con tag <code>Type</code>, per esempio <code>Type: Civilizations</code>.</li>
@@ -117,7 +117,7 @@ il validatore chiede quella nuova.</li>
 <strong>Grafica</strong> (prima Grafica e interfaccia) e <strong>Traduzioni</strong> (prima Testi e traduzioni).</li>
 </ul>
 <h2 id="13">1.3</h2>
-<p>Richiede Imperivm Resurrected 0.32.13 o successiva.</p>
+<p>Richiede Imperivm Resurrected 0.9.0 o successiva.</p>
 <ul>
 <li>Le categorie delle mappe si chiamano come le cartelle del gioco: <strong>Scenarios</strong> (Scenari), <strong>Adventures</strong> (Avventure) e <strong>Conquests</strong>
 (Conquiste), al posto di Maps, Campaigns e Conquest. I nomi precedenti funzionano ancora e il validatore chiede quello nuovo.</li>
@@ -128,7 +128,7 @@ validatore avvisa delle mappe che sono in una cartella che non è la loro.</li>
 Ciò che si installa da lì conserva il suo numero in <code>sources.gamebananaSound</code>.</li>
 </ul>
 <h2 id="12">1.2</h2>
-<p>Richiede Imperivm Resurrected 0.32.10 o successiva.</p>
+<p>Richiede Imperivm Resurrected 0.9.0 o successiva.</p>
 <ul>
 <li><code>Mod_CanExecCmd(oggetto, comando)</code> (API 7): lo stesso controllo che fa il pulsante di un comando (l&#39;oggetto lo ha, non è disattivato e
 il suo verificatore lo accetta). Il menu dei trucchi elenca le truppe delle classi caricate, anche quelle delle mod (<code>edittree_pos</code> sotto
@@ -149,7 +149,7 @@ le mod.</li>
 <li>L&#39;ordine delle mod lo calcola il gioco (<a href="riferimento.html#1-struttura-di-una-mod">Riferimento</a>): non si ordina più a mano nel profilo, e il controllo del multiplayer non dipende dall&#39;ordine. La chiave di <code>imperivm-mod.ini</code> è <code>[Mods] Profile</code>.</li>
 </ul>
 <h2 id="11">1.1</h2>
-<p>Richiede Imperivm Resurrected 0.31.58 o successiva.</p>
+<p>Richiede Imperivm Resurrected 0.9.0 o successiva.</p>
 <ul>
 <li>I nomi dei campi di <code>mod.json</code>, <code>civs\*.json</code>, <code>specials\*.json</code> e <code>options\*.json</code> passano all&#39;inglese (<code>name</code>, <code>authors</code>, <code>description</code>, <code>tags</code>, <code>category</code>, <code>index</code>, <code>biome</code>, <code>template</code>, <code>letter</code>, <code>values</code>, <code>default</code>…). I nomi in spagnolo continuano a valere.</li>
 <li>Le direttive delle patch degli script (<code>.vs</code>) diventano <code>@top</code>, <code>@bottom</code>, <code>@before</code>, <code>@after</code>, <code>@replace</code> e <code>@end</code>. Le vecchie continuano a valere.</li>
@@ -157,7 +157,7 @@ le mod.</li>
 <li>Il registro passa a <code>Logs\imperivm\imperivm-mod.log</code> (il gioco cancella all&#39;avvio i file sciolti di <code>Logs\</code>). Le sue righe hanno un livello (<code>I</code>, <code>W</code>, <code>E</code>) e un&#39;etichetta (<code>patch</code>, <code>language</code>, <code>civilizations</code>, <code>specials</code>, <code>script</code>, <code>event</code>) al posto di un prefisso di testo come <code>Patch:</code>, e vengono conservate le ultime cinque sessioni. <code>LogLevel</code> e <code>LogChannels</code> in <code>[Debug]</code> di <code>imperivm-mod.ini</code> chiedono più dettagli. Il cuore nel menu principale crea un rapporto con i registri da condividere.</li>
 </ul>
 <h2 id="10">1.0</h2>
-<p>Richiede Imperivm Resurrected 0.29.5 o successivo.</p>
+<p>Richiede Imperivm Resurrected 0.9.0 o successivo.</p>
 <p>Una mod può, solo con file e senza compilare nulla:</p>
 <ul>
 <li>Cambiare qualsiasi file XML, INI o script del gioco con le patch, e sommare le modifiche di più mod.</li>

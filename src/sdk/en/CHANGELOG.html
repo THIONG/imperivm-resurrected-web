@@ -81,7 +81,7 @@
 <h1 id="changes">Changes</h1>
 <p>The SDK version and which mods you can make with each one. The script API version (<code>Mod_ApiVersion()</code>) is separate: it&#39;s currently 7.</p>
 <h2 id="16">1.6</h2>
-<p>Needs Imperivm Resurrected 0.32.24 or later.</p>
+<p>Needs Imperivm Resurrected 0.9.0 or later.</p>
 <ul>
 <li>A variant that replaces its base (<code>&quot;replacesBase&quot;: true</code>) can change with <code>letter</code> and <code>template</code> the letter and the town and
 village templates of that base for the whole game, also those of the neutral settlements of the random map. This is how a whole
@@ -94,7 +94,7 @@ selected and some classes can&#39;t be attacked (<a href="options.html">Options<
 <li>The validator knows <code>Mod_PlayerCiv</code> and <code>Mod_CanExecCmd</code>.</li>
 </ul>
 <h2 id="15">1.5</h2>
-<p>Needs Imperivm Resurrected 0.32.20 or later.</p>
+<p>Needs Imperivm Resurrected 0.9.0 or later.</p>
 <ul>
 <li><code>shrink-mod.js</code> also converts mods whose <code>rle.mmp</code> changes the game&#39;s graphics, not only those that append graphics at the
 end. The game&#39;s <code>rle.mmp</code> stays whole: what the mod changes or adds goes after it, in <code>rle.mmp.tail</code>, and its images are
@@ -106,7 +106,7 @@ one to the buildings of its <code>&lt;src&gt;</code>; it only warns when both ar
 the first line of victory modes (<code>data\GameScripts</code>) or item scripts either: the game passes it.</li>
 </ul>
 <h2 id="14">1.4</h2>
-<p>Needs Imperivm Resurrected 0.32.20 or later.</p>
+<p>Needs Imperivm Resurrected 0.9.0 or later.</p>
 <ul>
 <li>A mod can show up in several categories of Browse content: the main one is its GameBanana category and the others are added
 with <code>Type</code> tags, for example <code>Type: Civilizations</code>.</li>
@@ -116,7 +116,7 @@ validator asks for the new one.</li>
 <strong>Graphics</strong> (was Graphics and interface) and <strong>Translations</strong> (was Texts and translations).</li>
 </ul>
 <h2 id="13">1.3</h2>
-<p>Needs Imperivm Resurrected 0.32.13 or later.</p>
+<p>Needs Imperivm Resurrected 0.9.0 or later.</p>
 <ul>
 <li>The map categories are named after the game&#39;s folders: <strong>Scenarios</strong>, <strong>Adventures</strong> and <strong>Conquests</strong>, instead of Maps,
 Campaigns and Conquest. The previous names still work and the validator asks for the new one.</li>
@@ -127,7 +127,7 @@ folder that isn&#39;t theirs.</li>
 install from there keeps its number in <code>sources.gamebananaSound</code>.</li>
 </ul>
 <h2 id="12">1.2</h2>
-<p>Needs Imperivm Resurrected 0.32.10 or later.</p>
+<p>Needs Imperivm Resurrected 0.9.0 or later.</p>
 <ul>
 <li><code>Mod_CanExecCmd(object, command)</code> (API 7): the same check a command&#39;s button makes (the object has it, it isn&#39;t disabled and its
 verifier accepts it). The cheats menu lists the troops of the loaded classes, mods&#39; included (<code>edittree_pos</code> under <code>Units/</code>), and
@@ -148,7 +148,7 @@ were mounted.</li>
 <li>The game works out the order of the mods (<a href="reference.html#1-mod-structure">Reference</a>): it&#39;s no longer set by hand in the profile, and the multiplayer check doesn&#39;t depend on the order. The <code>imperivm-mod.ini</code> key is <code>[Mods] Profile</code>.</li>
 </ul>
 <h2 id="11">1.1</h2>
-<p>Needs Imperivm Resurrected 0.31.58 or later.</p>
+<p>Needs Imperivm Resurrected 0.9.0 or later.</p>
 <ul>
 <li>The field names of <code>mod.json</code>, <code>civs\*.json</code>, <code>specials\*.json</code> and <code>options\*.json</code> are now in English (<code>name</code>, <code>authors</code>, <code>description</code>, <code>tags</code>, <code>category</code>, <code>index</code>, <code>biome</code>, <code>template</code>, <code>letter</code>, <code>values</code>, <code>default</code>…). The Spanish names still work.</li>
 <li>The directives of script patches (<code>.vs</code>) are now <code>@top</code>, <code>@bottom</code>, <code>@before</code>, <code>@after</code>, <code>@replace</code> and <code>@end</code>. The old ones still work.</li>
@@ -156,7 +156,7 @@ were mounted.</li>
 <li>The log moved to <code>Logs\imperivm\imperivm-mod.log</code> (the game deletes the loose files of <code>Logs\</code> at startup). Its lines carry a level (<code>I</code>, <code>W</code>, <code>E</code>) and a tag (<code>patch</code>, <code>language</code>, <code>civilizations</code>, <code>specials</code>, <code>script</code>, <code>event</code>) instead of a text prefix such as <code>Patch:</code>, and the last five sessions are kept. <code>LogLevel</code> and <code>LogChannels</code> under <code>[Debug]</code> in <code>imperivm-mod.ini</code> ask for more detail. The heart in the main menu creates a report with the logs to share.</li>
 </ul>
 <h2 id="10">1.0</h2>
-<p>Needs Imperivm Resurrected 0.29.5 or later.</p>
+<p>Needs Imperivm Resurrected 0.9.0 or later.</p>
 <p>With files alone and nothing to compile, a mod can:</p>
 <ul>
 <li>Change any XML, INI or script file of the game with patches, and merge the changes of several mods.</li>
