@@ -63,6 +63,7 @@
           <li><a href="formations.html">New formations</a></li>
           <li><a href="outposts.html">Outposts and buildings</a></li>
           <li><a href="victory-modes.html">Victory modes</a></li>
+          <li><a href="bonuses.html">Starting bonuses</a></li>
           <li><a href="options.html">Custom game options</a></li>
           <li><a href="random-maps.html">Random map types</a></li>
           <li><a href="images.html">Custom images</a></li>
@@ -79,6 +80,31 @@
     <article class="doc">
 <h1 id="changes">Changes</h1>
 <p>The SDK version and which mods you can make with each one. The script API version (<code>Mod_ApiVersion()</code>) is separate: it&#39;s currently 7.</p>
+<h2 id="16">1.6</h2>
+<p>Needs Imperivm Resurrected 0.32.24 or later.</p>
+<ul>
+<li>A variant that replaces its base (<code>&quot;replacesBase&quot;: true</code>) can change with <code>letter</code> and <code>template</code> the letter and the town and
+village templates of that base for the whole game, also those of the neutral settlements of the random map. This is how a whole
+civilization of the game is replaced (<a href="civilizations.html#variants">Civilizations</a>). The validator also looks for the templates in
+the mod&#39;s <code>packs\randommapsettlements.bfhp</code>.</li>
+<li><code>modes\&lt;name&gt;.json</code> fixes the room settings and the civilizations of a victory mode (<a href="victory-modes.html">Victory modes</a>).</li>
+<li><code>rules\game.json</code> fixes engine rules for all the games of the mod: the army stays with its hero at the walls, sentries can&#39;t be
+selected and some classes can&#39;t be attacked (<a href="options.html">Options</a>).</li>
+<li>A bonus script numbered <code>004</code> to <code>099</code> in <code>data\BonusScripts</code> appears in the lobby, with the name and description from its <code>//@</code> lines (<a href="bonuses.html">Starting bonuses</a>).</li>
+<li>The validator knows <code>Mod_PlayerCiv</code> and <code>Mod_CanExecCmd</code>.</li>
+</ul>
+<h2 id="15">1.5</h2>
+<p>Needs Imperivm Resurrected 0.32.20 or later.</p>
+<ul>
+<li><code>shrink-mod.js</code> also converts mods whose <code>rle.mmp</code> changes the game&#39;s graphics, not only those that append graphics at the
+end. The game&#39;s <code>rle.mmp</code> stays whole: what the mod changes or adds goes after it, in <code>rle.mmp.tail</code>, and its images are
+adjusted to find it in its new place. The game&#39;s images that the mod does not replace still look as in the game.</li>
+<li><code>shrink-mod.js</code> keeps closer to what the game showed with the old mod: a loose file in <code>Currentlang\</code> wins over the one in
+the language package, and a loose file identical to the one in the game&#39;s packages is kept if some language showed another one.</li>
+<li>The validator no longer gives an error for two commands with the same name for different buildings, because the game binds each
+one to the buildings of its <code>&lt;src&gt;</code>; it only warns when both are for the same building. It no longer asks for the signature on
+the first line of victory modes (<code>data\GameScripts</code>) or item scripts either: the game passes it.</li>
+</ul>
 <h2 id="14">1.4</h2>
 <p>Needs Imperivm Resurrected 0.32.20 or later.</p>
 <ul>

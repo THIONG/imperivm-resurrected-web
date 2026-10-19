@@ -38,7 +38,7 @@
     <nav class="menu" aria-label="Principale">
       <a href="../../it/guide.html">Guida e FAQ</a>
       <a href="../../it/sdk.html" aria-current="page">Per i modder</a>
-      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mod</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mods</a>
       <div class="languages" role="group" aria-label="Lingua"></div>
       <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases/latest" data-download><span>Scarica</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
     </nav>
@@ -63,6 +63,7 @@
           <li><a href="formazioni.html">Formazioni nuove</a></li>
           <li><a href="avamposti.html">Avamposti ed edifici</a></li>
           <li><a href="modalita-vittoria.html">Modalità di vittoria</a></li>
+          <li><a href="bonus.html">Bonus iniziali</a></li>
           <li><a href="opzioni.html">Opzioni di partita proprie</a></li>
           <li><a href="mappe-casuali.html">Tipi di mappa casuale</a></li>
           <li><a href="immagini.html">Immagini proprie</a></li>
@@ -81,7 +82,7 @@
 <p>Gli script (<code>.vs</code>) sono il linguaggio con cui il gioco programma l&#39;IA, le abilità, le condizioni di vittoria e il comportamento di edifici e unità. Una mod può portare i suoi e usare le funzioni nuove (<code>Mod_...</code>) di Imperivm Resurrected.</p>
 <p>Esempio da copiare: <span class="in-zip"><code>esempi/esempio-script</code></span>. Attenzione: cambia il bilanciamento (gli hastatus fanno il doppio del danno e si curano quando uccidono), quindi non attivarlo in una partita seria.</p>
 <h2 id="comè-fatto-uno-script">Com&#39;è fatto uno script</h2>
-<p>Un file di testo <code>.vs</code>. La prima riga è un commento con la firma: cosa restituisce e i parametri che riceve. Ogni punto dove si usa uno script si aspetta una firma precisa. I comportamenti di una classe (<code>&lt;behavior script=&quot;...&quot;&gt;</code>) sono l&#39;eccezione: il gioco li carica sempre come <code>void, Obj This</code>, con la riga o senza.</p>
+<p>Un file di testo <code>.vs</code>. La prima riga è un commento con la firma: cosa restituisce e i parametri che riceve. Ogni punto dove si usa uno script si aspetta una firma precisa. Ci sono tre eccezioni, che il gioco carica sempre con la loro firma, con la riga o senza: i comportamenti di una classe (<code>&lt;behavior script=&quot;...&quot;&gt;</code>), come <code>void, Obj This</code>; le modalità di vittoria (<code>data/GameScripts</code>), come <code>void, int player, str param</code>; e gli script degli oggetti (vedi <a href="oggetti.html">Oggetti</a>), con la firma del loro attributo.</p>
 <pre><code>// void, Obj This
 
 Sleep(rand(500) + 100);

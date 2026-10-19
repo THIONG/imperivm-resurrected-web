@@ -1,7 +1,7 @@
 window.SDK_INDEX = {
- "version": "1.4",
- "requires": "0.32.20",
- "zip": "imperivm-resurrected-sdk-1.4.zip",
+ "version": "1.6",
+ "requires": "0.32.24",
+ "zip": "imperivm-resurrected-sdk-1.6.zip",
  "languages": {
   "es": {
    "guides": {
@@ -74,6 +74,11 @@ window.SDK_INDEX = {
      "title": "Modos de victoria",
      "file": "victoria.html",
      "desc": "un script en <code>data\\GameScripts</code> añade un modo al desplegable &quot;Modo&quot; de la sala."
+    },
+    "bonificaciones": {
+     "title": "Bonificaciones iniciales",
+     "file": "bonificaciones.html",
+     "desc": "scripts en <code>data\\BonusScripts</code> añaden opciones a la columna &quot;Bonif.&quot; de la sala."
     },
     "options": {
      "title": "Opciones de partida propias",
@@ -265,6 +270,11 @@ window.SDK_INDEX = {
      "file": "victory-modes.html",
      "desc": "a script in <code>data\\GameScripts</code> adds a mode to the lobby&#39;s &quot;Mode&quot; dropdown."
     },
+    "bonificaciones": {
+     "title": "Starting bonuses",
+     "file": "bonuses.html",
+     "desc": "scripts in <code>data\\BonusScripts</code> add choices to the &quot;Bonus&quot; column of the lobby."
+    },
     "options": {
      "title": "Custom game options",
      "file": "options.html",
@@ -454,6 +464,11 @@ window.SDK_INDEX = {
      "title": "Modalità di vittoria",
      "file": "modalita-vittoria.html",
      "desc": "uno script in <code>data\\GameScripts</code> aggiunge una modalità al menu a tendina &quot;Modalità&quot; della stanza."
+    },
+    "bonificaciones": {
+     "title": "Bonus iniziali",
+     "file": "bonus.html",
+     "desc": "script in <code>data\\BonusScripts</code> aggiungono scelte alla colonna &quot;Bonus&quot; della stanza."
     },
     "options": {
      "title": "Opzioni di partita proprie",

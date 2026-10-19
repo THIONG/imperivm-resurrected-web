@@ -38,7 +38,7 @@
     <nav class="menu" aria-label="Principale">
       <a href="../../it/guide.html">Guida e FAQ</a>
       <a href="../../it/sdk.html" aria-current="page">Per i modder</a>
-      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mod</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mods</a>
       <div class="languages" role="group" aria-label="Lingua"></div>
       <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases/latest" data-download><span>Scarica</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
     </nav>
@@ -63,6 +63,7 @@
           <li><a href="formazioni.html">Formazioni nuove</a></li>
           <li><a href="avamposti.html">Avamposti ed edifici</a></li>
           <li><a href="modalita-vittoria.html">Modalità di vittoria</a></li>
+          <li><a href="bonus.html">Bonus iniziali</a></li>
           <li><a href="opzioni.html">Opzioni di partita proprie</a></li>
           <li><a href="mappe-casuali.html">Tipi di mappa casuale</a></li>
           <li><a href="immagini.html">Immagini proprie</a></li>
@@ -197,7 +198,7 @@ Roma sceglie all&#39;inizio tra repubblicana, imperiale e punica può offrire tu
 </code></pre>
 <p>Con <code>&quot;variant&quot;: true</code>:</p>
 <ul>
-<li>Gioca con le classi e i comandi della base. Non ha classi proprie né <code>letter</code>.</li>
+<li>Gioca con le classi e i comandi della base. Non ha classi proprie né <code>letter</code>, a meno che sostituisca tutta la base (vedi sotto).</li>
 <li><code>GetPlayerRace</code> restituisce la base, quindi gli script del gioco e di altre mod la trattano come la base (navi, sentinelle, IA).</li>
 <li><code>Mod_PlayerCiv(giocatore)</code> restituisce la civiltà scelta nella lobby (21 nell&#39;esempio). Quello che la distingue va in una
 <a href="patch.html">patch di script</a>, per esempio ricercare all&#39;inizio la Roma giusta:</li>
@@ -211,6 +212,13 @@ Roma sceglie all&#39;inizio tra repubblicana, imperiale e punica può offrire tu
 <li>Con <code>&quot;replacesBase&quot;: true</code> la base non compare più nella lobby e le sue varianti prendono il suo posto. Nel sorteggio casuale, la
 quota della base si divide tra loro. Un giocatore che aveva scelto la base passa alla prima variante. Le mappe e le partite salvate
 che fissano la base continuano a usarla.</li>
+<li>Una variante con <code>&quot;replacesBase&quot;: true</code> può cambiare anche la lettera e i modelli della sua base per tutta la partita. Con <code>letter</code>, il
+gioco costruisce con quella lettera i nomi delle classi e dei comandi della base (<code>GetRaceStrPref</code>, l&#39;addestramento dei contadini, le
+caserme, le sentinelle, l&#39;ingaggio degli eroi). Con <code>template</code>, le città e i villaggi della base, anche quelli neutrali della mappa
+casuale, vengono dai tuoi modelli <code>&lt;template&gt; Town N</code> e <code>&lt;template&gt; Village N</code>. È quello che serve per sostituire una civiltà intera.
+Per esempio, la Grecia prende il posto di Roma imperiale con <code>&quot;base&quot;: &quot;ImperialRome&quot;</code>, <code>&quot;letter&quot;: &quot;H&quot;</code> e <code>&quot;template&quot;: &quot;Greek&quot;</code>, e le
+sue classi hanno <code>race=&quot;ImperialRome&quot;</code> e la lettera <code>H</code> (<code>HTownhall</code>, <code>HHoplite</code>). Se due varianti attive danno alla stessa base
+lettere o modelli diversi, vale la prima e il gestore avvisa sull&#39;altra.</li>
 </ul>
 <h2 id="clonare-una-civiltà">Clonare una civiltà</h2>
 <p>Scrivere a mano le decine di classi e comandi di una civiltà non è divertente. <code>strumenti/clona-civilta.js</code> ne clona una del gioco.

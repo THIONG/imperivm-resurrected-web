@@ -63,6 +63,7 @@
           <li><a href="formations.html">New formations</a></li>
           <li><a href="outposts.html">Outposts and buildings</a></li>
           <li><a href="victory-modes.html">Victory modes</a></li>
+          <li><a href="bonuses.html">Starting bonuses</a></li>
           <li><a href="options.html">Custom game options</a></li>
           <li><a href="random-maps.html">Random map types</a></li>
           <li><a href="images.html">Custom images</a></li>
@@ -101,12 +102,12 @@ node tools/validate-mod.js &lt;mod folder&gt; --data &lt;DATA folder&gt;
 <li><strong>INI patches</strong>: lines it can&#39;t understand, and a new section in <code>UNIT_SPECIALS.INI</code> (the game may crash). It doesn&#39;t warn about trailing comments on a patch line, which the engine doesn&#39;t support (see <a href="patches.html">Patches</a>).</li>
 <li><strong>Classes (<code>data\classes</code>)</strong>: malformed XML, an unknown <code>race</code>, misspelled or unknown <code>unit_specials</code> (the game is case-sensitive: <code>Parry</code>, not <code>parry</code>), and a class without <code>entity</code> (warning: the game doesn&#39;t inherit it from the parent and the unit disappears).</li>
 <li><strong>Encoding</strong>: a Latin-1 class XML with accented characters. The game doesn&#39;t load the class and doesn&#39;t warn; save it as UTF-8.</li>
-<li><strong>Commands (<code>data\commands</code>)</strong>: malformed XML and duplicate commands in a file.</li>
+<li><strong>Commands (<code>data\commands</code>)</strong>: malformed XML, and a warning when two commands with the same name are for the same building (it would have two buttons with that name). With the same name for different buildings they work: the game binds each one to the buildings of its <code>&lt;src&gt;</code>.</li>
 <li><strong>Entities (<code>.ent.xml</code>)</strong>: error if the image doesn&#39;t exist (the game hangs when loading the class; checked against the mod folder if it ships its <code>.rle</code> files, and always with <code>--game</code>), duplicate <code>idx</code> or one outside 1–32, layers and animations that point to something that isn&#39;t there, engine limits (32 images, 32 layers, 8 states, animations 1–28, 64 frames), and <code>columns</code>, <code>rows</code> or a <code>&lt;frame&gt;</code> count that don&#39;t add up. An animation that reads more rows than its image has is only a warning.</li>
 <li><strong>Graphics (<code>.rle</code>, <code>.pass</code>)</strong>: a truncated or corrupt <code>.rle</code>, a renamed <code>.rle.mmp</code> (no pixels, doesn&#39;t load from a mod), an empty palette, a malformed or empty <code>.pass</code>, a <code>pass_file</code> that doesn&#39;t exist, and an <code>.rle</code> with the same name as one of the game&#39;s (the game&#39;s wins; with <code>--game</code>).</li>
 <li><strong><code>placeobjects.xml</code></strong> (random maps): a named class that doesn&#39;t exist (with <code>--data</code>). Map generation hangs without a message.</li>
 <li><strong>Texts (<code>loc</code>)</strong>: malformed XML, entries without <code>text</code> or without <code>result</code>.</li>
-<li><strong>Scripts (<code>.vs</code>)</strong>: missing signature on the first line, an unknown event or one with the wrong signature, <code>Sleep</code> in an event that can&#39;t wait, <code>Mod_*</code> functions that don&#39;t exist, <code>Mod_HasSpecial</code> with an <code>Obj</code> instead of a <code>Unit</code>.</li>
+<li><strong>Scripts (<code>.vs</code>)</strong>: missing signature on the first line (except in a class&#39;s behaviors, victory modes and item scripts, which the game always loads with their own), an unknown event or one with the wrong signature, <code>Sleep</code> in an event that can&#39;t wait, <code>Mod_*</code> functions that don&#39;t exist, <code>Mod_HasSpecial</code> with an <code>Obj</code> instead of a <code>Unit</code>.</li>
 </ul>
 <h2 id="example-output">Example output</h2>
 <pre><code>WARNING  specials/c.json  no &quot;name&quot;: the id will be shown

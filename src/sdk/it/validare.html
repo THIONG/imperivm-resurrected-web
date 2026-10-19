@@ -38,7 +38,7 @@
     <nav class="menu" aria-label="Principale">
       <a href="../../it/guide.html">Guida e FAQ</a>
       <a href="../../it/sdk.html" aria-current="page">Per i modder</a>
-      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mod</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mods</a>
       <div class="languages" role="group" aria-label="Lingua"></div>
       <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases/latest" data-download><span>Scarica</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
     </nav>
@@ -63,6 +63,7 @@
           <li><a href="formazioni.html">Formazioni nuove</a></li>
           <li><a href="avamposti.html">Avamposti ed edifici</a></li>
           <li><a href="modalita-vittoria.html">Modalità di vittoria</a></li>
+          <li><a href="bonus.html">Bonus iniziali</a></li>
           <li><a href="opzioni.html">Opzioni di partita proprie</a></li>
           <li><a href="mappe-casuali.html">Tipi di mappa casuale</a></li>
           <li><a href="immagini.html">Immagini proprie</a></li>
@@ -101,12 +102,12 @@ node strumenti/valida-mod.js &lt;cartella del mod&gt; --dati &lt;cartella DATA&g
 <li><strong>Patch INI</strong>: righe che non si capiscono, e una sezione nuova in <code>UNIT_SPECIALS.INI</code> (il gioco può chiudersi). Non avvisa dei commenti a fine riga di una patch, che il motore non supporta (vedi <a href="patch.html">Patch</a>).</li>
 <li><strong>Classi (<code>data\classes</code>)</strong>: XML malformato, <code>race</code> sconosciuta, <code>unit_specials</code> scritte male o sconosciute (il gioco distingue le maiuscole: <code>Parry</code>, non <code>parry</code>), e una classe senza <code>entity</code> (avviso: il gioco non la eredita dal padre e l&#39;unità sparisce).</li>
 <li><strong>Codifica</strong>: un XML di classe in Latin-1 con caratteri accentati. Il gioco non carica la classe e non avvisa; salvalo come UTF-8.</li>
-<li><strong>Comandi (<code>data\commands</code>)</strong>: XML malformato e comandi ripetuti in un file.</li>
+<li><strong>Comandi (<code>data\commands</code>)</strong>: XML malformato, e un avviso se due comandi con lo stesso nome sono per lo stesso edificio (avrebbe due pulsanti con quel nome). Con lo stesso nome per edifici diversi valgono: il gioco lega ognuno agli edifici del suo <code>&lt;src&gt;</code>.</li>
 <li><strong>Entità (<code>.ent.xml</code>)</strong>: errore se l&#39;immagine non esiste (il gioco si blocca caricando la classe; con la cartella della mod se porta i suoi <code>.rle</code>, e sempre con <code>--gioco</code>), <code>idx</code> ripetuto o fuori da 1–32, livelli e animazioni che puntano a qualcosa che non c&#39;è, limiti del motore (32 immagini, 32 livelli, 8 stati, animazioni 1–28, 64 fotogrammi), e <code>columns</code>, <code>rows</code> o numero di <code>&lt;frame&gt;</code> che non tornano. Un&#39;animazione che legge più righe di quante ne ha la sua immagine è solo un avviso.</li>
 <li><strong>Grafica (<code>.rle</code>, <code>.pass</code>)</strong>: <code>.rle</code> tagliato o corrotto, <code>.rle.mmp</code> rinominato (senza pixel, da una mod non si carica), palette vuota, <code>.pass</code> malformato o vuoto, <code>pass_file</code> che non esiste, e un <code>.rle</code> con lo stesso nome di uno del gioco (vince quello del gioco; con <code>--gioco</code>).</li>
 <li><strong><code>placeobjects.xml</code></strong> (mappe casuali): una classe nominata che non esiste (con <code>--dati</code>). La generazione della mappa si blocca senza messaggio.</li>
 <li><strong>Testi (<code>loc</code>)</strong>: XML malformato, voci senza <code>text</code> o senza <code>result</code>.</li>
-<li><strong>Script (<code>.vs</code>)</strong>: manca la firma nella prima riga, evento sconosciuto o con la firma sbagliata, <code>Sleep</code> in un evento che non può aspettare, funzioni <code>Mod_*</code> che non esistono, <code>Mod_HasSpecial</code> con un <code>Obj</code> invece di una <code>Unit</code>.</li>
+<li><strong>Script (<code>.vs</code>)</strong>: manca la firma nella prima riga (tranne nei comportamenti di una classe, nelle modalità di vittoria e negli script degli oggetti, che il gioco carica sempre con la loro), evento sconosciuto o con la firma sbagliata, <code>Sleep</code> in un evento che non può aspettare, funzioni <code>Mod_*</code> che non esistono, <code>Mod_HasSpecial</code> con un <code>Obj</code> invece di una <code>Unit</code>.</li>
 </ul>
 <h2 id="esempio-di-output">Esempio di output</h2>
 <pre><code>AVVISO  specials/c.json  senza &quot;name&quot;: si vedrà l&#39;id

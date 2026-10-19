@@ -38,7 +38,7 @@
     <nav class="menu" aria-label="Principale">
       <a href="../../it/guide.html">Guida e FAQ</a>
       <a href="../../it/sdk.html" aria-current="page">Per i modder</a>
-      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mod</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mods</a>
       <div class="languages" role="group" aria-label="Lingua"></div>
       <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases/latest" data-download><span>Scarica</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
     </nav>
@@ -63,6 +63,7 @@
           <li><a href="formazioni.html">Formazioni nuove</a></li>
           <li><a href="avamposti.html">Avamposti ed edifici</a></li>
           <li><a href="modalita-vittoria.html" aria-current="page">Modalità di vittoria</a></li>
+          <li><a href="bonus.html">Bonus iniziali</a></li>
           <li><a href="opzioni.html">Opzioni di partita proprie</a></li>
           <li><a href="mappe-casuali.html">Tipi di mappa casuale</a></li>
           <li><a href="immagini.html">Immagini proprie</a></li>
@@ -87,7 +88,7 @@
 <ul>
 <li><strong>Il nome del file è l&#39;id della modalità</strong>, numero compreso. La lobby elenca le modalità per nome completo del file. Due mod entrano in conflitto solo se usano esattamente lo stesso nome (<code>6 Dominio.vs</code> in entrambi). Quelle del gioco vanno dall&#39;1 al 5.</li>
 <li>Nella lobby compare senza il numero iniziale e passa per la traduzione: se il testo &quot;Dominio&quot; ha una voce nel tuo <code>loc</code>, apparirà tradotto (<a href="lingue.html">Lingue</a>).</li>
-<li>La prima riga è la firma: <code>//void, int player, str param</code>. <code>player</code> è il giocatore (da 1 a 8). <code>param</code> è il valore del limite scelto nella lobby (vedi più avanti).</li>
+<li>La firma è <code>//void, int player, str param</code>. Il gioco carica sempre lo script con essa, quindi la prima riga è facoltativa, ma conviene scriverla. <code>player</code> è il giocatore (da 1 a 8). <code>param</code> è il valore del limite scelto nella lobby (vedi più avanti).</li>
 <li>Il gioco lancia 8 copie dello script, una per giocatore, ognuna nel suo thread, anche se i giocatori sono meno. Scrivilo dal punto di vista di un solo giocatore, che guarda gli altri. Deve reggere i posti vuoti: quello dell&#39;esempio li considera eliminati perché non hanno né insediamenti né truppe.</li>
 </ul>
 <h2 id="funzioni-che-si-usano">Funzioni che si usano</h2>
@@ -146,6 +147,55 @@
 6_Dominio3 = 5 asentamientos, 5
 </code></pre>
 <p>Se non metti voci, il menu a tendina resta vuoto e non c&#39;è nessun limite da scegliere. Cosa riceva allora <code>param</code> non si è visto in partita: l&#39;esempio ripiega su 3 se <code>Str2Int(param)</code> dà meno di 2.</p>
+<h2 id="impostazioni-fisse-e-civiltà-di-una-modalità">Impostazioni fisse e civiltà di una modalità</h2>
+<p>Una modalità può fissare impostazioni della stanza e le civiltà che si possono scegliere con essa. Va in <code>modes\&lt;nome&gt;.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;mode&quot;: &quot;2 LIGA&quot;,
+  &quot;gold&quot;: 5000,
+  &quot;population&quot;: 100,
+  &quot;noFog&quot;: false,
+  &quot;explored&quot;: false,
+  &quot;bonus&quot;: 1,
+  &quot;civilizations&quot;: [&quot;RomeImperial&quot;, &quot;Gaul&quot;, &quot;Iberia&quot;, &quot;CarthageNumidian&quot;]
+}
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Cos&#39;è</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>mode</code></td>
+<td>Il nome dello script della modalità in <code>data\GameScripts</code>, senza <code>.vs</code> (<code>2 LIGA</code> per <code>2 LIGA.vs</code>), fino a 31 caratteri. Se non lo metti, il nome del file json. Vale anche per le modalità del gioco.</td>
+</tr>
+<tr>
+<td><code>gold</code></td>
+<td>(Facoltativo) L&#39;oro iniziale: uno dei valori del menu a tendina (<code>5000</code>, <code>10000</code>…).</td>
+</tr>
+<tr>
+<td><code>population</code></td>
+<td>(Facoltativo) La popolazione: <code>50</code>, <code>100</code> o <code>150</code> (<code>LowPop</code>, <code>NormalPop</code> e <code>HighPop</code> di <code>CONST.INI</code>).</td>
+</tr>
+<tr>
+<td><code>noFog</code></td>
+<td>(Facoltativo) <code>true</code> toglie la nebbia, <code>false</code> la lascia.</td>
+</tr>
+<tr>
+<td><code>explored</code></td>
+<td>(Facoltativo) <code>true</code> inizia con la mappa esplorata.</td>
+</tr>
+<tr>
+<td><code>bonus</code></td>
+<td>(Facoltativo) Il bonus di tutti i giocatori, da 0 (nessuno) a 3, lo stesso numero del pulsante del bonus della stanza. Disattiva bonus non si può più spuntare.</td>
+</tr>
+<tr>
+<td><code>civilizations</code></td>
+<td>(Facoltativo) Le civiltà che si possono giocare in quella modalità: quelle del gioco (<code>Gaul</code>, <code>RepublicanRome</code>…) o l&#39;<code>id</code> di una della mod. Una base del gioco permette tutte le sue varianti; una variante, solo quella.</td>
+</tr>
+</tbody></table></div>
+<p>Mentre quella modalità è scelta, la stanza non lascia cambiare quello che fissa: l&#39;host vede quelle righe senza poterle toccare. Un giocatore con una civiltà che la modalità non permette passa alla prima dell&#39;elenco, e la civiltà casuale si sorteggia solo tra quelle permesse. Lo applica l&#39;host quando crea la partita, quindi tutti giocano con le stesse cose. Le partite salvate e gli scenari con civiltà fisse non cambiano.</p>
 <h2 id="online">Online</h2>
 <p>Una modalità nuova cambia il gameplay: tutti i giocatori devono avere la stessa mod.</p>
 

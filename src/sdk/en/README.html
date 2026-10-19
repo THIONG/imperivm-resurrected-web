@@ -63,6 +63,7 @@
           <li><a href="formations.html">New formations</a></li>
           <li><a href="outposts.html">Outposts and buildings</a></li>
           <li><a href="victory-modes.html">Victory modes</a></li>
+          <li><a href="bonuses.html">Starting bonuses</a></li>
           <li><a href="options.html">Custom game options</a></li>
           <li><a href="random-maps.html">Random map types</a></li>
           <li><a href="images.html">Custom images</a></li>
@@ -176,6 +177,7 @@
 <li><a href="formations.html">New formations</a>: hero formations with their bonuses and button.</li>
 <li><a href="outposts.html">Outposts and buildings</a>: new neutral outposts on random maps (<code>create-outpost.js</code>) and tower, wall and gate classes.</li>
 <li><a href="victory-modes.html">Victory modes</a>: a script in <code>data\GameScripts</code> adds a mode to the lobby&#39;s &quot;Mode&quot; dropdown.</li>
+<li><a href="bonuses.html">Starting bonuses</a>: scripts in <code>data\BonusScripts</code> add choices to the &quot;Bonus&quot; column of the lobby.</li>
 <li><a href="options.html">Custom game options</a>: new switches in the lobby rules, which scripts read with <code>Mod_GetOption</code>.</li>
 <li><a href="random-maps.html">Random map types</a>: a four-color drawing becomes a new map type (<code>create-random-map.js</code>).</li>
 <li><a href="images.html">Custom images</a>: command buttons and unit icons from a PNG.</li>
@@ -256,7 +258,7 @@
 </code></pre>
 <p>It leaves <code>data.pak</code> in <code>&lt;output folder&gt;\DATA</code>. That&#39;s the folder that <code>clone-civilization.js</code>, <code>create-outpost.js</code> and <code>validate-mod.js --data</code> ask for.</p>
 <h2 id="what-counts-as-gameplay">What counts as gameplay?</h2>
-<p>In multiplayer, everyone must run the same mods if they change what happens in the game. The game works this out from the folders your mod touches: <code>data/</code>, <code>scenarios/</code>, <code>adventures/</code>, <code>conquests/</code>, <code>civs/</code>, <code>specials/</code>, <code>events/</code>, <code>options/</code>, <code>randommap/</code>, <code>randommapsettlements/</code>, the <code>.xml</code> and <code>.pass</code> files in <code>units/</code>, <code>buildings/</code> and <code>mapobjects/</code>, the <code>.xml</code> files in <code>visuals/</code>, the <code>.bfhp</code> maps in <code>packs/</code>, and patches (depending on the file they patch).</p>
+<p>In multiplayer, everyone must run the same mods if they change what happens in the game. The game works this out from the folders your mod touches: <code>data/</code>, <code>scenarios/</code>, <code>adventures/</code>, <code>conquests/</code>, <code>civs/</code>, <code>specials/</code>, <code>events/</code>, <code>options/</code>, <code>rules/</code>, <code>modes/</code>, <code>randommap/</code>, <code>randommapsettlements/</code>, the <code>.xml</code> and <code>.pass</code> files in <code>units/</code>, <code>buildings/</code> and <code>mapobjects/</code>, the <code>.xml</code> files in <code>visuals/</code>, the <code>.bfhp</code> maps in <code>packs/</code>, and patches (depending on the file they patch).</p>
 <p>Graphics, sounds, texts (<code>loc/</code>) and languages don&#39;t count: each player can use their own.</p>
 <h2 id="if-something-fails">If something fails</h2>
 <p>Your mod&#39;s errors show on its card in the content manager and in <code>Logs\imperivm\imperivm-mod.log</code>. Each line of the log has the time, a level (<code>I</code> information, <code>W</code> warning, <code>E</code> error) and a tag for the part of the mod it comes from: <code>patch</code>, <code>language</code>, <code>civilizations</code>, <code>specials</code>, <code>script</code>, <code>event</code>. Look at the <code>W</code> and <code>E</code> lines of your mod&#39;s tags first.</p>

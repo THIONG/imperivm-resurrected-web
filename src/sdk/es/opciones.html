@@ -63,6 +63,7 @@
           <li><a href="formaciones.html">Formaciones nuevas</a></li>
           <li><a href="fortines.html">Fortines y edificios</a></li>
           <li><a href="victoria.html">Modos de victoria</a></li>
+          <li><a href="bonificaciones.html">Bonificaciones iniciales</a></li>
           <li><a href="opciones.html" aria-current="page">Opciones de partida propias</a></li>
           <li><a href="mapas-aleatorios.html">Tipos de mapa aleatorio</a></li>
           <li><a href="imagenes.html">Imágenes propias</a></li>
@@ -166,6 +167,35 @@ if (Mod_GetOptionValue(&quot;velocidad-heroes&quot;) == 1) {
 <li><strong>Solo funcionan con sala.</strong> Las opciones se fijan al empezar una partida desde la sala (o al volver a una online). En aventuras, campañas y tutoriales no hay sala: <code>Mod_GetOption</code> da siempre 0 y la lista vale 0, aunque pongas <code>&quot;default&quot;: true</code>.</li>
 <li>Los preajustes de la sala (Clásico, Competitivo) no tocan las opciones de los mods.</li>
 </ul>
+<h2 id="reglas-fijas-del-mod">Reglas fijas del mod</h2>
+<p>Algunas reglas del motor no son opciones de la sala: las fija el mod para todas sus partidas en <code>rules\game.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;armyStaysWithHero&quot;: true,
+  &quot;sentriesUnselectable&quot;: true,
+  &quot;protectedClasses&quot;: [&quot;Peasant&quot;, &quot;PeasantAmbient&quot;, &quot;Trader&quot;, &quot;Tradecar_Donkey&quot;, &quot;Camel&quot;, &quot;CartTrader&quot;]
+}
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>armyStaysWithHero</code></td>
+<td>Con <code>true</code>, las unidades de un ejército no se separan de su héroe cuando uno está dentro de las murallas y el otro fuera. El camino se recalcula igual.</td>
+</tr>
+<tr>
+<td><code>sentriesUnselectable</code></td>
+<td>Con <code>true</code>, los centinelas de las murallas no se pueden seleccionar (al pulsar en uno se selecciona la puerta) y no entran en los ejércitos de la IA.</td>
+</tr>
+<tr>
+<td><code>protectedClasses</code></td>
+<td>Clases que no reciben daño ni se pueden atacar, con todas las que heredan de ellas. Son nombres de clase (<code>Peasant</code>), no de unidad.</td>
+</tr>
+</tbody></table></div>
+<p>Cambian la partida, así que en multijugador todos tienen que llevar el mod. Si varios mods activos traen reglas, se suman.</p>
 <h2 id="online">Online</h2>
 <p>Es jugabilidad: todos los jugadores deben llevar el mismo mod. La opción viaja con las demás reglas de la sala y se guarda con la partida.</p>
 

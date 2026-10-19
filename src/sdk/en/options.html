@@ -63,6 +63,7 @@
           <li><a href="formations.html">New formations</a></li>
           <li><a href="outposts.html">Outposts and buildings</a></li>
           <li><a href="victory-modes.html">Victory modes</a></li>
+          <li><a href="bonuses.html">Starting bonuses</a></li>
           <li><a href="options.html" aria-current="page">Custom game options</a></li>
           <li><a href="random-maps.html">Random map types</a></li>
           <li><a href="images.html">Custom images</a></li>
@@ -166,6 +167,35 @@ if (Mod_GetOptionValue(&quot;velocidad-heroes&quot;) == 1) {
 <li><strong>They only work with a lobby.</strong> Options are fixed when a game starts from the lobby (or when you rejoin an online one). Adventures, campaigns and tutorials have no lobby: <code>Mod_GetOption</code> always returns 0 and a list is 0, even with <code>&quot;default&quot;: true</code>.</li>
 <li>The lobby presets (Classic, Competitive) don&#39;t touch mod options.</li>
 </ul>
+<h2 id="fixed-rules-of-a-mod">Fixed rules of a mod</h2>
+<p>Some engine rules are not room options: the mod fixes them for all its games in <code>rules\game.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;armyStaysWithHero&quot;: true,
+  &quot;sentriesUnselectable&quot;: true,
+  &quot;protectedClasses&quot;: [&quot;Peasant&quot;, &quot;PeasantAmbient&quot;, &quot;Trader&quot;, &quot;Tradecar_Donkey&quot;, &quot;Camel&quot;, &quot;CartTrader&quot;]
+}
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>armyStaysWithHero</code></td>
+<td>With <code>true</code>, the units of an army don&#39;t leave their hero when one is inside the walls and the other outside. The path is worked out again all the same.</td>
+</tr>
+<tr>
+<td><code>sentriesUnselectable</code></td>
+<td>With <code>true</code>, wall sentries can&#39;t be selected (clicking one selects the gate) and don&#39;t join AI armies.</td>
+</tr>
+<tr>
+<td><code>protectedClasses</code></td>
+<td>Classes that take no damage and can&#39;t be attacked, with all the ones that inherit from them. They are class names (<code>Peasant</code>), not unit names.</td>
+</tr>
+</tbody></table></div>
+<p>They change the game, so in multiplayer everyone must run the mod. If several active mods bring rules, they add up.</p>
 <h2 id="online">Online</h2>
 <p>This is gameplay: every player must have the same mod. The option travels with the other lobby rules and is saved with the game.</p>
 

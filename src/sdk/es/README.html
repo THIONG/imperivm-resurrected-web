@@ -63,6 +63,7 @@
           <li><a href="formaciones.html">Formaciones nuevas</a></li>
           <li><a href="fortines.html">Fortines y edificios</a></li>
           <li><a href="victoria.html">Modos de victoria</a></li>
+          <li><a href="bonificaciones.html">Bonificaciones iniciales</a></li>
           <li><a href="opciones.html">Opciones de partida propias</a></li>
           <li><a href="mapas-aleatorios.html">Tipos de mapa aleatorio</a></li>
           <li><a href="imagenes.html">Imágenes propias</a></li>
@@ -176,6 +177,7 @@
 <li><a href="formaciones.html">Formaciones nuevas</a>: formaciones de héroe con sus bonos y su botón.</li>
 <li><a href="fortines.html">Fortines y edificios</a>: fortines neutrales nuevos en los mapas aleatorios (<code>crear-fortin.js</code>) y clases de torres, muros y puertas.</li>
 <li><a href="victoria.html">Modos de victoria</a>: un script en <code>data\GameScripts</code> añade un modo al desplegable &quot;Modo&quot; de la sala.</li>
+<li><a href="bonificaciones.html">Bonificaciones iniciales</a>: scripts en <code>data\BonusScripts</code> añaden opciones a la columna &quot;Bonif.&quot; de la sala.</li>
 <li><a href="opciones.html">Opciones de partida propias</a>: interruptores nuevos en las reglas de la sala, que los scripts leen con <code>Mod_GetOption</code>.</li>
 <li><a href="mapas-aleatorios.html">Tipos de mapa aleatorio</a>: un dibujo de cuatro colores se convierte en un tipo nuevo de mapa (<code>crear-mapa-aleatorio.js</code>).</li>
 <li><a href="imagenes.html">Imágenes propias</a>: botones de órdenes e iconos de unidades a partir de un PNG.</li>
@@ -256,7 +258,7 @@
 </code></pre>
 <p>Deja <code>data.pak</code> en <code>&lt;salida&gt;\DATA</code>. Esa es la carpeta que piden <code>clonar-civilizacion.js</code>, <code>crear-fortin.js</code> y <code>validar-mod.js --datos</code>.</p>
 <h2 id="qué-cuenta-como-jugabilidad">¿Qué cuenta como jugabilidad?</h2>
-<p>En multijugador, todos tienen que llevar los mismos mods si cambian lo que pasa en la partida. El juego lo calcula por las carpetas que toca tu mod: <code>data/</code>, <code>scenarios/</code>, <code>adventures/</code>, <code>conquests/</code>, <code>civs/</code>, <code>specials/</code>, <code>events/</code>, <code>options/</code>, <code>randommap/</code>, <code>randommapsettlements/</code>, los <code>.xml</code> y <code>.pass</code> de <code>units/</code>, <code>buildings/</code> y <code>mapobjects/</code>, los <code>.xml</code> de <code>visuals/</code>, los mapas <code>.bfhp</code> de <code>packs/</code> y los parches (según el archivo que parchean).</p>
+<p>En multijugador, todos tienen que llevar los mismos mods si cambian lo que pasa en la partida. El juego lo calcula por las carpetas que toca tu mod: <code>data/</code>, <code>scenarios/</code>, <code>adventures/</code>, <code>conquests/</code>, <code>civs/</code>, <code>specials/</code>, <code>events/</code>, <code>options/</code>, <code>rules/</code>, <code>modes/</code>, <code>randommap/</code>, <code>randommapsettlements/</code>, los <code>.xml</code> y <code>.pass</code> de <code>units/</code>, <code>buildings/</code> y <code>mapobjects/</code>, los <code>.xml</code> de <code>visuals/</code>, los mapas <code>.bfhp</code> de <code>packs/</code> y los parches (según el archivo que parchean).</p>
 <p>Los gráficos, los sonidos, los textos (<code>loc/</code>) y los idiomas no cuentan: cada jugador puede llevar los suyos.</p>
 <h2 id="si-algo-falla">Si algo falla</h2>
 <p>Los errores de tu mod salen en su ficha del gestor y en <code>Logs\imperivm\imperivm-mod.log</code>. Cada línea del registro lleva la hora, un nivel (<code>I</code> información, <code>W</code> aviso, <code>E</code> error) y una etiqueta con la parte del mod de la que viene: <code>patch</code>, <code>language</code>, <code>civilizations</code>, <code>specials</code>, <code>script</code>, <code>event</code>. Mira primero las líneas <code>W</code> y <code>E</code> de las etiquetas de tu mod.</p>

@@ -63,6 +63,7 @@
           <li><a href="formaciones.html">Formaciones nuevas</a></li>
           <li><a href="fortines.html">Fortines y edificios</a></li>
           <li><a href="victoria.html">Modos de victoria</a></li>
+          <li><a href="bonificaciones.html">Bonificaciones iniciales</a></li>
           <li><a href="opciones.html">Opciones de partida propias</a></li>
           <li><a href="mapas-aleatorios.html">Tipos de mapa aleatorio</a></li>
           <li><a href="imagenes.html">Imágenes propias</a></li>
@@ -81,7 +82,7 @@
 <p>Los scripts (<code>.vs</code>) son el lenguaje con el que el juego programa la IA, las habilidades, las condiciones de victoria y el comportamiento de edificios y unidades. Un mod puede traer los suyos y usar las funciones nuevas (<code>Mod_...</code>) de Imperivm Resurrected.</p>
 <p>Ejemplo para copiar: <span class="in-zip"><code>ejemplos/scripts-ejemplo</code></span>. Ojo: ese ejemplo cambia el equilibrio (los hastatus hacen el doble de daño y se curan al matar), así que no lo actives en una partida en serio.</p>
 <h2 id="cómo-es-un-script">Cómo es un script</h2>
-<p>Un archivo de texto <code>.vs</code>. La primera línea es un comentario con la firma: lo que devuelve y los parámetros que recibe. Cada sitio donde se usa un script espera una firma concreta. Los comportamientos de una clase (<code>&lt;behavior script=&quot;...&quot;&gt;</code>) son la excepción: el juego los carga siempre como <code>void, Obj This</code>, lleven la línea o no.</p>
+<p>Un archivo de texto <code>.vs</code>. La primera línea es un comentario con la firma: lo que devuelve y los parámetros que recibe. Cada sitio donde se usa un script espera una firma concreta. Hay tres excepciones, que el juego carga siempre con su firma, lleven la línea o no: los comportamientos de una clase (<code>&lt;behavior script=&quot;...&quot;&gt;</code>), como <code>void, Obj This</code>; los modos de victoria (<code>data/GameScripts</code>), como <code>void, int player, str param</code>, y los scripts de objetos (ver <a href="objetos.html">Objetos</a>), con la firma de su atributo.</p>
 <pre><code>// void, Obj This
 
 Sleep(rand(500) + 100);

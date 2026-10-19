@@ -63,6 +63,7 @@
           <li><a href="formaciones.html">Formaciones nuevas</a></li>
           <li><a href="fortines.html">Fortines y edificios</a></li>
           <li><a href="victoria.html">Modos de victoria</a></li>
+          <li><a href="bonificaciones.html">Bonificaciones iniciales</a></li>
           <li><a href="opciones.html">Opciones de partida propias</a></li>
           <li><a href="mapas-aleatorios.html">Tipos de mapa aleatorio</a></li>
           <li><a href="imagenes.html">Imágenes propias</a></li>
@@ -208,6 +209,7 @@
 </tbody></table></div>
 <p>Para las categorías sin ejemplo (aventuras, conquistas, gráficos, sonido), basta con copiar el archivo a su carpeta, con el mismo nombre si sustituye uno del juego.</p>
 <p><strong>Mapas sueltos.</strong> Si el <code>.zip</code> trae solo el <code>.bfhp</code>, sin carpetas, el juego lo coloca él solo al instalarlo según el tipo que dice el propio mapa (lo que eligió su autor en el editor): una aventura va a <code>adventures\</code> (con su <code>.bmp</code> del mismo nombre), una conquista a <code>conquests\</code> y un mapa de escaramuza a <code>scenarios\</code>, o a <code>adventures\</code> si la categoría es Adventures (misiones de un jugador hechas como mapa normal). Aun así, lo recomendable es subirlo ya dentro de su carpeta; el <a href="validar.html">validador</a> avisa si un mapa está en la que no le toca, por ejemplo una aventura en <code>scenarios\</code>, que la lista de Escenarios no enseña.</p>
+<p><strong>Vista previa de un escenario.</strong> Al elegir un escenario en la sala, el juego dibuja una vista previa con el terreno del propio mapa, los jugadores que tiene y su civilización, y de dónde viene: no hace falta que subas ninguna imagen. Los colores salen de las losetas del minimapa del juego, así que un terreno nuevo se ve bien si trae su loseta en <code>minimapzoom8	errain</code>.</p>
 <p><strong>Nombres antiguos.</strong> Escenarios, Aventuras y Conquistas se llaman como las carpetas del juego (<code>scenarios\</code>, <code>adventures\</code>, <code>conquests\</code>). Antes eran **Maps**, **Campaigns** y **Conquest**: un <code>mod.json</code> con esos nombres, o con <code>Interface</code> o <code>Total Conversions</code>, sigue funcionando, pero el validador te pide el nombre nuevo.</p>
 <h2 id="etiquetas">Etiquetas</h2>
 <p>Cada etiqueta tiene un título y un valor. El juego usa tres:</p>
@@ -248,7 +250,7 @@
 <li>Los textos y sonidos de cada idioma en <code>Local\&lt;idioma&gt;\</code> (o en <code>currentlang\</code> si son iguales en todos), y lo demás de un paquete de idioma en <code>Local\&lt;idioma&gt;.pak</code>.</li>
 <li>Lo que el mod antiguo quitaba del juego al sustituir sus paquetes, en <code>hidden.txt</code>, para que el juego tampoco lo vea.</li>
 <li><code>data\const.ini</code> como parche y sin la sección <code>[Resolutions]</code>: la resolución la elige el jugador en las opciones.</li>
-<li>Si el mod trae un <code>rle.mmp</code> que es el del juego con gráficos añadidos al final, solo lo añadido, en <code>rle.mmp.tail</code>.</li>
+<li>Si el mod trae su propio <code>rle.mmp</code>, solo lo que cambia o añade al del juego, en <code>rle.mmp.tail</code>; el del juego no se toca.</li>
 <li>Deja fuera las copias <code>.bak</code>, <code>Config.ini</code> y <code>Settings.ini</code> (configuración de la instalación) y los ejecutables, con los que el mod no se cargaría.</li>
 </ul>
 <p>Opciones:</p>

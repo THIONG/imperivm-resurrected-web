@@ -63,6 +63,7 @@
           <li><a href="formaciones.html">Formaciones nuevas</a></li>
           <li><a href="fortines.html">Fortines y edificios</a></li>
           <li><a href="victoria.html" aria-current="page">Modos de victoria</a></li>
+          <li><a href="bonificaciones.html">Bonificaciones iniciales</a></li>
           <li><a href="opciones.html">Opciones de partida propias</a></li>
           <li><a href="mapas-aleatorios.html">Tipos de mapa aleatorio</a></li>
           <li><a href="imagenes.html">Imágenes propias</a></li>
@@ -87,7 +88,7 @@
 <ul>
 <li><strong>El nombre del archivo es el id del modo</strong>, número incluido. La sala lista los modos por nombre de archivo completo. Dos mods chocan solo si usan exactamente el mismo nombre (<code>6 Dominio.vs</code> en los dos). Los del juego son del 1 al 5.</li>
 <li>En la sala se muestra sin el número inicial y pasa por la traducción: si el texto &quot;Dominio&quot; tiene entrada en tu <code>loc</code>, saldrá traducido (<a href="idiomas.html">Idiomas</a>).</li>
-<li>La primera línea es la firma: <code>//void, int player, str param</code>. <code>player</code> es el jugador (1 a 8). <code>param</code> es el valor del límite que se elige en la sala (ver más abajo).</li>
+<li>La firma es <code>//void, int player, str param</code>. El juego carga el script siempre con ella, así que la primera línea es opcional, pero conviene ponerla. <code>player</code> es el jugador (1 a 8). <code>param</code> es el valor del límite que se elige en la sala (ver más abajo).</li>
 <li>El juego lanza 8 copias del script, una por jugador, cada una en su hilo, aunque haya menos jugadores. Escríbelo desde el punto de vista de un solo jugador y que mire a los demás. Tiene que aguantar los huecos vacíos: el del ejemplo los da por eliminados porque no tienen ni asentamientos ni tropas.</li>
 </ul>
 <h2 id="funciones-que-se-usan">Funciones que se usan</h2>
@@ -146,6 +147,55 @@
 6_Dominio3 = 5 asentamientos, 5
 </code></pre>
 <p>Si no pones entradas, el desplegable sale vacío y no hay límite que elegir. Qué recibe entonces <code>param</code> no se ha visto en partida: el ejemplo cae a 3 si <code>Str2Int(param)</code> da menos de 2.</p>
+<h2 id="ajustes-fijos-y-civilizaciones-del-modo">Ajustes fijos y civilizaciones del modo</h2>
+<p>Un modo puede fijar ajustes de la sala y las civilizaciones que se pueden elegir con él. Va en <code>modes\&lt;nombre&gt;.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;mode&quot;: &quot;2 LIGA&quot;,
+  &quot;gold&quot;: 5000,
+  &quot;population&quot;: 100,
+  &quot;noFog&quot;: false,
+  &quot;explored&quot;: false,
+  &quot;bonus&quot;: 1,
+  &quot;civilizations&quot;: [&quot;RomeImperial&quot;, &quot;Gaul&quot;, &quot;Iberia&quot;, &quot;CarthageNumidian&quot;]
+}
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Qué es</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>mode</code></td>
+<td>El nombre del script del modo en <code>data\GameScripts</code>, sin <code>.vs</code> (<code>2 LIGA</code> para <code>2 LIGA.vs</code>), hasta 31 caracteres. Si no lo pones, el nombre del archivo json. Vale también para los modos del juego.</td>
+</tr>
+<tr>
+<td><code>gold</code></td>
+<td>(Opcional) El oro inicial: uno de los valores del desplegable (<code>5000</code>, <code>10000</code>…).</td>
+</tr>
+<tr>
+<td><code>population</code></td>
+<td>(Opcional) La población: <code>50</code>, <code>100</code> o <code>150</code> (<code>LowPop</code>, <code>NormalPop</code> y <code>HighPop</code> de <code>CONST.INI</code>).</td>
+</tr>
+<tr>
+<td><code>noFog</code></td>
+<td>(Opcional) <code>true</code> quita la niebla, <code>false</code> la deja.</td>
+</tr>
+<tr>
+<td><code>explored</code></td>
+<td>(Opcional) <code>true</code> empieza con el mapa explorado.</td>
+</tr>
+<tr>
+<td><code>bonus</code></td>
+<td>(Opcional) El bono de todos los jugadores, del 0 (ninguno) al 3, el mismo número que el botón de bono de la sala. Desactivar bonos deja de poder marcarse.</td>
+</tr>
+<tr>
+<td><code>civilizations</code></td>
+<td>(Opcional) Las civilizaciones que se pueden jugar en ese modo: las del juego (<code>Gaul</code>, <code>RepublicanRome</code>…) o el <code>id</code> de una del mod. Una base del juego deja jugar todas sus variantes; una variante, solo esa.</td>
+</tr>
+</tbody></table></div>
+<p>Mientras ese modo está elegido, la sala no deja cambiar lo que fija: el anfitrión ve esas filas sin poder tocarlas. Un jugador con una civilización que el modo no permite pasa a la primera de la lista, y la civilización aleatoria se sortea solo entre las permitidas. Lo aplica el anfitrión al crear la partida, así que todos juegan con lo mismo. Las partidas guardadas y los escenarios con civilizaciones fijas no cambian.</p>
 <h2 id="online">Online</h2>
 <p>Un modo nuevo cambia la jugabilidad: todos los jugadores tienen que llevar el mismo mod.</p>
 

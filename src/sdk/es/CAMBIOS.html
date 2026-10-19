@@ -63,6 +63,7 @@
           <li><a href="formaciones.html">Formaciones nuevas</a></li>
           <li><a href="fortines.html">Fortines y edificios</a></li>
           <li><a href="victoria.html">Modos de victoria</a></li>
+          <li><a href="bonificaciones.html">Bonificaciones iniciales</a></li>
           <li><a href="opciones.html">Opciones de partida propias</a></li>
           <li><a href="mapas-aleatorios.html">Tipos de mapa aleatorio</a></li>
           <li><a href="imagenes.html">Imágenes propias</a></li>
@@ -79,6 +80,31 @@
     <article class="doc">
 <h1 id="changes">Cambios</h1>
 <p>Versión del SDK y qué mods se pueden hacer con cada una. La versión de la API de scripts (<code>Mod_ApiVersion()</code>) va aparte: ahora es la 7.</p>
+<h2 id="16">1.6</h2>
+<p>Necesita Imperivm Resurrected 0.32.24 o posterior.</p>
+<ul>
+<li>Una variante que sustituye a su base (<code>&quot;replacesBase&quot;: true</code>) puede cambiar con <code>letter</code> y <code>template</code> la letra y las plantillas de
+ciudad y aldea de esa base durante toda la partida, también las de los poblados neutrales del mapa aleatorio. Así se sustituye una
+civilización entera del juego (<a href="civilizaciones.html#variantes">Civilizaciones</a>). El validador busca las plantillas también en el
+<code>packs\randommapsettlements.bfhp</code> del mod.</li>
+<li><code>modes\&lt;nombre&gt;.json</code> fija los ajustes de la sala y las civilizaciones de un modo de victoria (<a href="victoria.html">Modos de victoria</a>).</li>
+<li><code>rules\game.json</code> fija reglas del motor para todas las partidas del mod: el ejército no se separa del héroe en las murallas, los
+centinelas no se pueden seleccionar y hay clases que no se pueden atacar (<a href="opciones.html">Opciones</a>).</li>
+<li>Un script de bonificación numerado del <code>004</code> al <code>099</code> en <code>data\BonusScripts</code> aparece en la sala, con el nombre y la descripción de sus líneas <code>//@</code> (<a href="bonificaciones.html">Bonificaciones iniciales</a>).</li>
+<li>El validador conoce <code>Mod_PlayerCiv</code> y <code>Mod_CanExecCmd</code>.</li>
+</ul>
+<h2 id="15">1.5</h2>
+<p>Necesita Imperivm Resurrected 0.32.20 o posterior.</p>
+<ul>
+<li><code>reducir-mod.js</code> convierte también los mods cuyo <code>rle.mmp</code> cambia gráficos del juego, no solo los que añaden gráficos al
+final. El <code>rle.mmp</code> del juego se queda entero: lo que el mod cambia o añade va detrás, en <code>rle.mmp.tail</code>, y sus imágenes se
+ajustan para encontrarlo en su sitio nuevo. Las imágenes del juego que el mod no sustituye se siguen viendo como en el juego.</li>
+<li><code>reducir-mod.js</code> respeta mejor lo que enseñaba el juego con el mod antiguo: un archivo suelto de <code>Currentlang\</code> gana al del
+paquete de idioma, y un archivo suelto igual al de los paquetes del juego se conserva si algún idioma enseñaba otro.</li>
+<li>El validador ya no da error por dos órdenes con el mismo nombre para edificios distintos, porque el juego une cada una a los
+edificios de su <code>&lt;src&gt;</code>; solo avisa si las dos son para el mismo edificio. Tampoco pide la firma en la primera línea de los
+modos de victoria (<code>data\GameScripts</code>) ni de los scripts de objetos: el juego se la da.</li>
+</ul>
 <h2 id="14">1.4</h2>
 <p>Necesita Imperivm Resurrected 0.32.20 o posterior.</p>
 <ul>

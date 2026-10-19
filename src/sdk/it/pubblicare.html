@@ -38,7 +38,7 @@
     <nav class="menu" aria-label="Principale">
       <a href="../../it/guide.html">Guida e FAQ</a>
       <a href="../../it/sdk.html" aria-current="page">Per i modder</a>
-      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mod</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mods</a>
       <div class="languages" role="group" aria-label="Lingua"></div>
       <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases/latest" data-download><span>Scarica</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
     </nav>
@@ -63,6 +63,7 @@
           <li><a href="formazioni.html">Formazioni nuove</a></li>
           <li><a href="avamposti.html">Avamposti ed edifici</a></li>
           <li><a href="modalita-vittoria.html">Modalità di vittoria</a></li>
+          <li><a href="bonus.html">Bonus iniziali</a></li>
           <li><a href="opzioni.html">Opzioni di partita proprie</a></li>
           <li><a href="mappe-casuali.html">Tipi di mappa casuale</a></li>
           <li><a href="immagini.html">Immagini proprie</a></li>
@@ -208,6 +209,7 @@
 </tbody></table></div>
 <p>Per le categorie senza esempio (avventure, conquiste, grafica, audio) basta copiare il file nella sua cartella, con lo stesso nome se sostituisce uno del gioco.</p>
 <p><strong>Mappe sciolte.</strong> Se lo <code>.zip</code> contiene solo il <code>.bfhp</code>, senza cartelle, il gioco lo sistema da solo durante l&#39;installazione secondo il tipo indicato dalla mappa stessa (quello scelto dal suo autore nell&#39;editor): un&#39;avventura va in <code>adventures\</code> (con la sua <code>.bmp</code> dello stesso nome), una conquista in <code>conquests\</code> e una mappa da schermaglia in <code>scenarios\</code>, oppure in <code>adventures\</code> se la categoria è Adventures (missioni per giocatore singolo fatte come mappa normale). In ogni caso è meglio caricarla già nella sua cartella; il <a href="validare.html">validatore</a> avvisa se una mappa è in quella sbagliata, per esempio un&#39;avventura in <code>scenarios\</code>, che la lista degli Scenari non mostra.</p>
+<p><strong>Anteprima di uno scenario.</strong> Quando si sceglie uno scenario nella stanza, il gioco disegna un&#39;anteprima con il terreno della mappa stessa, i suoi giocatori e le loro civiltà, e da dove viene: non serve caricare nessuna immagine. I colori vengono dalle tessere della minimappa del gioco, quindi un terreno nuovo si vede bene se porta la sua tessera in <code>minimapzoom8	errain</code>.</p>
 <p><strong>Nomi vecchi.</strong> Scenari, Avventure e Conquiste si chiamano come le cartelle del gioco (<code>scenarios\</code>, <code>adventures\</code>, <code>conquests\</code>). Prima erano **Maps**, **Campaigns** e **Conquest**: un <code>mod.json</code> con quei nomi, o con <code>Interface</code> o <code>Total Conversions</code>, funziona ancora, ma il validatore ti chiede il nome nuovo.</p>
 <h2 id="tag">Tag</h2>
 <p>Ogni tag ha un titolo e un valore. Il gioco ne usa tre:</p>
@@ -248,7 +250,7 @@
 <li>I testi e i suoni di ogni lingua in <code>Local\&lt;lingua&gt;\</code> (o in <code>currentlang\</code> se sono uguali in tutte), e il resto di un pacchetto di lingua in <code>Local\&lt;lingua&gt;.pak</code>.</li>
 <li>Ciò che la mod vecchia toglieva dal gioco sostituendo i suoi pacchetti, in <code>hidden.txt</code>, perché neanche il gioco lo veda.</li>
 <li><code>data\const.ini</code> come patch e senza la sezione <code>[Resolutions]</code>: la risoluzione la sceglie il giocatore nelle opzioni.</li>
-<li>Se la mod porta un <code>rle.mmp</code> che è quello del gioco con grafica aggiunta in fondo, solo l&#39;aggiunta, in <code>rle.mmp.tail</code>.</li>
+<li>Se la mod porta un suo <code>rle.mmp</code>, solo ciò che cambia o aggiunge a quello del gioco, in <code>rle.mmp.tail</code>; quello del gioco non si tocca.</li>
 <li>Lascia fuori le copie <code>.bak</code>, <code>Config.ini</code> e <code>Settings.ini</code> (configurazione dell&#39;installazione) e gli eseguibili, con i quali la mod non si caricherebbe.</li>
 </ul>
 <p>Opzioni:</p>

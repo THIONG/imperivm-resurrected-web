@@ -63,6 +63,7 @@
           <li><a href="formaciones.html">Formaciones nuevas</a></li>
           <li><a href="fortines.html">Fortines y edificios</a></li>
           <li><a href="victoria.html">Modos de victoria</a></li>
+          <li><a href="bonificaciones.html">Bonificaciones iniciales</a></li>
           <li><a href="opciones.html">Opciones de partida propias</a></li>
           <li><a href="mapas-aleatorios.html">Tipos de mapa aleatorio</a></li>
           <li><a href="imagenes.html">Imágenes propias</a></li>
@@ -101,12 +102,12 @@ node herramientas/validar-mod.js &lt;carpeta del mod&gt; --datos &lt;carpeta DAT
 <li><strong>Parches INI</strong>: líneas que no se entienden, y una sección nueva en <code>UNIT_SPECIALS.INI</code> (el juego puede cerrarse). No avisa de comentarios al final de una línea de parche, que el motor no soporta (ver <a href="parches.html">Parches</a>).</li>
 <li><strong>Clases (<code>data\classes</code>)</strong>: XML mal formado, <code>race</code> desconocida, <code>unit_specials</code> mal escritas o desconocidas (el juego distingue mayúsculas: <code>Parry</code>, no <code>parry</code>), y una clase sin <code>entity</code> (aviso: el juego no la hereda del padre y la unidad desaparece).</li>
 <li><strong>Codificación</strong>: un XML de clase en Latin-1 con tildes. El juego no carga la clase y no avisa; guárdalo como UTF-8.</li>
-<li><strong>Órdenes (<code>data\commands</code>)</strong>: XML mal formado y órdenes repetidas en un archivo.</li>
+<li><strong>Órdenes (<code>data\commands</code>)</strong>: XML mal formado, y aviso si dos órdenes con el mismo nombre son para el mismo edificio (tendría dos botones con ese nombre). Con el mismo nombre para edificios distintos valen: el juego une cada una a los edificios de su <code>&lt;src&gt;</code>.</li>
 <li><strong>Entidades (<code>.ent.xml</code>)</strong>: error si la imagen no existe (el juego se cuelga al cargar la clase; con la carpeta del mod si trae sus <code>.rle</code>, y siempre con <code>--juego</code>), <code>idx</code> repetido o fuera de 1–32, capas y animaciones que apuntan a algo que no hay, límites del motor (32 imágenes, 32 capas, 8 estados, animaciones 1–28, 64 fotogramas), y <code>columns</code>, <code>rows</code> o número de <code>&lt;frame&gt;</code> que no cuadran. Una animación que lee más filas de las que tiene su imagen es solo un aviso.</li>
 <li><strong>Gráficos (<code>.rle</code>, <code>.pass</code>)</strong>: <code>.rle</code> cortado o corrupto, <code>.rle.mmp</code> renombrado (sin píxeles, no carga desde un mod), paleta vacía, <code>.pass</code> mal formado o vacío, <code>pass_file</code> que no existe, y un <code>.rle</code> con el mismo nombre que uno del juego (gana el del juego; con <code>--juego</code>).</li>
 <li><strong><code>placeobjects.xml</code></strong> (mapas aleatorios): una clase nombrada que no existe (con <code>--datos</code>). La generación del mapa se queda colgada sin mensaje.</li>
 <li><strong>Textos (<code>loc</code>)</strong>: XML mal formado, entradas sin <code>text</code> o sin <code>result</code>.</li>
-<li><strong>Scripts (<code>.vs</code>)</strong>: falta la firma en la primera línea, evento desconocido o con la firma equivocada, <code>Sleep</code> en un evento que no puede esperar, funciones <code>Mod_*</code> que no existen, <code>Mod_HasSpecial</code> con un <code>Obj</code> en vez de una <code>Unit</code>.</li>
+<li><strong>Scripts (<code>.vs</code>)</strong>: falta la firma en la primera línea (salvo en los comportamientos de una clase, los modos de victoria y los scripts de objetos, que el juego carga siempre con la suya), evento desconocido o con la firma equivocada, <code>Sleep</code> en un evento que no puede esperar, funciones <code>Mod_*</code> que no existen, <code>Mod_HasSpecial</code> con un <code>Obj</code> en vez de una <code>Unit</code>.</li>
 </ul>
 <h2 id="ejemplo-de-salida">Ejemplo de salida</h2>
 <pre><code>AVISO  specials/c.json  sin &quot;name&quot;: se verá el id

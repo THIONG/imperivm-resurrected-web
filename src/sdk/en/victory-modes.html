@@ -63,6 +63,7 @@
           <li><a href="formations.html">New formations</a></li>
           <li><a href="outposts.html">Outposts and buildings</a></li>
           <li><a href="victory-modes.html" aria-current="page">Victory modes</a></li>
+          <li><a href="bonuses.html">Starting bonuses</a></li>
           <li><a href="options.html">Custom game options</a></li>
           <li><a href="random-maps.html">Random map types</a></li>
           <li><a href="images.html">Custom images</a></li>
@@ -87,7 +88,7 @@
 <ul>
 <li><strong>The file name is the mode&#39;s id</strong>, number included. The lobby lists modes by full file name. Two mods clash only if they use exactly the same name (<code>6 Dominio.vs</code> in both). The game&#39;s own modes are 1 to 5.</li>
 <li>The lobby shows it without the leading number, and runs it through translation: if the text &quot;Dominio&quot; has an entry in your <code>loc</code>, it shows up translated (<a href="languages.html">Languages</a>).</li>
-<li>The first line is the signature: <code>//void, int player, str param</code>. <code>player</code> is the player (1 to 8). <code>param</code> is the limit value chosen in the lobby (see below).</li>
+<li>The signature is <code>//void, int player, str param</code>. The game always loads the script with it, so the first line is optional, but it is best to write it. <code>player</code> is the player (1 to 8). <code>param</code> is the limit value chosen in the lobby (see below).</li>
 <li>The game launches 8 copies of the script, one per player, each in its own thread, even with fewer players. Write it from a single player&#39;s point of view, looking at the others. It has to cope with empty slots: the example treats them as eliminated because they have no settlements and no troops.</li>
 </ul>
 <h2 id="functions-youll-use">Functions you&#39;ll use</h2>
@@ -146,6 +147,55 @@
 6_Dominio3 = 5 asentamientos, 5
 </code></pre>
 <p>With no entries, the dropdown comes up empty and there&#39;s no limit to pick. What <code>param</code> receives then hasn&#39;t been seen in game: the example falls back to 3 if <code>Str2Int(param)</code> gives less than 2.</p>
+<h2 id="fixed-settings-and-civilizations-of-a-mode">Fixed settings and civilizations of a mode</h2>
+<p>A mode can fix room settings and the civilizations that can be chosen with it. It goes in <code>modes\&lt;name&gt;.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;mode&quot;: &quot;2 LIGA&quot;,
+  &quot;gold&quot;: 5000,
+  &quot;population&quot;: 100,
+  &quot;noFog&quot;: false,
+  &quot;explored&quot;: false,
+  &quot;bonus&quot;: 1,
+  &quot;civilizations&quot;: [&quot;RomeImperial&quot;, &quot;Gaul&quot;, &quot;Iberia&quot;, &quot;CarthageNumidian&quot;]
+}
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>mode</code></td>
+<td>The name of the mode&#39;s script in <code>data\GameScripts</code>, without <code>.vs</code> (<code>2 LIGA</code> for <code>2 LIGA.vs</code>), up to 31 characters. If you leave it out, the name of the json file. It also works for the game&#39;s modes.</td>
+</tr>
+<tr>
+<td><code>gold</code></td>
+<td>(Optional) The starting gold: one of the values of the dropdown (<code>5000</code>, <code>10000</code>…).</td>
+</tr>
+<tr>
+<td><code>population</code></td>
+<td>(Optional) The population: <code>50</code>, <code>100</code> or <code>150</code> (<code>LowPop</code>, <code>NormalPop</code> and <code>HighPop</code> of <code>CONST.INI</code>).</td>
+</tr>
+<tr>
+<td><code>noFog</code></td>
+<td>(Optional) <code>true</code> removes the fog, <code>false</code> keeps it.</td>
+</tr>
+<tr>
+<td><code>explored</code></td>
+<td>(Optional) <code>true</code> starts with the map explored.</td>
+</tr>
+<tr>
+<td><code>bonus</code></td>
+<td>(Optional) The bonus of every player, from 0 (none) to 3, the same number as the room&#39;s bonus button. Disable bonuses can no longer be ticked.</td>
+</tr>
+<tr>
+<td><code>civilizations</code></td>
+<td>(Optional) The civilizations that can be played in that mode: the game&#39;s (<code>Gaul</code>, <code>RepublicanRome</code>…) or the <code>id</code> of one of the mod&#39;s. A game base allows all its variants; a variant, only that one.</td>
+</tr>
+</tbody></table></div>
+<p>While that mode is chosen, the room doesn&#39;t let anyone change what it fixes: the host sees those rows but can&#39;t change them. A player with a civilization the mode doesn&#39;t allow moves to the first one of the list, and the random civilization is drawn only among the allowed ones. The host applies it when the game is created, so everyone plays with the same. Saved games and scenarios with fixed civilizations don&#39;t change.</p>
 <h2 id="online">Online</h2>
 <p>A new mode changes gameplay: every player must have the same mod.</p>
 

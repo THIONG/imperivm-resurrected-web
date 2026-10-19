@@ -38,7 +38,7 @@
     <nav class="menu" aria-label="Principale">
       <a href="../../it/guide.html">Guida e FAQ</a>
       <a href="../../it/sdk.html" aria-current="page">Per i modder</a>
-      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mod</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mods</a>
       <div class="languages" role="group" aria-label="Lingua"></div>
       <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases/latest" data-download><span>Scarica</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
     </nav>
@@ -63,6 +63,7 @@
           <li><a href="formazioni.html">Formazioni nuove</a></li>
           <li><a href="avamposti.html">Avamposti ed edifici</a></li>
           <li><a href="modalita-vittoria.html">Modalità di vittoria</a></li>
+          <li><a href="bonus.html">Bonus iniziali</a></li>
           <li><a href="opzioni.html">Opzioni di partita proprie</a></li>
           <li><a href="mappe-casuali.html">Tipi di mappa casuale</a></li>
           <li><a href="immagini.html">Immagini proprie</a></li>
@@ -79,6 +80,32 @@
     <article class="doc">
 <h1 id="cambiamenti">Cambiamenti</h1>
 <p>Versione dell&#39;SDK e quali mod si possono fare con ognuna. La versione dell&#39;API degli script (<code>Mod_ApiVersion()</code>) è a parte: ora è la 7.</p>
+<h2 id="16">1.6</h2>
+<p>Richiede Imperivm Resurrected 0.32.24 o successiva.</p>
+<ul>
+<li>Una variante che sostituisce la sua base (<code>&quot;replacesBase&quot;: true</code>) può cambiare con <code>letter</code> e <code>template</code> la lettera e i modelli di
+città e villaggio di quella base per tutta la partita, anche quelli degli insediamenti neutrali della mappa casuale. Così si
+sostituisce una civiltà intera del gioco (<a href="civilta.html#varianti">Civiltà</a>). Il validatore cerca i modelli anche nel
+<code>packs\randommapsettlements.bfhp</code> della mod.</li>
+<li><code>modes\&lt;nome&gt;.json</code> fissa le impostazioni della stanza e le civiltà di una modalità di vittoria (<a href="modalita-vittoria.html">Modalità di vittoria</a>).</li>
+<li><code>rules\game.json</code> fissa regole del motore per tutte le partite della mod: l&#39;esercito resta con il suo eroe alle mura, le sentinelle
+non si possono selezionare e alcune classi non si possono attaccare (<a href="opzioni.html">Opzioni</a>).</li>
+<li>Uno script di bonus numerato da <code>004</code> a <code>099</code> in <code>data\BonusScripts</code> compare nella stanza, con il nome e la descrizione delle sue righe <code>//@</code> (<a href="bonus.html">Bonus iniziali</a>).</li>
+<li>Il validatore conosce <code>Mod_PlayerCiv</code> e <code>Mod_CanExecCmd</code>.</li>
+</ul>
+<h2 id="15">1.5</h2>
+<p>Richiede Imperivm Resurrected 0.32.20 o successiva.</p>
+<ul>
+<li><code>riduci-mod.js</code> converte anche le mod il cui <code>rle.mmp</code> cambia la grafica del gioco, non solo quelle che aggiungono grafica
+in fondo. L&#39;<code>rle.mmp</code> del gioco resta intero: ciò che la mod cambia o aggiunge va dopo, in <code>rle.mmp.tail</code>, e le sue immagini
+si aggiornano per trovarlo nel suo nuovo posto. Le immagini del gioco che la mod non sostituisce si vedono ancora come nel gioco.</li>
+<li><code>riduci-mod.js</code> rispetta meglio ciò che il gioco mostrava con la mod vecchia: un file sciolto in <code>Currentlang\</code> vince su
+quello del pacchetto di lingua, e un file sciolto uguale a quello dei pacchetti del gioco si conserva se qualche lingua ne
+mostrava un altro.</li>
+<li>Il validatore non dà più errore per due comandi con lo stesso nome per edifici diversi, perché il gioco lega ognuno agli edifici
+del suo <code>&lt;src&gt;</code>; avvisa solo se sono tutti e due per lo stesso edificio. Non chiede più nemmeno la firma nella prima riga delle
+modalità di vittoria (<code>data\GameScripts</code>) né degli script degli oggetti: gliela passa il gioco.</li>
+</ul>
 <h2 id="14">1.4</h2>
 <p>Richiede Imperivm Resurrected 0.32.20 o successiva.</p>
 <ul>

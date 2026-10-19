@@ -63,6 +63,7 @@
           <li><a href="formations.html">New formations</a></li>
           <li><a href="outposts.html">Outposts and buildings</a></li>
           <li><a href="victory-modes.html">Victory modes</a></li>
+          <li><a href="bonuses.html">Starting bonuses</a></li>
           <li><a href="options.html">Custom game options</a></li>
           <li><a href="random-maps.html">Random map types</a></li>
           <li><a href="images.html">Custom images</a></li>
@@ -197,7 +198,7 @@ where Rome chooses at the start between republican, imperial and punic can offer
 </code></pre>
 <p>With <code>&quot;variant&quot;: true</code>:</p>
 <ul>
-<li>It plays with the base&#39;s classes and commands. It has no classes of its own and no <code>letter</code>.</li>
+<li>It plays with the base&#39;s classes and commands. It has no classes of its own and no <code>letter</code>, unless it replaces the whole base (see below).</li>
 <li><code>GetPlayerRace</code> returns the base, so the game&#39;s and other mods&#39; scripts treat it like the base (ships, sentries, AI).</li>
 <li><code>Mod_PlayerCiv(player)</code> returns the civilization chosen in the lobby (21 in the example). What sets it apart goes in a
 <a href="patches.html">script patch</a>, for example researching the right Rome at the start:</li>
@@ -211,6 +212,13 @@ where Rome chooses at the start between republican, imperial and punic can offer
 <li>With <code>&quot;replacesBase&quot;: true</code> the base no longer shows in the lobby and its variants take its place. In the random draw, the base&#39;s
 share is split among them. A player who had the base chosen moves to the first variant. Maps and saved games that fix the base still
 use it.</li>
+<li>A variant with <code>&quot;replacesBase&quot;: true</code> can also change its base&#39;s letter and templates for the whole game. With <code>letter</code>, the game
+builds the names of the base&#39;s classes and commands with that letter (<code>GetRaceStrPref</code>, peasant training, barracks, sentries, hero
+hiring). With <code>template</code>, the base&#39;s towns and villages, including the neutral ones of the random map, come from your
+<code>&lt;template&gt; Town N</code> and <code>&lt;template&gt; Village N</code> templates. This is what replacing a whole civilization takes. For example, Greece takes
+the place of Imperial Rome with <code>&quot;base&quot;: &quot;ImperialRome&quot;</code>, <code>&quot;letter&quot;: &quot;H&quot;</code> and <code>&quot;template&quot;: &quot;Greek&quot;</code>, and its classes have
+<code>race=&quot;ImperialRome&quot;</code> and the letter <code>H</code> (<code>HTownhall</code>, <code>HHoplite</code>). If two active variants give the same base different letters or
+templates, the first one counts and the manager warns on the other.</li>
 </ul>
 <h2 id="cloning-a-civilization">Cloning a civilization</h2>
 <p>Writing a civilization&#39;s dozens of classes and commands by hand is no fun. <code>tools/clone-civilization.js</code> clones one from the game.

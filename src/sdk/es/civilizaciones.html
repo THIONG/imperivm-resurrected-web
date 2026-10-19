@@ -63,6 +63,7 @@
           <li><a href="formaciones.html">Formaciones nuevas</a></li>
           <li><a href="fortines.html">Fortines y edificios</a></li>
           <li><a href="victoria.html">Modos de victoria</a></li>
+          <li><a href="bonificaciones.html">Bonificaciones iniciales</a></li>
           <li><a href="opciones.html">Opciones de partida propias</a></li>
           <li><a href="mapas-aleatorios.html">Tipos de mapa aleatorio</a></li>
           <li><a href="imagenes.html">Imágenes propias</a></li>
@@ -197,7 +198,7 @@ Roma elige al principio entre republicana, imperial y púnica puede ofrecer las 
 </code></pre>
 <p>Con <code>&quot;variant&quot;: true</code>:</p>
 <ul>
-<li>Juega con las clases y las órdenes de la base. No lleva clases propias ni <code>letter</code>.</li>
+<li>Juega con las clases y las órdenes de la base. No lleva clases propias ni <code>letter</code>, salvo si sustituye a la base entera (ver abajo).</li>
 <li><code>GetPlayerRace</code> devuelve la base, así que los scripts del juego y de otros mods la tratan como a la base (barcos, centinelas, IA).</li>
 <li><code>Mod_PlayerCiv(jugador)</code> devuelve la civilización elegida en la sala (21 en el ejemplo). Lo que la distingue va en un
 <a href="parches.html">parche de script</a>, por ejemplo investigar al empezar la Roma que toca:</li>
@@ -211,6 +212,13 @@ Roma elige al principio entre republicana, imperial y púnica puede ofrecer las 
 <li>Con <code>&quot;replacesBase&quot;: true</code> la base deja de salir en la sala y sus variantes ocupan su sitio. En el sorteo aleatorio, la parte de la
 base se reparte entre ellas. Un jugador que tuviera elegida la base pasa a la primera variante. Los mapas y las partidas guardadas que
 fijan la base la siguen usando.</li>
+<li>Una variante con <code>&quot;replacesBase&quot;: true</code> puede cambiar además la letra y las plantillas de su base durante toda la partida. Con
+<code>letter</code>, el juego construye con esa letra los nombres de las clases y las órdenes de la base (<code>GetRaceStrPref</code>, el entrenamiento de
+campesinos, los cuarteles, los centinelas, la contratación de héroes). Con <code>template</code>, las ciudades y las aldeas de la base, también
+las neutrales del mapa aleatorio, salen de tus plantillas <code>&lt;template&gt; Town N</code> y <code>&lt;template&gt; Village N</code>. Es lo que hace falta para
+sustituir una civilización entera. Por ejemplo, Grecia ocupa el sitio de Roma imperial con <code>&quot;base&quot;: &quot;ImperialRome&quot;</code>, <code>&quot;letter&quot;: &quot;H&quot;</code> y
+<code>&quot;template&quot;: &quot;Greek&quot;</code>, y sus clases llevan <code>race=&quot;ImperialRome&quot;</code> y la letra <code>H</code> (<code>HTownhall</code>, <code>HHoplite</code>). Si dos variantes activas
+dan a la misma base letras o plantillas distintas, vale la primera y el gestor avisa en la otra.</li>
 </ul>
 <h2 id="clonar-una-civilización">Clonar una civilización</h2>
 <p>Escribir a mano las decenas de clases y órdenes de una civilización no tiene gracia. <code>herramientas/clonar-civilizacion.js</code> clona una del juego.

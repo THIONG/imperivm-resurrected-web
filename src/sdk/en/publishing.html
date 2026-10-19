@@ -63,6 +63,7 @@
           <li><a href="formations.html">New formations</a></li>
           <li><a href="outposts.html">Outposts and buildings</a></li>
           <li><a href="victory-modes.html">Victory modes</a></li>
+          <li><a href="bonuses.html">Starting bonuses</a></li>
           <li><a href="options.html">Custom game options</a></li>
           <li><a href="random-maps.html">Random map types</a></li>
           <li><a href="images.html">Custom images</a></li>
@@ -208,6 +209,7 @@
 </tbody></table></div>
 <p>For the categories without an example (adventures, conquests, graphics, sound), just copy the file into its folder, with the same name if it replaces a game file.</p>
 <p><strong>Loose maps.</strong> If the <code>.zip</code> only holds the <code>.bfhp</code>, with no folders, the game places it by itself when installing, by the kind the map itself states (what its author chose in the editor): an adventure goes to <code>adventures\</code> (with its <code>.bmp</code> of the same name), a conquest to <code>conquests\</code> and a skirmish map to <code>scenarios\</code>, or to <code>adventures\</code> if the category is Adventures (single-player missions made as a normal map). Even so, it is better to upload it already inside its folder; the <a href="validating.html">validator</a> warns when a map is in the wrong one, for example an adventure in <code>scenarios\</code>, which the Scenarios list doesn&#39;t show.</p>
+<p><strong>Scenario preview.</strong> When a scenario is chosen in the room, the game draws a preview from the map&#39;s own terrain, with its players and their civilizations, and where it comes from: you don&#39;t need to upload any image. The colors come from the game&#39;s minimap tiles, so a new terrain looks right if it brings its tile in <code>minimapzoom8	errain</code>.</p>
 <p><strong>Old names.</strong> Scenarios, Adventures and Conquests are named after the game&#39;s folders (<code>scenarios\</code>, <code>adventures\</code>, <code>conquests\</code>). They used to be **Maps**, **Campaigns** and **Conquest**: a <code>mod.json</code> with those names, or with <code>Interface</code> or <code>Total Conversions</code>, still works, but the validator asks for the new name.</p>
 <h2 id="tags">Tags</h2>
 <p>Each tag has a title and a value. The game uses three:</p>
@@ -248,7 +250,7 @@
 <li>The texts and sounds of each language in <code>Local\&lt;language&gt;\</code> (or in <code>currentlang\</code> if they are the same in all), and the rest of a language package in <code>Local\&lt;language&gt;.pak</code>.</li>
 <li>What the old mod removed from the game by replacing its packages, in <code>hidden.txt</code>, so that the game doesn&#39;t see it either.</li>
 <li><code>data\const.ini</code> as a patch and without the <code>[Resolutions]</code> section: the player picks the resolution in the options.</li>
-<li>If the mod ships an <code>rle.mmp</code> that is the game&#39;s with graphics appended, only what is appended, in <code>rle.mmp.tail</code>.</li>
+<li>If the mod ships its own <code>rle.mmp</code>, only what it changes in or adds to the game&#39;s, in <code>rle.mmp.tail</code>; the game&#39;s is left as it is.</li>
 <li>It leaves out <code>.bak</code> copies, <code>Config.ini</code> and <code>Settings.ini</code> (install settings) and executables, with which the mod wouldn&#39;t load.</li>
 </ul>
 <p>Options:</p>

@@ -63,6 +63,7 @@
           <li><a href="formations.html">New formations</a></li>
           <li><a href="outposts.html">Outposts and buildings</a></li>
           <li><a href="victory-modes.html">Victory modes</a></li>
+          <li><a href="bonuses.html">Starting bonuses</a></li>
           <li><a href="options.html">Custom game options</a></li>
           <li><a href="random-maps.html">Random map types</a></li>
           <li><a href="images.html">Custom images</a></li>
@@ -81,7 +82,7 @@
 <p>Scripts (<code>.vs</code>) are the language the game uses to program AI, abilities, victory conditions, and the behavior of buildings and units. A mod can ship its own and use Imperivm Resurrected&#39;s new functions (<code>Mod_...</code>).</p>
 <p>Example to copy: <span class="in-zip"><code>examples/scripts-example</code></span>. Heads up: that example changes the balance (hastati deal double damage and heal when they kill), so don&#39;t enable it in a serious game.</p>
 <h2 id="what-a-script-looks-like">What a script looks like</h2>
-<p>A <code>.vs</code> text file. The first line is a comment with the signature: what it returns and the parameters it receives. Every place a script is used expects a specific signature. A class&#39;s behaviors (<code>&lt;behavior script=&quot;...&quot;&gt;</code>) are the exception: the game always loads them as <code>void, Obj This</code>, with the line or without it.</p>
+<p>A <code>.vs</code> text file. The first line is a comment with the signature: what it returns and the parameters it receives. Every place a script is used expects a specific signature. There are three exceptions, which the game always loads with their signature, with the line or without it: a class&#39;s behaviors (<code>&lt;behavior script=&quot;...&quot;&gt;</code>), as <code>void, Obj This</code>; victory modes (<code>data/GameScripts</code>), as <code>void, int player, str param</code>; and item scripts (see <a href="items.html">Items</a>), with the signature of their attribute.</p>
 <pre><code>// void, Obj This
 
 Sleep(rand(500) + 100);
