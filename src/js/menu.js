@@ -65,5 +65,5 @@
   panel.addEventListener('click', function (e) { if (e.target.closest('a')) close(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) close(true); });
   document.addEventListener('click', function (e) { if (!panel.hidden && !header.contains(e.target)) close(false); });
-  window.addEventListener('resize', function () { if (!panel.hidden && window.innerWidth > 820) close(false); });
+  window.addEventListener('resize', function () { if (!panel.hidden && window.innerWidth > 960) close(false); });
 })();

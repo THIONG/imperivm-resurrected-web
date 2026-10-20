@@ -38,6 +38,17 @@
       menu.insertBefore(headerButton, menu.querySelector('.external-link') || menu.querySelector('.theme') || menu.querySelector('.languages') || null);
     }
 
+    var mods = menu && menu.querySelector('.external-link');
+    if (mods) {
+      var discord = document.createElement('a');
+      discord.className = 'external-link discord-header';
+      discord.href = 'https://discord.gg/6kCatX3Zbc';
+      discord.target = '_blank';
+      discord.rel = 'noopener';
+      discord.textContent = 'Discord';
+      menu.insertBefore(discord, mods);
+    }
+
     var dlg = document.createElement('dialog');
     dlg.className = 'support';
     dlg.setAttribute('aria-labelledby', 'support-title');
