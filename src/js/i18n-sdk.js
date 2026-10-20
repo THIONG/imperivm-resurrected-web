@@ -1,7 +1,7 @@
 window.EXTRA_TRANSLATIONS = {
   en: {
     crumb_aria: `Breadcrumb`, crumb_home: `Home`,
-    title_sdk: `For modders — Imperivm Resurrected`,
+    title_sdk: `For modders | Imperivm Resurrected`,
     desc_sdk: `Create new civilizations, units, maps and rules for Imperivm III HD. Guides, tools, templates and examples, using only files and without compiling anything.`,
     sdk_title: `Make content<br>for Imperivm.`,
     sdk_sub: `Guides, tools, templates and examples to build new civilizations, units, maps, adventures and rules with plain files, nothing to compile.`,
@@ -47,7 +47,7 @@ window.EXTRA_TRANSLATIONS = {
   },
   it: {
     crumb_aria: `Percorso`, crumb_home: `Home`,
-    title_sdk: `Per i modder — Imperivm Resurrected`,
+    title_sdk: `Per i modder | Imperivm Resurrected`,
     desc_sdk: `Crea nuove civiltà, unità, mappe e regole per Imperivm III HD. Guide, strumenti, modelli ed esempi, solo con file e senza compilare nulla.`,
     sdk_title: `Crea contenuti<br>per Imperivm.`,
     sdk_sub: `Guide, strumenti, modelli ed esempi per realizzare nuove civiltà, unità, mappe, avventure e regole con semplici file, senza compilare nulla.`,

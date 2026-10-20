@@ -1,6 +1,6 @@
 window.EXTRA_TRANSLATIONS = {
   en: {
-    title_credits: `Credits — Imperivm Resurrected`,
+    title_credits: `Credits | Imperivm Resurrected`,
     desc_credits: `Who made Imperivm Resurrected and where each piece comes from: the projects it builds on, third-party software and licenses.`,
     credits_heading: `Credits.`,
     credits_lead: `Who did what, and where each piece comes from.`,
@@ -28,7 +28,7 @@ window.EXTRA_TRANSLATIONS = {
     credits_note: `Unofficial project, not affiliated with or endorsed by FX Interactive or Haemimont Games. Imperivm III: Great Battles of Rome HD and its files belong to their owners.`
   },
   it: {
-    title_credits: `Crediti — Imperivm Resurrected`,
+    title_credits: `Crediti | Imperivm Resurrected`,
     desc_credits: `Chi ha fatto Imperivm Resurrected e da dove viene ogni pezzo: i progetti da cui parte, il software di terze parti e le licenze.`,
     credits_heading: `Crediti.`,
     credits_lead: `Chi ha fatto cosa, e da dove viene ogni pezzo.`,

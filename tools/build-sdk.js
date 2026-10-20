@@ -14,9 +14,9 @@ const TEMPLATE_ORDER = ['scenario', 'adventure', 'conquest', 'units', 'civilizat
 const ENGLISH_ONLY = ['LICENSE.md'];
 
 const LABELS = {
-  en: { skip: 'Skip to content', guides: 'SDK guides', templates: 'Templates', overview: 'Overview', changes: 'Changes', license: 'License', functions: 'Game functions', back: 'For modders', backFooter: 'Back to For modders', suffix: ' — SDK', lang: 'en' },
-  es: { skip: 'Saltar al contenido', guides: 'Guías del SDK', templates: 'Plantillas', overview: 'Resumen', changes: 'Cambios', license: 'Licencia (en inglés)', functions: 'Funciones del juego (en inglés)', back: 'Para modders', backFooter: 'Volver a Para modders', suffix: ' — SDK', lang: 'es' },
-  it: { skip: 'Vai al contenuto', guides: 'Guide dell\'SDK', templates: 'Modelli', overview: 'Panoramica', changes: 'Cambiamenti', license: 'Licenza (in inglese)', functions: 'Funzioni del gioco (in inglese)', back: 'Per i modder', backFooter: 'Torna a Per i modder', suffix: ' — SDK', lang: 'it' },
+  en: { skip: 'Skip to content', guides: 'SDK guides', templates: 'Templates', overview: 'Overview', changes: 'Changes', license: 'License', functions: 'Game functions', back: 'For modders', backFooter: 'Back to For modders', suffix: ' | SDK', lang: 'en' },
+  es: { skip: 'Saltar al contenido', guides: 'Guías del SDK', templates: 'Plantillas', overview: 'Resumen', changes: 'Cambios', license: 'Licencia (en inglés)', functions: 'Funciones del juego (en inglés)', back: 'Para modders', backFooter: 'Volver a Para modders', suffix: ' | SDK', lang: 'es' },
+  it: { skip: 'Vai al contenuto', guides: 'Guide dell\'SDK', templates: 'Modelli', overview: 'Panoramica', changes: 'Cambiamenti', license: 'Licenza (in inglese)', functions: 'Funzioni del gioco (in inglese)', back: 'Per i modder', backFooter: 'Torna a Per i modder', suffix: ' | SDK', lang: 'it' },
 };
 
 const htmlName = (md) => ({ 'README.md': 'overview.html', 'CHANGELOG.md': 'changelog.html', 'LICENSE.md': 'license.html' })[md] || md.replace(/\.md$/, '.html');
