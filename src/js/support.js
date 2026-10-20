@@ -40,6 +40,7 @@
 
     var mods = menu && menu.querySelector('.external-link');
     if (mods) {
+      mods.classList.add('mods-header');
       var discord = document.createElement('a');
       discord.className = 'external-link discord-header';
       discord.href = 'https://discord.gg/6kCatX3Zbc';
@@ -95,7 +96,7 @@
       var a = document.createElement('textarea'), done = false;
       a.value = text; a.setAttribute('readonly', ''); a.style.position = 'fixed'; a.style.opacity = '0';
       document.body.appendChild(a); a.select();
-      try { done = document.execCommand('copy'); } catch (e) { }
+      try { done = document.execCommand('copy'); } catch { }
       document.body.removeChild(a);
       return done;
     }
