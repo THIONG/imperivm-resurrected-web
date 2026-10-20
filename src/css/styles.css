@@ -560,6 +560,11 @@ details[open] > .row__body, details[open] > .faq__answer { animation: expand var
 .authors a::after { content: "\2197"; content: "\2197" / ""; display: inline-block; margin-left: .15em; font-size: .75em; opacity: 0; transform: translate(-3px, 2px); transition: opacity var(--motion-fast) var(--ease), transform var(--motion-fast) var(--ease); }
 .authors a:hover, .authors a:focus-visible { color: var(--accent-text); background-size: 100% 1px; }
 .authors a:hover::after, .authors a:focus-visible::after { opacity: 1; transform: none; }
+.sources { display: flex; flex-wrap: wrap; align-items: baseline; row-gap: 2px; margin: 8px 0 0 -14px; clip-path: inset(-4px -4px -4px 14px); }
+.sources > span:first-child { padding-left: 14px; margin-right: .35em; }
+.sources__item { white-space: nowrap; }
+.sources__item::before { content: ""; display: inline-block; width: 4px; height: 4px; margin: 0 5px; border-radius: 50%; background: var(--accent-text); opacity: .5; vertical-align: middle; }
+.sources > span:first-child + .sources__item::before { display: none; }
 .credits__lead { display: flex; flex-direction: column; gap: clamp(14px, 1.6vw, 24px); }
 .credits__intro { margin: 0; max-width: 24ch; font-size: clamp(16px, 1.5vw, 22px); line-height: 1.4; color: var(--ink-soft); }
 .credits__logo { display: inline-flex; align-items: center; gap: clamp(12px, 1.5vw, 22px); margin-top: clamp(8px, 2vw, 32px); width: fit-content; max-width: 100%; }
