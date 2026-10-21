@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="title_privacy">Privacidad y firma de código | Imperivm Resurrected</title>
+<meta name="description" content="Política de privacidad y de firma de código de Imperivm Resurrected: qué conexiones hace el mod, qué guarda la web y quién firma las versiones." data-i18n-attr="content:desc_privacy">
+<link rel="canonical" href="https://www.imperivmresurrected.com/privacy.html">
+<link rel="alternate" hreflang="es" href="https://www.imperivmresurrected.com/privacy.html">
+<link rel="alternate" hreflang="en" href="https://www.imperivmresurrected.com/en/privacy.html">
+<link rel="alternate" hreflang="it" href="https://www.imperivmresurrected.com/it/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://www.imperivmresurrected.com/en/privacy.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Imperivm Resurrected">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:title" content="Privacidad y firma de código | Imperivm Resurrected">
+<meta property="og:description" content="Política de privacidad y de firma de código de Imperivm Resurrected: qué conexiones hace el mod, qué guarda la web y quién firma las versiones.">
+<meta property="og:url" content="https://www.imperivmresurrected.com/privacy.html">
+<meta property="og:image" content="https://www.imperivmresurrected.com/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Imperivm Resurrected">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.imperivmresurrected.com/img/og-image.png">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/lang-redirect.js"></script>
+<script src="js/theme.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content" data-i18n="skip_content">Saltar al contenido</a>
+<div class="page">
+
+  <header class="header">
+    <a class="brand" href="index.html" aria-label="Imperivm Resurrected" data-i18n-attr="aria-label:brand_aria">
+      <img class="brand__emblem" src="img/emblem-header.webp" alt="" width="300" height="276">
+      <span class="brand__name">Imperivm Resurrected</span>
+    </a>
+    <nav class="menu" aria-label="Principal" data-i18n-attr="aria-label:nav_label">
+      <a href="guide.html" data-i18n="nav_guide">Guía y FAQ</a>
+      <a href="sdk.html" data-i18n="nav_modders">Para modders</a>
+      <a class="external-link" href="https://gamebanana.com/games/26069" target="_blank" rel="noopener" data-i18n="nav_content">Mods</a>
+      <div class="languages" role="group" aria-label="Idioma" data-i18n-attr="aria-label:nav_language"></div>
+      <a class="button button--accent button--small" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span data-i18n="nav_download">Descargar</span> <svg class="arrow-diagonal" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </nav>
+  </header>
+
+  <main id="content">
+    <section class="block" id="privacy-page">
+      <div class="credits__lead">
+        <h1 class="section-title" data-i18n="privacy_heading">Privacidad.</h1>
+        <p class="credits__intro" data-i18n="privacy_lead">Qué datos toca el proyecto y cómo se firma el código.</p>
+        <div class="credits__logo" aria-hidden="true"><img loading="lazy" decoding="async" class="credits__isotype" src="img/isotype.webp" alt="" width="480" height="443"><img loading="lazy" decoding="async" class="credits__logotype credits__logotype--day" src="img/logotype.webp" alt="" width="960" height="212"><img loading="lazy" decoding="async" class="credits__logotype credits__logotype--night" src="img/logotype-light.webp" alt="" width="960" height="212"></div>
+      </div>
+      <div class="block__body">
+
+        <div class="credits__group" id="privacy">
+          <h2 class="guide-mini" data-i18n="privacy_g_mod">Política de privacidad del mod</h2>
+          <p class="prose" data-i18n="privacy_mod_intro">El mod no tiene cuentas, telemetría ni servidores propios, y no envía datos personales al proyecto. Tus ajustes y registros se quedan en la carpeta del juego. Estas son todas sus conexiones:</p>
+          <ul class="credits__list">
+          <li><span data-i18n="privacy_net_updates">Actualizaciones</span><span class="credits__what" data-i18n-html="privacy_net_updates_what">Al arrancar descarga <code>version.json</code> de GitHub para saber si hay una versión nueva, y GitHub ve tu IP. Se desactiva con <code>Mode=off</code> en la sección <code>[Updates]</code> de <code>imperivm-mod.ini</code>.</span></li>
+          <li><span data-i18n="privacy_net_mods">Mods</span><span class="credits__what" data-i18n="privacy_net_mods_what">El navegador de mods consulta GameBanana solo cuando lo abres, y de allí vienen las descargas. Se aplica la política de privacidad de GameBanana.</span></li>
+          <li><span data-i18n="privacy_net_multi">Multijugador</span><span class="credits__what" data-i18n="privacy_net_multi_what">Usa Steam. Los jugadores de la sala ven tu nombre y tu SteamID, y según cómo conecte Steam también pueden ver tu IP. Se aplica la política de privacidad de Valve.</span></li>
+          <li><span data-i18n="privacy_net_report">Informes</span><span class="credits__what" data-i18n="privacy_net_report_what">«Crear informe» guarda un zip en tu equipo, con el SteamID, las IP y el usuario de Windows tapados. No se envía nada.</span></li>
+          </ul>
+        </div>
+
+        <div class="credits__group" id="website">
+          <h2 class="guide-mini" data-i18n="privacy_g_web">Política de privacidad de la web</h2>
+          <p class="prose" data-i18n="privacy_web_text">Sin cookies ni analítica. El navegador guarda solo tu idioma y tu tema. La web está en Vercel, que registra tu IP en sus logs técnicos. Las tipografías vienen de Google Fonts, que recibe tu IP. El botón de descarga consulta la API de GitHub para encontrar la última versión.</p>
+        </div>
+
+        <div class="credits__group" id="code-signing">
+          <h2 class="guide-mini" data-i18n="privacy_g_signing">Code signing policy</h2>
+          <p class="prose" data-i18n-html="privacy_signing_html">Free code signing provided by <a href="https://about.signpath.io" target="_blank" rel="noopener">SignPath.io</a>, certificate by <a href="https://signpath.org" target="_blank" rel="noopener">SignPath Foundation</a>.</p>
+          <ul class="credits__list">
+          <li><span data-i18n="privacy_role_authors">Autores y revisores</span><span class="credits__what credits__people"><a href="https://github.com/THIONG" target="_blank" rel="noopener">THIONG</a><a href="https://github.com/iiTzSenn" target="_blank" rel="noopener">iiTzSenn</a><a href="https://github.com/Villoh" target="_blank" rel="noopener">Villoh</a></span></li>
+          <li><span data-i18n="privacy_role_approvers">Aprobadores</span><span class="credits__what credits__people"><a href="https://github.com/THIONG" target="_blank" rel="noopener">THIONG</a><a href="https://github.com/iiTzSenn" target="_blank" rel="noopener">iiTzSenn</a><a href="https://github.com/Villoh" target="_blank" rel="noopener">Villoh</a></span></li>
+          </ul>
+          <p class="prose hash-note" data-i18n="privacy_signing_scope">Solo se firman compilaciones automáticas hechas desde este repositorio, y cada versión necesita la aprobación manual de un aprobador.</p>
+        </div>
+
+        <p class="prose hash-note" data-i18n-html="privacy_contact_html">¿Dudas? Escríbenos en <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener">Discord</a> o abre una incidencia en <a href="https://github.com/imperivm-resurrected/imperivm-resurrected/issues/new/choose" target="_blank" rel="noopener">GitHub</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__id">
+      <a class="footer__logo" href="index.html" aria-label="Imperivm Resurrected" data-i18n-attr="aria-label:brand_aria"><img loading="lazy" decoding="async" src="img/emblem-header.webp" alt="" width="300" height="276"></a>
+      <p data-i18n="footer_unofficial">Proyecto no oficial de la comunidad.</p>
+    </div>
+    <nav class="footer__links" aria-label="Enlaces" data-i18n-attr="aria-label:footer_links_label">
+      <a href="https://github.com/THIONG/imperivm-resurrected" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
+      <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
+      <a href="credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span data-i18n="footer_credits">Créditos</span></a>
+      <a href="privacy.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/></svg><span data-i18n="footer_privacy">Privacidad</span></a>
+    </nav>
+    <a class="footer__back" href="index.html" data-i18n="footer_back">Volver al inicio</a>
+  </footer>
+
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/download.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/support-data.js"></script>
+<script src="js/support.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/supporters-data.js"></script>
+<script src="js/supporters.js"></script>
+</body>
+</html>

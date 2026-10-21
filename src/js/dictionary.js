@@ -34,7 +34,7 @@ window.TRANSLATIONS = {
       change8_text: `Autosave with several slots, rebindable controls, adjustable scroll speed and a panel with FPS, CPU, memory and network.`,
       change9_title: `Bug report`,
       change9_text: `From the heart icon in the main menu, <em>Create report</em> builds a zip in <code>Logs\\imperivm\\reports</code> with the logs and system data, with your SteamID, IPs and Windows username redacted. It sends nothing: check the zip before sharing it.`,
-      install_warning: `<strong>Windows warnings.</strong> <code>winmm.dll</code> has no Windows code signature, so SmartScreen or your antivirus may warn you. There is no installer.`,
+      install_warning: `<strong>Windows warnings.</strong> <code>winmm.dll</code> doesn't have a Windows code signature yet (we are applying for one through SignPath Foundation), so SmartScreen or your antivirus may warn you. There is no installer.`,
       install_requirements: `<strong>You need:</strong> Windows, Steam running and Imperivm III: Great Battles of Rome HD installed from Steam.`,
       install_step1: `Download the <code>.zip</code> of the latest version from the <a href="https://github.com/THIONG/imperivm-resurrected/releases" target="_blank" rel="noopener">releases page</a>. It contains <code>winmm.dll</code>, <code>steam_api.dll</code> and an <code>imperivm-resurrected</code> folder.`,
       install_step2: `Close the game.`,
@@ -51,6 +51,7 @@ window.TRANSLATIONS = {
       footer_back: `Back to home`,
       footer_links_label: `Links`,
       footer_credits: `Credits`,
+      footer_privacy: `Privacy`,
 
     },
 
@@ -89,7 +90,7 @@ window.TRANSLATIONS = {
       change8_text: `Salvataggio automatico con più slot, comandi riassegnabili, velocità di scorrimento regolabile e un pannello con FPS, CPU, memoria e rete.`,
       change9_title: `Segnalazione degli errori`,
       change9_text: `Dall'icona a forma di cuore nel menu principale, <em>Crea rapporto</em> genera uno zip in <code>Logs\\imperivm\\reports</code> con i registri e i dati del computer, con SteamID, IP e nome utente di Windows oscurati. Non invia nulla: controlla lo zip prima di condividerlo.`,
-      install_warning: `<strong>Avvisi di Windows.</strong> <code>winmm.dll</code> non ha una firma del codice di Windows, quindi SmartScreen o l'antivirus possono dare un avviso. Non c'è un installer.`,
+      install_warning: `<strong>Avvisi di Windows.</strong> <code>winmm.dll</code> non ha ancora una firma del codice di Windows (la stiamo richiedendo tramite SignPath Foundation), quindi SmartScreen o l'antivirus possono dare un avviso. Non c'è un installer.`,
       install_requirements: `<strong>Ti serve:</strong> Windows, Steam avviato e Imperivm III: Great Battles of Rome HD installato da Steam.`,
       install_step1: `Scarica lo <code>.zip</code> dell'ultima versione dalla <a href="https://github.com/THIONG/imperivm-resurrected/releases" target="_blank" rel="noopener">pagina delle release</a>. Contiene <code>winmm.dll</code>, <code>steam_api.dll</code> e una cartella <code>imperivm-resurrected</code>.`,
       install_step2: `Chiudi il gioco.`,
@@ -106,6 +107,7 @@ window.TRANSLATIONS = {
       footer_back: `Torna alla home`,
       footer_links_label: `Link`,
       footer_credits: `Crediti`,
+      footer_privacy: `Privacy`,
 
     }
   };;
