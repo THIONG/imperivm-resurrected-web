@@ -77,7 +77,6 @@
         <div><dt data-i18n="release_version">Última versión</dt><dd><span class="release__dot" aria-hidden="true"></span><span data-release-version></span></dd></div>
         <div><dt>SHA-256</dt><dd><code data-release-sha></code></dd></div>
         <div><dt data-i18n="release_scan">Análisis</dt><dd><a data-release-scan href="https://www.virustotal.com" target="_blank" rel="noopener">VirusTotal</a></dd></div>
-        <div><dt data-i18n="release_signing">Firma de código</dt><dd><a href="privacy.html#code-signing" data-i18n="release_signing_link">Ver política</a></dd></div>
       </dl>
     </section>
 
@@ -157,7 +156,7 @@
               </ol>
               <p data-i18n-html="install_online"><strong>Jugar online.</strong> Todos necesitan la misma versión del mod y el mismo contenido de jugabilidad. En el menú principal, <em>Multijugador</em>: uno crea la sala y los demás entran.</p>
               <p data-i18n-html="install_settings"><strong>Tus ajustes</strong> se guardan en <code>imperivm-mod.ini</code>, en la carpeta del juego. El zip no lo incluye, así que al instalar una versión nueva se conservan.</p>
-              <p data-i18n-html="install_warning"><strong>Avisos de Windows.</strong> <code>winmm.dll</code> aún no tiene firma de código de Windows (la estamos tramitando con SignPath Foundation), así que SmartScreen o tu antivirus pueden avisar. No hay instalador.</p>
+              <p data-i18n-html="install_warning"><strong>Avisos de Windows.</strong> <code>winmm.dll</code> no tiene firma de código de Windows, así que SmartScreen o tu antivirus pueden avisar. No hay instalador.</p>
               <p data-i18n-html="install_remove"><strong>Quitar el mod.</strong> Borra <code>winmm.dll</code>, <code>steam_api.dll</code> y la carpeta <code>imperivm-resurrected</code> de la carpeta del juego. El juego vuelve a ser el original.</p>
               <p data-i18n-html="install_failure"><strong>Si algo falla,</strong> usa <em>Crear informe</em> o mira los registros en <code>Logs\imperivm</code>, y cuéntalo en Discord o en GitHub. Más detalle en la <a href="guide.html">guía y FAQ</a>.</p>
             </div>
@@ -172,7 +171,6 @@
       <div class="closing__text">
         <h2 class="closing-title" data-i18n-html="closing_title">Descárgalo<br>y juega.</h2>
         <a class="button button--white" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span data-i18n="btn_download_mod">Descargar el mod</span> <svg class="arrow-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
-        <p class="closing__note" data-i18n-html="closing_signing_html"><a href="privacy.html#code-signing">Code signing policy</a>: free code signing provided by <a href="https://about.signpath.io" target="_blank" rel="noopener">SignPath.io</a>, certificate by <a href="https://signpath.org" target="_blank" rel="noopener">SignPath Foundation</a>. <a href="privacy.html">Política de privacidad</a>.</p>
         <p class="closing__note"><span data-i18n-html="closing_note">Si algo falla, cuéntalo en <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener">Discord</a> o en <a href="https://github.com/THIONG/imperivm-resurrected/issues/new/choose" target="_blank" rel="noopener">GitHub</a>.</span></p>
       </div>
     </section>

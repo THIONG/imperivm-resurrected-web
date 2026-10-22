@@ -221,7 +221,7 @@ a { color: inherit; }
 .closing__note + .closing__note { margin-top: 10px; }
 .release { border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); padding: 0 var(--margin); }
 .release[hidden] { display: none; }
-.release__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; }
+.release__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; }
 .release__grid > div { min-width: 0; padding: clamp(16px, 1.8vw, 28px) clamp(14px, 2vw, 32px); }
 .release__grid > div:first-child { padding-left: 0; }
 .release__grid > div + div { border-left: 1px solid var(--hairline); }
@@ -235,7 +235,7 @@ a { color: inherit; }
 @media (max-width: 900px) {
   .release__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .release__grid > div:nth-child(odd) { padding-left: 0; border-left: 0; }
-  .release__grid > div:nth-child(n+3) { border-top: 1px solid var(--hairline); }
+  .release__grid > div:nth-child(3) { grid-column: 1 / -1; border-top: 1px solid var(--hairline); }
 }
 .dl-buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; }
 
@@ -600,9 +600,6 @@ details[open] > .row__body, details[open] > .faq__answer { animation: expand var
 .credits__list li:first-child { border-top: 0; }
 .credits__list a { font-weight: 700; justify-self: start; }
 .credits__what { color: var(--gray); }
-.credits__people { display: flex; flex-wrap: wrap; gap: 4px 1.4em; }
-.credits__people a + a::before { content: ""; position: absolute; left: -.7em; top: 50%; width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; border-radius: 50%; background: var(--accent-text); opacity: .5; transition: opacity var(--motion-fast) var(--ease); }
-.credits__people a:hover + a::before, .credits__people a:focus-visible + a::before { opacity: 0; }
 .credits__tag { font: 700 11px/1 var(--f-text); letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--line); padding: 5px 7px; white-space: nowrap; color: var(--ink-soft); }
 @media (max-width: 700px) { .credits__list li { grid-template-columns: minmax(0, 1fr) auto; } .credits__what { grid-column: 1 / -1; grid-row: 2; } }
 #credits.block, #privacy-page.block { grid-template-columns: minmax(0, .74fr) minmax(0, 1.26fr); }

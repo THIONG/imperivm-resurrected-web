@@ -174,7 +174,7 @@
             <details class="faq__item" id="antivirus" name="faq">
               <summary data-i18n="q_av">Perché Windows o l'antivirus mostrano un avviso?</summary>
               <div class="faq__answer prose">
-                <p data-i18n-html="a_av">La mod è il file <code>winmm.dll</code>: una DLL che il gioco carica all'avvio. Non è ancora firmata con un certificato di editore del codice (Authenticode; lo stiamo richiedendo tramite SignPath Foundation) e non c'è un installer, quindi SmartScreen o il tuo antivirus possono avvisare o metterla in quarantena.</p>
+                <p data-i18n-html="a_av">La mod è il file <code>winmm.dll</code>: una DLL che il gioco carica all'avvio. Non è firmata con un certificato di editore del codice (Authenticode) e non c'è un installer, quindi SmartScreen o il tuo antivirus possono avvisare o metterla in quarantena.</p>
                 <p data-i18n="a_av2">Gli aggiornamenti hanno una firma del progetto, ma la controlla la mod stessa; non è una firma riconosciuta da Windows e non evita l'avviso. Il codice è pubblico su GitHub, se vuoi controllarlo. Scarica solo dalla pagina delle release del repository e confronta l'SHA-256 con il file SHA256SUMS.txt allegato a ogni release. Se non ti fidi, non installarla: rimuoverla significa eliminare un file. Se l'antivirus la mette in quarantena e decidi di fidarti, ripristina il file e aggiungi un'eccezione solo per quel file.</p>
               </div>
             </details>

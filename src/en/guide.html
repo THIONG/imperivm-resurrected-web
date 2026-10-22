@@ -174,7 +174,7 @@
             <details class="faq__item" id="antivirus" name="faq">
               <summary data-i18n="q_av">Why do Windows or my antivirus show a warning?</summary>
               <div class="faq__answer prose">
-                <p data-i18n-html="a_av">The mod is the file <code>winmm.dll</code>: a DLL the game loads on startup. It isn't signed yet with a code publisher certificate (Authenticode; we are applying through SignPath Foundation) and there is no installer, so SmartScreen or your antivirus may warn about it or quarantine it.</p>
+                <p data-i18n-html="a_av">The mod is the file <code>winmm.dll</code>: a DLL the game loads on startup. It isn't signed with a code publisher certificate (Authenticode) and there is no installer, so SmartScreen or your antivirus may warn about it or quarantine it.</p>
                 <p data-i18n="a_av2">Updates do carry a project signature, but the mod itself checks it; it isn't a signature Windows recognizes and it doesn't prevent the warning. The code is public on GitHub if you want to review it. Download only from the repository's releases page and compare the SHA-256 with the SHA256SUMS.txt file attached to each release. If you don't trust it, don't install it: removing it is just deleting a file. If your antivirus quarantines it and you decide to trust it, restore the file and add an exclusion for that file only.</p>
               </div>
             </details>
