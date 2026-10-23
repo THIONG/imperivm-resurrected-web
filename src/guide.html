@@ -172,6 +172,19 @@
               </div>
             </details>
 
+            <details class="faq__item" id="not-loading" name="faq">
+              <summary data-i18n="q_noload">Abro el juego y el mod no aparece. ¿Qué hago?</summary>
+              <div class="faq__answer prose">
+                <p data-i18n-html="a_noload">Si el mod se carga, al arrancar crea la carpeta <code>Logs\imperivm\</code> dentro de la carpeta del juego. Si no aparece, el juego no está cargando <code>winmm.dll</code>. Comprueba, por orden:</p>
+                <ul>
+                  <li data-i18n-html="a_noload1"><strong>Modo de compatibilidad.</strong> Botón derecho en <code>gbr.exe</code>, <em>Propiedades</em>, pestaña <em>Compatibilidad</em>: desmarca el modo de compatibilidad (por ejemplo, Windows XP), el modo de color reducido y «Ejecutar como administrador». Pulsa también <em>Cambiar la configuración para todos los usuarios</em> y desmarca lo mismo ahí. Algunos programas y guías antiguas lo activan. Cuando el mod sí carga, quita estas opciones por su cuenta.</li>
+                  <li data-i18n-html="a_noload2"><strong>Archivos bloqueados.</strong> Windows puede bloquear un archivo descargado de internet. Botón derecho en <code>winmm.dll</code>, <em>Propiedades</em>, marca <em>Desbloquear</em> y acepta.</li>
+                  <li data-i18n-html="a_noload3"><strong>Antivirus.</strong> Mira el historial de protección (ver la pregunta siguiente).</li>
+                  <li data-i18n-html="a_noload4"><strong>Carpeta correcta.</strong> <code>winmm.dll</code> tiene que estar junto al <code>gbr.exe</code> que abre Steam (<em>Administrar</em>, <em>Explorar archivos locales</em>), no en otra copia del juego.</li>
+                </ul>
+              </div>
+            </details>
+
             <details class="faq__item" id="antivirus" name="faq">
               <summary data-i18n="q_av">¿Por qué Windows o el antivirus muestran un aviso?</summary>
               <div class="faq__answer prose">
@@ -220,7 +233,7 @@
               <summary data-i18n="q_content">¿Cómo funcionan el contenido adicional, los perfiles y el catálogo?</summary>
               <div class="faq__answer prose">
                 <p data-i18n-html="a_content">El botón <em>Contenido adicional</em> del menú principal abre el gestor. Lista lo instalado, activa o desactiva cada paquete, muestra sus dependencias, abre la carpeta, instala un <code>.zip</code> a mano y desinstala (el paquete va a la papelera). Los perfiles guardan una combinación de paquetes activos: se guardan con otro nombre, se renombran y se borran. <em>Mi contenido</em> es el estado sin perfil. El orden de carga es automático.</p>
-                <p data-i18n-html="a_content2">La pestaña <em>Explorar contenido</em> es un catálogo de GameBanana: búsqueda, categorías, filtros por tipo, número de jugadores e idioma, dependencias, aviso de actualizaciones y un botón para actualizar todo. El gestor avisa si dos paquetes tocan los mismos archivos o se pisan valores, pero no resuelve el choque ni garantiza que paquetes de distintos autores sean compatibles. Un paquete que lleve ejecutables o scripts de sistema no se carga. Los mapas y mods de la comunidad portados al mod se conservan en <a href="https://github.com/imperivm-resurrected/community-mods" target="_blank" rel="noopener">community-mods</a>.</p>
+                <p data-i18n-html="a_content2">La pestaña <em>Explorar contenido</em> es un catálogo de GameBanana: búsqueda, categorías, filtros por tipo, número de jugadores e idioma, dependencias, aviso de actualizaciones y un botón para actualizar todo. El gestor avisa si dos paquetes tocan los mismos archivos o se pisan valores, pero no resuelve el choque ni garantiza que paquetes de distintos autores sean compatibles. Un paquete que lleve ejecutables o scripts de sistema no se carga.</p>
                 <p data-i18n="a_content3">Los paquetes grandes pueden tardar en descargarse.</p>
               </div>
             </details>
@@ -263,7 +276,6 @@
       <a href="https://discord.gg/6kCatX3Zbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></a>
       <a href="https://gamebanana.com/games/26069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.249 0v3h1.5V1.5h1.505V3h-1.505V7.5h1.5V4.5h3.002v-1.5h-1.505V0Zm6.002 4.498v1.5h1.5V4.501Zm1.5 1.5v10.503h1.5V5.998Zm0 10.503h-1.5V19.5h1.5zm-1.5 2.998h-1.505v1.5h1.5zm-1.5 1.5h-3.002v1.5h3.001zm-3.002 1.5H6.75V24h9zm-8.999 0V21h-3v1.5zm-3-1.5v-1.497H2.248v1.5zm-1.501-1.497v-2.997H9.75v-1.5H.748v4.497zm7.502-4.497h2.997v-1.5H9.751Zm2.997-1.5h1.5v-1.501h-1.5zm1.5-1.501h1.501V7.506h-1.5z"/></svg><span>GameBanana</span></a>
       <a href="credits.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5z"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.7c3.3-.2 5.9 1.6 5.9 4.6h-5.2c0-1.8-.5-3.4-1.6-4.4z"/></svg><span data-i18n="footer_credits">Créditos</span></a>
-      <a href="privacy.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/></svg><span data-i18n="footer_privacy">Privacidad</span></a>
     </nav>
     <a class="footer__back" href="index.html" data-i18n="footer_back">Volver al inicio</a>
   </footer>

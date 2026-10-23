@@ -11,7 +11,7 @@
     { sel: '.statue, .shield, .exploded', kind: 'img', delay: 3 },
     { sel: '.panorama img', kind: 'zoom' },
     { sel: '.section-title, .guide-faq-title, .closing-title, .band, .guide-cta', kind: 'rise' },
-    { sel: '.block__body, .table-wrap--tools, .release__grid', kind: 'rise' },
+    { sel: '.block__body, .table-wrap--tools', kind: 'rise' },
     { sel: '.credits__lead', kind: 'rise', children: true },
     { sel: '.toc > .row, .three > div, .faq__item, .guide-section', kind: 'rise', stagger: true },
     { sel: '.closing__text', kind: 'rise', children: true },

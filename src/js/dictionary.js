@@ -51,7 +51,6 @@ window.TRANSLATIONS = {
       footer_back: `Back to home`,
       footer_links_label: `Links`,
       footer_credits: `Credits`,
-      footer_privacy: `Privacy`,
 
     },
 
@@ -107,7 +106,6 @@ window.TRANSLATIONS = {
       footer_back: `Torna alla home`,
       footer_links_label: `Link`,
       footer_credits: `Crediti`,
-      footer_privacy: `Privacy`,
 
     }
   };;
