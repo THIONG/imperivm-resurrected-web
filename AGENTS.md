@@ -9,7 +9,7 @@ Plain HTML, CSS and vanilla JavaScript in `src/`. No framework, no dependencies,
 ## Code conventions
 
 - Names are in English: files, classes, ids, variables, translation keys.
-- No comments in the code. `tools/check.js` fails if there are any.
+- Comments are allowed where the code can't say why. Don't restate what the code does; names do that.
 - Colors and spacing come from the variables at the top of `src/css/styles.css`.
 - Reveal animations go through `src/js/motion.js` with `data-reveal`.
 - Everything must work in light and dark mode, with reduced motion, and on a phone.
