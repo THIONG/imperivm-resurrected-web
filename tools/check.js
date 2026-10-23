@@ -17,9 +17,8 @@ const rel = (file) => path.relative(root, file).split(path.sep).join('/');
 const read = (file) => fs.readFileSync(file, 'utf8');
 const htmls = files.filter((f) => f.endsWith('.html'));
 const scripts = files.filter((f) => f.endsWith('.js'));
-const styles = files.filter((f) => f.endsWith('.css'));
 const inline = (text) => [...text.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1]);
-const parse = (code, onComment) => acorn.parse(code, { ecmaVersion: 2022, onComment });
+const parse = (code) => acorn.parse(code, { ecmaVersion: 2022 });
 
 console.log('1) script syntax');
 let parsed = 0;
@@ -33,24 +32,7 @@ for (const file of htmls) {
 }
 console.log('   ' + parsed + ' scripts parsed');
 
-console.log('2) comments');
-for (const file of scripts) {
-  let count = 0;
-  try { parse(read(file), () => count++); } catch (e) { continue; }
-  if (count) fail(rel(file) + ': ' + count + ' JS comments');
-}
-for (const file of htmls) {
-  const text = read(file);
-  if (text.includes('<!--')) fail(rel(file) + ': HTML comment');
-  for (const code of inline(text)) {
-    let count = 0;
-    try { parse(code, () => count++); } catch (e) { continue; }
-    if (count) fail(rel(file) + ': inline JS comment');
-  }
-}
-for (const file of styles) if (read(file).includes('/*')) fail(rel(file) + ': CSS comment');
-
-console.log('3) translation keys');
+console.log('2) translation keys');
 const dictionaries = scripts.filter((f) => /(i18n(-[a-z]+)?|dictionary)\.js$/.test(f) && !/support/.test(f));
 const keysIn = (text) => new Set([...text.matchAll(/\b([a-z][a-z0-9_]*): `/g)].map((m) => m[1]));
 const slice = (text, start, end) => {
@@ -78,7 +60,7 @@ console.log('   ' + used.size + ' keys used, ' + english.size + ' English, ' + i
 if (missingEn.length) fail('missing in English: ' + missingEn.join(' '));
 if (missingIt.length) fail('missing in Italian: ' + missingIt.join(' '));
 
-console.log('4) internal links and anchors');
+console.log('3) internal links and anchors');
 const idCache = {};
 const idsOf = (file) => idCache[file] || (idCache[file] = new Set([...read(file).matchAll(/\bid="([^"]+)"/g)].map((m) => m[1])));
 let links = 0;

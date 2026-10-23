@@ -19,7 +19,7 @@ The site is plain HTML, CSS and JavaScript. No framework, no dependencies, no bu
 A few habits in the code:
 
 - Names are in English (files, classes, ids, variables, translation keys).
-- No comments in the code.
+- Comments are allowed where the code can't say why. Don't restate what the code does; names do that.
 - Colors and spacing come from the variables at the top of `css/styles.css`.
 - Reveal animations all go through `js/motion.js` with `data-reveal`. Please don't add one-off animations to a single page.
 - It has to work in light and dark mode, with reduced motion, and on a phone.
