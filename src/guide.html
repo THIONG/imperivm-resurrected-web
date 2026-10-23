@@ -99,13 +99,12 @@
             </div>
           </div>
           <ol class="guide-steps">
-            <li data-i18n-html="guide_step1">Descarga el <code>.zip</code> de la última versión.</li>
-            <li data-i18n="guide_step2">Cierra el juego.</li>
-            <li data-i18n-html="guide_step3">En Steam, clic derecho sobre el juego, <em>Administrar</em> y <em>Ver archivos locales</em>. Se abre la carpeta donde está <code>gbr.exe</code>.</li>
-            <li data-i18n-html="guide_step4">Descomprime el zip en esa carpeta. Contiene <code>winmm.dll</code> y la carpeta <code>mod</code>. Acepta reemplazar si pregunta.</li>
-            <li data-i18n="guide_step5">Abre el juego desde Steam, con Steam iniciado.</li>
+            <li data-i18n-html="guide_step1">Descarga el instalador con el botón <em>Descargar el mod</em>.</li>
+            <li data-i18n-html="guide_step2">Ábrelo. Si Windows muestra «Windows protegió su PC», pulsa <em>Más información</em> y <em>Ejecutar de todas formas</em>: el instalador todavía no está firmado.</li>
+            <li data-i18n-html="guide_step3">Pulsa <em>Instalar</em>. Encuentra el juego de Steam por sí mismo, quita los modos de compatibilidad de Windows, aparta restos de otros mods y deja la pantalla lista. No toca tus partidas, mapas ni mods.</li>
+            <li data-i18n-html="guide_step4">Pulsa <em>Abrir el juego</em> o ábrelo desde Steam, con Steam iniciado.</li>
           </ol>
-          <p class="guide-note" data-i18n-html="install_note">El mod está en pruebas (versiones 0.x). No hay instalador: la instalación son esos dos elementos. El archivo <code>imperivm-mod.ini</code>, con tus ajustes, se crea solo al primer arranque.</p>
+          <p class="guide-note" data-i18n-html="install_note">¿Prefieres hacerlo a mano? Descarga el <code>.zip</code> desde <a href="https://github.com/THIONG/imperivm-resurrected/releases/latest" target="_blank" rel="noopener">la última versión en GitHub</a>, cierra el juego y descomprímelo en la carpeta del juego (en Steam: clic derecho, <em>Administrar</em>, <em>Ver archivos locales</em>). Lleva <code>winmm.dll</code>, <code>steam_api.dll</code> y la carpeta <code>imperivm-resurrected</code>. Para reparar o quitar el mod, vuelve a abrir el instalador.</p>
           <a class="guide-link" href="https://github.com/THIONG/imperivm-resurrected/releases" data-download><span data-i18n="btn_download_mod">Descargar el mod</span> <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
         </section>
 
@@ -145,7 +144,7 @@
             <details class="faq__item" id="remove" name="faq">
               <summary data-i18n="q_remove">¿Cómo quito el mod?</summary>
               <div class="faq__answer prose">
-                <p data-i18n-html="a_remove">Cierra el juego y borra <code>winmm.dll</code> de la carpeta del juego. El juego vuelve a ser el original: el mod no modifica <code>gbr.exe</code>. Tus ajustes se quedan en <code>imperivm-mod.ini</code> y el contenido adicional en la carpeta <code>mods</code>, por si lo vuelves a instalar; bórralos si no los quieres. Para quitar solo un paquete de contenido, usa <em>Desinstalar</em> en <em>Contenido adicional</em>.</p>
+                <p data-i18n-html="a_remove">Abre otra vez el instalador y pulsa <em>Desinstalar</em>: manda los archivos del mod a la papelera. También puedes cerrar el juego y borrar <code>winmm.dll</code> de la carpeta del juego. El juego vuelve a ser el original: el mod no modifica <code>gbr.exe</code>. Tus ajustes se quedan en <code>imperivm-mod.ini</code> y el contenido adicional en la carpeta <code>mods</code>, por si lo vuelves a instalar; bórralos si no los quieres. Para quitar solo un paquete de contenido, usa <em>Desinstalar</em> en <em>Contenido adicional</em>.</p>
               </div>
             </details>
 
@@ -175,7 +174,7 @@
             <details class="faq__item" id="not-loading" name="faq">
               <summary data-i18n="q_noload">Abro el juego y el mod no aparece. ¿Qué hago?</summary>
               <div class="faq__answer prose">
-                <p data-i18n-html="a_noload">Si el mod se carga, al arrancar crea la carpeta <code>Logs\imperivm\</code> dentro de la carpeta del juego. Si no aparece, el juego no está cargando <code>winmm.dll</code>. Comprueba, por orden:</p>
+                <p data-i18n-html="a_noload">Si el mod se carga, al arrancar crea la carpeta <code>Logs\imperivm\</code> dentro de la carpeta del juego. Si no aparece, el juego no está cargando <code>winmm.dll</code>. Lo más rápido es abrir otra vez el instalador y pulsar <em>Reparar</em>, que revisa casi todo esto por ti. Si sigue igual, comprueba, por orden:</p>
                 <ul>
                   <li data-i18n-html="a_noload1"><strong>Modo de compatibilidad.</strong> Botón derecho en <code>gbr.exe</code>, <em>Propiedades</em>, pestaña <em>Compatibilidad</em>: desmarca el modo de compatibilidad (por ejemplo, Windows XP), el modo de color reducido y «Ejecutar como administrador». Pulsa también <em>Cambiar la configuración para todos los usuarios</em> y desmarca lo mismo ahí. Algunos programas y guías antiguas lo activan. Cuando el mod sí carga, quita estas opciones por su cuenta.</li>
                   <li data-i18n-html="a_noload2"><strong>Archivos bloqueados.</strong> Windows puede bloquear un archivo descargado de internet. Botón derecho en <code>winmm.dll</code>, <em>Propiedades</em>, marca <em>Desbloquear</em> y acepta.</li>
@@ -188,7 +187,7 @@
             <details class="faq__item" id="antivirus" name="faq">
               <summary data-i18n="q_av">¿Por qué Windows o el antivirus muestran un aviso?</summary>
               <div class="faq__answer prose">
-                <p data-i18n-html="a_av">El mod es el archivo <code>winmm.dll</code>: una DLL que el juego carga al arrancar. No está firmada con un certificado de editor de código (Authenticode) y no hay instalador, así que SmartScreen o tu antivirus pueden avisar o ponerla en cuarentena.</p>
+                <p data-i18n-html="a_av">El mod es el archivo <code>winmm.dll</code>: una DLL que el juego carga al arrancar. Ni ella ni el instalador están firmados todavía con un certificado de editor de código (Authenticode), así que SmartScreen o tu antivirus pueden avisar o ponerlos en cuarentena. En SmartScreen, pulsa <em>Más información</em> y <em>Ejecutar de todas formas</em>.</p>
                 <p data-i18n="a_av2">Las actualizaciones sí llevan una firma del proyecto, pero la comprueba el propio mod; no es la firma que Windows reconoce y no evita el aviso. El código es público en GitHub por si quieres revisarlo. Descarga solo desde la página de releases del repositorio y compara el SHA-256 con el archivo SHA256SUMS.txt que se adjunta a cada release. Si no te fías, no lo instales: quitarlo es borrar un archivo. Si tu antivirus la pone en cuarentena y decides confiar, restaura el archivo y añade una excepción solo para ese archivo.</p>
               </div>
             </details>

@@ -7,6 +7,7 @@
   var KEY = 'latest-release';
   var CACHE_TTL = 10 * 60 * 1000;
   var MOD_ZIP = /^imperivm-resurrected-\d[\w.-]*\.zip$/i;
+  var SETUP = /^imperivm-resurrected-setup-\d[\w.-]*\.exe$/i;
 
   var links = document.querySelectorAll('a[data-download]');
   if (!links.length) return;
@@ -31,7 +32,8 @@
       var url = null;
       var assets = (release && release.assets) || [];
       for (var i = 0; i < assets.length; i++) {
-        if (MOD_ZIP.test(assets[i].name) && !/-sdk-/i.test(assets[i].name)) { url = assets[i].browser_download_url; break; }
+        if (SETUP.test(assets[i].name)) { url = assets[i].browser_download_url; break; }
+        if (!url && MOD_ZIP.test(assets[i].name) && !/-sdk-/i.test(assets[i].name)) url = assets[i].browser_download_url;
       }
       try { sessionStorage.setItem(KEY, JSON.stringify({ time: Date.now(), url: url })); } catch (e) { }
       if (url) point(url);
