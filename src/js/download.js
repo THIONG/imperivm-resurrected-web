@@ -4,7 +4,7 @@
   var REPO = 'imperivm-resurrected/imperivm-resurrected';
   var RELEASES = 'https://github.com/' + REPO + '/releases';
   var API = 'https://api.github.com/repos/' + REPO + '/releases/latest';
-  var KEY = 'latest-release';
+  var KEY = 'latest-download';
   var CACHE_TTL = 10 * 60 * 1000;
   var MOD_ZIP = /^imperivm-resurrected-\d[\w.-]*\.zip$/i;
   var SETUP = /^imperivm-resurrected-setup-\d[\w.-]*\.exe$/i;
