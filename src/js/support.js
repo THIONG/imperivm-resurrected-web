@@ -5,9 +5,9 @@
   if (!D) return;
 
   var T = {
-    es: { link: 'Donaciones', title: 'Apoya el proyecto', intro: 'Imperivm Resurrected es gratuito. Si te gusta y quieres ayudar a mantenerlo, puedes hacer una aportación voluntaria.', paypal: 'PayPal', btc: 'Dirección de Bitcoin', open: 'Abrir', copy: 'Copiar', copied: 'Copiado', close: 'Cerrar', thanks: 'Gracias.' },
-    en: { link: 'Donate', title: 'Support the project', intro: 'Imperivm Resurrected is free. If you like it and want to help keep it going, you can make a voluntary contribution.', paypal: 'PayPal', btc: 'Bitcoin address', open: 'Open', copy: 'Copy', copied: 'Copied', close: 'Close', thanks: 'Thank you.' },
-    it: { link: 'Donazioni', title: 'Sostieni il progetto', intro: 'Imperivm Resurrected è gratuito. Se ti piace e vuoi aiutare a mantenerlo, puoi fare un contributo volontario.', paypal: 'PayPal', btc: 'Indirizzo Bitcoin', open: 'Apri', copy: 'Copia', copied: 'Copiato', close: 'Chiudi', thanks: 'Grazie.' }
+    es: { link: 'Donaciones', title: 'Apoya el proyecto', intro: 'Imperivm Resurrected es gratuito. Si te gusta y quieres ayudar a mantenerlo, puedes hacer una aportación voluntaria.', paypal: 'PayPal', bizum: 'Bizum', btc: 'Dirección de Bitcoin', open: 'Abrir', copy: 'Copiar', copied: 'Copiado', close: 'Cerrar', thanks: 'Gracias.' },
+    en: { link: 'Donate', title: 'Support the project', intro: 'Imperivm Resurrected is free. If you like it and want to help keep it going, you can make a voluntary contribution.', paypal: 'PayPal', bizum: 'Bizum', btc: 'Bitcoin address', open: 'Open', copy: 'Copy', copied: 'Copied', close: 'Close', thanks: 'Thank you.' },
+    it: { link: 'Donazioni', title: 'Sostieni il progetto', intro: 'Imperivm Resurrected è gratuito. Se ti piace e vuoi aiutare a mantenerlo, puoi fare un contributo volontario.', paypal: 'PayPal', bizum: 'Bizum', btc: 'Indirizzo Bitcoin', open: 'Apri', copy: 'Copia', copied: 'Copiato', close: 'Chiudi', thanks: 'Grazie.' }
   };
 
   function t() { return T[document.documentElement.lang] || T.es; }
@@ -57,6 +57,7 @@
 
     var rows = [];
     if (D.paypal) rows.push(['paypal', D.paypal, true]);
+    if (D.bizum) rows.push(['bizum', D.bizum, false]);
     if (D.btc) rows.push(['btc', D.btc, false]);
     var copiedTimer = null;
 
