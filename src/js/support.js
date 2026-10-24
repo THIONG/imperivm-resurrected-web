@@ -57,7 +57,7 @@
 
     var rows = [];
     if (D.paypal) rows.push(['paypal', D.paypal, true]);
-    if (D.bizum) rows.push(['bizum', D.bizum, false]);
+    if (D.bizum) rows.push(['bizum', D.bizum, false, D.bizum.replace(/\s/g, '')]);
     if (D.btc) rows.push(['btc', D.btc, false]);
     var copiedTimer = null;
 
@@ -73,7 +73,7 @@
                  '<code class="support__value">' + esc(f[2] ? f[1].replace(/^https?:\/\//, '') : f[1]) + '</code>' +
                  (f[2]
                    ? '<a class="support__copy support__open" href="' + esc(f[1]) + '" target="_blank" rel="noopener">' + esc(x.open) + '</a></li>'
-                   : '<button type="button" class="support__copy" data-value="' + esc(f[1]) + '">' + esc(x.copy) + '</button></li>');
+                   : '<button type="button" class="support__copy" data-value="' + esc(f[3] || f[1]) + '">' + esc(x.copy) + '</button></li>');
         }).join('') + '</ul>' +
         '<div class="support__footer"><span class="support__thanks">' + esc(x.thanks) + '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span><button type="button" class="support__close">' + esc(x.close) + '</button></div>' +
         '<p class="support__status" role="status" aria-live="polite"></p>';
